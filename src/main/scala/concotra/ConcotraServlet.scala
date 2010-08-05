@@ -14,7 +14,7 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
        <title>Concordion demo</title>
      </head>
      <body>
-       <h1>Hello MarkusTiina</h1>
+       <h1>Hello MarkusTiina!!</h1>
      </body>
    </html>
  }
