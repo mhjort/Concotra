@@ -1,4 +1,5 @@
 import sbt._
+import Process._
 import de.element34.sbteclipsify._
 
 class ConcotraProject(info: ProjectInfo) extends DefaultWebProject(info) with Eclipsify
@@ -17,5 +18,8 @@ class ConcotraProject(info: ProjectInfo) extends DefaultWebProject(info) with Ec
   val bryanjswift = "Bryan J Swift Repository" at "http://repos.bryanjswift.com/maven2/" 
   val junitInterface = "com.novocode" % "junit-interface" % "0.4.0" % "test"
  
+  lazy val specs = execTask { "java -cp project/boot/scala-2.8.0/lib/scala-library.jar:" + testClasspath.absString + " org.junit.runner.JUnitCore concotra.AllSpecs" } dependsOn(compile, test)
+  //lazy val specs = execTask { "java " + testClasspath.absString ! }
+
   //override def testFrameworks = super.testFrameworks ++ List(new TestFramework("com.novocode.junit.JUnitFrameworkNoMarker")) 
 }
