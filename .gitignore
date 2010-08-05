@@ -2,3 +2,7 @@ target/
 lib_managed/
 src_managed/
 project/boot/
+.classpath
+.project
+.scala_dependencies
+
