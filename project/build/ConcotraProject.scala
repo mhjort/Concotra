@@ -8,6 +8,8 @@ class ConcotraProject(info: ProjectInfo) extends DefaultWebProject(info) with Ec
   val sonatypeNexusSnapshots = "Sonatype Nexus Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
   val sonatypeNexusReleases = "Sonatype Nexus Releases" at "https://oss.sonatype.org/content/repositories/releases"
   val scalatra = "org.scalatra" %% "scalatra" % "2.0.0-SNAPSHOT"
+
+  val scalatest = "org.scalatest" % "scalatest" % "1.2" % "test"
  
   // jetty
   val jetty6 = "org.mortbay.jetty" % "jetty" % "6.1.22" % "test"
