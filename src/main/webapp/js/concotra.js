@@ -2,5 +2,9 @@
 * Insert some cool functions
 */
 $(function() {
-  $("#hello").text("Improved hello")
+  $.getJSON("http://localhost:8080/api",
+    function(person) {
+       $("#hello").text("Age " + person.age);
+	}
+  );
 });
