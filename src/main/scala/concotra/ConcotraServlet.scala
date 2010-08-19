@@ -8,7 +8,7 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
    contentType = "text/html"
  }
  
- get("/") {
+ get("/api") {
    <html>
      <head>
        <title>Concordion demo</title>

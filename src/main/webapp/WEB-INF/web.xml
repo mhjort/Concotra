@@ -11,6 +11,7 @@
  
  <servlet-mapping>
    <servlet-name>Concotra</servlet-name>
-   <url-pattern>/*</url-pattern>
+   <url-pattern>/api/*</url-pattern>
  </servlet-mapping>
+ <welcome-file>index.html</welcome-file>
 </web-app>
