@@ -10,6 +10,7 @@ class ConcotraProject(info: ProjectInfo) extends DefaultWebProject(info) with Ec
   		
   // Main dependencies
   val scalatra = "org.scalatra" %% "scalatra" % "2.0.0-SNAPSHOT"
+  val lift_json = "net.liftweb" % "lift-json_2.8.0" % "2.1-M1"
 
   // Test dependencies
   val scalatest = "org.scalatest" % "scalatest" % "1.2" % "test"

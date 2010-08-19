@@ -1,22 +1,17 @@
 package concotra
  
 import org.scalatra._
+import net.liftweb.json.JsonDSL._
+import net.liftweb.json._
  
 class ConcotraServlet extends ScalatraServlet with UrlSupport {
  
  before {
-   contentType = "text/html"
+   contentType = "application/json"
  }
  
  get("/api") {
-   <html>
-     <head>
-       <title>Concordion demo</title>
-     </head>
-     <body>
-       <h1>Hello MarkusTiina!!</h1>
-     </body>
-   </html>
+	 compact(JsonAST.render(("age" -> 31)))
  }
  
  protected def contextPath = request.getContextPath
