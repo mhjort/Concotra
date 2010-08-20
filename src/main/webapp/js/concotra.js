@@ -1,10 +1,12 @@
-/*!
-* Insert some cool functions
-*/
 $(function() {
   $.getJSON("http://localhost:8080/api",
     function(person) {
-       $("#hello").text("Age " + person.age);
+       $("#name").text(person.name);
 	}
   );
+  $.post("http://localhost:8080/api", { "age": 31 },
+    function(person) {
+      $("#age").text(person.age);
+    }, 
+    "json");
 });
