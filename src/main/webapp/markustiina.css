@@ -1,0 +1,53 @@
+div.entity {
+  display: block;
+  padding: 2em;
+  border: 3px solid #C6EC8C;
+  width: 40em; 
+  margin-bottom: 1em;
+}
+
+div.entity h1 {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+}
+
+div.inputrow {
+  margin-bottom: .2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  clear:both;
+}
+
+div.inputrow input {
+  display: block;
+}
+
+div.inputrow label {
+  display: block;
+  float: left;
+  width: 25em;
+  white-space: nowrap;
+}
+
+div.radiobutton {
+  margin-bottom: .2em;
+  margin-left: 1em;
+  clear:both;
+}
+
+div.radiobutton input {
+  display: block;
+  float: left;
+  width: 5em;
+  white-space: nowrap;
+}
+
+div.radiobutton label {
+  display: block;
+}
+
+div.checkbox {
+  display: block;
+  margin-bottom: .2em;
+  margin-left: 1em;
+}
