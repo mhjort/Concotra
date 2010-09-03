@@ -11,6 +11,9 @@ class ConcotraProject(info: ProjectInfo) extends DefaultWebProject(info) with Ec
   // Main dependencies
   val scalatra = "org.scalatra" %% "scalatra" % "2.0.0-SNAPSHOT"
   val lift_json = "net.liftweb" % "lift-json_2.8.0" % "2.1-M1"
+  val dispatch_http = "net.databinder" % "dispatch-http_2.8.0" % "0.7.6"
+  val dispatch_http_json = "net.databinder" % "dispatch-http-json_2.8.0" % "0.7.6"
+  val dispatch_json = "net.databinder" % "dispatch-json_2.8.0" % "0.7.6"
 
   // Test dependencies
   val scalatest = "org.scalatest" % "scalatest" % "1.2" % "test"
