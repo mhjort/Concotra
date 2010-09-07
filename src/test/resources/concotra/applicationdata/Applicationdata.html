@@ -11,13 +11,13 @@ Kun käyttäjä antaa seuraavat tiedot:
 </p>
 <ul>
 <li>Palkkasumma: <span concordion:set="#salary">1000</span></li>
-<li>Ensimmäisen työsuhteen alkamispäivä: 1.1.2010</li>
+<li>Ensimmäisen työsuhteen alkamispäivä: <span concordion:set="#firstEmploymentStartDate">1.1.2010</span></li>
 <li>Hakemuksen taloontulopäivä: 1.5.2010</li>
 <li>Oma-aloitteinen maksaja: Kyllä</li>
 <li>Ilmoitustekniikka: Kuukausi-ilmoittaja</li>
 </ul>
-<p concordion:execute="#status = createApplication(#salary)">
-ja hyväksyy tiedot,
+  <p concordion:execute="#status = createApplication(#salary, #firstEmploymentStartDate)">
+  ja hyväksyy tiedot,
 </p>
 <p>
 Silloin syntyy keskeneräinen vakuutushakemus (<span concordion:assertEquals="#status">1</span>).

@@ -10,8 +10,8 @@ case class ApplicationData(status: String)
 class ApplicationdataTest extends ConcordionSuite { 
   implicit val formats = net.liftweb.json.DefaultFormats
 
-  def createApplication(salary : String) = {
-    val response = post(Map("salary" -> salary))
+  def createApplication(salary : String, firstEmploymentStartDate:String) = {
+    val response = post(Map("salary" -> salary, "firstEmploymentStartDate" -> firstEmploymentStartDate))
     parse(response).extract[ApplicationData].status
   }
   
