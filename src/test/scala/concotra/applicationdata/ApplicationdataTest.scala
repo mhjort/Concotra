@@ -5,14 +5,14 @@ import dispatch._
 import Http._
 import net.liftweb.json.JsonParser._
 
-case class Person(age: String)
+case class ApplicationData(salary: String)
 
 class ApplicationdataTest extends ConcordionSuite { 
   implicit val formats = net.liftweb.json.DefaultFormats
 
-  def doTheTrick(age : String) = {
-    val response = post(Map("age" -> age))
-    val person = parse(response).extract[Person]
+  def createApplication(salary : String) = {
+    val response = post(Map("salary" -> salary))
+    val person = parse(response).extract[ApplicationData]
     Console.println(person)
   }
 

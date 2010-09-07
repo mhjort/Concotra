@@ -4,9 +4,9 @@ $(function() {
        $("#name").text(person.name);
 	}
   );
-  $.post("http://localhost:8080/api", { "age": 31 },
+  $.post("http://localhost:8080/api", { "salary": "9500" },
     function(person) {
-      $("#age").text(person.age);
+      $("#salary").text(person.salary);
     }, 
     "json");
 });

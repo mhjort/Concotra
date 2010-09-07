@@ -6,7 +6,22 @@
 </head>
 <body>
 <div class="example">
-<p concordion:execute="doTheTrick(#TEXT)">31</p>
+<p>
+Kun käyttäjä antaa seuraavat tiedot:	
+</p>
+<ul>
+<li>Palkkasumma: <span concordion:set="#salary">1000</span></li>
+<li>Ensimmäisen työsuhteen alkamispäivä: 1.1.2010</li>
+<li>Hakemuksen taloontulopäivä: 1.5.2010</li>
+<li>Oma-aloitteinen maksaja: Kyllä</li>
+<li>Ilmoitustekniikka: Kuukausi-ilmoittaja</li>
+</ul>
+<p concordion:execute="createApplication(#salary)">
+ja hyväksyy tiedot,
+</p>
+<p>
+Silloin syntyy keskeneräinen vakuutushakemus, jolla on annetut tiedot.
+</p>
 </div>
 Lisää esimerkkejä:
 <ul>
