@@ -1,10 +1,91 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" > 
 <html xml:lang="fi" xmlns="http://www.w3.org/1999/xhtml" lang="fi"> 
-<head> 
-<title>Concotra</title>
+<head>
+<title>Hiano formi</title> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+<link rel="stylesheet" type="text/css" href="markustiina.css" />
 </head>
 <body>
-Hello <span id="name"></span> with salary <span id="salary"/></span>
+<div class="entity">
+<h1>Hakemuksen perustiedot</h1>
+<form>
+  <div class="inputrow">
+    <label>Palkkasumma</label>
+    <input type="text" name="salary" id="salary"/>
+  </div>
+  <div class="inputrow">
+    <label>Ensimmäisen työsuhteen alkamispäivä</label>
+    <input type="text" name="firstEmploymentStartDate" id="firstEmploymentStartDate" />
+  </div>
+  <div class="inputrow">
+    <label>Hakemuksen taloontulopäivä</label>
+    <input type="text" name="applicationArrivalDate" />
+  </div>
+  <div class="radiobutton"> 
+    <input type="radio" name="declarationMethod" id="monthly"/>
+    <label for="monthly">Kuukausi-ilmoittaja</label>
+  </div>
+  <div class="radiobutton">
+    <input type="radio" name="declarationMethod" id="yearly" />
+    <label for="yearly">Vuosi-ilmoittaja</label>
+  </div>
+  <input type="submit" value="OK" id="submit"/>
+</form>
+</div>
+<div class="entity">
+<h1>Maksusuunnitelma</h1>
+<form>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="january" />
+    <label for="january">Tammikuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="february" />
+    <label for="february">Helmikuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="march" />
+    <label for="march">Maaliskuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="april" />
+    <label for="april">Huhtikuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="may" />
+    <label for="may">Toukokuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="june" />
+    <label for="june">Kesäkuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="july" />
+    <label for="july">Heinäkuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="august" />
+    <label for="august">Elokuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="september" />
+    <label for="september">Syyskuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="october" />
+    <label for="october">Lokakuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="november" />
+    <label for="november">Marraskuu</label>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="months" id="december" />
+    <label for="december">Joulukuu</label>
+  </div>
+</form>
+</div>
+<span id="status"></span>
 <script src="js/jquery-1.4.2.js" type="text/javascript" charset="UTF-8"></script> 
 <script src="js/concotra.js" type="text/javascript" charset="UTF-8"></script> 
 </body>

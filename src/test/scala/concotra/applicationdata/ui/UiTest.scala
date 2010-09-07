@@ -6,16 +6,22 @@ import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.By
 
 class UiTest extends ConcordionSuite {
-  def doTheTrick(successText:String):String = {
-    var driver = new FirefoxDriver
+  private val driver = new FirefoxDriver
+
+  def doTheTrick(successText:String):String = {  
     try {
       driver.get("http://localhost:8080")
       Thread.sleep(200)
-      var element = driver.findElement(By.id("salary"))
-      element.getText
+      findElement("salary").sendKeys("1000")
+      findElement("submit").click
+      findElement("status").getText
     } finally {
       driver.quit
     }
- }
+  }
+
+  def findElement(id : String) = {
+      driver.findElement(By.id(id))  
+  }
 }
 
