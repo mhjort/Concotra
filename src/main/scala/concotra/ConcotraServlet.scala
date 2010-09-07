@@ -11,11 +11,12 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
  }
  
  get("/api") {
-	 compact(JsonAST.render(("name" -> "Tiina")))
+   compact(JsonAST.render(("name" -> "Tiina")))
  }
  
  post("/api") {
-	 compact(JsonAST.render(("salary" -> params("salary"))))
+   Console.println(params("salary"))
+   compact(JsonAST.render(("status" -> "1")))
  }
  
  protected def contextPath = request.getContextPath

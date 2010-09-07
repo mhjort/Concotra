@@ -16,11 +16,11 @@ Kun käyttäjä antaa seuraavat tiedot:
 <li>Oma-aloitteinen maksaja: Kyllä</li>
 <li>Ilmoitustekniikka: Kuukausi-ilmoittaja</li>
 </ul>
-<p concordion:execute="createApplication(#salary)">
+<p concordion:execute="#status = createApplication(#salary)">
 ja hyväksyy tiedot,
 </p>
 <p>
-Silloin syntyy keskeneräinen vakuutushakemus, jolla on annetut tiedot.
+Silloin syntyy keskeneräinen vakuutushakemus (<span concordion:assertEquals="#status">1</span>).
 </p>
 </div>
 Lisää esimerkkejä:
