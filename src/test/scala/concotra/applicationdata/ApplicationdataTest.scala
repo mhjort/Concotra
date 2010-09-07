@@ -10,8 +10,8 @@ case class Person(age: String)
 class ApplicationdataTest extends ConcordionSuite { 
   implicit val formats = net.liftweb.json.DefaultFormats
 
-  def doTheTrick() = {
-    val response = post(Map("age" -> "31"))
+  def doTheTrick(age : String) = {
+    val response = post(Map("age" -> age))
     val person = parse(response).extract[Person]
     Console.println(person)
   }
