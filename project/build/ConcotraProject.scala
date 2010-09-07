@@ -20,6 +20,6 @@ class ConcotraProject(info: ProjectInfo) extends DefaultWebProject(info) with Ec
   val jetty6 = "org.mortbay.jetty" % "jetty" % "6.1.22" % "test"
   val servletApi = "org.mortbay.jetty" % "servlet-api" % "2.5-20081211" % "provided"
   val concordion = "org.concordion" % "concordion" % "1.3.1" % "test"
-  val webdriver = "org.seleniumhq.selenium" % "selenium" % "2.0a4" % "test"
+  val webdriver = "org.seleniumhq.selenium" % "selenium" % "2.0a5" % "test"
 }
 
