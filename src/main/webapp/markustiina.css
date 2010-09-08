@@ -1,9 +1,27 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  font-family: "Arial", "Helvetica", sans-serif;
+  color: black;
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
 div.entity {
   display: block;
-  padding: 2em;
+  padding: 3em;
   border: 3px solid #C6EC8C;
-  width: 40em; 
-  margin-bottom: 1em;
+  width: 50em; 
+  margin: 1em;
 }
 
 div.entity h1 {
@@ -50,4 +68,9 @@ div.checkbox {
   display: block;
   margin-bottom: .2em;
   margin-left: 1em;
+}
+
+input[type=submit] {
+  float: right;
+  font-size:0.875em;
 }
