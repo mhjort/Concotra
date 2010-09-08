@@ -5,7 +5,15 @@
 <body>
 <div class="example">
 <p>
-Hakemuksen perustiedot menee kantaan
+<span concordion:execute="enterValidInformation()">
+Kun käyttäjä antaa vaadittavat tiedot
+</span>
+<span concordion:execute="acceptApplication()">
+ja hyväksyy ne,
+</span>
+</p>
+<p concordion:assertEquals="assertApplicationSaved(#TEXT)">
+Silloin hakemus tallennetaan.
 </p>
 </div>
 </body>

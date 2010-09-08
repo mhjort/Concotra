@@ -11,10 +11,10 @@ class UiTest extends ConcordionSuite {
   def doTheTrick(successText:String):String = {  
     try {
       driver.get("http://localhost:8080")
-      Thread.sleep(200)
       findElement("salary").sendKeys("1000")
       findElement("submit").click
-      findElement("status").getText
+      if (findElement("status").getText.length > 0) return successText
+      "Epäonnistui"
     } finally {
       driver.quit
     }

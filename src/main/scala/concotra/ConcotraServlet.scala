@@ -16,8 +16,8 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
  
  post("/api") {
    val db = new Db
-   db.newEntry(compact(JsonAST.render(("salary" -> params("salary")))))
-   compact(JsonAST.render(("status" -> "1")))
+   val id = db.newEntry(compact(JsonAST.render(("salary" -> params("salary")))))
+   compact(JsonAST.render(("status" -> "1") ~ ("id" -> id)))
  }
  
  protected def contextPath = request.getContextPath
