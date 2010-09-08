@@ -4,10 +4,11 @@ $(function() {
  //      $("#name").text(person.name);
  //	}
  // );
-  $.post("http://localhost:8080/api", { "salary": $("#salary").text },
-    function(person) {
-      //$("#salary").text(person.salary);
-      $("#status").text("Tallennettu");
-    }, 
-    "json");
+  $('#submit').click(function() {
+    $.post("http://localhost:8080/api", { "salary": $("#salary").val() },
+      function(person) {
+        $("#status").text("Tallennettu");
+      }, "json");
+    return false;
+  });
 });
