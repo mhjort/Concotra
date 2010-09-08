@@ -3,7 +3,7 @@ package concotra
 import scala.io.Source
 import java.io._
 
-class Db {
+object Db {
   private val dbDir = "db"
 
   private def nextId = new File(dbDir).listFiles.size + 1
