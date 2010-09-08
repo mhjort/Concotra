@@ -1,16 +1,12 @@
 package concotra.applicationdata.e2e
 
 import concotra._
-import org.scalatest.BeforeAndAfterEach
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.firefox.FirefoxDriver
+import concotra.testutil._
 import org.openqa.selenium.By
 
-class E2eTest extends ConcordionSuite with BeforeAndAfterEach { 
-  private val driver = new FirefoxDriver
-
+class E2eTest extends ConcordionSuite with WebdriverSupport { 
+  
   def enterValidInformation() {
-    driver.get("http://localhost:8080")
     findElement("salary").sendKeys("1000")
   }
 
@@ -27,11 +23,7 @@ class E2eTest extends ConcordionSuite with BeforeAndAfterEach {
   }
 
   def findElement(id : String) = {
-    driver.findElement(By.id(id))  
-  }
-
-  override def afterEach() {
-    driver.quit
+    Driver.get().findElement(By.id(id))  
   }
 }
 
