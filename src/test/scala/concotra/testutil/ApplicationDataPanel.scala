@@ -14,7 +14,7 @@ object ApplicationDataPanel {
 
   def acceptApplication() {
     findElement("submit").click
-    new WebDriverWait(Driver.get(), 5).until(new ElementExistsCondition("status"))
+    new WebDriverWait(Driver.get(), 5).until(new ElementExistsCondition("savedApplicationId"))
   }
 
   def getApplicationId = findElement("savedApplicationId").getText
