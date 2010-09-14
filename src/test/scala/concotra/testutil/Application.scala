@@ -4,7 +4,9 @@ import dispatch._
 import Http._
 import net.liftweb.json.JsonParser._
 
-case class ApplicationData(status: String)
+case class ApplicationData(status: String) {
+  def accepted = status == "1"
+}
 
 case class Application(salary: String,
                        firstEmploymentStartDate: String, 

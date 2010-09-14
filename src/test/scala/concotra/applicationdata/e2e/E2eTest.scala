@@ -7,6 +7,7 @@ class E2eTest extends ConcordionSuite with WebdriverSupport {
   
   def enterValidInformation() {
     ApplicationDataPanel.setValidSalary
+    ApplicationDataPanel.setFirstEmploymentStartDate("1.1.2000") 
   }
 
   def acceptApplication() {

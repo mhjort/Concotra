@@ -1,6 +1,5 @@
 package concotra.testutil
 
-
 import org.scalatest.{BeforeAndAfterEach,Suite}
 
 trait WebdriverSupport extends BeforeAndAfterEach {

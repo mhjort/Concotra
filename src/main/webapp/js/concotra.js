@@ -5,7 +5,7 @@ $(function() {
  //	}
  // );
   $('#submit').click(function() {
-    $.post("http://localhost:8080/api", { "salary": $("#salary").val() },
+    $.post("http://localhost:8080/api", { "salary": $("#salary").val(), "firstEmploymentStartDate": $("#firstEmploymentStartDate").val() },
       function(application) {
         $("#status").html('Tallennettu <span id="savedApplicationId">' + application.status + '</span>');
       }, "json");

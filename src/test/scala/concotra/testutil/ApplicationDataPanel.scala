@@ -10,6 +10,7 @@ class ElementExistsCondition(id : String) extends ExpectedCondition[Boolean] {
 object ApplicationDataPanel {
   def setValidSalary() { setSalary("9500") }
   def setSalary(salary : String) { findElement("salary").sendKeys(salary) }
+  def setFirstEmploymentStartDate(date : String) { findElement("firstEmploymentStartDate").sendKeys(date) }
   def acceptApplication() {
     findElement("submit").click
     waitElementToAppear("savedApplicationId")
