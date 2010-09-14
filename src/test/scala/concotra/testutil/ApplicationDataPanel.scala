@@ -9,17 +9,12 @@ class ElementExistsCondition(id : String) extends ExpectedCondition[Boolean] {
 
 object ApplicationDataPanel {
   def setValidSalary() { setSalary("9500") }
-
-  def setSalary(salary : String) {findElement("salary").sendKeys(salary)}
-
+  def setSalary(salary : String) { findElement("salary").sendKeys(salary) }
   def acceptApplication() {
     findElement("submit").click
-    new WebDriverWait(Driver.get(), 5).until(new ElementExistsCondition("savedApplicationId"))
+    waitElementToAppear("savedApplicationId")
   }
-
   def getApplicationId = findElement("savedApplicationId").getText
-
-  def findElement(id : String) = {
-    Driver.get().findElement(By.id(id))  
-  }
+  def findElement(id : String) = Driver.get().findElement(By.id(id))
+  def waitElementToAppear(id : String) { new WebDriverWait(Driver.get(), 5).until(new ElementExistsCondition(id)) }
 }
