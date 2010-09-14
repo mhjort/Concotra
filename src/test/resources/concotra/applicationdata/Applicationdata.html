@@ -12,11 +12,11 @@ Kun käyttäjä antaa seuraavat tiedot:
 <ul>
 <li>Palkkasumma: <span concordion:set="#salary">1000</span></li>
 <li>Ensimmäisen työsuhteen alkamispäivä: <span concordion:set="#firstEmploymentStartDate">1.1.2010</span></li>
-<li>Hakemuksen taloontulopäivä: 1.5.2010</li>
-<li>Oma-aloitteinen maksaja: Kyllä</li>
-<li>Ilmoitustekniikka: Kuukausi-ilmoittaja</li>
+<li>Hakemuksen taloontulopäivä: <span concordion:set="#applicationReceivedDate">1.5.2010</span></li>
+<li>Oma-aloitteinen maksaja: <span concordion:set="#unpromptedPayer">Kyllä</span></li>
+<li>Ilmoitustekniikka: <span concordion:set="#declarationMethod">Kuukausi-ilmoittaja</span></li>
 </ul>
-  <p concordion:execute="#status = createApplication(#salary, #firstEmploymentStartDate)">
+  <p concordion:execute="#status = createApplication(#salary, #firstEmploymentStartDate, #applicationReceivedDate, #unpromptedPayer, #declarationMethod)">
   ja hyväksyy tiedot,
 </p>
 <p>
