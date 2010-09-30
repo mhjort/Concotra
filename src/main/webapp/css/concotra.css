@@ -74,3 +74,23 @@ input[type=submit] {
   float: right;
   font-size:0.875em;
 }
+
+#errorMessages, noscript {
+  background: #FED1CC;
+  padding: 8px;
+  margin-bottom: 5px;
+  float: left;
+  clear: both;
+}
+
+#errorMessages h3 {
+  color: #F24D3C;
+  font-size: .9em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+#errorMessages li {
+  list-style-type: disc;
+}
