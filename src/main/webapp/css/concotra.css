@@ -75,6 +75,18 @@ input[type=submit] {
   font-size:0.875em;
 }
 
+#status {
+  margin-left: 50px;
+}
+
+span.success {
+  background-color: #C6EC8C;
+}
+
+span.error {
+  background-color: red;
+}
+
 #errorMessages, noscript {
   background: #FED1CC;
   padding: 8px;
