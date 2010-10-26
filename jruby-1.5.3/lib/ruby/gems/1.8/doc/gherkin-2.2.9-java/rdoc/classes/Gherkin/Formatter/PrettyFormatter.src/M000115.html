@@ -5,14 +5,23 @@
 
 <html>
 <head>
-  <title>text_format (Gherkin::Formatter::PrettyFormatter)</title>
+  <title>format (Gherkin::Formatter::PrettyFormatter)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/pretty_formatter.rb, line 100</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">text_format</span>(<span class="ruby-identifier">step</span>)
-        <span class="ruby-identifier">format</span>(<span class="ruby-identifier">step</span>.<span class="ruby-identifier">status</span>)
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/pretty_formatter.rb, line 108</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@formats</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@monochrome</span>
+            <span class="ruby-ivar">@formats</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">MonochromeFormat</span>.<span class="ruby-identifier">new</span>)
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@formats</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">formats</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">formats</span>[<span class="ruby-identifier">status</span>] = <span class="ruby-constant">ColorFormat</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">status</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@formats</span>[<span class="ruby-identifier">key</span>]
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

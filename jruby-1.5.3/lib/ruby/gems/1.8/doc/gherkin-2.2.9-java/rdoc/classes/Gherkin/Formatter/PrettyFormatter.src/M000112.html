@@ -5,19 +5,20 @@
 
 <html>
 <head>
-  <title>examples (Gherkin::Formatter::PrettyFormatter)</title>
+  <title>print_step (Gherkin::Formatter::PrettyFormatter)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/pretty_formatter.rb, line 53</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">examples</span>(<span class="ruby-identifier">examples</span>)
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/pretty_formatter.rb, line 72</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">print_step</span>(<span class="ruby-identifier">step</span>)
+        <span class="ruby-identifier">print_comments</span>(<span class="ruby-identifier">step</span>.<span class="ruby-identifier">comments</span>, <span class="ruby-value str">'    '</span>)
+        <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">write</span>(<span class="ruby-value str">'    '</span>)
+        <span class="ruby-identifier">text_format</span>(<span class="ruby-identifier">step</span>).<span class="ruby-identifier">write_text</span>(<span class="ruby-ivar">@io</span>, <span class="ruby-identifier">step</span>.<span class="ruby-identifier">keyword</span>)
+        <span class="ruby-ivar">@step_printer</span>.<span class="ruby-identifier">write_step</span>(<span class="ruby-ivar">@io</span>, <span class="ruby-identifier">text_format</span>(<span class="ruby-identifier">step</span>), <span class="ruby-identifier">arg_format</span>(<span class="ruby-identifier">step</span>), <span class="ruby-identifier">step</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">step</span>.<span class="ruby-identifier">arguments</span>)
+        <span class="ruby-identifier">print_indented_stepdef_location!</span>(<span class="ruby-identifier">step</span>.<span class="ruby-identifier">result</span>.<span class="ruby-identifier">stepdef_location</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">step</span>.<span class="ruby-identifier">result</span>
+        <span class="ruby-comment cmt"># TODO: Print error message</span>
         <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span>
-        <span class="ruby-identifier">print_comments</span>(<span class="ruby-identifier">examples</span>.<span class="ruby-identifier">comments</span>, <span class="ruby-value str">'    '</span>)
-        <span class="ruby-identifier">print_tags</span>(<span class="ruby-identifier">examples</span>.<span class="ruby-identifier">tags</span>, <span class="ruby-value str">'    '</span>)
-        <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;    #{examples.keyword}: #{examples.name}&quot;</span>
-        <span class="ruby-identifier">print_description</span>(<span class="ruby-identifier">examples</span>.<span class="ruby-identifier">description</span>, <span class="ruby-value str">'    '</span>)
-        <span class="ruby-identifier">table</span>(<span class="ruby-identifier">examples</span>.<span class="ruby-identifier">rows</span>)
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

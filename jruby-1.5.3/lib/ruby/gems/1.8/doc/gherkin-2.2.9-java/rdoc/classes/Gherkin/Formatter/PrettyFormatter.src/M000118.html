@@ -5,14 +5,30 @@
 
 <html>
 <head>
-  <title>eof (Gherkin::Formatter::PrettyFormatter)</title>
+  <title>table (Gherkin::Formatter::PrettyFormatter)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/pretty_formatter.rb, line 121</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eof</span>
-        <span class="ruby-comment cmt"># NO-OP</span>
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/pretty_formatter.rb, line 132</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">table</span>(<span class="ruby-identifier">rows</span>)
+        <span class="ruby-identifier">cell_lengths</span> = <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span> 
+          <span class="ruby-identifier">row</span>.<span class="ruby-identifier">cells</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span> 
+            <span class="ruby-identifier">escape_cell</span>(<span class="ruby-identifier">cell</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;U*&quot;</span>).<span class="ruby-identifier">length</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">max_lengths</span> = <span class="ruby-identifier">cell_lengths</span>.<span class="ruby-identifier">transpose</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">col_lengths</span><span class="ruby-operator">|</span> <span class="ruby-identifier">col_lengths</span>.<span class="ruby-identifier">max</span> }.<span class="ruby-identifier">flatten</span>
+
+        <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">row</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">comment</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;      #{comment.value}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">j</span> = <span class="ruby-value">-1</span>
+          <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">'      | '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">cells</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">max_lengths</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span>, <span class="ruby-identifier">max_length</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">j</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-identifier">color</span>(<span class="ruby-identifier">cell</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">j</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">' '</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">max_length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">cell_lengths</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>])
+          }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' | '</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">' |'</span>
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

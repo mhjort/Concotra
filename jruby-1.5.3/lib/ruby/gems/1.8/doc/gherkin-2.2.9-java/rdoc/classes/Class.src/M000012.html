@@ -5,20 +5,14 @@
 
 <html>
 <head>
-  <title>ikvm_class (Class)</title>
+  <title>new (Class)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/gherkin/native/ikvm.rb, line 44</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ikvm_class</span>
-        <span class="ruby-identifier">names</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'::'</span>)
-        <span class="ruby-identifier">namespace</span> = <span class="ruby-constant">Object</span>
-        <span class="ruby-identifier">names</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">module_name</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">namespace</span> = <span class="ruby-identifier">namespace</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">module_name</span>.<span class="ruby-identifier">downcase</span>)
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-identifier">namespace</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">names</span>[<span class="ruby-value">-1</span>])
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/native/ikvm.rb, line 36</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">ikvm_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">ikvmify</span>(<span class="ruby-identifier">args</span>))
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

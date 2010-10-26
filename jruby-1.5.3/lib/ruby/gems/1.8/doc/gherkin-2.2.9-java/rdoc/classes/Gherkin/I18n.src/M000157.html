@@ -5,16 +5,14 @@
 
 <html>
 <head>
-  <title>keywords (Gherkin::I18n)</title>
+  <title>all (Gherkin::I18n)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/gherkin/i18n.rb, line 141</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">keywords</span>(<span class="ruby-identifier">key</span>)
-      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No #{key.inspect} in #{@keywords.inspect}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@keywords</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">nil?</span>
-      <span class="ruby-ivar">@keywords</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">'|'</span>).<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">keyword</span><span class="ruby-operator">|</span> <span class="ruby-identifier">real_keyword</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">keyword</span>)}
-    <span class="ruby-keyword kw">end</span></pre>
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/i18n.rb, line 18</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all</span>
+        <span class="ruby-constant">LANGUAGES</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">iso_code</span><span class="ruby-operator">|</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">iso_code</span>)}
+      <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

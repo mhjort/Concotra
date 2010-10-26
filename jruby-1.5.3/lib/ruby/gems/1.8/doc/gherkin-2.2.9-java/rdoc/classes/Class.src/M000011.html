@@ -5,14 +5,23 @@
 
 <html>
 <head>
-  <title>=== (Class)</title>
+  <title>ikvmify (Class)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/gherkin/native/ikvm.rb, line 40</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-operator">===</span>(<span class="ruby-identifier">object</span>)
-        <span class="ruby-keyword kw">super</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">java_kind_of?</span>(<span class="ruby-identifier">java_class</span>)
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/native/ikvm.rb, line 23</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ikvmify</span>(<span class="ruby-identifier">arg</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Array</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">arg</span>
+          <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ikvmify</span>(<span class="ruby-identifier">a</span>)}
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-keyword kw">case</span>(<span class="ruby-identifier">arg</span>)
+          <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Regexp</span>
+            <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-value str">'java'</span>).<span class="ruby-identifier">const_get</span>(<span class="ruby-value str">'util'</span>).<span class="ruby-identifier">const_get</span>(<span class="ruby-value str">'regex'</span>).<span class="ruby-identifier">const_get</span>(<span class="ruby-value str">'Pattern'</span>).<span class="ruby-identifier">compile</span>(<span class="ruby-identifier">arg</span>.<span class="ruby-identifier">source</span>)
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">arg</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>
