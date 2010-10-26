@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: e
+comment: 
+full_name: Diff::LCS::Hunk#each_old
+is_singleton: false
+name: each_old
+params: (block) {|e| ...}
+visibility: public

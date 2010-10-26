@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>check_for_infinite_redirects (Webrat::Session)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/webrat/core/session.rb, line 139</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_for_infinite_redirects</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_url</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">response_location</span>
+        <span class="ruby-ivar">@_identical_redirect_count</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@_identical_redirect_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">infinite_redirect_limit_exceeded?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">InfiniteRedirectError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{Webrat.configuration.infinite_redirect_limit} redirects to the same URL (#{current_url.inspect})&quot;</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

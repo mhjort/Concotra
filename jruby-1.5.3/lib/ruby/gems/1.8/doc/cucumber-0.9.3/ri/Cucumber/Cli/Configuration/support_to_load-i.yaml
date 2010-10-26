@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli::Configuration#support_to_load
+is_singleton: false
+name: support_to_load
+params: ()
+visibility: public

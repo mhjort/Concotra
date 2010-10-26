@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Ramaze::Helper::Localize
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Traited
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: l
+  - !ruby/object:RI::MethodSummary 
+    name: locale
+  - !ruby/object:RI::MethodSummary 
+    name: locales
+  - !ruby/object:RI::MethodSummary 
+    name: localize
+name: Localize
+superclass: 

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: show_errors may be a number indicating how many errors it should display at maximum, 0 displays none, -1 all
+full_name: FormField::new
+is_singleton: true
+name: new
+params: (this, field, show_errors = true, hint = nil)
+visibility: public

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>__position_hash (Diff::LCS)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/diff/lcs.rb, line 923</span>
+923:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">__position_hash</span>(<span class="ruby-identifier">enum</span>, <span class="ruby-identifier">interval</span> = <span class="ruby-value">0</span> <span class="ruby-operator">..</span> <span class="ruby-value">-1</span>)
+924:       <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hh</span>, <span class="ruby-identifier">kk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hh</span>[<span class="ruby-identifier">kk</span>] = [] }
+925:       <span class="ruby-identifier">interval</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ii</span><span class="ruby-operator">|</span>
+926:         <span class="ruby-identifier">kk</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">enum</span>[<span class="ruby-identifier">ii</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">enum</span>[<span class="ruby-identifier">ii</span>]
+927:         <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">kk</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ii</span>
+928:       <span class="ruby-keyword kw">end</span>
+929:       <span class="ruby-identifier">hash</span>
+930:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

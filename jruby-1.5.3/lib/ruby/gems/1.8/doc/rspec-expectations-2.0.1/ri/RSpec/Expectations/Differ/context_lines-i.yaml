@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Expectations::Differ#context_lines
+is_singleton: false
+name: context_lines
+params: ()
+visibility: protected

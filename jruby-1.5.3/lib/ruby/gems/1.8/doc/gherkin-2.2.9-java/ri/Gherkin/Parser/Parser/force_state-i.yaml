@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Parser::Parser#force_state
+is_singleton: false
+name: force_state
+params: (state)
+visibility: public

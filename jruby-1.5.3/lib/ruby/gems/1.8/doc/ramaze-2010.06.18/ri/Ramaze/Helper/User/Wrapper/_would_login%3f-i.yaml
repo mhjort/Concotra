@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The callback should return an instance of the user, otherwise it should answer with nil.
+  - !ruby/struct:SM::Flow::P 
+    body: This will not actually login, just check whether the credentials would result in a user.
+full_name: Ramaze::Helper::User::Wrapper#_would_login?
+is_singleton: false
+name: _would_login?
+params: (creds)
+visibility: public

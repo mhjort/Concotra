@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse! (RSpec::Core::Parser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/option_parser.rb, line 11</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">return</span> {} <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">&quot;--formatter&quot;</span>)
+        <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">deprecate</span>(<span class="ruby-value str">&quot;the --formatter option&quot;</span>, <span class="ruby-value str">&quot;-f or --format&quot;</span>)
+        <span class="ruby-identifier">args</span>[<span class="ruby-identifier">args</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;--formatter&quot;</span>)] = <span class="ruby-value str">&quot;--format&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">options</span> = {}
+      <span class="ruby-identifier">parser</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">options</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

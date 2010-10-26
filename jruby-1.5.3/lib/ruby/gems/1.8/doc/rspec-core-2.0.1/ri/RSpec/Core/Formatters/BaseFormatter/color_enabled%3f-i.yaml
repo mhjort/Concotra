@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::BaseFormatter#color_enabled?
+is_singleton: false
+name: color_enabled?
+params: ()
+visibility: protected

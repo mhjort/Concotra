@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String Hash] Either a layout name, or a single-element Hash"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  which maps a layout name to an Array containing a whitelist of\n  action names\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@see set_layout_except Innate::Node::layout @author Pistos, manveru @example Use a layout named 'default' on all actions of the controller:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  set_layout 'default'\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Use a layout named 'default' on just the index and admin actions:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  set_layout 'default' =&gt; [ :index, :admin ]\n"
+full_name: Ramaze::Helper::Layout::SingletonMethods#set_layout
+is_singleton: false
+name: set_layout
+params: (hash_or_the_layout)
+visibility: public

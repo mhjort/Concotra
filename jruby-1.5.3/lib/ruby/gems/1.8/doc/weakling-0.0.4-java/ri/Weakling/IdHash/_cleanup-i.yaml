@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Weakling::IdHash#_cleanup
+is_singleton: false
+name: _cleanup
+params: ()
+visibility: public

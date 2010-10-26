@@ -1,0 +1,59 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: expanded_args
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: options
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: profiles
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: parse
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DRB_FLAG
+    value: "'--drb'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROFILE_SHORT_FLAG
+    value: "'-p'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: NO_PROFILE_SHORT_FLAG
+    value: "'-P'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROFILE_LONG_FLAG
+    value: "'--profile'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: NO_PROFILE_LONG_FLAG
+    value: "'--no-profile'"
+full_name: Cucumber::Cli
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: "[]="
+  - !ruby/object:RI::MethodSummary 
+    name: custom_profiles
+  - !ruby/object:RI::MethodSummary 
+    name: expanded_args_without_drb
+  - !ruby/object:RI::MethodSummary 
+    name: filters
+  - !ruby/object:RI::MethodSummary 
+    name: parse!
+name: Cli
+superclass: 

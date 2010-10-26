@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Listener::Event#name_match?
+is_singleton: false
+name: name_match?
+params: (name_regexen)
+visibility: public

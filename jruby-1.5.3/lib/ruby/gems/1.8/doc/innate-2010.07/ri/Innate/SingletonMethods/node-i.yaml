@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Convenience method to include the Node module into <tt>node</tt> and map to a <tt>location</tt>.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [#to_s] location where the node is mapped to @param [Node, nil] node the class that will be a node, will try to"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "                           look it up if not given\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Class, Module] the node argument or detected class will be"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "                           returned\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see SingletonMethods::node_from_backtrace @author manveru"
+full_name: Innate::SingletonMethods#node
+is_singleton: false
+name: node
+params: (location, node = nil)
+visibility: public

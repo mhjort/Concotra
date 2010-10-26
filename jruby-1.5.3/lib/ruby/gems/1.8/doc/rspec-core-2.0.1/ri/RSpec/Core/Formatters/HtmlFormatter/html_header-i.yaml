@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::HtmlFormatter#html_header
+is_singleton: false
+name: html_header
+params: ()
+visibility: public

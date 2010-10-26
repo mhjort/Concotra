@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set the Node's content to a Text node containing <tt>string</tt>. The string gets XML escaped, not interpreted as markup.
+full_name: Nokogiri::XML::Node#content=
+is_singleton: false
+name: content=
+params: (string)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::JsSupport::argument_safe_string
+is_singleton: true
+name: argument_safe_string
+params: (string)
+visibility: public

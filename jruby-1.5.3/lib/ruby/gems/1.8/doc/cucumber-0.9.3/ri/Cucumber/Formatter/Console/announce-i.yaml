@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: define @delayed_announcements = [] in your Formatter if you want to activate this feature
+full_name: Cucumber::Formatter::Console#announce
+is_singleton: false
+name: announce
+params: (announcement)
+visibility: public

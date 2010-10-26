@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: indent
+    rw: W
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::Formatter::Pdf
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: FileUtils
+  - !ruby/object:RI::IncludedModule 
+    name: Console
+  - !ruby/object:RI::IncludedModule 
+    name: Io
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: after_background
+  - !ruby/object:RI::MethodSummary 
+    name: after_feature
+  - !ruby/object:RI::MethodSummary 
+    name: after_feature_element
+  - !ruby/object:RI::MethodSummary 
+    name: after_features
+  - !ruby/object:RI::MethodSummary 
+    name: announce
+  - !ruby/object:RI::MethodSummary 
+    name: background_name
+  - !ruby/object:RI::MethodSummary 
+    name: before_background
+  - !ruby/object:RI::MethodSummary 
+    name: before_multiline_arg
+  - !ruby/object:RI::MethodSummary 
+    name: before_outline_table
+  - !ruby/object:RI::MethodSummary 
+    name: before_py_string
+  - !ruby/object:RI::MethodSummary 
+    name: examples_name
+  - !ruby/object:RI::MethodSummary 
+    name: feature_element_name
+  - !ruby/object:RI::MethodSummary 
+    name: feature_name
+  - !ruby/object:RI::MethodSummary 
+    name: load_cover_page_image
+  - !ruby/object:RI::MethodSummary 
+    name: load_image
+  - !ruby/object:RI::MethodSummary 
+    name: scenario_name
+  - !ruby/object:RI::MethodSummary 
+    name: step_name
+  - !ruby/object:RI::MethodSummary 
+    name: step_result
+  - !ruby/object:RI::MethodSummary 
+    name: tag_name
+name: Pdf
+superclass: Object

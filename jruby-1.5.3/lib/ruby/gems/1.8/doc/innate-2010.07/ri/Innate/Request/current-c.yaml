@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Currently handled request from Thread.current[:request] Call it from anywhere via Innate::Request.current
+full_name: Innate::Request::current
+is_singleton: true
+name: current
+params: ()
+visibility: public

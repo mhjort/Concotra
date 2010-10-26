@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>make_cucumber_cmd (Autotest::CucumberMixin)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/autotest/cucumber_mixin.rb, line 108</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_cucumber_cmd</span>(<span class="ruby-identifier">features_to_run</span>, <span class="ruby-identifier">dirty_features_filename</span>)
+    <span class="ruby-keyword kw">return</span> <span class="ruby-value str">''</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">features_to_run</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span>
+    
+    <span class="ruby-identifier">profile_loader</span> = <span class="ruby-constant">Cucumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Cli</span><span class="ruby-operator">::</span><span class="ruby-constant">ProfileLoader</span>.<span class="ruby-identifier">new</span>
+    
+    <span class="ruby-identifier">profile</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;autotest-all&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile_loader</span>.<span class="ruby-identifier">has_profile?</span>(<span class="ruby-value str">&quot;autotest-all&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">features_to_run</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:all</span>
+    <span class="ruby-identifier">profile</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;autotest&quot;</span>     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile_loader</span>.<span class="ruby-identifier">has_profile?</span>(<span class="ruby-value str">&quot;autotest&quot;</span>)
+    <span class="ruby-identifier">profile</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">nil</span>
+    
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>
+      <span class="ruby-identifier">args</span> = [<span class="ruby-value str">&quot;--profile&quot;</span>, <span class="ruby-identifier">profile</span>]
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">args</span> = <span class="ruby-node">%w{--format}</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">features_to_run</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:all</span> <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;progress&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;pretty&quot;</span>)
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># No --color option as some IDEs (Netbeans) don't output them very well ([31m1 failed step[0m)</span>
+    <span class="ruby-identifier">args</span> <span class="ruby-operator">+=</span> <span class="ruby-node">%w{--format rerun --out}</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">dirty_features_filename</span>
+    <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">features_to_run</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:all</span> <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">features_to_run</span>)
+    
+    <span class="ruby-comment cmt"># Unless I do this, all the steps turn up undefined during the rerun...</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">features_to_run</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:all</span>
+      <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'features/step_definitions'</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'features/support'</span>
+    <span class="ruby-keyword kw">end</span>
+    
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>)
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-node">&quot;#{Cucumber::RUBY_BINARY} #{Cucumber::BINARY} #{args}&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

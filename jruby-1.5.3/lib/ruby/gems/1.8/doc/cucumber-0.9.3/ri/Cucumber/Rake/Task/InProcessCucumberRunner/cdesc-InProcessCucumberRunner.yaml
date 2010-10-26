@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cucumber::Rake::Task::InProcessCucumberRunner
+includes: []
+
+instance_methods: []
+
+name: InProcessCucumberRunner
+superclass: Object

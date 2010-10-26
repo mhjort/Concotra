@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::WireLanguage#snippet_text
+is_singleton: false
+name: snippet_text
+params: (step_keyword, step_name, multiline_arg_class)
+visibility: public

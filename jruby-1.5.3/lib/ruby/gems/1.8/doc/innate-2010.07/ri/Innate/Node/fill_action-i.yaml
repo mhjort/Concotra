@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Now we're talking {Action}, we try to find a matching template and method, if we can't find either we go to the next pattern, otherwise we answer with an {Action} with everything we know so far about the demands of the client.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String] given_name the name extracted from REQUEST_PATH @param [String] wish"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Action, nil]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api internal @see Node#find_method Node#find_view Node#find_layout Node#patterns_for"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "     Action#wish Action#merge!\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@author manveru"
+full_name: Innate::Node#fill_action
+is_singleton: false
+name: fill_action
+params: (action, given_name)
+visibility: public

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Saves the page out to Rails.root/tmp/ and opens it in the default web browser if on OS X. Useful for debugging.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  save_and_open_page\n"
+full_name: Webrat::SaveAndOpenPage#save_and_open_page
+is_singleton: false
+name: save_and_open_page
+params: ()
+visibility: public

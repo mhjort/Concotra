@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Parse a gherkin object <tt>o</tt>, which can either be a JSON String, or a Hash (from a parsed JSON String).
+full_name: Gherkin::JSONParser#parse
+is_singleton: false
+name: parse
+params: (o, feature_uri='unknown.json', line_offset=0)
+visibility: public

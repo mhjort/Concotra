@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Parses a file and returns a Cucumber::Ast If <tt>configuration_filters</tt> contains any filters, the result will be filtered.
+full_name: Cucumber::FeatureFile#parse
+is_singleton: false
+name: parse
+params: (configuration_filters, tag_counts)
+visibility: public

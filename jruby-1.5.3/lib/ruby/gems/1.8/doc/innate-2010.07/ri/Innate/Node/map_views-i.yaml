@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set the paths for lookup below the Innate.options.views paths.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String, Array&lt;String&gt;] locations"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Any number of strings indicating the paths where view templates may be\n  located, relative to Innate.options.roots/Innate.options.views\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Node] self"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see {Node#view_mappings} @author manveru"
+full_name: Innate::Node#map_views
+is_singleton: false
+name: map_views
+params: (*locations)
+visibility: public

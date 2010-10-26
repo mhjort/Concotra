@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Verifies an input field or textarea exists on the current page, and stores a value for it which will be sent when the form is submitted.
+  - !ruby/struct:SM::Flow::P 
+    body: "Examples:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  fill_in &quot;Email&quot;, :with =&gt; &quot;user@example.com&quot;\n  fill_in &quot;user[email]&quot;, :with =&gt; &quot;user@example.com&quot;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: The field value is required, and must be specified in <tt>options[:with]</tt>. <tt>field</tt> can be either the value of a name attribute (i.e. <tt>user[email]</tt>) or the text inside a <tt>&lt;label&gt;</tt> element that points at the <tt>&lt;input&gt;</tt> field.
+full_name: Webrat::Scope#fill_in
+is_singleton: false
+name: fill_in
+params: (field_locator, options = {})
+visibility: public

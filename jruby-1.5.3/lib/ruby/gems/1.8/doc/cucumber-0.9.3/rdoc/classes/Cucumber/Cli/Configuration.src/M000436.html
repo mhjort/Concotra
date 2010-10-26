@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>feature_files (Cucumber::Cli::Configuration)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/cli/configuration.rb, line 104</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">feature_files</span>
+        <span class="ruby-identifier">potential_feature_files</span> = <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\\/</span>, <span class="ruby-value str">'/'</span>) <span class="ruby-comment cmt"># In case we're on windows. Globs don't work with backslashes.</span>
+          <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>)
+          <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>)
+            <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{path}/**/*.feature&quot;</span>]
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">path</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'@'</span> <span class="ruby-keyword kw">and</span> <span class="ruby-comment cmt"># @listfile.txt</span>
+              <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">path</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]) <span class="ruby-comment cmt"># listfile.txt is a file</span>
+            <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]).<span class="ruby-identifier">split</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">path</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">uniq</span>
+        <span class="ruby-identifier">remove_excluded_files_from</span>(<span class="ruby-identifier">potential_feature_files</span>)
+        <span class="ruby-identifier">potential_feature_files</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

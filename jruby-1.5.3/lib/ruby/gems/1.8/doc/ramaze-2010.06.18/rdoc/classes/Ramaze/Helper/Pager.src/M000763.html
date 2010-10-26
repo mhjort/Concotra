@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>paginate (Ramaze::Helper::Pager)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/pager.rb, line 338</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">items</span>, <span class="ruby-identifier">options</span> = {})
+    <span class="ruby-identifier">limit</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:limit</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Pager</span>.<span class="ruby-identifier">trait</span>[<span class="ruby-identifier">:limit</span>]
+    <span class="ruby-identifier">pager_key</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:pager_key</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Pager</span>.<span class="ruby-identifier">trait</span>[<span class="ruby-identifier">:key</span>]
+
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">items</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+      <span class="ruby-identifier">pager</span> = <span class="ruby-constant">Pager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">items</span>.<span class="ruby-identifier">size</span>, <span class="ruby-identifier">pager_key</span>)
+      <span class="ruby-identifier">items</span> = <span class="ruby-identifier">items</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">pager</span>.<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">limit</span>[<span class="ruby-identifier">:limit</span>])
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">items</span>, <span class="ruby-identifier">pager</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">Og</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Og</span><span class="ruby-operator">::</span><span class="ruby-constant">Collection</span>)
+      <span class="ruby-identifier">pager</span> = <span class="ruby-constant">Pager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">items</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">pager_key</span>)
+      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">pager</span>.<span class="ruby-identifier">limit</span>)
+      <span class="ruby-identifier">items</span> = <span class="ruby-identifier">items</span>.<span class="ruby-identifier">reload</span>(<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">items</span>, <span class="ruby-identifier">pager</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">Og</span><span class="ruby-operator">::</span><span class="ruby-constant">EntityMixin</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Og</span><span class="ruby-operator">::</span><span class="ruby-constant">EntityMixin</span>) <span class="ruby-operator">||</span>
+          <span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">Og</span><span class="ruby-operator">::</span><span class="ruby-constant">Mixin</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Og</span><span class="ruby-operator">::</span><span class="ruby-constant">Mixin</span>) <span class="ruby-comment cmt"># Og &lt;= 0.41</span>
+      <span class="ruby-identifier">pager</span> = <span class="ruby-constant">Pager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">limit</span>, <span class="ruby-identifier">items</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">options</span>), <span class="ruby-identifier">pager_key</span>)
+      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">pager</span>.<span class="ruby-identifier">limit</span>)
+      <span class="ruby-identifier">items</span> = <span class="ruby-identifier">items</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">items</span>, <span class="ruby-identifier">pager</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No suitable pagination method for #{items.inspect}&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

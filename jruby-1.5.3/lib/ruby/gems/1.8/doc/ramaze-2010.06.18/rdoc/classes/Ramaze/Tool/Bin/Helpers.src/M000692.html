@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>rackup_path (Ramaze::Tool::Bin::Helpers)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/tool/bin.rb, line 32</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rackup_path</span> <span class="ruby-comment cmt"># {{{</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@rackup_path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rackup_path</span>
+          <span class="ruby-comment cmt"># Use the supplied path if the user supplied -R</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path_supplied</span> = <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">&quot;-R&quot;</span>)
+            <span class="ruby-ivar">@rackup_path</span> = <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-ivar">@ourargs</span>[<span class="ruby-ivar">@ourargs</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">&quot;-R&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>])
+            <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rackup_path</span> <span class="ruby-keyword kw">and</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-ivar">@rackup_path</span>)
+              <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@rackup_path</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;rackup does not exist at #{@rackup_path} (given with -R)&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-comment cmt"># Check with 'which' on platforms which support it</span>
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">is_windows?</span>
+            <span class="ruby-ivar">@rackup_path</span> = <span class="ruby-value">%x{which rackup}</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chomp</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rackup_path</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">and</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-ivar">@rackup_path</span>)
+              <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@rackup_path</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-comment cmt"># check for rackup in RUBYLIB</span>
+          <span class="ruby-identifier">libs</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">&quot;RUBYLIB&quot;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">is_windows?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;:&quot;</span>)
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rack_lib</span> = <span class="ruby-identifier">libs</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">match</span> <span class="ruby-regexp re">%r&lt;(\\|/)rack\1&gt;</span> }
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;pathname&quot;</span>
+            <span class="ruby-ivar">@rackup_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rack_lib</span>).<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;bin&quot;</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;rackup&quot;</span>).<span class="ruby-identifier">expand_path</span>
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@rackup_path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-ivar">@rackup_path</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;rubygems&quot;</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;rack&quot;</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;pathname&quot;</span>
+            <span class="ruby-ivar">@rackup_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Gem</span>.<span class="ruby-identifier">bindir</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;rackup&quot;</span>).<span class="ruby-identifier">to_s</span>
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@rackup_path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-ivar">@rackup_path</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span>
+            <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-ivar">@rackup_path</span> = <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Cannot find path to rackup, please supply full path to rackup with -R&quot;</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

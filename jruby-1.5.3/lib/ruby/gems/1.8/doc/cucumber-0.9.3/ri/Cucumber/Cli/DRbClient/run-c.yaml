@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli::DRbClient::run
+is_singleton: true
+name: run
+params: (args, error_stream, out_stream, port = nil)
+visibility: public

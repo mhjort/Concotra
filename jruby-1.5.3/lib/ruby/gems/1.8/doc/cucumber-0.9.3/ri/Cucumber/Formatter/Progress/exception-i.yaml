@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Progress#exception
+is_singleton: false
+name: exception
+params: (*args)
+visibility: public

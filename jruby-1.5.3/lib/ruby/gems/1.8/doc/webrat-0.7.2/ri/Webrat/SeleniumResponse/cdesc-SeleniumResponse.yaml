@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: body
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: session
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Webrat::SeleniumResponse
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: selenium
+name: SeleniumResponse
+superclass: Object

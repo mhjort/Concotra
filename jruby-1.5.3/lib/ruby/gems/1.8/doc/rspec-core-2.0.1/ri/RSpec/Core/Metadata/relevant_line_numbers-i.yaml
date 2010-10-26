@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Metadata#relevant_line_numbers
+is_singleton: false
+name: relevant_line_numbers
+params: (metadata)
+visibility: public

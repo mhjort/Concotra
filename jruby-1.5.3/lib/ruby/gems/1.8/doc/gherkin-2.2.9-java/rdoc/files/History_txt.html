@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: History.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>History.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>History.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue Oct 26 13:44:05 +0300 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>2.2.9 (2010-10-15)</h2>
+<h3>New Features</h3>
+<ul>
+<li>PrettyFormatter can format features both with and without ANSI Colors.
+Using Jansi on Java. (Aslak Hellesøy)
+
+</li>
+<li>Extended Java Formatter API with a steps(List&lt;Step&gt;) method for
+better reporting in Java (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.8 (2010-10-04)</h2>
+<h3>Removed Features</h3>
+<ul>
+<li>Trollop based CLI - didn&#8216;t find a good use for it yet. (Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.7 (2010-10-01)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>I18n.getCodeKeywords() on Java didn&#8216;t strip &#8217;!&#8217;. Not
+anymore. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.6 (2010-10-01)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>I18n.getCodeKeywords() on Java included &#8217;*&#8217;. Not anymore.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.5 (2010-10-01)</h2>
+<h3>New Features</h3>
+<ul>
+<li><a href="../classes/Gherkin.html">Gherkin</a> will scan all top comments
+for the language comment. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.4 (2010-09-22)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>C99 features used by gherkin code (75 Graham Agnew)
+
+</li>
+</ul>
+<h2>2.2.3 (2010-09-21)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Add back missing development dependency on cucumber (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.2 (2010-09-21)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Use json instead of json_pure (Aslak Hellesøy)
+
+</li>
+<li>JSON formatter and parser can now omit JSON serialization (for speed) and
+work directly on objects (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.1 (2010-09-12)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Windows gems are now built against 1.8.6-p287 and 1.9.1-p243, on both
+mswin32 and mingw32, and should work on 1.8.6, 1.8.7, 1.9.1 and 1.9.2
+versions of rubyinstaller.org as well as older windows rubies. (Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>Build system no longer uses Jeweler - only Rake, Bundler and Rubygems
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.2.0 (2010-07-26)</h2>
+<p>
+This release breaks some APIs since the previous 2.1.5 release. If you
+install gherkin 2.2.0 you must also upgrade to Cucumber 0.9.0.
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li>I18nLexer doesn&#8216;t recognise language header with \r\n on OS X. (70
+Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>Pure Java FilterFormatter. (Aslak Hellesøy)
+
+</li>
+<li>Pure Java JSONFormatter. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>All formatter events take exactly one argument. Each argument is a single
+object with all data. (Aslak Hellesøy)
+
+</li>
+<li>Several java classes have moved to a different package in order to improve
+separation of concerns. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.1.5 (2010-07-17)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Line filter works on JRuby with Scenarios without steps. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>The JSON schema now puts background inside the &quot;elements&quot; Array.
+Makes parsing simpler. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.1.4 (2010-07-14)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>steps fails on JRuby with 2.1.3 (68 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.1.3 (2010-07-14)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Examples are not cleared when an ignored Scenario Outline/Examples is
+followed by a Scenario. (67 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.1.2 (2010-07-13)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fix some missing require statements that surfaced when gherkin was used
+outside Cucumber. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.1.1 (2010-07-12)</h2>
+<p>
+The previous release had a missing gherkin.jar in the jruby gem. This
+release fixes that. For good this time!
+</p>
+<h2>2.1.0 (2010-07-12)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Pirate! (anteaya)
+
+</li>
+<li>Tag limits for negative tags (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>The formatter API has changed and the listener API is now only used
+internally. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Removed Features</h3>
+<ul>
+<li>FilterListener has been replaced with FilterFormatter. Currently only in
+Ruby (no Java impl yet). (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>2.0.2 (2010-06-16)</h2>
+<h3>New Features</h3>
+<ul>
+<li>New JSON Lexer. (Gregory Hnatiuk)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed incorrect indentation for descriptions in Java. (Aslak Hellesøy)
+
+</li>
+<li>Fixed support for xx-yy languages and Hebrew and Indonesian (JDK bugs).
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Examples are now nested inside the Scenario Outline in the JSON format.
+(Gregory Hnatiuk)
+
+</li>
+</ul>
+<h2>2.0.1 (2010-06-15)</h2>
+<p>
+The previous release had a missing gherkin.jar in the jruby gem. This
+release fixes that.
+</p>
+<h2>2.0.0 (2010-06-15)</h2>
+<p>
+We&#8216;re breaking the old listener API in this release, and added a new
+JSON formatter, which calls for a new major version.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>New JSON formatter. (Aslak Hellesøy, Joseph Wilk)
+
+</li>
+<li>New synonyms for Hungarian (Bence Golda)
+
+</li>
+<li>Upgraded to use RSpec 2.0.0 (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>undefined method `&lt;=&gt;&#8217; on JRuby (52 Aslak Hellesøy)
+
+</li>
+<li>Include link to explanation of LexingError (Mike Sassak)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>The formatter API has completely changed. There is a <a
+href="../classes/Gherkin.html">Gherkin</a> Listener API and a Formatter
+API. The FormatterListener acts as an adapter between them. (Aslak
+Hellesøy)
+
+</li>
+<li>The listener API now has an additional argument for description (text
+following the first line of Feature:, Scenario: etc.) (Gregroy Hnatiuk,
+Matt Wynne)
+
+</li>
+</ul>
+<h2>1.0.30 (2010-05-18)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Native gems for IronRuby. Bundles IKVM OpenJDK dlls as well as
+ikvmc-compiled gherkin.dll. Experimental! (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.29 (2010-05-18)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Use I18n.class&#8217; class loader instead of context class loader to load
+Java lexers. Hoping this fixes loading bug for good. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.28 (2010-05-18)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Use context class loader instead of boot class loader to load Java lexers.
+(Aslak Hellesøy)
+
+</li>
+<li>Only add gcc flags when the compiler is gcc. (60 Aslak Hellesøy, Christian
+Höltje)
+
+</li>
+</ul>
+<h2>1.0.27 (2010-05-17)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Table cells can now contain escaped bars - \| and escaped backslashes - \.
+(48. Gregory Hnatiuk, Aslak Hellesøy)
+
+</li>
+<li>Luxemburgish (lu) added. (Christoph König)
+
+</li>
+</ul>
+<h2>1.0.26 (2010-05-09)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Ignore the BOM that many retarded Windows editors insist on sticking in the
+beginning of a file. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.25 (2010-05-02)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Allow fallback to a slower ruby lexer if the C lexer can&#8216;t be loaded
+for some reason.
+
+</li>
+<li>Can&#8216;t run specs in gherkin 1.0.24 (59 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.24 (2010-05-02)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>hard tabs crazy indentation for pystrings in formatter (55 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.23 (2010-05-02)</h2>
+<h3>Changed Features</h3>
+<ul>
+<li>Java API now uses camelCased method names instead of underscored (more
+Java-like) (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.22 (2010-04-28)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Make prebuilt binaries work on both Ruby 1.8.x and 1.9.x on Windows (54
+Luis Lavena, Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.21 (2010-04-27)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fix compile warning on ruby 1.9.2dev (2009-07-18 trunk 24186) (53 Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.20 (2010-04-20)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>The gherkin CLI is working again (Gregory Hnatiuk)
+
+</li>
+</ul>
+<h2>1.0.19 (2010-04-20)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Works with JRuby 1.5.0.RC1 (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>I18n.code_keywords now return And and But as well, making Cucumber StepDefs
+a little more flexible (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.18 (2010-04-20)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Explicitly use UTF-8 encoding when scanning source with Java lexer. (Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.17 (2010-04-19)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Gherkin::I18n.keyword_regexp was broken (used for 3rd party code
+generation). (51 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.16 (2010-04-19)</h2>
+<p>
+(Something went wrong when releasing 1.0.15)
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li>Reduced risk of halfway botched releases. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.15 (2010-04-19)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Implemented more functionality in I18n.java. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Java methods are no longer throwing Exception (but RuntimeException).
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.14 (2010-04-18)</h2>
+<p>
+(Something went wrong when releasing 1.0.13)
+</p>
+<h2>1.0.13 (2010-04-18)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Filter on Background name. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.12 (2010-04-18)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed incorrect filtering of pystring in Background. (Mike Sassak)
+
+</li>
+</ul>
+<h2>1.0.11 (2010-04-16)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed bad packaging (C files were not packaged in POSIX gem)
+
+</li>
+</ul>
+<h2>1.0.10 (2010-04-16)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Added Esperanto and added a Russian synonym for Feature. (Antono Vasiljev)
+
+</li>
+<li>Pure Java implementation of FilterListener and TagExpression (Mike Gaffney,
+Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>TagExpression takes array args instead of varargs. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.9 (2010-04-12)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Triple escaped quotes (\&quot;\&quot;\&quot;) in PyStrings are unescaped to
+&quot;&quot;&quot;. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.8 (2010-04-10)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Removed illegal comma from Ukrainian synonym. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.7 (2010-04-10)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed problems with packaging of 1.0.6 release. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.6 (2010-04-10)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Fully automated release process. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Made generated classes use a more uniform naming convention. (Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h3>Removed Features</h3>
+<ul>
+<li>Removed C# port, obsoleted by IKVM build from 1.0.5. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.5 (2010-04-08)</h2>
+<h3>New Features</h3>
+<ul>
+<li>New .NET build of gherkin - an ikvmc build of gherkin.jar to gherkin.dll.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Made parsers reusable so that the same instance can parse several features.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.4 (2010-04-07)</h2>
+<h3>New features</h3>
+<ul>
+<li>Pure java releases of <a href="../classes/Gherkin.html">Gherkin</a> at <a
+href="http://cukes.info/maven">cukes.info/maven</a>
+
+</li>
+<li>A FilterListener in Ruby that is the last missing piece to plug <a
+href="../classes/Gherkin.html">Gherkin</a> into Cucumber. (Gregory Hnatiuk,
+Aslak Hellesøy, Matt Wynne, Mike Sassak)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>The Lexer now emits the &#8217;@&#8217; for tags. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.3 (2010-03-31)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>The C lexer correctly instantiates a new array for each table, instead of
+reusing the old one. (Aslak Hellesøy)
+
+</li>
+<li>Emit keywords with space instead of stripping (&lt; keywords are emmitted
+without space) (Aslak Hellesøy)
+
+</li>
+<li>gherkin reformat now prints comments, and does it with proper indentation
+(Aslak Hellesøy)
+
+</li>
+<li>.NET resource files are now automatically copied into the .dll (46 Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>The Pure Java implementation now has a simple main method that pretty
+prints a feature. (39 Aslak Hellesøy)
+
+</li>
+<li>Writing code generated i18n syntax highlighters for <a
+href="../classes/Gherkin.html">Gherkin</a> is a lot easier thanks to
+several convenience methods in <a
+href="../classes/Gherkin/I18n.html">Gherkin::I18n</a>. (Aslak Hellesøy)
+
+</li>
+<li>.NET (C#) port (36, 37 Attila Sztupak)
+
+</li>
+<li>Tables parsed and sent by row rather than by table. (Mike Sassak)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>Switced to ISO 639-1 (language) and ISO 3166 alpha-2 (region - if
+applicable). Applies to Catalan, Swedish, Welsh, Romanian and Serbian.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>1.0.2 (2009-12-30)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Build passes on Ruby 1.9.2 (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>New command line based on trollop. Commands: reformat, stats. (Aslak
+Hellesøy)
+
+</li>
+<li>I18nLexer#scan sets language to the I18n for the language scanned (Mike
+Sassak)
+
+</li>
+<li>I18n#adverbs, brings I18n to parity with Cucumber::Parser::NaturalLanguage
+(Mike Sassak)
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

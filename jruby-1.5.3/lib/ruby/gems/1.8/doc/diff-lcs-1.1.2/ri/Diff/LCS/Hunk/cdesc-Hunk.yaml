@@ -1,0 +1,54 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: blocks
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: end_new
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: end_old
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: file_length_difference
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Change the &quot;start&quot; and &quot;end&quot; fields to note that context should be added to this hunk
+    name: flag_context
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: start_new
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: start_old
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A Hunk is a group of Blocks which overlap because of the context surrounding each block. (So if we're not using context, every hunk will contain one block.) Used in the diff program (bin/diff).
+constants: []
+
+full_name: Diff::LCS::Hunk
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: diff
+  - !ruby/object:RI::MethodSummary 
+    name: each_old
+  - !ruby/object:RI::MethodSummary 
+    name: overlaps?
+  - !ruby/object:RI::MethodSummary 
+    name: unshift
+name: Hunk
+superclass: Object

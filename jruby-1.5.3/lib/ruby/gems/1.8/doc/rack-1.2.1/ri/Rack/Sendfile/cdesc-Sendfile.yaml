@@ -1,0 +1,60 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::H 
+    level: 1
+    text: Sendfile
+  - !ruby/struct:SM::Flow::P 
+    body: The Sendfile middleware intercepts responses whose body is being served from a file and replaces it with a server specific X-Sendfile header. The web server is then responsible for writing the file contents to the client. This can dramatically reduce the amount of work required by the Ruby backend and takes advantage of the web server's optimized file delivery code.
+  - !ruby/struct:SM::Flow::P 
+    body: In order to take advantage of this middleware, the response body must respond to <tt>to_path</tt> and the request must include an X-Sendfile-Type header. Rack::File and other components implement <tt>to_path</tt> so there's rarely anything you need to do in your application. The X-Sendfile-Type header is typically set in your web servers configuration. The following sections attempt to document
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Nginx
+  - !ruby/struct:SM::Flow::P 
+    body: Nginx supports the X-Accel-Redirect header. This is similar to X-Sendfile but requires parts of the filesystem to be mapped into a private URL hierarachy.
+  - !ruby/struct:SM::Flow::P 
+    body: "The following example shows the Nginx configuration required to create a private &quot;/files/&quot; area, enable X-Accel-Redirect, and pass the special X-Sendfile-Type and X-Accel-Mapping headers to the backend:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  location ~ /files/(.*) {\n    internal;\n    alias /var/www/$1;\n  }\n\n  location / {\n    proxy_redirect     off;\n\n    proxy_set_header   Host                $host;\n    proxy_set_header   X-Real-IP           $remote_addr;\n    proxy_set_header   X-Forwarded-For     $proxy_add_x_forwarded_for;\n\n    proxy_set_header   X-Sendfile-Type     X-Accel-Redirect;\n    proxy_set_header   X-Accel-Mapping     /files/=/var/www/;\n\n    proxy_pass         http://127.0.0.1:8080/;\n  }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Note that the X-Sendfile-Type header must be set exactly as shown above. The X-Accel-Mapping header should specify the name of the private URL pattern, followed by an equals sign (=), followed by the location on the file system that it maps to. The middleware performs a simple substitution on the resulting path.
+  - !ruby/struct:SM::Flow::P 
+    body: "See Also: http://wiki.codemongers.com/NginxXSendfile"
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: lighttpd
+  - !ruby/struct:SM::Flow::P 
+    body: Lighttpd has supported some variation of the X-Sendfile header for some time, although only recent version support X-Sendfile in a reverse proxy configuration.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  $HTTP[&quot;host&quot;] == &quot;example.com&quot; {\n     proxy-core.protocol = &quot;http&quot;\n     proxy-core.balancer = &quot;round-robin&quot;\n     proxy-core.backends = (\n       &quot;127.0.0.1:8000&quot;,\n       &quot;127.0.0.1:8001&quot;,\n       ...\n     )\n\n     proxy-core.allow-x-sendfile = &quot;enable&quot;\n     proxy-core.rewrite-request = (\n       &quot;X-Sendfile-Type&quot; =&gt; (&quot;.*&quot; =&gt; &quot;X-Sendfile&quot;)\n     )\n   }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "See Also: http://redmine.lighttpd.net/wiki/lighttpd/Docs:ModProxyCore"
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Apache
+  - !ruby/struct:SM::Flow::P 
+    body: "X-Sendfile is supported under Apache 2.x using a separate module:"
+  - !ruby/struct:SM::Flow::P 
+    body: http://tn123.ath.cx/mod_xsendfile/
+  - !ruby/struct:SM::Flow::P 
+    body: "Once the module is compiled and installed, you can enable it using XSendFile config directive:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  RequestHeader Set X-Sendfile-Type X-Sendfile\n  ProxyPassReverse / http://localhost:8001/\n  XSendFile on\n"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: F
+    value: "::File"
+full_name: Rack::Sendfile
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+name: Sendfile
+superclass: Object

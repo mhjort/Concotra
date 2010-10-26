@@ -1,0 +1,53 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This helper provides a convenience wrapper for handling authentication and persistence of users.
+  - !ruby/struct:SM::Flow::P 
+    body: On every request, when you use the {User#user} method for the first time, we confirm the authentication and store the returned object in the request.env, usually this will involve a request to your database.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Basic usage with User::authenticate"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # We assume that User::[] will make a query and returns the requested\n  # User instance. This instance will be wrapped and cached.\n\n  class User\n    def self.authenticate(creds)\n      User[:name =&gt; creds['name'], :pass =&gt; creds['pass']]\n    end\n  end\n\n  class Profiles &lt; Ramaze::Controller\n    helper :user\n\n    def edit\n      redirect_referrer unless logged_in?\n      &quot;Your profile is shown, your are logged in.&quot;\n    end\n  end\n\n  class Accounts &lt; Ramaze::Controller\n    helper :user\n\n    def login\n      return unless request.post?\n      user_login(request.subset(:name, :pass))\n      redirect Profiles.r(:edit)\n    end\n\n    def logout\n      user_logout\n      redirect_referer\n    end\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: On every request it checks authentication again and retrieves the model, we are not using a normal cache for this as it may lead to behaviour that is very hard to predict and debug.
+  - !ruby/struct:SM::Flow::P 
+    body: You can however, add your own caching quite easily.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example caching the authentication lookup with memcached"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # Add the name of the cache you are going to use for the authentication\n  # and set all caches to use memcached\n\n  Ramaze::Cache.options do |cache|\n    cache.names = [:session, :user]\n    cache.default = Ramaze::Cache::MemCache\n  end\n\n  class User\n\n    # Try to fetch the user from the cache, if that fails make a query.\n    # We are using a ttl (time to live) of one hour, that's just to show\n    # you how to do it and not necessary.\n    def self.authenticate(credentials)\n      cache = Ramaze::Cache.user\n\n      if user = cache[credentials]\n        return user\n      elsif user = User[:name =&gt; creds['name'], :pass =&gt; creds['pass']]\n        cache.store(credentials, user, :ttl =&gt; 3600)\n      end\n    end\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Using a lambda instead of User::authenticate"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # assumes all your controllers inhert from this one\n\n  class Controller &lt; Ramaze::Controller\n    trait :user_callback =&gt; lambda{|creds|\n      User[:name =&gt; creds['name'], :pass =&gt; creds['pass']]\n    }\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Using a different model instead of User"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # assumes all your controllers inhert from this one\n\n  class Controller &lt; Ramaze::Controller\n    trait :user_model =&gt; Account\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@author manveru @todo convert the examples into real examples with specs"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Using this as key in request.env
+    name: RAMAZE_HELPER_USER
+    value: "'ramaze.helper.user'.freeze"
+full_name: Ramaze::Helper::User
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: logged_in?
+  - !ruby/object:RI::MethodSummary 
+    name: user
+  - !ruby/object:RI::MethodSummary 
+    name: user_login
+  - !ruby/object:RI::MethodSummary 
+    name: user_logout
+name: User
+superclass: 

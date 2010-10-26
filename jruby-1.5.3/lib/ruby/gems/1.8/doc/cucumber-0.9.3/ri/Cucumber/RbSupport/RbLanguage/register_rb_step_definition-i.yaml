@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::RbSupport::RbLanguage#register_rb_step_definition
+is_singleton: false
+name: register_rb_step_definition
+params: (regexp, proc)
+visibility: public

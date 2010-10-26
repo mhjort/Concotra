@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "To use Webrat's Selenium support, you'll need the selenium-client gem installed. Activate it with (for example, in your <tt>env.rb</tt>):"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  require &quot;webrat&quot;\n\n  Webrat.configure do |config|\n    config.mode = :selenium\n  end\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Dropping down to the selenium-client API
+  - !ruby/struct:SM::Flow::P 
+    body: "If you ever need to do something with Selenium not provided in the Webrat API, you can always drop down to the selenium-client API using the <tt>selenium</tt> method. For example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  When &quot;I drag the photo to the left&quot; do\n    selenium.dragdrop(&quot;id=photo_123&quot;, &quot;+350, 0&quot;)\n  end\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Choosing the underlying framework to test
+  - !ruby/struct:SM::Flow::P 
+    body: Webrat assumes you're using rails by default but it can also work with sinatra and merb. To take advantage of this you can use the configuration block to set the application_framework variable.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  require &quot;webrat&quot;\n\n  Webrat.configure do |config|\n    config.mode = :selenium\n    config.application_port = 4567\n    config.application_framework = :sinatra  # could also be :merb\n  end\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Auto-starting of the appserver and java server
+  - !ruby/struct:SM::Flow::P 
+    body: Webrat will automatically start the Selenium Java server process and an instance of Mongrel when a test is run. The Mongrel will run in the &quot;selenium&quot; environment instead of &quot;test&quot;, so ensure you've got that defined, and will run on port Webrat.configuration.application_port.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Waiting
+  - !ruby/struct:SM::Flow::P 
+    body: In order to make writing Selenium tests as easy as possible, Webrat will automatically wait for the correct elements to exist on the page when trying to manipulate them with methods like <tt>fill_in</tt>, etc. In general, this means you should be able to write your Webrat::Selenium tests ignoring the concurrency issues that can plague in-browser testing, so long as you're using the Webrat API.
+constants: []
+
+full_name: Webrat::Selenium
+includes: []
+
+instance_methods: []
+
+name: Selenium
+superclass: 

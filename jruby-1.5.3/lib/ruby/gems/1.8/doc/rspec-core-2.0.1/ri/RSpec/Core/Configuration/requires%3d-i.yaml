@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#requires=
+is_singleton: false
+name: requires=
+params: (paths)
+visibility: public

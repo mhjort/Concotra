@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Try to figure out a sane name for current action.
+full_name: Innate::Action#name
+is_singleton: false
+name: name
+params: ()
+visibility: public

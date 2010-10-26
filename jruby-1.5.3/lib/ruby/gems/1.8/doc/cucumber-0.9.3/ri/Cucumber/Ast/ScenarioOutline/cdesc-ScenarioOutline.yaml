@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cucumber::Ast::ScenarioOutline
+includes: []
+
+instance_methods: []
+
+name: ScenarioOutline
+superclass: Object

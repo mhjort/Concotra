@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>after_steps (Cucumber::Formatter::Junit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/junit.rb, line 72</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_steps</span>(<span class="ruby-identifier">steps</span>)
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@in_background</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@in_examples</span>
+        
+        <span class="ruby-identifier">duration</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@steps_start</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">steps</span>.<span class="ruby-identifier">failed?</span>
+          <span class="ruby-identifier">steps</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">step</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@output</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{step.keyword}#{step.name}\n&quot;</span> }
+          <span class="ruby-ivar">@output</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\nMessage:\n&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">build_testcase</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">steps</span>.<span class="ruby-identifier">status</span>, <span class="ruby-identifier">steps</span>.<span class="ruby-identifier">exception</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

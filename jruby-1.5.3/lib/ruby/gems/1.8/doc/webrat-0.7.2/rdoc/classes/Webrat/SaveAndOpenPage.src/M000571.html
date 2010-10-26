@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>open_in_browser (Webrat::SaveAndOpenPage)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/webrat/core/save_and_open_page.rb, line 20</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">open_in_browser</span>(<span class="ruby-identifier">path</span>) <span class="ruby-comment cmt"># :nodoc</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;launchy&quot;</span>
+      <span class="ruby-constant">Launchy</span><span class="ruby-operator">::</span><span class="ruby-constant">Browser</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span>
+      <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;Sorry, you need to install launchy to open pages: `gem install launchy`&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

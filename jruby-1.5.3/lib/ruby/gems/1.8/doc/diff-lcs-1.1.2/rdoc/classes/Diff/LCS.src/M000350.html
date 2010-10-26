@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>__replace_next_larger (Diff::LCS)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/diff/lcs.rb, line 879</span>
+879:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">__replace_next_larger</span>(<span class="ruby-identifier">enum</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">last_index</span> = <span class="ruby-keyword kw">nil</span>)
+880:         <span class="ruby-comment cmt"># Off the end?</span>
+881:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">enum</span>[<span class="ruby-value">-1</span>])
+882:         <span class="ruby-identifier">enum</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+883:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+884:       <span class="ruby-keyword kw">end</span>
+885: 
+886:         <span class="ruby-comment cmt"># Binary search for the insertion point</span>
+887:       <span class="ruby-identifier">last_index</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">size</span>
+888:       <span class="ruby-identifier">first_index</span> = <span class="ruby-value">0</span>
+889:       <span class="ruby-keyword kw">while</span> (<span class="ruby-identifier">first_index</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">last_index</span>)
+890:         <span class="ruby-identifier">ii</span> = (<span class="ruby-identifier">first_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">last_index</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>
+891: 
+892:         <span class="ruby-identifier">found</span> = <span class="ruby-identifier">enum</span>[<span class="ruby-identifier">ii</span>]
+893: 
+894:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">found</span>
+895:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+896:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">found</span>
+897:           <span class="ruby-identifier">first_index</span> = <span class="ruby-identifier">ii</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+898:         <span class="ruby-keyword kw">else</span>
+899:           <span class="ruby-identifier">last_index</span> = <span class="ruby-identifier">ii</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+900:         <span class="ruby-keyword kw">end</span>
+901:       <span class="ruby-keyword kw">end</span>
+902: 
+903:         <span class="ruby-comment cmt"># The insertion point is in first_index; overwrite the next larger</span>
+904:         <span class="ruby-comment cmt"># value.</span>
+905:       <span class="ruby-identifier">enum</span>[<span class="ruby-identifier">first_index</span>] = <span class="ruby-identifier">value</span>
+906:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">first_index</span>
+907:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

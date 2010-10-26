@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets called for each file under features (or whatever is overridden with --require).
+full_name: Cucumber::RbSupport::RbLanguage#step_definitions_for
+is_singleton: false
+name: step_definitions_for
+params: (rb_file)
+visibility: public

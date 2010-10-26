@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: []
+
+full_name: Ramaze::Cache::MemCache#cache_delete
+is_singleton: false
+name: cache_delete
+params: (*keys)
+visibility: public

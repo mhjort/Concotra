@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Raised when Webrat is asked to manipulate a disabled form field
+constants: []
+
+full_name: Webrat::DisabledFieldError
+includes: []
+
+instance_methods: []
+
+name: DisabledFieldError
+superclass: WebratError

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::BaseFormatter#profile_examples?
+is_singleton: false
+name: profile_examples?
+params: ()
+visibility: protected

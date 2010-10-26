@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::I18n::unicode_escape
+is_singleton: true
+name: unicode_escape
+params: (word, prefix="\\u")
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Parser::Parser#event
+is_singleton: false
+name: event
+params: (ev, line)
+visibility: public

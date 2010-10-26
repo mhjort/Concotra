@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::RbSupport::RbLanguage#build_rb_world_factory
+is_singleton: false
+name: build_rb_world_factory
+params: (world_modules, proc)
+visibility: public

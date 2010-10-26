@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>handle_summary (Bacon::PrettyOutput)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/spec/helper/pretty_output.rb, line 44</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">handle_summary</span>
+            <span class="ruby-identifier">puts</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;%d tests, %d assertions, %d failures, %d errors&quot;</span> <span class="ruby-operator">%</span>
+        <span class="ruby-constant">Counter</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-identifier">:specifications</span>, <span class="ruby-identifier">:requirements</span>, <span class="ruby-identifier">:failed</span>, <span class="ruby-identifier">:errors</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

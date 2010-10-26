@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>configure_group (RSpec::Core::Configuration)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/configuration.rb, line 287</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">configure_group</span>(<span class="ruby-identifier">group</span>)
+        <span class="ruby-identifier">modules</span> = {
+          <span class="ruby-identifier">:include</span> =<span class="ruby-operator">&gt;</span> [] <span class="ruby-operator">+</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">included_modules</span>,
+          <span class="ruby-identifier">:extend</span>  =<span class="ruby-operator">&gt;</span> [] <span class="ruby-operator">+</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">ancestors</span>
+        }
+
+        <span class="ruby-identifier">include_or_extend_modules</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">include_or_extend</span>, <span class="ruby-identifier">mod</span>, <span class="ruby-identifier">filters</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">all_apply?</span>(<span class="ruby-identifier">filters</span>)
+          <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">modules</span>[<span class="ruby-identifier">include_or_extend</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">mod</span>)
+          <span class="ruby-identifier">modules</span>[<span class="ruby-identifier">include_or_extend</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mod</span>
+          <span class="ruby-identifier">group</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">include_or_extend</span>, <span class="ruby-identifier">mod</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

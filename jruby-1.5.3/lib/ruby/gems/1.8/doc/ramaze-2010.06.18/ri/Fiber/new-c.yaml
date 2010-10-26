@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (*wait)
+comment: 
+full_name: Fiber::new
+is_singleton: true
+name: new
+params: () {|*wait| ...}
+visibility: public

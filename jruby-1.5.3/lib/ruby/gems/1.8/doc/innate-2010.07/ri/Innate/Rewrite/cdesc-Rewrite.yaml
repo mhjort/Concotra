@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Identical with Innate::Route, but is called before any Node::call is made
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: ROUTES
+    value: "[]"
+full_name: Innate::Rewrite
+includes: []
+
+instance_methods: []
+
+name: Rewrite
+superclass: Route

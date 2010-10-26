@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Keeps every cache in a separate file like this: /tmp/innate-cache-marshal/delta-manveru-session.marshal"
+  - !ruby/struct:SM::Flow::P 
+    body: The Marshal cache is not safe for use between multiple processes, it is also slow compared to other caches, so generally the use of it is discouraged.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: STORE
+    value: "::PStore"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DIR
+    value: "'innate-cache-marshal'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: EXT
+    value: "'.marshal'"
+full_name: Innate::Cache::Marshal
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Cache::API
+  - !ruby/object:RI::IncludedModule 
+    name: Cache::FileBased
+instance_methods: []
+
+name: Marshal
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Selenium::ApplicationServerFactory::app_server_instance
+is_singleton: true
+name: app_server_instance
+params: ()
+visibility: public

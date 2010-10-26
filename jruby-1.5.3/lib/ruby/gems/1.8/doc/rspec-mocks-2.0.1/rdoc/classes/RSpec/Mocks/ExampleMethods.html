@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: RSpec::Mocks::ExampleMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">RSpec::Mocks::ExampleMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/rspec/mocks/spec_methods_rb.html">
+                lib/rspec/mocks/spec_methods.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000380">allow_message_expectations_on_nil</a>&nbsp;&nbsp;
+      <a href="#M000377">double</a>&nbsp;&nbsp;
+      <a href="#M000378">mock</a>&nbsp;&nbsp;
+      <a href="#M000379">stub</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="ArgumentMatchers.html">RSpec::Mocks::ArgumentMatchers</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000380" class="method-detail">
+        <a name="M000380"></a>
+
+        <div class="method-heading">
+          <a href="ExampleMethods.src/M000380.html" target="Code" class="method-signature"
+            onclick="popupCode('ExampleMethods.src/M000380.html');return false;">
+          <span class="method-name">allow_message_expectations_on_nil</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Disables warning messages about expectations being set on nil.
+</p>
+<p>
+By default warning messages are issued when expectations are set on nil.
+This is to prevent false-positives and to catch potential bugs early on.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000377" class="method-detail">
+        <a name="M000377"></a>
+
+        <div class="method-heading">
+          <a href="ExampleMethods.src/M000377.html" target="Code" class="method-signature"
+            onclick="popupCode('ExampleMethods.src/M000377.html');return false;">
+          <span class="method-name">double</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates an instance of <a href="Mock.html">RSpec::Mocks::Mock</a>.
+</p>
+<p>
+<tt>name</tt> is used for failure reporting, so you should use the role
+that the <a href="ExampleMethods.html#M000378">mock</a> is playing in the
+example.
+</p>
+<p>
+Use <tt>stubs</tt> to declare one or more method stubs in one statement.
+</p>
+<h2>Examples</h2>
+<pre>
+  book = double(&quot;book&quot;, :title =&gt; &quot;The RSpec Book&quot;)
+  book.title =&gt; &quot;The RSpec Book&quot;
+
+  card = double(&quot;card&quot;, :suit =&gt; &quot;Spades&quot;, :rank =&gt; &quot;A&quot;
+  card.suit =&gt; &quot;Spades&quot;
+  card.rank =&gt; &quot;A&quot;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000378" class="method-detail">
+        <a name="M000378"></a>
+
+        <div class="method-heading">
+          <a href="ExampleMethods.src/M000378.html" target="Code" class="method-signature"
+            onclick="popupCode('ExampleMethods.src/M000378.html');return false;">
+          <span class="method-name">mock</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Just like <a href="ExampleMethods.html#M000377">double</a>, but use <a
+href="ExampleMethods.html#M000377">double</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000379" class="method-detail">
+        <a name="M000379"></a>
+
+        <div class="method-heading">
+          <a href="ExampleMethods.src/M000379.html" target="Code" class="method-signature"
+            onclick="popupCode('ExampleMethods.src/M000379.html');return false;">
+          <span class="method-name">stub</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Just like <a href="ExampleMethods.html#M000377">double</a>, but use <a
+href="ExampleMethods.html#M000377">double</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

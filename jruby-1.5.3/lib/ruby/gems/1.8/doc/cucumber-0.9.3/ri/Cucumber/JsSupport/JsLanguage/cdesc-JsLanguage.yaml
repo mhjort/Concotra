@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::JsSupport::JsLanguage
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: LanguageSupport::LanguageMethods
+  - !ruby/object:RI::IncludedModule 
+    name: JsSnippets
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_step_definition
+  - !ruby/object:RI::MethodSummary 
+    name: alias_adverbs
+  - !ruby/object:RI::MethodSummary 
+    name: begin_scenario
+  - !ruby/object:RI::MethodSummary 
+    name: current_world
+  - !ruby/object:RI::MethodSummary 
+    name: end_scenario
+  - !ruby/object:RI::MethodSummary 
+    name: execute_step_definition
+  - !ruby/object:RI::MethodSummary 
+    name: load_code_file
+  - !ruby/object:RI::MethodSummary 
+    name: register_js_hook
+  - !ruby/object:RI::MethodSummary 
+    name: register_js_transform
+  - !ruby/object:RI::MethodSummary 
+    name: step_matches
+  - !ruby/object:RI::MethodSummary 
+    name: steps
+  - !ruby/object:RI::MethodSummary 
+    name: world
+name: JsLanguage
+superclass: Object

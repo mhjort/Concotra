@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>[] (Gherkin::CLexer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/c_lexer.rb, line 5</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">i18n_underscored_iso_code</span>)
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">prefix</span> = <span class="ruby-constant">Config</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">'arch'</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/mswin|mingw/</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{Config::CONFIG['MAJOR']}.#{Config::CONFIG['MINOR']}/&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">''</span>
+        <span class="ruby-identifier">lib</span> = <span class="ruby-node">&quot;#{prefix}gherkin_lexer_#{i18n_underscored_iso_code}&quot;</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-identifier">lib</span>
+        <span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">i18n_underscored_iso_code</span>.<span class="ruby-identifier">capitalize</span>)
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">%{\nCouldn't load #{lib}\nThe $LOAD_PATH was:\n#{$LOAD_PATH.join(&quot;\n&quot;)}}</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

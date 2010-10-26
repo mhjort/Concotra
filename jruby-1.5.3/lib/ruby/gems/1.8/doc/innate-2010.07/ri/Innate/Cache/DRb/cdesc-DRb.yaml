@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Cache utilizing a DRb server.
+  - !ruby/struct:SM::Flow::P 
+    body: You will need to run a corresponding DRb server to use this cache. The example below is using a normal Hash, but it is recommended to use a thread-safe alternative like SyncHash.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage of DRb server"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  require 'drb'\n\n  URI = &quot;druby://127.0.0.1:9069&quot;\n  CACHE = {}\n\n  $SAFE = 1 # disable eval and friends\n\n  DRb.start_service(URI, CACHE)\n  DRb.thread.join\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Please note that on some Ruby implementations, access to Hash is not atomic and you might need to lock around access to avoid race conditions.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example for all caches"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Innate.options.cache.default = Innate::Cache::DRb\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example for sessions only"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Innate.options.cache.session = Innate::Cache::DRb\n"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: OPTIONS
+    value: "{:address => '127.0.0.1', :port => 9069}"
+full_name: Innate::Cache::DRb
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Cache::API
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: cache_clear
+  - !ruby/object:RI::MethodSummary 
+    name: cache_delete
+  - !ruby/object:RI::MethodSummary 
+    name: cache_fetch
+  - !ruby/object:RI::MethodSummary 
+    name: cache_setup
+  - !ruby/object:RI::MethodSummary 
+    name: cache_store
+name: DRb
+superclass: Object

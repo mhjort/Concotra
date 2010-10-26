@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>after_table_row (Cucumber::Formatter::Html)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/html.rb, line 299</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_table_row</span>(<span class="ruby-identifier">table_row</span>)
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@hide_this_step</span>
+        <span class="ruby-ivar">@builder</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;/tr&gt;'</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">table_row</span>.<span class="ruby-identifier">exception</span>
+          <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">tr</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">td</span>(<span class="ruby-identifier">:colspan</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@col_index</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'failed'</span>) <span class="ruby-keyword kw">do</span>
+              <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">pre</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pre</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">format_exception</span>(<span class="ruby-identifier">table_row</span>.<span class="ruby-identifier">exception</span>)
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">set_scenario_color_failed</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@outline_row</span>
+          <span class="ruby-ivar">@outline_row</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@step_number</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">move_progress</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

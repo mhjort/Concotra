@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Rubify#rubify
+is_singleton: false
+name: rubify
+params: (o)
+visibility: public

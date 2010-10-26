@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Cucumber::Ast</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Cucumber::Ast</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/cucumber/ast_rb.html">
+                lib/cucumber/ast.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/scenario_rb.html">
+                lib/cucumber/ast/scenario.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/tree_walker_rb.html">
+                lib/cucumber/ast/tree_walker.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/outline_table_rb.html">
+                lib/cucumber/ast/outline_table.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/feature_rb.html">
+                lib/cucumber/ast/feature.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/comment_rb.html">
+                lib/cucumber/ast/comment.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/py_string_rb.html">
+                lib/cucumber/ast/py_string.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/visitor_rb.html">
+                lib/cucumber/ast/visitor.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/scenario_outline_rb.html">
+                lib/cucumber/ast/scenario_outline.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/step_collection_rb.html">
+                lib/cucumber/ast/step_collection.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/tags_rb.html">
+                lib/cucumber/ast/tags.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/background_rb.html">
+                lib/cucumber/ast/background.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/step_rb.html">
+                lib/cucumber/ast/step.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/step_invocation_rb.html">
+                lib/cucumber/ast/step_invocation.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/feature_element_rb.html">
+                lib/cucumber/ast/feature_element.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/table_rb.html">
+                lib/cucumber/ast/table.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/examples_rb.html">
+                lib/cucumber/ast/examples.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/ast/features_rb.html">
+                lib/cucumber/ast/features.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Classes in this module represent the Abstract Syntax Tree (AST) that gets
+built when feature files are parsed.
+</p>
+<p>
+AST classes don&#8216;t expose any internal data directly. This is in order
+to encourage a less coupled design in the classes that operate on the AST.
+The only public method is accept.
+</p>
+<p>
+The AST can be traversed with a visitor. See Cucumber::Format::Pretty for
+an example.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Ast/Table.html" class="link">Cucumber::Ast::Table</a><br />
+Class <a href="Ast/TreeWalker.html" class="link">Cucumber::Ast::TreeWalker</a><br />
+Class <a href="Ast/Visitor.html" class="link">Cucumber::Ast::Visitor</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

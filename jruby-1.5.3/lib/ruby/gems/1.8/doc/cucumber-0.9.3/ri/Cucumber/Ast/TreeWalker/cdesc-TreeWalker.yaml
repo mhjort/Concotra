@@ -1,0 +1,65 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Walks the AST, executing steps and notifying listeners
+constants: []
+
+full_name: Cucumber::Ast::TreeWalker
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: announce
+  - !ruby/object:RI::MethodSummary 
+    name: embed
+  - !ruby/object:RI::MethodSummary 
+    name: visit_background
+  - !ruby/object:RI::MethodSummary 
+    name: visit_background_name
+  - !ruby/object:RI::MethodSummary 
+    name: visit_comment
+  - !ruby/object:RI::MethodSummary 
+    name: visit_comment_line
+  - !ruby/object:RI::MethodSummary 
+    name: visit_examples
+  - !ruby/object:RI::MethodSummary 
+    name: visit_examples_array
+  - !ruby/object:RI::MethodSummary 
+    name: visit_examples_name
+  - !ruby/object:RI::MethodSummary 
+    name: visit_feature
+  - !ruby/object:RI::MethodSummary 
+    name: visit_feature_element
+  - !ruby/object:RI::MethodSummary 
+    name: visit_feature_name
+  - !ruby/object:RI::MethodSummary 
+    name: visit_features
+  - !ruby/object:RI::MethodSummary 
+    name: visit_outline_table
+  - !ruby/object:RI::MethodSummary 
+    name: visit_py_string
+  - !ruby/object:RI::MethodSummary 
+    name: visit_scenario_name
+  - !ruby/object:RI::MethodSummary 
+    name: visit_step
+  - !ruby/object:RI::MethodSummary 
+    name: visit_step_result
+  - !ruby/object:RI::MethodSummary 
+    name: visit_steps
+  - !ruby/object:RI::MethodSummary 
+    name: visit_table_cell
+  - !ruby/object:RI::MethodSummary 
+    name: visit_table_cell_value
+  - !ruby/object:RI::MethodSummary 
+    name: visit_table_row
+  - !ruby/object:RI::MethodSummary 
+    name: visit_tag_name
+  - !ruby/object:RI::MethodSummary 
+    name: visit_tags
+name: TreeWalker
+superclass: Object

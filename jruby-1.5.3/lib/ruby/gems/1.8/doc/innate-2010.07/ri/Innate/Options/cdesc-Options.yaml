@@ -1,0 +1,57 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Provides a minimal DSL to describe options with defaults and metadata.
+  - !ruby/struct:SM::Flow::P 
+    body: The example below should demonstrate the major features, note that key lookup wanders up the hierarchy until there is a match found or the parent of the Options class is itself, in which case nil will be returned.
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class Calculator\n    @options = Options.new(:foo)\n    def self.options; @options; end\n\n    options.dsl do\n      o &quot;Which method to use&quot;, :method, :plus\n      o &quot;Default arguments&quot;, :args, [1, 2]\n      sub(:minus){ o(&quot;Default arguments&quot;, :args, [4, 3]) }\n    end\n\n    def self.calculate(method = nil, *args)\n      method ||= options[:method]\n      args = args.empty? ? options[method, :args] : args\n      self.send(method, *args)\n    end\n\n    def self.plus(n1, n2)\n      n1 + n2\n    end\n\n    def self.minus(n1, n2)\n      n1 - n2\n    end\n  end\n\n  Calculator.calculate\n  # =&gt; 3\n  Calculator.options[:method] = :minus\n  # =&gt; :minus\n  Calculator.calculate\n  # =&gt; 1\n  Calculator.calculate(:plus, 4, 5)\n  # =&gt; 9\n"
+constants: []
+
+full_name: Innate::Options
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: "[]="
+  - !ruby/object:RI::MethodSummary 
+    name: default
+  - !ruby/object:RI::MethodSummary 
+    name: dsl
+  - !ruby/object:RI::MethodSummary 
+    name: each_option
+  - !ruby/object:RI::MethodSummary 
+    name: each_pair
+  - !ruby/object:RI::MethodSummary 
+    name: get
+  - !ruby/object:RI::MethodSummary 
+    name: inspect
+  - !ruby/object:RI::MethodSummary 
+    name: merge!
+  - !ruby/object:RI::MethodSummary 
+    name: method_missing
+  - !ruby/object:RI::MethodSummary 
+    name: o
+  - !ruby/object:RI::MethodSummary 
+    name: option
+  - !ruby/object:RI::MethodSummary 
+    name: pretty_print
+  - !ruby/object:RI::MethodSummary 
+    name: set_value
+  - !ruby/object:RI::MethodSummary 
+    name: sub
+  - !ruby/object:RI::MethodSummary 
+    name: to_hash
+  - !ruby/object:RI::MethodSummary 
+    name: trigger
+name: Options
+superclass: Object

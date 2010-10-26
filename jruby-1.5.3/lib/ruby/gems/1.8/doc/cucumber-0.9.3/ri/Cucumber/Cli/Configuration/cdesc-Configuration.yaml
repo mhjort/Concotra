@@ -1,0 +1,63 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: out_stream
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::Cli::Configuration
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Constantize
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: all_files_to_load
+  - !ruby/object:RI::MethodSummary 
+    name: build_tree_walker
+  - !ruby/object:RI::MethodSummary 
+    name: drb?
+  - !ruby/object:RI::MethodSummary 
+    name: drb_port
+  - !ruby/object:RI::MethodSummary 
+    name: dry_run?
+  - !ruby/object:RI::MethodSummary 
+    name: expand?
+  - !ruby/object:RI::MethodSummary 
+    name: feature_dirs
+  - !ruby/object:RI::MethodSummary 
+    name: feature_files
+  - !ruby/object:RI::MethodSummary 
+    name: filters
+  - !ruby/object:RI::MethodSummary 
+    name: formats
+  - !ruby/object:RI::MethodSummary 
+    name: formatter_class
+  - !ruby/object:RI::MethodSummary 
+    name: guess?
+  - !ruby/object:RI::MethodSummary 
+    name: log
+  - !ruby/object:RI::MethodSummary 
+    name: options
+  - !ruby/object:RI::MethodSummary 
+    name: parse!
+  - !ruby/object:RI::MethodSummary 
+    name: paths
+  - !ruby/object:RI::MethodSummary 
+    name: step_defs_to_load
+  - !ruby/object:RI::MethodSummary 
+    name: strict?
+  - !ruby/object:RI::MethodSummary 
+    name: support_to_load
+  - !ruby/object:RI::MethodSummary 
+    name: tag_expression
+  - !ruby/object:RI::MethodSummary 
+    name: verbose?
+  - !ruby/object:RI::MethodSummary 
+    name: wip?
+name: Configuration
+superclass: Object

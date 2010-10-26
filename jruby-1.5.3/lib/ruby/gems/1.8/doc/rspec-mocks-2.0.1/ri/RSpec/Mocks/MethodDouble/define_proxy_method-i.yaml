@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Mocks::MethodDouble#define_proxy_method
+is_singleton: false
+name: define_proxy_method
+params: ()
+visibility: public

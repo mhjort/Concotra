@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Formatter::Model::TagStatement#first_non_comment_line
+is_singleton: false
+name: first_non_comment_line
+params: ()
+visibility: public

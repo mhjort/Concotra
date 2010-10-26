@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: SequelRelation::RelationshipManager#todo
+is_singleton: false
+name: todo
+params: (method, *args)
+visibility: public

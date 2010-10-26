@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Autotest::Rspec2#using_bundler?
+is_singleton: false
+name: using_bundler?
+params: ()
+visibility: public

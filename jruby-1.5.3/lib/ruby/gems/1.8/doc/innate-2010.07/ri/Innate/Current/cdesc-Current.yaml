@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: We track the current request/response/session (Trinity) in Thread.current so we can reach them from anywhere in the code without passing around the objects directly.
+constants: []
+
+full_name: Innate::Current
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+  - !ruby/object:RI::MethodSummary 
+    name: setup
+name: Current
+superclass: Object

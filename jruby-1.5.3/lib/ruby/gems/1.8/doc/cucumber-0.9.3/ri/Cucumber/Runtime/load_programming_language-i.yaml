@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Runtime#load_programming_language
+is_singleton: false
+name: load_programming_language
+params: (language)
+visibility: public

@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: since
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Time in the future, i.e. 3.days.from_now
+full_name: Ramaze::CoreExtensions::Numeric#from_now
+is_singleton: false
+name: from_now
+params: (t = Time.now)
+visibility: public

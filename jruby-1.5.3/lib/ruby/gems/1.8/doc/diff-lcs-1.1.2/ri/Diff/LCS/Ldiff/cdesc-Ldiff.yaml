@@ -1,0 +1,70 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: ldiff Usage
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  ldiff [options] oldfile newfile\n"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "-c:"
+        body: Displays a context diff with 3 lines of context.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-C [LINES], --context [LINES]:"
+        body: Displays a context diff with LINES lines of context. Default 3 lines.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-u:"
+        body: Displays a unified diff with 3 lines of context.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-U [LINES], --unified [LINES]:"
+        body: Displays a unified diff with LINES lines of context. Default 3 lines.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-e:"
+        body: Creates an 'ed' script to change oldfile to newfile.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-f:"
+        body: Creates an 'ed' script to change oldfile to newfile in reverse order.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-a, --text:"
+        body: Treats the files as text and compares them line-by-line, even if they do not seem to be text.
+      - !ruby/struct:SM::Flow::LI 
+        label: "--binary:"
+        body: Treats the files as binary.
+      - !ruby/struct:SM::Flow::LI 
+        label: "-q, --brief:"
+        body: Reports only whether or not the files differ, not the details.
+      - !ruby/struct:SM::Flow::LI 
+        label: "--help:"
+        body: Shows the command-line help.
+      - !ruby/struct:SM::Flow::LI 
+        label: "--version:"
+        body: Shows the version of Diff::LCS.
+    type: :NOTE
+  - !ruby/struct:SM::Flow::P 
+    body: By default, runs produces an &quot;old-style&quot; diff, with output like UNIX diff.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Copyright
+  - !ruby/struct:SM::Flow::P 
+    body: Copyright &amp;copy; 2004 Austin Ziegler
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Part of Diff::LCS &lt;http://rubyforge.org/projects/ruwiki/&gt;\n  Austin Ziegler &lt;diff-lcs@halostatue.ca&gt;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: This program is free software. It may be redistributed and/or modified under the terms of the GPL version 2 (or later), the Perl Artistic licence, or the Ruby licence.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: BANNER
+    value: "<<-COPYRIGHT ldiff #{Diff::LCS::VERSION}   Copyright \xA9 2004 Austin Ziegler    Part of Diff::LCS.   http://rubyforge.org/projects/ruwiki/    Austin Ziegler <diff-lcs@halostatue.ca>    This program is free software. It may be redistributed and/or modified under   the terms of the GPL version 2 (or later), the Perl Artistic licence, or the   Ruby licence.  $Id: ldiff.rb,v 1.1 2004/09/26 01:37:49 austin Exp $               COPYRIGHT"
+full_name: Diff::LCS::Ldiff
+includes: []
+
+instance_methods: []
+
+name: Ldiff
+superclass: 

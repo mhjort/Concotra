@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::SeleniumResponse::new
+is_singleton: true
+name: new
+params: (session, body)
+visibility: public

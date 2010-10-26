@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Rack::Server</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Rack::Server</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/rack/server_rb.html">
+                lib/rack/server.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000194">app</a>&nbsp;&nbsp;
+      <a href="#M000193">default_options</a>&nbsp;&nbsp;
+      <a href="#M000195">middleware</a>&nbsp;&nbsp;
+      <a href="#M000196">middleware</a>&nbsp;&nbsp;
+      <a href="#M000191">new</a>&nbsp;&nbsp;
+      <a href="#M000192">options</a>&nbsp;&nbsp;
+      <a href="#M000198">server</a>&nbsp;&nbsp;
+      <a href="#M000190">start</a>&nbsp;&nbsp;
+      <a href="#M000197">start</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Server/Options.html" class="link">Rack::Server::Options</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">options</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000195" class="method-detail">
+        <a name="M000195"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000195.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000195.html');return false;">
+          <span class="method-name">middleware</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000191" class="method-detail">
+        <a name="M000191"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000191.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000191.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Server/Options.html">Options</a> may include:
+</p>
+<ul>
+<li>:<a href="Server.html#M000194">app</a>
+
+<pre>
+  a rack application to run (overrides :config)
+</pre>
+</li>
+<li>:config
+
+<pre>
+  a rackup configuration file path to load (.ru)
+</pre>
+</li>
+<li>:environment
+
+<pre>
+  this selects the middleware that will be wrapped around
+  your application. Default options available are:
+    - development: CommonLogger, ShowExceptions, and Lint
+    - deployment: CommonLogger
+    - none: no extra middleware
+  note: when the server is a cgi server, CommonLogger is not included.
+</pre>
+</li>
+<li>:<a href="Server.html#M000198">server</a>
+
+<pre>
+  choose a specific Rack::Handler, e.g. cgi, fcgi, webrick
+</pre>
+</li>
+<li>:daemonize
+
+<pre>
+  if true, the server will daemonize itself (fork, detach, etc)
+</pre>
+</li>
+<li>:pid
+
+<pre>
+  path to write a pid file after daemonize
+</pre>
+</li>
+<li>:Host
+
+<pre>
+  the host address to bind to (used by supporting Rack::Handler)
+</pre>
+</li>
+<li>:Port
+
+<pre>
+  the port to bind to (used by supporting Rack::Handler)
+</pre>
+</li>
+<li>:AccessLog
+
+<pre>
+  webrick acess log options (or supporting Rack::Handler)
+</pre>
+</li>
+<li>:debug
+
+<pre>
+  turn on debug output ($DEBUG = true)
+</pre>
+</li>
+<li>:warn
+
+<pre>
+  turn on warnings ($-w = true)
+</pre>
+</li>
+<li>:include
+
+<pre>
+  add given paths to $LOAD_PATH
+</pre>
+</li>
+<li>:require
+
+<pre>
+  require the given libraries
+</pre>
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000190" class="method-detail">
+        <a name="M000190"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000190.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000190.html');return false;">
+          <span class="method-name">start</span><span class="method-args">(options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Start a <a href="Server.html#M000191">new</a> rack <a
+href="Server.html#M000198">server</a> (like running rackup). This will
+parse ARGV and provide standard ARGV rackup <a
+href="Server.html#M000192">options</a>, defaulting to load
+&#8216;config.ru&#8217;.
+</p>
+<p>
+Providing an <a href="Server.html#M000192">options</a> hash will prevent
+ARGV parsing and will not include any default <a
+href="Server.html#M000192">options</a>.
+</p>
+<p>
+This method can be used to very easily launch a CGI application, for
+example:
+</p>
+<pre>
+ Rack::Server.start(
+   :app =&gt; lambda do |e|
+     [200, {'Content-Type' =&gt; 'text/html'}, ['hello world']]
+   end,
+   :server =&gt; 'cgi'
+ )
+</pre>
+<p>
+Further <a href="Server.html#M000192">options</a> available here are
+documented on Rack::Server#initialize
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000194" class="method-detail">
+        <a name="M000194"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000194.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000194.html');return false;">
+          <span class="method-name">app</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000193" class="method-detail">
+        <a name="M000193"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000193.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000193.html');return false;">
+          <span class="method-name">default_options</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000196" class="method-detail">
+        <a name="M000196"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000196.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000196.html');return false;">
+          <span class="method-name">middleware</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000192" class="method-detail">
+        <a name="M000192"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000192.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000192.html');return false;">
+          <span class="method-name">options</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000198" class="method-detail">
+        <a name="M000198"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000198.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000198.html');return false;">
+          <span class="method-name">server</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000197" class="method-detail">
+        <a name="M000197"></a>
+
+        <div class="method-heading">
+          <a href="Server.src/M000197.html" target="Code" class="method-signature"
+            onclick="popupCode('Server.src/M000197.html');return false;">
+          <span class="method-name">start</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

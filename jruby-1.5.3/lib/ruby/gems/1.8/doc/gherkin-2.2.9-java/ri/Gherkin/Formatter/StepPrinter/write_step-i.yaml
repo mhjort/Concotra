@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Formatter::StepPrinter#write_step
+is_singleton: false
+name: write_step
+params: (io, text_format, arg_format, step_name, arguments)
+visibility: public

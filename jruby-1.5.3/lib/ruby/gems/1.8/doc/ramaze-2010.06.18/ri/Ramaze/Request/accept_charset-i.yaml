@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Request#accept_charset
+is_singleton: false
+name: accept_charset
+params: (default = 'UTF-8')
+visibility: public

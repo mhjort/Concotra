@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Selenium::ApplicationServers::Base#stop_at_exit
+is_singleton: false
+name: stop_at_exit
+params: ()
+visibility: public

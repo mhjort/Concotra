@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: o
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Store an option in the Options instance.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [#to_s] doc describing the purpose of this option @param [#to_sym] key used to access @param [Object] value may be anything @param [Hash] other optional Hash containing meta-data"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "                       :doc, :value keys will be ignored\n"
+full_name: Innate::Options#option
+is_singleton: false
+name: option
+params: (doc, key, value, other = {}, &block)
+visibility: public

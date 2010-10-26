@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::Helper::Aspect::SingletonMethods#before_all
+is_singleton: false
+name: before_all
+params: (&block)
+visibility: public

@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cucumber::WireSupport::WireProtocol::Requests::DiffFailed
+includes: []
+
+instance_methods: []
+
+name: DiffFailed
+superclass: RequestHandler

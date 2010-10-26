@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: route
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: ROUTES
+    value: "[]"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PATH_INFO
+    value: "'rack.route_exceptions.path_info'.freeze"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: EXCEPTION
+    value: "'rack.route_exceptions.exception'.freeze"
+full_name: Rack::RouteExceptions
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+  - !ruby/object:RI::MethodSummary 
+    name: route
+name: RouteExceptions
+superclass: Object

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Shortcut to extend <tt>into</tt> with Helper modules corresponding to +*names+. <tt>into</tt> has to respond to #extend."
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class Hi\n    Innate::HelpersHelper.each_extend(self, :cgi, :link, :aspect)\n  end\n"
+full_name: Innate::HelpersHelper#each_extend
+is_singleton: false
+name: each_extend
+params: (into, *names, &block)
+visibility: public

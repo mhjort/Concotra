@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ProjectCreator#got_proto?
+is_singleton: false
+name: got_proto?
+params: ()
+visibility: public

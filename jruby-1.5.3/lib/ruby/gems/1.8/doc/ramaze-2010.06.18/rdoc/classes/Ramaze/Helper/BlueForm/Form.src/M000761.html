@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>select (Ramaze::Helper::BlueForm::Form)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/blue_form.rb, line 166</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select</span>(<span class="ruby-identifier">label</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">values</span>, <span class="ruby-identifier">options</span> = {})
+          <span class="ruby-identifier">id</span> = <span class="ruby-identifier">id_for</span>(<span class="ruby-identifier">name</span>)
+          <span class="ruby-identifier">multiple</span>, <span class="ruby-identifier">size</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-identifier">:multiple</span>, <span class="ruby-identifier">:size</span>)
+
+          <span class="ruby-identifier">args</span> = {<span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>}
+          <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:multiple</span>] = <span class="ruby-value str">'multiple'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">multiple</span>
+          <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:size</span>] = (<span class="ruby-identifier">size</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">multiple</span> <span class="ruby-operator">||</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">to_i</span>
+          <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:name</span>] = <span class="ruby-identifier">multiple</span> <span class="ruby-value">? </span><span class="ruby-node">&quot;#{name}[]&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>
+
+          <span class="ruby-identifier">has_selected</span>, <span class="ruby-identifier">selected</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">:selected</span>), <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:selected</span>]
+
+          <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">p</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">label_for</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">name</span>)
+            <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">select</span> <span class="ruby-identifier">args</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">o_name</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">o_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">value</span>
+                <span class="ruby-identifier">o_args</span> = {<span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>}
+                <span class="ruby-identifier">o_args</span>[<span class="ruby-identifier">:selected</span>] = <span class="ruby-value str">'selected'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">has_selected</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">selected</span>
+                <span class="ruby-ivar">@g</span>.<span class="ruby-identifier">option</span>(<span class="ruby-identifier">o_args</span>){ <span class="ruby-identifier">o_name</span> }
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

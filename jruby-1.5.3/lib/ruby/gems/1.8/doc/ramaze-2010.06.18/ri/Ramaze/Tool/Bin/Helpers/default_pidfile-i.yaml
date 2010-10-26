@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Tool::Bin::Helpers#default_pidfile
+is_singleton: false
+name: default_pidfile
+params: (
+visibility: public

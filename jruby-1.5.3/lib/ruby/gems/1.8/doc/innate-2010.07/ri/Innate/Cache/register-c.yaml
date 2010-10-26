@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Add accessors for cache
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Cache] cache"
+full_name: Innate::Cache::register
+is_singleton: true
+name: register
+params: (cache)
+visibility: public

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Cucumber::LanguageSupport</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Cucumber::LanguageSupport</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/cucumber/language_support/language_methods_rb.html">
+                lib/cucumber/language_support/language_methods.rb
+                </a>
+        <br />
+                <a href="../../files/lib/cucumber/language_support_rb.html">
+                lib/cucumber/language_support.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This module defines the API for programming language support in <a
+href="../Cucumber.html">Cucumber</a>. While <a
+href="../Cucumber.html">Cucumber</a> itself is written in Ruby, any
+programming language can be supported by implementing this API.
+</p>
+<p>
+For the sake of illustration we&#8216;ll consider an imaginary language
+called _why. _why files have the .why extension, so we need to put support
+for this language in the <tt>Cucumber::WhySupport::WhyLanguage</tt>. This
+class must be defined in a file called
+<tt>cucumber/why_support/why_language.rb</tt> and be available on
+Ruby&#8216;s <tt>$LOAD_PATH</tt>:
+</p>
+<pre>
+  module Cucumber
+    module WhySupport
+      class WhyLanguage
+
+        # Uses whatever available language bridge to load
+        # +why_file+ and returns an Array of StepDefinition.
+        def load_code_file(why_file)
+        end
+      end
+    end
+  end
+</pre>
+<p>
+Each language implementation manages its own hooks, and must execute them
+at appropriate times.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="LanguageSupport/LanguageMethods.html" class="link">Cucumber::LanguageSupport::LanguageMethods</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

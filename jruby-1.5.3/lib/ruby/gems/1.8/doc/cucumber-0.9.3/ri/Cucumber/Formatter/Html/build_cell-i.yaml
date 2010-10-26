@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html#build_cell
+is_singleton: false
+name: build_cell
+params: (cell_type, value, attributes)
+visibility: protected

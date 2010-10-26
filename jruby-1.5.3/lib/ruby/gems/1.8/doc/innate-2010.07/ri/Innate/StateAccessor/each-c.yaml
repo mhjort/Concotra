@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (key.to_sym, meth.to_sym)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Iterate over the names and yield accordingly. names are either objects responding to #to_sym or hashes."
+  - !ruby/struct:SM::Flow::P 
+    body: It's only used within this module to make the code readable.
+  - !ruby/struct:SM::Flow::P 
+    body: Used below.
+full_name: Innate::StateAccessor::each
+is_singleton: true
+name: each
+params: (*names) {|key.to_sym, meth.to_sym| ...}
+visibility: public

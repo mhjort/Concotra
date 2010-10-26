@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Cache based on the localmemcache library which utilizes mmap to share strings in memory between ruby instances.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: OPTIONS
+    value: "{         :size_mb    => 1024,         :serialize  => true,         :serializer => ::Marshal, # something that responds to ::load and ::dump       }"
+full_name: Ramaze::Cache::LocalMemCache
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Cache::API
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: cache_clear
+  - !ruby/object:RI::MethodSummary 
+    name: cache_delete
+  - !ruby/object:RI::MethodSummary 
+    name: cache_fetch
+  - !ruby/object:RI::MethodSummary 
+    name: cache_setup
+  - !ruby/object:RI::MethodSummary 
+    name: cache_store
+name: LocalMemCache
+superclass: Object

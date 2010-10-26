@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse! (Cucumber::Cli::Configuration)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/cli/configuration.rb, line 23</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+        <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">args</span>
+        <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">arrange_formats</span>
+        <span class="ruby-identifier">raise</span>(<span class="ruby-value str">&quot;You can't use both --strict and --wip&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">strict?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">wip?</span>
+
+        <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:tag_expression</span>] = <span class="ruby-constant">Gherkin</span><span class="ruby-operator">::</span><span class="ruby-constant">TagExpression</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:tag_expressions</span>])
+        <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@args</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-ivar">@options</span>.<span class="ruby-identifier">expanded_args_without_drb</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">drb?</span>
+
+        <span class="ruby-identifier">set_environment_variables</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

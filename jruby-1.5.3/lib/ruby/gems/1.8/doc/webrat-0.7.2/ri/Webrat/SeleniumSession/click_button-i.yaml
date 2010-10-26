@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::SeleniumSession#click_button
+is_singleton: false
+name: click_button
+params: (button_text_or_regexp = nil, options = {})
+visibility: public

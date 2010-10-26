@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: TCPSocket::wait_for_service_with_timeout
+is_singleton: true
+name: wait_for_service_with_timeout
+params: (options)
+visibility: public

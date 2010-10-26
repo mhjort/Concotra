@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: status
+comment: 
+full_name: Cucumber::Formatter::Html#print_status_counts
+is_singleton: false
+name: print_status_counts
+params: () {|status| ...}
+visibility: protected

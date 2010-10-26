@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::RbSupport::RbWorld::alias_adverb
+is_singleton: true
+name: alias_adverb
+params: (adverb)
+visibility: public

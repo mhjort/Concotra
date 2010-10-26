@@ -1,0 +1,134 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Test Doubles
+  - !ruby/struct:SM::Flow::P 
+    body: A Test Double is an object that stands in for a real object in a test. RSpec creates test doubles that support method stubs and message expectations.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  book = double(&quot;book&quot;)\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Method Stubs
+  - !ruby/struct:SM::Flow::P 
+    body: A method stub is an implementation that returns a pre-determined value.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  book = double(&quot;book&quot;)\n  double.stub(:title) { &quot;The RSpec Book&quot; }\n  double.title =&gt; &quot;The RSpec Book&quot;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: When we declare a stub, we say we are &quot;stubbing&quot; a method.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Message Expectations
+  - !ruby/struct:SM::Flow::P 
+    body: A message expectation is an expectation that the test double will receive a message some time before the example ends. If the message is received, the expectation is satisfied. If not, the example fails.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  validator = double(&quot;validator&quot;)\n  validator.should_receive(:validate).with(&quot;02134&quot;)\n  zipcode = Zipcode.new(&quot;02134&quot;, validator)\n  zipcode.valid?\n"
+  - !ruby/struct:SM::Flow::P 
+    body: When we declare a message expectation, we say we are &quot;mocking&quot; a method.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Mock Objects and Test Stubs
+  - !ruby/struct:SM::Flow::P 
+    body: The names Mock Object and Test Stub suggest specialized Test Doubles. i.e. Test Stub evokes Test Double that only supports method stubs, and a Mock Object evokes a Test Double that only supports message expectations, or sometimes supports message expectations in addition to method stubs.
+  - !ruby/struct:SM::Flow::P 
+    body: "There is a lot of overlapping nomenclature here, and there are many variations of these patterns (fakes, spies, etc). Keep in mind that most of the time we're talking about method-level concepts that are variations of method stubs and message expectations, and we're applying to them to <em>one</em> generic kind of object: a Test Double."
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Test-Specific Extension
+  - !ruby/struct:SM::Flow::P 
+    body: "a.k.a. Partial Stub/Mock, a Test-Specific Extension is an extension of a real object in a system that is instrumented with test-double like behaviour in the context of a test. This technique is very common in Ruby because we often see class objects acting as global namespaces for methods. For example, in Rails:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  person = double(&quot;person&quot;)\n  Person.stub(:find) { person }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: In this case we're instrumenting Person to return the person object we've defined whenever it receives the <tt>find</tt> message. We can do this with any object in a system because RSpec adds the <tt>stub</tt> and <tt>should_receive</tt> methods to every object. When we use either, RSpec replaces the method we're stubbing or mocking with it's own test-double-like method. At the end of the example, RSpec verifies any message expectations, and then restores the original methods.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Expecting Arguments
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg).with(*args)\n  double.should_not_receive(:msg).with(*args)\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Argument Matchers
+  - !ruby/struct:SM::Flow::P 
+    body: "Arguments that are passed to #with are compared with actual arguments received using == by default. In cases in which you want to specify things about the arguments rather than the arguments themselves, you can use any of RSpec's Expression Matchers. They don't all make syntactic sense (they were primarily designed for use with RSpec::Expectations), but you are free to create your own custom RSpec::Matchers."
+  - !ruby/struct:SM::Flow::P 
+    body: "RSpec::Mocks does provide one additional Matcher method named #ducktype."
+  - !ruby/struct:SM::Flow::P 
+    body: "In addition, RSpec::Mocks adds some keyword Symbols that you can use to specify certain kinds of arguments:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg).with(no_args())\n  double.should_receive(:msg).with(any_args())\n  double.should_receive(:msg).with(1, kind_of(Numeric), &quot;b&quot;) #2nd argument can any kind of Numeric\n  double.should_receive(:msg).with(1, boolean(), &quot;b&quot;) #2nd argument can true or false\n  double.should_receive(:msg).with(1, /abc/, &quot;b&quot;) #2nd argument can be any String matching the submitted Regexp\n  double.should_receive(:msg).with(1, anything(), &quot;b&quot;) #2nd argument can be anything at all\n  double.should_receive(:msg).with(1, ducktype(:abs, :div), &quot;b&quot;)\n                           #2nd argument can be object that responds to #abs and #div\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Receive Counts
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg).once\n  double.should_receive(:msg).twice\n  double.should_receive(:msg).exactly(n).times\n  double.should_receive(:msg).at_least(:once)\n  double.should_receive(:msg).at_least(:twice)\n  double.should_receive(:msg).at_least(n).times\n  double.should_receive(:msg).at_most(:once)\n  double.should_receive(:msg).at_most(:twice)\n  double.should_receive(:msg).at_most(n).times\n  double.should_receive(:msg).any_number_of_times\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Ordering
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg).ordered\n  double.should_receive(:other_msg).ordered\n    #This will fail if the messages are received out of order\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Setting Reponses
+  - !ruby/struct:SM::Flow::P 
+    body: "Whether you are setting a message expectation or a method stub, you can tell the object precisely how to respond. The most generic way is to pass a block to <tt>stub</tt> or <tt>should_receive</tt>:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg) { value }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: When the double receives the <tt>msg</tt> message, it evaluates the block and returns the result.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg).and_return(value)\n  double.should_receive(:msg).exactly(3).times.and_return(value1, value2, value3)\n    # returns value1 the first time, value2 the second, etc\n  double.should_receive(:msg).and_raise(error)\n    #error can be an instantiated object or a class\n    #if it is a class, it must be instantiable with no args\n  double.should_receive(:msg).and_throw(:msg)\n  double.should_receive(:msg).and_yield(values,to,yield)\n  double.should_receive(:msg).and_yield(values,to,yield).and_yield(some,other,values,this,time)\n    # for methods that yield to a block multiple times\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Any of these responses can be applied to a stub as well
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.stub(:msg).and_return(value)\n  double.stub(:msg).and_return(value1, value2, value3)\n  double.stub(:msg).and_raise(error)\n  double.stub(:msg).and_throw(:msg)\n  double.stub(:msg).and_yield(values,to,yield)\n  double.stub(:msg).and_yield(values,to,yield).and_yield(some,other,values,this,time)\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Arbitrary Handling
+  - !ruby/struct:SM::Flow::P 
+    body: "Once in a while you'll find that the available expectations don't solve the particular problem you are trying to solve. Imagine that you expect the message to come with an Array argument that has a specific length, but you don't care what is in it. You could do this:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:msg) do |arg|\n    arg.should be_an_istance_of(Array)\n    arg.length.should == 7\n  end\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Combining Expectation Details
+  - !ruby/struct:SM::Flow::P 
+    body: "Combining the message name with specific arguments, receive counts and responses you can get quite a bit of detail in your expectations:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  double.should_receive(:&lt;&lt;).with(&quot;illegal value&quot;).once.and_raise(ArgumentError)\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Further Reading
+  - !ruby/struct:SM::Flow::P 
+    body: "There are many different viewpoints about the meaning of mocks and stubs. If you are interested in learning more, here is some recommended reading:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "Mock Objects: http://www.mockobjects.com/"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "Endo-Testing: http://www.mockobjects.com/files/endotesting.pdf"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "Mock Roles, Not Objects: http://www.mockobjects.com/files/mockrolesnotobjects.pdf"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "Test Double Patterns: http://xunitpatterns.com/Test%20Double%20Patterns.html"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "Mocks aren't stubs: http://www.martinfowler.com/articles/mocksArentStubs.html"
+    type: :BULLET
+constants: []
+
+full_name: RSpec::Mocks
+includes: []
+
+instance_methods: []
+
+name: Mocks
+superclass: 

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::WireProtocol#diff_failed
+is_singleton: false
+name: diff_failed
+params: ()
+visibility: public

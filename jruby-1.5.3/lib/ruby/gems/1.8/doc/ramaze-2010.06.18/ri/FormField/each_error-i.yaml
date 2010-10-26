@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "TODO: suggest 'validated?' feature to sequel"
+full_name: FormField#each_error
+is_singleton: false
+name: each_error
+params: (&block)
+visibility: public

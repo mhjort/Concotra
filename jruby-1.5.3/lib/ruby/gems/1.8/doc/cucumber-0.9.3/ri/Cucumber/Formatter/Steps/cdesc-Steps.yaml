@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The formatter used for <tt>--format steps</tt>
+constants: []
+
+full_name: Cucumber::Formatter::Steps
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: after_features
+name: Steps
+superclass: Object

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>expanded_args_without_drb (Cucumber::Cli)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/cli/options.rb, line 77</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">expanded_args_without_drb</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@expanded_args_without_drb</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@expanded_args_without_drb</span>
+        <span class="ruby-ivar">@expanded_args_without_drb</span> = (
+          <span class="ruby-identifier">previous_flag_was_profile</span> = <span class="ruby-keyword kw">false</span>
+          <span class="ruby-ivar">@expanded_args</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">previous_flag_was_profile</span>
+              <span class="ruby-identifier">previous_flag_was_profile</span> = <span class="ruby-keyword kw">false</span>
+              <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">if</span> [<span class="ruby-constant">PROFILE_SHORT_FLAG</span>, <span class="ruby-constant">PROFILE_LONG_FLAG</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">arg</span>)
+              <span class="ruby-identifier">previous_flag_was_profile</span> = <span class="ruby-keyword kw">true</span>
+              <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">arg</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DRB_FLAG</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@overridden_paths</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">arg</span>)
+          <span class="ruby-keyword kw">end</span>
+        )
+
+        <span class="ruby-ivar">@expanded_args_without_drb</span>.<span class="ruby-identifier">push</span>(<span class="ruby-value str">&quot;--no-profile&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@expanded_args_without_drb</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">NO_PROFILE_LONG_FLAG</span>) <span class="ruby-operator">||</span> <span class="ruby-ivar">@expanded_args_without_drb</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">NO_PROFILE_SHORT_FLAG</span>)
+        <span class="ruby-ivar">@expanded_args_without_drb</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Format a floating number nicely for display.
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  number_format(123.123)           # =&gt; '123.123'\n  number_format(123456.12345)      # =&gt; '123,456.12345'\n  number_format(123456.12345, '.') # =&gt; '123.456,12345'\n"
+full_name: Ramaze::Helper::Formatting#number_format
+is_singleton: false
+name: number_format
+params: (n, delimiter = ',')
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: easy helper to pull out where we were redirected to
+full_name: Webrat::Session#redirected_to
+is_singleton: false
+name: redirected_to
+params: ()
+visibility: public

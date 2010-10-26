@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::JsSupport::JsHook::new
+is_singleton: true
+name: new
+params: (js_language, tag_expressions, js_function)
+visibility: public

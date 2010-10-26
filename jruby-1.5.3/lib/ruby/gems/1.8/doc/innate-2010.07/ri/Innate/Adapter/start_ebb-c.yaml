@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Due to buggy autoload on Ruby 1.8 we have to require 'ebb' manually. This most likely happens because autoload doesn't respect the require of rubygems and uses the C require directly.
+full_name: Innate::Adapter::start_ebb
+is_singleton: true
+name: start_ebb
+params: (app, config)
+visibility: public

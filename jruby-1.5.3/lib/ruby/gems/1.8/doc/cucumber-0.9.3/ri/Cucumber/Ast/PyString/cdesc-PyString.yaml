@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Represents an inline argument in a step. Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Given the message\n    &quot;&quot;&quot;\n    I like\n    Cucumber sandwich\n    &quot;&quot;&quot;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: The text between the pair of <tt>&quot;&quot;&quot;</tt> is stored inside a PyString, which is yielded to the StepDefinition block as the last argument.
+  - !ruby/struct:SM::Flow::P 
+    body: "The StepDefinition can then access the String via the #to_s method. In the example above, that would return: <tt>&quot;I like\\nCucumber sandwich&quot;</tt>"
+  - !ruby/struct:SM::Flow::P 
+    body: Note how the indentation from the source is stripped away.
+constants: []
+
+full_name: Cucumber::Ast::PyString
+includes: []
+
+instance_methods: []
+
+name: PyString
+superclass: Object

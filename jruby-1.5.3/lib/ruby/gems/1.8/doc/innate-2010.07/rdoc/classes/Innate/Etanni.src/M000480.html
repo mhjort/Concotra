@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>compile (Innate::Etanni)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/innate/view/etanni.rb, line 28</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compile</span>(<span class="ruby-identifier">filename</span> = <span class="ruby-ivar">@filename</span>)
+      <span class="ruby-identifier">temp</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">strip</span>
+      <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/&lt;\?r\s+(.*?)\s+\?&gt;/</span><span class="ruby-identifier">m</span>, <span class="ruby-constant">REPLACEMENT</span>)
+      <span class="ruby-ivar">@compiled</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;Proc.new{ _out_ = [#{CHOMP}]\n#{temp}#{STOP}_out_.join }&quot;</span>,
+        <span class="ruby-keyword kw">nil</span>, <span class="ruby-ivar">@filename</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

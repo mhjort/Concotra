@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>call (Ramaze::View::Nagoro)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/view/nagoro.rb, line 24</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">string</span>)
+        <span class="ruby-identifier">default_options</span> = {
+          <span class="ruby-identifier">:pipes</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">pipes</span>,
+          <span class="ruby-identifier">:filename</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">view</span>,
+          <span class="ruby-identifier">:binding</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">binding</span>,
+          <span class="ruby-identifier">:variables</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">variables</span>
+        }
+
+        <span class="ruby-identifier">render_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">action</span>.<span class="ruby-identifier">options</span>)
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">tidy</span>
+          <span class="ruby-identifier">html</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Nagoro</span>.<span class="ruby-identifier">tidy_render</span>(<span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">render_options</span>)
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">html</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Nagoro</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">render_options</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">html</span>, <span class="ruby-value str">'text/html'</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

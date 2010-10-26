@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>is_running? (Ramaze::Tool::Bin::Helpers)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/tool/bin.rb, line 70</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_running?</span>(<span class="ruby-identifier">pid</span>) <span class="ruby-comment cmt"># {{{</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">is_windows?</span>
+            <span class="ruby-identifier">wmi</span> = <span class="ruby-constant">WIN32OLE</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-value str">&quot;winmgmts://&quot;</span>)
+            <span class="ruby-identifier">processes</span>, <span class="ruby-identifier">ours</span> = <span class="ruby-identifier">wmi</span>.<span class="ruby-constant">ExecQuery</span>(<span class="ruby-node">&quot;select * from win32_process where ProcessId = #{pid}&quot;</span>), []
+            <span class="ruby-identifier">processes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">process</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ours</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">process</span>.<span class="ruby-constant">Name</span> }
+            <span class="ruby-identifier">ours</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-keyword kw">begin</span>
+              <span class="ruby-identifier">prio</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">getpriority</span>(<span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-constant">PRIO_PROCESS</span>, <span class="ruby-identifier">pid</span>)
+              <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ESRCH</span>
+              <span class="ruby-keyword kw">false</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

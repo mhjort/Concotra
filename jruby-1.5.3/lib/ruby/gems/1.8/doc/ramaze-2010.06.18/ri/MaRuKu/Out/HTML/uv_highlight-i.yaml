@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MaRuKu::Out::HTML#uv_highlight
+is_singleton: false
+name: uv_highlight
+params: (source, lang, style)
+visibility: public

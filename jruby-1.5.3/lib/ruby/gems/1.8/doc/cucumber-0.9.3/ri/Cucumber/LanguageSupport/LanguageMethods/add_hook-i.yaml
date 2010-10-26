@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::LanguageSupport::LanguageMethods#add_hook
+is_singleton: false
+name: add_hook
+params: (phase, hook)
+visibility: public

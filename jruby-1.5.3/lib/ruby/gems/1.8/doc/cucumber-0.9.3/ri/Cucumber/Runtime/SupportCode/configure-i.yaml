@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Runtime::SupportCode#configure
+is_singleton: false
+name: configure
+params: (new_configuration)
+visibility: public

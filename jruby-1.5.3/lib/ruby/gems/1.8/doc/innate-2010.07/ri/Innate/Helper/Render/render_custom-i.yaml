@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (action)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api internal @author manveru"
+full_name: Innate::Helper::Render#render_custom
+is_singleton: false
+name: render_custom
+params: (action_name, variables = {}) {|action| ...}
+visibility: public

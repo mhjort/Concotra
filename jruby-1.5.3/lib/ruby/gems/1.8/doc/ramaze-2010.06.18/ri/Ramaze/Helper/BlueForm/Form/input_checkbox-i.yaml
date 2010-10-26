@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: checkbox
+block_params: 
+comment: 
+full_name: Ramaze::Helper::BlueForm::Form#input_checkbox
+is_singleton: false
+name: input_checkbox
+params: (label, name, checked = false)
+visibility: public

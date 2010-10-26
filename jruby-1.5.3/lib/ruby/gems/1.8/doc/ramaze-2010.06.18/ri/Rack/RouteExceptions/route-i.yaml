@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::RouteExceptions#route
+is_singleton: false
+name: route
+params: (to, env, exception)
+visibility: public

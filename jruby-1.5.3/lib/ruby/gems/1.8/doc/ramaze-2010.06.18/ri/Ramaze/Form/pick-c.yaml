@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "TODO:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  How <em>elegant</em> ...\n  Tries to find the right module for extending the Form instance.\n  It's problematic since the boundaries of what an model instance or model\n  class looks like is very fuzzy, also a problem is that the ORM may not be\n  available/required.\n\n  Maybe we can abstract that a bit by going through an array of procs for\n  testing?\n"
+full_name: Ramaze::Form::pick
+is_singleton: true
+name: pick
+params: (object, options = {})
+visibility: public

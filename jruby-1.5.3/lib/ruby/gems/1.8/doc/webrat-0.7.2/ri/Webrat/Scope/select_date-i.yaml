@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Verifies that date elements (year, month, day) exist on the current page with the specified values. You can optionally restrict the search to a specific date's elements by assigning <tt>options[:from]</tt> the value of the date's label. Selects all the date elements with date provided. The date provided may be a string or a Date/Time object.
+  - !ruby/struct:SM::Flow::P 
+    body: Rail's convention is used for detecting the date elements. All elements are assumed to have a shared prefix. You may also specify the prefix by assigning <tt>options[:id_prefix]</tt>.
+  - !ruby/struct:SM::Flow::P 
+    body: "Examples:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  select_date &quot;January 23, 2004&quot;\n  select_date &quot;April 26, 1982&quot;, :from =&gt; &quot;Birthday&quot;\n  select_date Date.parse(&quot;December 25, 2000&quot;), :from =&gt; &quot;Event&quot;\n  select_date &quot;April 26, 1982&quot;, :id_prefix =&gt; 'birthday'\n"
+full_name: Webrat::Scope#select_date
+is_singleton: false
+name: select_date
+params: (date_to_select, options ={})
+visibility: public

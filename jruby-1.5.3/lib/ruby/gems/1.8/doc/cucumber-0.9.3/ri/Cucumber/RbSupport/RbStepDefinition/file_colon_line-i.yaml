@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::RbSupport::RbStepDefinition#file_colon_line
+is_singleton: false
+name: file_colon_line
+params: ()
+visibility: public

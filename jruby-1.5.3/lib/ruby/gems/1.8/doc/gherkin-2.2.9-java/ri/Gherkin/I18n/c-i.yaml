@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::I18n#c
+is_singleton: false
+name: c
+params: (listener)
+visibility: public

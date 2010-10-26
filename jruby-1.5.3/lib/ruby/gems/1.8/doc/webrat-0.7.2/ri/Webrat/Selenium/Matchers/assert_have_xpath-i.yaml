@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Selenium::Matchers#assert_have_xpath
+is_singleton: false
+name: assert_have_xpath
+params: (expected)
+visibility: public

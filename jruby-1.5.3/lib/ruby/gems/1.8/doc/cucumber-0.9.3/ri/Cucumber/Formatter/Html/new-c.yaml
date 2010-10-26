@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html::new
+is_singleton: true
+name: new
+params: (step_mother, path_or_io, options)
+visibility: public

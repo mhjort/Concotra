@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Combine Innate.options.views with either the `ancestral_trait[:views]` or the {Node#mapping} if the trait yields an empty Array.
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array&lt;String&gt;, Array&lt;Array&lt;String&gt;&gt;]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see {Node#map_views} @author manveru"
+full_name: Innate::Node#view_mappings
+is_singleton: false
+name: view_mappings
+params: ()
+visibility: public

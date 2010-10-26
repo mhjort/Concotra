@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: boot
+comment: 
+constants: []
+
+full_name: Webrat::Selenium::SeleniumRCServer
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Webrat::Selenium::SilenceStream
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: boot
+  - !ruby/object:RI::MethodSummary 
+    name: fail
+  - !ruby/object:RI::MethodSummary 
+    name: jar_path
+  - !ruby/object:RI::MethodSummary 
+    name: remote_control
+  - !ruby/object:RI::MethodSummary 
+    name: selenium_grid?
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: stop
+  - !ruby/object:RI::MethodSummary 
+    name: stop_at_exit
+  - !ruby/object:RI::MethodSummary 
+    name: wait
+  - !ruby/object:RI::MethodSummary 
+    name: wait_for_socket
+name: SeleniumRCServer
+superclass: Object

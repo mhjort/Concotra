@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Autotest::CucumberMixin#make_cucumber_cmd
+is_singleton: false
+name: make_cucumber_cmd
+params: (features_to_run, dirty_features_filename)
+visibility: public

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>select_date (Webrat::Scope)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/webrat/core/scope.rb, line 154</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select_date</span>(<span class="ruby-identifier">date_to_select</span>, <span class="ruby-identifier">options</span> ={})
+      <span class="ruby-identifier">date</span> = <span class="ruby-identifier">date_to_select</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Date</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">date_to_select</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>) <span class="ruby-operator">?</span>
+                <span class="ruby-identifier">date_to_select</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">date_to_select</span>)
+
+      <span class="ruby-identifier">id_prefix</span> = <span class="ruby-identifier">locate_id_prefix</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">year_field</span> = <span class="ruby-constant">FieldByIdLocator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@session</span>, <span class="ruby-identifier">dom</span>, <span class="ruby-node">/(.*?)_#{DATE_TIME_SUFFIXES[:year]}$/</span>).<span class="ruby-identifier">locate</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotFoundError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;No date fields were found&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">year_field</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">year_field</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/(.*?)_1i/</span>
+        <span class="ruby-identifier">$1</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">select</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span>, <span class="ruby-identifier">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{id_prefix}_#{DATE_TIME_SUFFIXES[:year]}&quot;</span>
+      <span class="ruby-identifier">select</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%B'</span>), <span class="ruby-identifier">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{id_prefix}_#{DATE_TIME_SUFFIXES[:month]}&quot;</span>
+      <span class="ruby-identifier">select</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>, <span class="ruby-identifier">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{id_prefix}_#{DATE_TIME_SUFFIXES[:day]}&quot;</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: file_colon_line
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: regexp_source
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::WireSupport::WireStepDefinition
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: invoke
+name: WireStepDefinition
+superclass: Object

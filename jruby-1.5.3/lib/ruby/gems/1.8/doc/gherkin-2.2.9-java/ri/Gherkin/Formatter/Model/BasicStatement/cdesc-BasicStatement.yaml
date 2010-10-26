@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: comments
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: keyword
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: line
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: name
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Gherkin::Formatter::Model::BasicStatement
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: first_non_comment_line
+  - !ruby/object:RI::MethodSummary 
+    name: line_range
+name: BasicStatement
+superclass: Hashable

@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Adapter to make #puts/#print/#flush work with win32console"
+constants: []
+
+full_name: Cucumber::Formatter::ColorIO
+includes: []
+
+instance_methods: []
+
+name: ColorIO
+superclass: Object

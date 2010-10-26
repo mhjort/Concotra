@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::RbSupport::RegexpArgumentMatcher::arguments_from
+is_singleton: true
+name: arguments_from
+params: (regexp, step_name)
+visibility: public

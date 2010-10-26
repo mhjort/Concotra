@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: scenario
+comment: 
+full_name: Cucumber::Runtime#with_hooks
+is_singleton: false
+name: with_hooks
+params: (scenario, skip_hooks=false) {|scenario| ...}
+visibility: public

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>share_as (RSpec::Core::SharedExampleGroup)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/shared_example_group.rb, line 10</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">share_as</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">name</span>)
+          <span class="ruby-identifier">mod</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
+          <span class="ruby-identifier">raise_name_error</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">created_from_caller</span>(<span class="ruby-identifier">caller</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">mod</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-ivar">@shared_block</span> = <span class="ruby-identifier">block</span>
+          <span class="ruby-ivar">@caller_line</span> = <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">last</span>
+
+          <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">created_from_caller</span>(<span class="ruby-identifier">other_caller</span>)
+            <span class="ruby-ivar">@caller_line</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other_caller</span>.<span class="ruby-identifier">last</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">kls</span>)
+            <span class="ruby-identifier">kls</span>.<span class="ruby-identifier">describe</span>(<span class="ruby-operator">&amp;</span><span class="ruby-ivar">@shared_block</span>)
+            <span class="ruby-identifier">kls</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">metadata</span>[<span class="ruby-identifier">:shared_group_name</span>] = <span class="ruby-identifier">name</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">shared_const</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">mod</span>)
+        <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">world</span>.<span class="ruby-identifier">shared_example_groups</span>[<span class="ruby-identifier">shared_const</span>] = <span class="ruby-identifier">block</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

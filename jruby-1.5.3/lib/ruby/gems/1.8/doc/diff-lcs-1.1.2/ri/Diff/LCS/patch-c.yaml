@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Given a patchset, convert the current version to the new version. If <tt>direction</tt> is not specified (must be <tt>:patch</tt> or <tt>:unpatch</tt>), then discovery of the direction of the patch will be attempted.
+full_name: Diff::LCS::patch
+is_singleton: true
+name: patch
+params: (src, patchset, direction = nil)
+visibility: public

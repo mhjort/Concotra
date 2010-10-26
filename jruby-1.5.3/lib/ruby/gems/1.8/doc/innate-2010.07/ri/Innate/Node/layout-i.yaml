@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Define a layout to use on this Node.
+  - !ruby/struct:SM::Flow::P 
+    body: A Node can only have one layout, although the template being chosen can depend on {provides}.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String, #to_s] name basename without extension of the layout to use @param [Proc, #call] block called on every dispatch if no name given"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Proc, String] The assigned name or block"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Node#find_layout Node#layout_paths Node#to_layout Node#app_layout @author manveru"
+  - !ruby/struct:SM::Flow::P 
+    body: "NOTE:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  The behaviour of Node#layout changed significantly from Ramaze, instead\n  of multitudes of obscure options and methods like deny_layout we simply\n  take a block and use the returned value as the name for the layout. No\n  layout will be used if the block returns nil.\n"
+full_name: Innate::Node#layout
+is_singleton: false
+name: layout
+params: (layout_name = nil, &block)
+visibility: public

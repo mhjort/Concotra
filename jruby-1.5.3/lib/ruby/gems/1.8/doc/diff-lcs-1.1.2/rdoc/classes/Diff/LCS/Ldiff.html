@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Diff::LCS::Ldiff</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Diff::LCS::Ldiff</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/diff/lcs/ldiff_rb.html">
+                lib/diff/lcs/ldiff.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>ldiff Usage</h2>
+<pre>
+  ldiff [options] oldfile newfile
+</pre>
+<table>
+<tr><td valign="top">-c:</td><td>Displays a context diff with 3 lines of context.
+
+</td></tr>
+<tr><td valign="top">-C [LINES], &#8212;context [LINES]:</td><td>Displays a context diff with LINES lines of context. Default 3 lines.
+
+</td></tr>
+<tr><td valign="top">-u:</td><td>Displays a unified diff with 3 lines of context.
+
+</td></tr>
+<tr><td valign="top">-U [LINES], &#8212;unified [LINES]:</td><td>Displays a unified diff with LINES lines of context. Default 3 lines.
+
+</td></tr>
+<tr><td valign="top">-e:</td><td>Creates an &#8216;ed&#8217; script to change oldfile to newfile.
+
+</td></tr>
+<tr><td valign="top">-f:</td><td>Creates an &#8216;ed&#8217; script to change oldfile to newfile in reverse
+order.
+
+</td></tr>
+<tr><td valign="top">-a, &#8212;text:</td><td>Treats the files as text and compares them line-by-line, even if they do
+not seem to be text.
+
+</td></tr>
+<tr><td valign="top">&#8212;binary:</td><td>Treats the files as binary.
+
+</td></tr>
+<tr><td valign="top">-q, &#8212;brief:</td><td>Reports only whether or not the files differ, not the details.
+
+</td></tr>
+<tr><td valign="top">&#8212;help:</td><td>Shows the command-line help.
+
+</td></tr>
+<tr><td valign="top">&#8212;version:</td><td>Shows the version of <a href="../LCS.html">Diff::LCS</a>.
+
+</td></tr>
+</table>
+<p>
+By default, runs produces an &quot;old-style&quot; diff, with output like
+UNIX diff.
+</p>
+<h2>Copyright</h2>
+<p>
+Copyright &amp;copy; 2004 Austin Ziegler
+</p>
+<pre>
+  Part of Diff::LCS &lt;http://rubyforge.org/projects/ruwiki/&gt;
+  Austin Ziegler &lt;diff-lcs@halostatue.ca&gt;
+</pre>
+<p>
+This program is free software. It may be redistributed and/or modified
+under the terms of the GPL version 2 (or later), the Perl Artistic licence,
+or the Ruby licence.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">BANNER</td>
+          <td>=</td>
+          <td class="context-item-value">&lt;&lt;-COPYRIGHT ldiff #{Diff::LCS::VERSION}   Copyright © 2004 Austin Ziegler    Part of Diff::LCS.   http://rubyforge.org/projects/ruwiki/    Austin Ziegler &lt;diff-lcs@halostatue.ca&gt;    This program is free software. It may be redistributed and/or modified under   the terms of the GPL version 2 (or later), the Perl Artistic licence, or the   Ruby licence.  $Id: ldiff.rb,v 1.1 2004/09/26 01:37:49 austin Exp $               COPYRIGHT</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

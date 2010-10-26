@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Default application for Innate
+full_name: Innate::MiddlewareCompiler#innate
+is_singleton: false
+name: innate
+params: (app = Innate::DynaMap, options = Innate.options)
+visibility: public

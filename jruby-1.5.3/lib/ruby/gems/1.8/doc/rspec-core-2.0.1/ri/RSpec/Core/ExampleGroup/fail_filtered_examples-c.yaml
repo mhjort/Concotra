@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::ExampleGroup::fail_filtered_examples
+is_singleton: true
+name: fail_filtered_examples
+params: (exception, reporter)
+visibility: public

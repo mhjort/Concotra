@@ -1,0 +1,26 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Renders the full action in the way a real request would.
+  - !ruby/struct:SM::Flow::P 
+    body: Please be aware that, if this is the first request from a client, you will not have access to the session in the action being rendered, as no actual session has been put into place yet.
+  - !ruby/struct:SM::Flow::P 
+    body: It should work as expected on any subsequent requests.
+  - !ruby/struct:SM::Flow::P 
+    body: As usual, patches welcome.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  render_full('/blog/article/1')\n  render_full('/blog/article/1', :lang =&gt; :de)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Please note that you have to give the full path in the same way you'd do in a direct request with curl or a browser.
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Mock.session @author manveru"
+full_name: Innate::Helper::Render#render_full
+is_singleton: false
+name: render_full
+params: (path, query = {})
+visibility: public

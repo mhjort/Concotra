@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Initialize the parser. <tt>machine_name</tt> refers to a state machine table.
+full_name: Gherkin::Parser::Parser::new
+is_singleton: true
+name: new
+params: (formatter, raise_on_error=true, machine_name='root', force_ruby=false)
+visibility: public

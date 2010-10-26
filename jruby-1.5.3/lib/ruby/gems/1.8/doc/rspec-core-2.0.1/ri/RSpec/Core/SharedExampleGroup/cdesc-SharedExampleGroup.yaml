@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: created_from_caller
+  - !ruby/object:RI::MethodSummary 
+    name: included
+comment: 
+constants: []
+
+full_name: RSpec::Core::SharedExampleGroup
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: share_as
+  - !ruby/object:RI::MethodSummary 
+    name: share_examples_for
+  - !ruby/object:RI::MethodSummary 
+    name: shared_examples_for
+name: SharedExampleGroup
+superclass: 

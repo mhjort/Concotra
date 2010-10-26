@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Usage#before_step_result
+is_singleton: false
+name: before_step_result
+params: (*args)
+visibility: public

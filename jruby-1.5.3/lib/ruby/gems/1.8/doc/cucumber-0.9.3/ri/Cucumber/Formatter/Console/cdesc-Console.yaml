@@ -1,0 +1,52 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This module contains helper methods that are used by formatters that print output to the terminal.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FORMATS
+    value: Hash.new{|hash, format| hash[format] = method(format).to_proc}
+full_name: Cucumber::Formatter::Console
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Duration
+  - !ruby/object:RI::IncludedModule 
+    name: Summary
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: announce
+  - !ruby/object:RI::MethodSummary 
+    name: embed
+  - !ruby/object:RI::MethodSummary 
+    name: empty_announcements
+  - !ruby/object:RI::MethodSummary 
+    name: format_step
+  - !ruby/object:RI::MethodSummary 
+    name: format_string
+  - !ruby/object:RI::MethodSummary 
+    name: print_announcement
+  - !ruby/object:RI::MethodSummary 
+    name: print_announcements
+  - !ruby/object:RI::MethodSummary 
+    name: print_counts
+  - !ruby/object:RI::MethodSummary 
+    name: print_elements
+  - !ruby/object:RI::MethodSummary 
+    name: print_exception
+  - !ruby/object:RI::MethodSummary 
+    name: print_passing_wip
+  - !ruby/object:RI::MethodSummary 
+    name: print_snippets
+  - !ruby/object:RI::MethodSummary 
+    name: print_stats
+  - !ruby/object:RI::MethodSummary 
+    name: print_steps
+  - !ruby/object:RI::MethodSummary 
+    name: print_table_row_announcements
+name: Console
+superclass: 

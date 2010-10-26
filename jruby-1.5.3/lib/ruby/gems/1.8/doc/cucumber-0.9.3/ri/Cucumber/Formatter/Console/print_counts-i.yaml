@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Console#print_counts
+is_singleton: false
+name: print_counts
+params: ()
+visibility: public

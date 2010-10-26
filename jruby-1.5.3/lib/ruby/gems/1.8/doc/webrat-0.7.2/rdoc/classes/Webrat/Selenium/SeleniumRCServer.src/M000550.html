@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>stop (Webrat::Selenium::SeleniumRCServer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/webrat/selenium/selenium_rc_server.rb, line 78</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stop</span>
+        <span class="ruby-identifier">silence_stream</span>(<span class="ruby-constant">STDOUT</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-operator">::</span><span class="ruby-constant">Selenium</span><span class="ruby-operator">::</span><span class="ruby-constant">RemoteControl</span><span class="ruby-operator">::</span><span class="ruby-constant">RemoteControl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;0.0.0.0&quot;</span>,
+                                                       <span class="ruby-constant">Webrat</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">selenium_server_port</span>,
+                                                       <span class="ruby-identifier">:timeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>).<span class="ruby-identifier">stop</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

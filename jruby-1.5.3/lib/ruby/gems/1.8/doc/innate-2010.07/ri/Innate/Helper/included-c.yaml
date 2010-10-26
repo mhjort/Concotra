@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Usually called from Innate::Node::included We also include Innate::Trinity here, as it may be needed in models when you use helper methods there.
+full_name: Innate::Helper::included
+is_singleton: true
+name: included
+params: (into)
+visibility: public

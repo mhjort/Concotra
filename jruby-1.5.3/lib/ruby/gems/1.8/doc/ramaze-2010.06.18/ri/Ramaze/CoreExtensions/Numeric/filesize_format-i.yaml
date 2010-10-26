@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Output this number as easily readable filesize. Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  100_000.filesize_format             # =&gt; &quot;97.7K&quot;\n  100_000_000.filesize_format         # =&gt; &quot;95.4M&quot;\n  100_000_000_000.filesize_format     # =&gt; &quot;93.1G&quot;\n  100_000_000_000_000.filesize_format # =&gt; &quot;90.9T&quot;\n"
+full_name: Ramaze::CoreExtensions::Numeric#filesize_format
+is_singleton: false
+name: filesize_format
+params: ()
+visibility: public

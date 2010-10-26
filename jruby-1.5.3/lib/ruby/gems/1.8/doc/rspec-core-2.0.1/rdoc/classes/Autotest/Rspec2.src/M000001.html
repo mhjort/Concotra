@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Autotest::Rspec2)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/autotest/rspec2.rb, line 9</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+    <span class="ruby-keyword kw">super</span>
+    <span class="ruby-identifier">clear_mappings</span>
+    <span class="ruby-identifier">setup_rspec_project_mappings</span>
+
+    <span class="ruby-comment cmt"># Example for Ruby 1.8: http://rubular.com/r/AOXNVDrZpx</span>
+    <span class="ruby-comment cmt"># Example for Ruby 1.9: http://rubular.com/r/85ag5AZ2jP</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">failed_results_re</span> = <span class="ruby-regexp re">/^\s*\d+\).*\n\s+Failure.*(\n\s+#\s(.*)?:\d+(?::.*)?)+$/</span><span class="ruby-identifier">m</span>
+    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">completed_re</span> = <span class="ruby-regexp re">/\n(?:\e\[\d*m)?\d* examples?/</span><span class="ruby-identifier">m</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

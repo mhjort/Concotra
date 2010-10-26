@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Nokogiri::HTML::DocumentFragment)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/nokogiri/html/document_fragment.rb, line 15</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">document</span>, <span class="ruby-identifier">tags</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ctx</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">tags</span>
+
+        <span class="ruby-identifier">children</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ctx</span>
+                     <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;&lt;div&gt;#{tags.strip}&lt;/div&gt;&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">children</span>
+                   <span class="ruby-keyword kw">else</span>
+                     <span class="ruby-comment cmt">###</span>
+                     <span class="ruby-comment cmt"># This is a horrible hack, but I don't care</span>
+                     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^&lt;body/i</span>
+                       <span class="ruby-identifier">path</span> = <span class="ruby-value str">&quot;/html/body&quot;</span>
+                     <span class="ruby-keyword kw">else</span>
+                       <span class="ruby-identifier">path</span> = <span class="ruby-value str">&quot;/html/body/node()&quot;</span>
+                     <span class="ruby-keyword kw">end</span>
+
+                     <span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">parse</span>(
+                       <span class="ruby-node">&quot;&lt;html&gt;&lt;body&gt;#{tags.strip}&lt;/body&gt;&lt;/html&gt;&quot;</span>,
+                       <span class="ruby-keyword kw">nil</span>,
+                       <span class="ruby-identifier">document</span>.<span class="ruby-identifier">encoding</span>
+                     ).<span class="ruby-identifier">xpath</span>(<span class="ruby-identifier">path</span>)
+                   <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">parent</span> = <span class="ruby-keyword kw">self</span> }
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>unshift (Diff::LCS::Hunk)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/diff/lcs/hunk.rb, line 85</span>
+85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">hunk</span>)
+86:     <span class="ruby-ivar">@start_old</span> = <span class="ruby-identifier">hunk</span>.<span class="ruby-identifier">start_old</span>
+87:     <span class="ruby-ivar">@start_new</span> = <span class="ruby-identifier">hunk</span>.<span class="ruby-identifier">start_new</span>
+88:     <span class="ruby-identifier">blocks</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">hunk</span>.<span class="ruby-identifier">blocks</span>)
+89:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

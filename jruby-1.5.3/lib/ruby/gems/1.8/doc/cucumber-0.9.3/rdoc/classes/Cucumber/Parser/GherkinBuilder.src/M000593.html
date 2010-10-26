@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>background (Cucumber::Parser::GherkinBuilder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/parser/gherkin_builder.rb, line 27</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">background</span>(<span class="ruby-identifier">background</span>)
+        <span class="ruby-ivar">@background</span> = <span class="ruby-constant">Ast</span><span class="ruby-operator">::</span><span class="ruby-constant">Background</span>.<span class="ruby-identifier">new</span>(
+          <span class="ruby-constant">Ast</span><span class="ruby-operator">::</span><span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">background</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">comment</span><span class="ruby-operator">|</span> <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">value</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)), 
+          <span class="ruby-identifier">background</span>.<span class="ruby-identifier">line</span>, 
+          <span class="ruby-identifier">background</span>.<span class="ruby-identifier">keyword</span>, 
+          <span class="ruby-identifier">legacy_name_for</span>(<span class="ruby-identifier">background</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">background</span>.<span class="ruby-identifier">description</span>), 
+          <span class="ruby-identifier">steps</span>=[]
+        )
+        <span class="ruby-ivar">@feature</span>.<span class="ruby-identifier">background</span> = <span class="ruby-ivar">@background</span>
+        <span class="ruby-ivar">@background</span>.<span class="ruby-identifier">feature</span> = <span class="ruby-ivar">@feature</span>
+        <span class="ruby-ivar">@step_container</span> = <span class="ruby-ivar">@background</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

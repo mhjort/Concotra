@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::RbSupport::RbStepDefinition#regexp_source
+is_singleton: false
+name: regexp_source
+params: ()
+visibility: public

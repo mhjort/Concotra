@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Sets an &quot;X-Runtime&quot; response header, indicating the response time of the request, in seconds
+  - !ruby/struct:SM::Flow::P 
+    body: You can put it right before the application to see the processing time, or before all the other middlewares to include time for them, too.
+constants: []
+
+full_name: Rack::Runtime
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+name: Runtime
+superclass: Object

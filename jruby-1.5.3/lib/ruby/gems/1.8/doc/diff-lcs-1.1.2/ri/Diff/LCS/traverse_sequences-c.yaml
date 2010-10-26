@@ -1,0 +1,61 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: event if block_given?
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Diff::LCS.traverse_sequences is the most general facility provided by this module; <tt>diff</tt> and <tt>LCS</tt> are implemented as calls to it.
+  - !ruby/struct:SM::Flow::P 
+    body: "The arguments to #traverse_sequences are the two sequences to traverse, and a callback object, like this:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  traverse_sequences(seq1, seq2, Diff::LCS::ContextDiffCallbacks.new)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "#diff is implemented with #traverse_sequences."
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Callback Methods
+  - !ruby/struct:SM::Flow::P 
+    body: Optional callback methods are <em>emphasized</em>.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "callbacks#match:"
+        body: Called when <tt>a</tt> and <tt>b</tt> are pointing to common elements in <tt>A</tt> and <tt>B</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "callbacks#discard_a:"
+        body: Called when <tt>a</tt> is pointing to an element not in <tt>B</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "callbacks#discard_b:"
+        body: Called when <tt>b</tt> is pointing to an element not in <tt>A</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "<em>callbacks#finished_a</em>:"
+        body: Called when <tt>a</tt> has reached the end of sequence <tt>A</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "<em>callbacks#finished_b</em>:"
+        body: Called when <tt>b</tt> has reached the end of sequence <tt>B</tt>.
+    type: :NOTE
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Algorithm
+  - !ruby/struct:SM::Flow::VERB 
+    body: "      a---+\n          v\n      A = a b c e h j l m n p\n      B = b c d e f j k l m r s t\n          ^\n      b---+\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "If there are two arrows (<tt>a</tt> and <tt>b</tt>) pointing to elements of sequences <tt>A</tt> and <tt>B</tt>, the arrows will initially point to the first elements of their respective sequences. #traverse_sequences will advance the arrows through the sequences one element at a time, calling a method on the user-specified callback object before each advance. It will advance the arrows in such a way that if there are elements <tt>A[ii]</tt> and <tt>B[jj]</tt> which are both equal and part of the longest common subsequence, there will be some moment during the execution of #traverse_sequences when arrow <tt>a</tt> is pointing to <tt>A[ii]</tt> and arrow <tt>b</tt> is pointing to <tt>B[jj]</tt>. When this happens, #traverse_sequences will call <tt>callbacks#match</tt> and then it will advance both arrows."
+  - !ruby/struct:SM::Flow::P 
+    body: "Otherwise, one of the arrows is pointing to an element of its sequence that is not part of the longest common subsequence. #traverse_sequences will advance that arrow and will call <tt>callbacks#discard_a</tt> or <tt>callbacks#discard_b</tt>, depending on which arrow it advanced. If both arrows point to elements that are not part of the longest common subsequence, then #traverse_sequences will advance one of them and call the appropriate callback, but it is not specified which it will call."
+  - !ruby/struct:SM::Flow::P 
+    body: "The methods for <tt>callbacks#match</tt>, <tt>callbacks#discard_a</tt>, and <tt>callbacks#discard_b</tt> are invoked with an event comprising the action (&quot;=&quot;, &quot;+&quot;, or &quot;-&quot;, respectively), the indicies <tt>ii</tt> and <tt>jj</tt>, and the elements <tt>A[ii]</tt> and <tt>B[jj]</tt>. Return values are discarded by #traverse_sequences."
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: End of Sequences
+  - !ruby/struct:SM::Flow::P 
+    body: "If arrow <tt>a</tt> reaches the end of its sequence before arrow <tt>b</tt> does, #traverse_sequence try to call <tt>callbacks#finished_a</tt> with the last index and element of <tt>A</tt> (<tt>A[-1]</tt>) and the current index and element of <tt>B</tt> (<tt>B[jj]</tt>). If <tt>callbacks#finished_a</tt> does not exist, then <tt>callbacks#discard_b</tt> will be called on each element of <tt>B</tt> until the end of the sequence is reached (the call will be done with <tt>A[-1]</tt> and <tt>B[jj]</tt> for each element)."
+  - !ruby/struct:SM::Flow::P 
+    body: If <tt>b</tt> reaches the end of <tt>B</tt> before <tt>a</tt> reaches the end of <tt>A</tt>, <tt>callbacks#finished_b</tt> will be called with the current index and element of <tt>A</tt> (<tt>A[ii]</tt>) and the last index and element of <tt>B</tt> (<tt>A[-1]</tt>). Again, if <tt>callbacks#finished_b</tt> does not exist on the callback object, then <tt>callbacks#discard_a</tt> will be called on each element of <tt>A</tt> until the end of the sequence is reached (<tt>A[ii]</tt> and <tt>B[-1]</tt>).
+  - !ruby/struct:SM::Flow::P 
+    body: There is a chance that one additional <tt>callbacks#discard_a</tt> or <tt>callbacks#discard_b</tt> will be called after the end of the sequence is reached, if <tt>a</tt> has not yet reached the end of <tt>A</tt> or <tt>b</tt> has not yet reached the end of <tt>B</tt>.
+full_name: Diff::LCS::traverse_sequences
+is_singleton: true
+name: traverse_sequences
+params: (seq1, seq2, callbacks = Diff::LCS::SequenceCallbacks, &block) {|event if block_given?| ...}
+visibility: public

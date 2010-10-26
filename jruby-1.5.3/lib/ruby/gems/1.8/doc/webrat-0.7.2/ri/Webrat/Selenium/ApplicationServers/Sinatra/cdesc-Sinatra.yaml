@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Webrat::Selenium::ApplicationServers::Sinatra
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: fail
+  - !ruby/object:RI::MethodSummary 
+    name: pid_file
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: stop
+name: Sinatra
+superclass: Webrat::Selenium::ApplicationServers::Base

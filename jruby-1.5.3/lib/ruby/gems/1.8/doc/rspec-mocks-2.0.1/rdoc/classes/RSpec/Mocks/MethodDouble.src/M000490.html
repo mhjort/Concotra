@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>visibility (RSpec::Mocks::MethodDouble)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/mocks/method_double.rb, line 23</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">visibility</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Mock</span> <span class="ruby-operator">===</span> <span class="ruby-ivar">@object</span>
+          <span class="ruby-value str">'public'</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">object_singleton_class</span>.<span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-ivar">@method_name</span>)
+          <span class="ruby-value str">'private'</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">object_singleton_class</span>.<span class="ruby-identifier">protected_method_defined?</span>(<span class="ruby-ivar">@method_name</span>)
+          <span class="ruby-value str">'protected'</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-value str">'public'</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

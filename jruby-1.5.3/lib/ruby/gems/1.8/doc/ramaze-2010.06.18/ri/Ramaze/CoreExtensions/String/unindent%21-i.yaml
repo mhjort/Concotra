@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: ui!
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Destructive variant of undindent, replacing the String
+full_name: Ramaze::CoreExtensions::String#unindent!
+is_singleton: false
+name: unindent!
+params: ()
+visibility: public

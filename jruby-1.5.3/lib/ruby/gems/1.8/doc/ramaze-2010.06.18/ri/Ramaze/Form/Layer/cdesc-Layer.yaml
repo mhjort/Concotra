@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Here go all the layers that are extended for specific ORMs
+constants: []
+
+full_name: Ramaze::Form::Layer
+includes: []
+
+instance_methods: []
+
+name: Layer
+superclass: 

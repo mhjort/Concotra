@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>navigation (Ramaze::Helper::Paginate::Paginator)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/paginate.rb, line 105</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navigation</span>(<span class="ruby-identifier">limit</span> = <span class="ruby-value">8</span>)
+          <span class="ruby-identifier">g</span> = <span class="ruby-constant">Ramaze</span><span class="ruby-operator">::</span><span class="ruby-constant">Gestalt</span>.<span class="ruby-identifier">new</span>
+          <span class="ruby-identifier">g</span>.<span class="ruby-identifier">div</span> <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:pager</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">first_page?</span>
+              <span class="ruby-identifier">g</span>.<span class="ruby-identifier">span</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'first grey'</span>){ <span class="ruby-identifier">h</span>(<span class="ruby-value str">'&lt;&lt;'</span>) }
+              <span class="ruby-identifier">g</span>.<span class="ruby-identifier">span</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'previous grey'</span>){ <span class="ruby-identifier">h</span>(<span class="ruby-value str">'&lt;'</span>) }
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-value">1</span>, <span class="ruby-value str">'&lt;&lt;'</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:first</span>)
+              <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-identifier">prev_page</span>, <span class="ruby-value str">'&lt;'</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:previous</span>)
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">lower</span> = <span class="ruby-identifier">limit</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">current_page</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">limit</span>) <span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+            <span class="ruby-identifier">lower</span> = <span class="ruby-identifier">lower</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">lower</span>
+
+            (<span class="ruby-identifier">lower</span><span class="ruby-operator">...</span><span class="ruby-identifier">current_page</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-identifier">n</span>)
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-identifier">current_page</span>, <span class="ruby-identifier">current_page</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:current</span>)
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">last_page?</span>
+              <span class="ruby-identifier">g</span>.<span class="ruby-identifier">span</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'next grey'</span>){ <span class="ruby-identifier">h</span>(<span class="ruby-value str">'&gt;'</span>) }
+              <span class="ruby-identifier">g</span>.<span class="ruby-identifier">span</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'last grey'</span>){ <span class="ruby-identifier">h</span>(<span class="ruby-value str">'&gt;&gt;'</span>) }
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">next_page</span>
+              <span class="ruby-identifier">higher</span> = <span class="ruby-identifier">limit</span> <span class="ruby-value">? </span>(<span class="ruby-identifier">next_page</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">limit</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">page_count</span>
+              <span class="ruby-identifier">higher</span> = [<span class="ruby-identifier">higher</span>, <span class="ruby-identifier">page_count</span>].<span class="ruby-identifier">min</span>
+              (<span class="ruby-identifier">next_page</span><span class="ruby-operator">..</span><span class="ruby-identifier">higher</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-identifier">n</span>)
+              <span class="ruby-keyword kw">end</span>
+
+              <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-identifier">next_page</span>, <span class="ruby-value str">'&gt;'</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:next</span>)
+              <span class="ruby-identifier">link</span>(<span class="ruby-identifier">g</span>, <span class="ruby-identifier">page_count</span>, <span class="ruby-value str">'&gt;&gt;'</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:last</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">g</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

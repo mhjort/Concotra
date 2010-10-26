@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Holds hooks that are called before and after #cycle and #safe_load"
+constants: []
+
+full_name: Ramaze::Reloader::Hooks
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: after_cycle
+  - !ruby/object:RI::MethodSummary 
+    name: after_safe_load
+  - !ruby/object:RI::MethodSummary 
+    name: after_safe_load_failed
+  - !ruby/object:RI::MethodSummary 
+    name: after_safe_load_succeed
+  - !ruby/object:RI::MethodSummary 
+    name: before_cycle
+  - !ruby/object:RI::MethodSummary 
+    name: before_safe_load
+name: Hooks
+superclass: 

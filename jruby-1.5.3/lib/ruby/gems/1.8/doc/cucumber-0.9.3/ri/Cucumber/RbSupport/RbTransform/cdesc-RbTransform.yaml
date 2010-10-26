@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A Ruby Transform holds a Regexp and a Proc, and is created by calling <tt>Transform in the &lt;tt&gt;support</tt> ruby files. See also RbDsl.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Transform /^(\\d+) cucumbers$/ do |cucumbers_string|\n    cucumbers_string.to_i\n  end\n"
+constants: []
+
+full_name: Cucumber::RbSupport::RbTransform
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: invoke
+  - !ruby/object:RI::MethodSummary 
+    name: match
+name: RbTransform
+superclass: Object

@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: included
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Provides wrapper methods for a higher-level approach than the core layout method. These are useful for simpler layout needs, particularly:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: layout all actions
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: layout a whitelist of actions
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: layout all but a blacklist of actions
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: As with the core layout method, the layout rules apply only to the controller on which they are applied. Furthermore, multiple layout definitions are not combined; only the last definition will be used.
+  - !ruby/struct:SM::Flow::P 
+    body: This helper is one of the default helpers, so no explicit helper call is necessary before using it in your controllers.
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   class MainController &lt; Controller\n     # Apply the default layout (e.g. ./layout/default.xhtml) to all\n     # three actions.\n     set_layout 'default'\n     def action1; end\n     def action2; end\n     def action3; end\n   end\n\n   class MainController &lt; Controller\n     # These two layout definitions accomplish the same thing.  The\n     # first uses a whitelist, the second uses a blacklist.\n     set_layout 'default' =&gt; [:laid_out1, :laid_out2]\n     set_layout_except 'default' =&gt; [:not_laid_out1, :not_laid_out2]\n\n     def laid_out1; end\n     def laid_out2; end\n\n     def not_laid_out1; end\n     def not_laid_out2; end\n   end\n"
+constants: []
+
+full_name: Ramaze::Helper::Layout
+includes: []
+
+instance_methods: []
+
+name: Layout
+superclass: 

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Configuration#autoload_code_paths
+is_singleton: false
+name: autoload_code_paths
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: trait for self.class if we are an instance
+full_name: Innate::Traited#class_trait
+is_singleton: false
+name: class_trait
+params: ()
+visibility: public

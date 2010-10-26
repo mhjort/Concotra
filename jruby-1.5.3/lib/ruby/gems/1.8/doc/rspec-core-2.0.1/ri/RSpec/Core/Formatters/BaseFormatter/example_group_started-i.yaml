@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This method is invoked at the beginning of the execution of each example group. <tt>example_group</tt> is the example_group.
+  - !ruby/struct:SM::Flow::P 
+    body: The next method to be invoked after this is <tt>example_passed</tt>, <tt>example_pending</tt>, or <tt>example_finished</tt>
+full_name: RSpec::Core::Formatters::BaseFormatter#example_group_started
+is_singleton: false
+name: example_group_started
+params: (example_group)
+visibility: public

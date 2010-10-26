@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: u
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Shortcut for Rack::Utils.escape
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [#to_s] input @return [String] URI-encoded representation of <tt>input</tt>"
+full_name: Innate::Helper::CGI#url_encode
+is_singleton: false
+name: url_encode
+params: (input)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::JsSupport::JsLanguage#current_world
+is_singleton: false
+name: current_world
+params: ()
+visibility: public

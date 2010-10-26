@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html#embed
+is_singleton: false
+name: embed
+params: (file, mime_type)
+visibility: public

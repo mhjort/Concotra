@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cucumber::Ast::StepInvocation
+includes: []
+
+instance_methods: []
+
+name: StepInvocation
+superclass: Object

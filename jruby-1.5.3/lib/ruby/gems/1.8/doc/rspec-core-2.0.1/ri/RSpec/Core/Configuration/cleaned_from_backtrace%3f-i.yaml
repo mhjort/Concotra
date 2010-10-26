@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#cleaned_from_backtrace?
+is_singleton: false
+name: cleaned_from_backtrace?
+params: (line)
+visibility: public

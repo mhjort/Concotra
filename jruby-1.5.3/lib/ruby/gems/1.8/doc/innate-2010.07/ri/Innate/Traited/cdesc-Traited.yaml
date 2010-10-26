@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: included
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Traited helps you doing configuration similar to class variables.
+  - !ruby/struct:SM::Flow::P 
+    body: It's built on a simple Hash, where keys are objects and the values the configuration. By using {Traited#ancestral_trait} you will get nicely inherited configuration, where keys later in the ancestors will take precedence.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class Foo\n    include Innate::Traited\n    trait :hello =&gt; 'Hello'\n\n    def initialize\n      trait :hello =&gt; 'World!'\n    end\n\n    def show\n      [class_trait[:hello], trait[:hello], ancestral_trait[:hello]]\n    end\n  end\n\n  Foo.trait[:hello] # =&gt; &quot;Hello&quot;\n  foo = Foo.new\n  foo.trait[:hello] # =&gt; &quot;World!&quot;\n  foo.show          # =&gt; [&quot;Hello&quot;, &quot;World!&quot;, &quot;World!&quot;]\n"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: ANCESTRAL_VALUES
+    value: "{}, {}, {}"
+full_name: Innate::Traited
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ancestral_trait
+  - !ruby/object:RI::MethodSummary 
+    name: ancestral_trait_values
+  - !ruby/object:RI::MethodSummary 
+    name: class_trait
+  - !ruby/object:RI::MethodSummary 
+    name: each_ancestral_trait
+  - !ruby/object:RI::MethodSummary 
+    name: trait
+name: Traited
+superclass: 

@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: create
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Create is a simple class used to create new projects based on the proto directory.
+  - !ruby/struct:SM::Flow::P 
+    body: "It is primarly used for this command:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  ramaze --create project\n"
+  - !ruby/struct:SM::Flow::P 
+    body: where project is the directory you want the content put into.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Default options passed to Create::create
+      - !ruby/struct:SM::Flow::VERB 
+        body: "  :proto  is the directory to duplicate\n  :amend  no files may be overwritten but missing files will be added\n  :force  will overwrite existing files\n  :layout copy one subdirectory in <tt>proto</tt>\n"
+    name: DEFAULT
+    value: "{         :proto => File.join(ROOT, 'proto'),         :amend => false,         :force => false,         :layout => '/',       }"
+full_name: Ramaze::Tool::Create
+includes: []
+
+instance_methods: []
+
+name: Create
+superclass: Object

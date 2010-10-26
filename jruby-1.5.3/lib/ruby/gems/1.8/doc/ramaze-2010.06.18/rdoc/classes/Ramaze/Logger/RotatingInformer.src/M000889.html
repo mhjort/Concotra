@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Ramaze::Logger::RotatingInformer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/log/rotatinginformer.rb, line 47</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">base_dir</span>, <span class="ruby-identifier">time_format</span> = <span class="ruby-value str">'%Y-%m-%d.log'</span>, <span class="ruby-identifier">log_levels</span> = [<span class="ruby-identifier">:debug</span>, <span class="ruby-identifier">:error</span>, <span class="ruby-identifier">:info</span>, <span class="ruby-identifier">:warn</span>])
+        <span class="ruby-comment cmt"># Verify and set base directory</span>
+        <span class="ruby-identifier">send</span> <span class="ruby-identifier">:base_dir=</span>, <span class="ruby-identifier">base_dir</span>, <span class="ruby-keyword kw">true</span>
+
+        <span class="ruby-ivar">@time_format</span> = <span class="ruby-identifier">time_format</span>
+        <span class="ruby-ivar">@log_levels</span> = <span class="ruby-identifier">log_levels</span>
+
+        <span class="ruby-comment cmt"># Keep track of log shutdown (to prevent StackErrors due to recursion)</span>
+        <span class="ruby-ivar">@in_shutdown</span> = <span class="ruby-keyword kw">false</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Diff::LCS::Change::from_a
+is_singleton: true
+name: from_a
+params: (arr)
+visibility: public

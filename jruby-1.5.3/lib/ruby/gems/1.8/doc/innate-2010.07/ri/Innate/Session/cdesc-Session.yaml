@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: cookie_set
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: flash
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: request
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: response
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Mostly ported from Ramaze, but behaves lazy, no session will be created if no session is used.
+  - !ruby/struct:SM::Flow::P 
+    body: "We keep session data in memory until #flush is called, at which point it will be persisted completely into the cache, no question asked."
+  - !ruby/struct:SM::Flow::P 
+    body: You may store anything in here that you may also store in the corresponding store, usually it's best to keep it to things that are safe to Marshal.
+  - !ruby/struct:SM::Flow::P 
+    body: The Session instance is compatible with the specification of rack.session.
+  - !ruby/struct:SM::Flow::P 
+    body: "Since the Time class is used to create the cookie expiration timestamp, you will have to keep the ttl in a reasonable range. The maximum value that Time can store on a 32bit system is:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Time.at(2147483647) # =&gt; Tue Jan 19 12:14:07 +0900 2038\n"
+  - !ruby/struct:SM::Flow::P 
+    body: The default expiration time for cookies and the session cache was reduced to a default of 30 days. This was done to be compatible with the maximum ttl of MemCache. You may increase this value if you do not use MemCache to persist your sessions.
+constants: []
+
+full_name: Innate::Session
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Optioned
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: "[]="
+  - !ruby/object:RI::MethodSummary 
+    name: clear
+  - !ruby/object:RI::MethodSummary 
+    name: delete
+  - !ruby/object:RI::MethodSummary 
+    name: fetch
+  - !ruby/object:RI::MethodSummary 
+    name: flush
+  - !ruby/object:RI::MethodSummary 
+    name: sid
+  - !ruby/object:RI::MethodSummary 
+    name: store
+name: Session
+superclass: Object

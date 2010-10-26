@@ -1,0 +1,45 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PLUGIN_LIST
+    value: Set.new
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: EXTS
+    value: "%w[rb so bundle]"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PATH
+    value: "[]"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: POOL
+    value: "[]"
+full_name: Ramaze::Plugin
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_path
+  - !ruby/object:RI::MethodSummary 
+    name: add_pool
+  - !ruby/object:RI::MethodSummary 
+    name: glob
+  - !ruby/object:RI::MethodSummary 
+    name: load
+  - !ruby/object:RI::MethodSummary 
+    name: paths
+  - !ruby/object:RI::MethodSummary 
+    name: setup
+  - !ruby/object:RI::MethodSummary 
+    name: teardown
+  - !ruby/object:RI::MethodSummary 
+    name: try_require
+name: Plugin
+superclass: 

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Selenium::SeleniumRCServer#selenium_grid?
+is_singleton: false
+name: selenium_grid?
+params: ()
+visibility: public

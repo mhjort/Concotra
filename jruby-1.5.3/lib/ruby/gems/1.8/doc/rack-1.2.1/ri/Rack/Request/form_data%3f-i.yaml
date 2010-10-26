@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Determine whether the request body contains form-data by checking the request Content-Type for one of the media-types: &quot;application/x-www-form-urlencoded&quot; or &quot;multipart/form-data&quot;. The list of form-data media types can be modified through the <tt>FORM_DATA_MEDIA_TYPES</tt> array."
+  - !ruby/struct:SM::Flow::P 
+    body: A request body is also assumed to contain form-data when no Content-Type header is provided and the request_method is POST.
+full_name: Rack::Request#form_data?
+is_singleton: false
+name: form_data?
+params: ()
+visibility: public

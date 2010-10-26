@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Register given templating engine wrapper and extensions for later usage.
+  - !ruby/struct:SM::Flow::P 
+    body: "<tt>name</tt> : the class name of the templating engine wrapper <tt>exts</tt> : any number of arguments will be turned into strings via #to_s"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "         that indicate which filename-extensions the templates may have.\n"
+full_name: Innate::View#register
+is_singleton: false
+name: register
+params: (klass, *exts)
+visibility: public

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (key)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Note that this method diverges from the default behaviour of the Ruby Hash. If the cache doesn't find content for the given key, it will store the given default instead. Optionally it also takes a block, the return value of the block is then stored and returned.
+  - !ruby/struct:SM::Flow::P 
+    body: "@usage Example"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  lru = LRUHash.new\n  lru.fetch(:a) # =&gt; KeyError: key not found: :a\n  lru.fetch(:a, :b) # =&gt; :b\n  lru.fetch(:a) # =&gt; :b\n  lru.fetch(:c){|key| key.to_s } # =&gt; 'c'\n  lru.fetch(:c) # =&gt; 'c'\n"
+full_name: Ramaze::LRUHash#fetch
+is_singleton: false
+name: fetch
+params: (key, default = (p_default = true; {|key| ...}
+visibility: public

@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cucumber::WireSupport::WireProtocol
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: begin_scenario
+  - !ruby/object:RI::MethodSummary 
+    name: diff_failed
+  - !ruby/object:RI::MethodSummary 
+    name: diff_ok
+  - !ruby/object:RI::MethodSummary 
+    name: end_scenario
+  - !ruby/object:RI::MethodSummary 
+    name: invoke
+  - !ruby/object:RI::MethodSummary 
+    name: snippet_text
+  - !ruby/object:RI::MethodSummary 
+    name: step_matches
+name: WireProtocol
+superclass: 

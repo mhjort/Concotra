@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (Ramaze::Tool::Bin::Cmd)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/tool/bin.rb, line 121</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">args</span> = <span class="ruby-keyword kw">nil</span>)
+          <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">args</span>)
+          <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">command</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?status$/</span>
+            <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">status</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">command</span>)
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?restart$/</span>
+            <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">stop</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">command</span>)
+            <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">start</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?start$/</span>
+            <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">start</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?create$/</span>
+            <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">command</span>)
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?stop$/</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">stop</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">command</span>)
+              <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Ramazement has ended, go in peace.&quot;</span>
+              <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">flush</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Ramaze failed to stop (or was not running)&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?console$/</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;ramaze&quot;</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;irb&quot;</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;irb/completion&quot;</span>
+            <span class="ruby-constant">Ramaze</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">started</span> = <span class="ruby-keyword kw">true</span>
+            <span class="ruby-identifier">require</span> <span class="ruby-value str">&quot;start&quot;</span>
+            <span class="ruby-constant">IRB</span>.<span class="ruby-identifier">start</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Ramazement has ended, go in peace.&quot;</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?h(elp)?$/</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">usage</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(?:--?)?v(ersion)?$/</span>
+            <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">include_ramaze</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-constant">Ramaze</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+            <span class="ruby-identifier">exit</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^$/</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Must supply a valid command&quot;</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">usage</span>
+            <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{command} not implemented&quot;</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">usage</span>
+            <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

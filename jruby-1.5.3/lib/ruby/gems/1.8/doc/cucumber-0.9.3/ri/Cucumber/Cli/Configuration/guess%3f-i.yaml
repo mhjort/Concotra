@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli::Configuration#guess?
+is_singleton: false
+name: guess?
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns true, if the coloring function of this module is switched on, false otherwise.
+full_name: Term::ANSIColor::coloring?
+is_singleton: true
+name: coloring?
+params: ()
+visibility: public

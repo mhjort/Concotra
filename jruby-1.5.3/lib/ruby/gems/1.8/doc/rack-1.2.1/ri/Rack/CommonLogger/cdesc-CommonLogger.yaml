@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Rack::CommonLogger forwards every request to an <tt>app</tt> given, and logs a line in the Apache common log format to the <tt>logger</tt>, or rack.errors by default.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "Common Log Format: http://httpd.apache.org/docs/1.3/logs.html#common lilith.local - - [07/Aug/2006 23:58:02] &quot;GET / HTTP/1.1&quot; 500 -"
+      - !ruby/struct:SM::Flow::VERB 
+        body: "            %{%s - %s [%s] &quot;%s %s%s %s&quot; %d %s\\n} %\n"
+    name: FORMAT
+    value: "%{%s - %s [%s] \"%s %s%s %s\" %d %s %0.4f\\n}"
+full_name: Rack::CommonLogger
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+name: CommonLogger
+superclass: Object

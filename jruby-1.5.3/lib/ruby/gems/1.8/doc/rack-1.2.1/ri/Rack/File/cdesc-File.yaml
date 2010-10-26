@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Rack::File serves files below the <tt>root</tt> directory given, according to the path info of the Rack request. e.g. when Rack::File.new(&quot;/etc&quot;) is used, you can access 'passwd' file as http://localhost:9292/passwd
+  - !ruby/struct:SM::Flow::P 
+    body: Handlers can detect if bodies are a Rack::File, and use mechanisms like sendfile on the <tt>path</tt>.
+constants: []
+
+full_name: Rack::File
+includes: []
+
+instance_methods: []
+
+name: File
+superclass: Object

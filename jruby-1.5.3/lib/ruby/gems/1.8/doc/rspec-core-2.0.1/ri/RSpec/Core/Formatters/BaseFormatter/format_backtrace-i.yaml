@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::BaseFormatter#format_backtrace
+is_singleton: false
+name: format_backtrace
+params: (backtrace, example)
+visibility: public

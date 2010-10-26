@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+full_name: Innate::Action#wrap_in_current
+is_singleton: false
+name: wrap_in_current
+params: () {|| ...}
+visibility: public

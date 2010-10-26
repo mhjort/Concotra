@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: RESERVED_KEYS
+    value: "[         :description,         :example_group,         :execution_result,         :file_path,         :full_description,         :line_number,         :location"
+full_name: RSpec::Core::Metadata
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: all_apply?
+  - !ruby/object:RI::MethodSummary 
+    name: apply_condition
+  - !ruby/object:RI::MethodSummary 
+    name: configure_for_example
+  - !ruby/object:RI::MethodSummary 
+    name: ensure_valid_keys
+  - !ruby/object:RI::MethodSummary 
+    name: for_example
+  - !ruby/object:RI::MethodSummary 
+    name: process
+  - !ruby/object:RI::MethodSummary 
+    name: relevant_line_numbers
+name: Metadata
+superclass: Hash

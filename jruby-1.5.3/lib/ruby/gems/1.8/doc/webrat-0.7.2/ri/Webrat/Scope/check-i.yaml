@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Verifies that an input checkbox exists on the current page and marks it as checked, so that the value will be submitted with the form.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  check 'Remember Me'\n"
+full_name: Webrat::Scope#check
+is_singleton: false
+name: check
+params: (field_locator)
+visibility: public

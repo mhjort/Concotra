@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::Helpers#format_seconds
+is_singleton: false
+name: format_seconds
+params: (float)
+visibility: public

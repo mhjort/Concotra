@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>__lcs (Diff::LCS)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/diff/lcs.rb, line 816</span>
+816:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">__lcs</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)
+817:       <span class="ruby-identifier">a_start</span> = <span class="ruby-identifier">b_start</span> = <span class="ruby-value">0</span>
+818:       <span class="ruby-identifier">a_finish</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+819:       <span class="ruby-identifier">b_finish</span> = <span class="ruby-identifier">b</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+820:       <span class="ruby-identifier">vector</span> = []
+821: 
+822:         <span class="ruby-comment cmt"># Prune off any common elements at the beginning...</span>
+823:       <span class="ruby-keyword kw">while</span> (<span class="ruby-identifier">a_start</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">a_finish</span>) <span class="ruby-keyword kw">and</span>
+824:             (<span class="ruby-identifier">b_start</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">b_finish</span>) <span class="ruby-keyword kw">and</span>
+825:             (<span class="ruby-identifier">a</span>[<span class="ruby-identifier">a_start</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">b</span>[<span class="ruby-identifier">b_start</span>])
+826:         <span class="ruby-identifier">vector</span>[<span class="ruby-identifier">a_start</span>] = <span class="ruby-identifier">b_start</span>
+827:         <span class="ruby-identifier">a_start</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+828:         <span class="ruby-identifier">b_start</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+829:       <span class="ruby-keyword kw">end</span>
+830: 
+831:         <span class="ruby-comment cmt"># Now the end...</span>
+832:       <span class="ruby-keyword kw">while</span> (<span class="ruby-identifier">a_start</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">a_finish</span>) <span class="ruby-keyword kw">and</span>
+833:             (<span class="ruby-identifier">b_start</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">b_finish</span>) <span class="ruby-keyword kw">and</span>
+834:             (<span class="ruby-identifier">a</span>[<span class="ruby-identifier">a_finish</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">b</span>[<span class="ruby-identifier">b_finish</span>])
+835:         <span class="ruby-identifier">vector</span>[<span class="ruby-identifier">a_finish</span>] = <span class="ruby-identifier">b_finish</span>
+836:         <span class="ruby-identifier">a_finish</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+837:         <span class="ruby-identifier">b_finish</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+838:       <span class="ruby-keyword kw">end</span>
+839: 
+840:         <span class="ruby-comment cmt"># Now, compute the equivalence classes of positions of elements.</span>
+841:       <span class="ruby-identifier">b_matches</span> = <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span>.<span class="ruby-identifier">__position_hash</span>(<span class="ruby-identifier">b</span>, <span class="ruby-identifier">b_start</span> <span class="ruby-operator">..</span> <span class="ruby-identifier">b_finish</span>)
+842: 
+843:       <span class="ruby-identifier">thresh</span> = []
+844:       <span class="ruby-identifier">links</span> = []
+845: 
+846:       (<span class="ruby-identifier">a_start</span> <span class="ruby-operator">..</span> <span class="ruby-identifier">a_finish</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ii</span><span class="ruby-operator">|</span>
+847:         <span class="ruby-identifier">ai</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">a</span>[<span class="ruby-identifier">ii</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">a</span>[<span class="ruby-identifier">ii</span>]
+848:         <span class="ruby-identifier">bm</span> = <span class="ruby-identifier">b_matches</span>[<span class="ruby-identifier">ai</span>]
+849:         <span class="ruby-identifier">kk</span> = <span class="ruby-keyword kw">nil</span>
+850:         <span class="ruby-identifier">bm</span>.<span class="ruby-identifier">reverse_each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">jj</span><span class="ruby-operator">|</span>
+851:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">kk</span> <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">thresh</span>[<span class="ruby-identifier">kk</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">jj</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">thresh</span>[<span class="ruby-identifier">kk</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">jj</span>)
+852:             <span class="ruby-identifier">thresh</span>[<span class="ruby-identifier">kk</span>] = <span class="ruby-identifier">jj</span>
+853:           <span class="ruby-keyword kw">else</span>
+854:             <span class="ruby-identifier">kk</span> = <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span>.<span class="ruby-identifier">__replace_next_larger</span>(<span class="ruby-identifier">thresh</span>, <span class="ruby-identifier">jj</span>, <span class="ruby-identifier">kk</span>)
+855:           <span class="ruby-keyword kw">end</span>
+856:           <span class="ruby-identifier">links</span>[<span class="ruby-identifier">kk</span>] = [ (<span class="ruby-identifier">kk</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">links</span>[<span class="ruby-identifier">kk</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ii</span>, <span class="ruby-identifier">jj</span> ] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">kk</span>.<span class="ruby-identifier">nil?</span>
+857:         <span class="ruby-keyword kw">end</span>
+858:       <span class="ruby-keyword kw">end</span>
+859: 
+860:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">thresh</span>.<span class="ruby-identifier">empty?</span>
+861:         <span class="ruby-identifier">link</span> = <span class="ruby-identifier">links</span>[<span class="ruby-identifier">thresh</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
+862:         <span class="ruby-keyword kw">while</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">nil?</span>
+863:           <span class="ruby-identifier">vector</span>[<span class="ruby-identifier">link</span>[<span class="ruby-value">1</span>]] = <span class="ruby-identifier">link</span>[<span class="ruby-value">2</span>]
+864:           <span class="ruby-identifier">link</span> = <span class="ruby-identifier">link</span>[<span class="ruby-value">0</span>]
+865:         <span class="ruby-keyword kw">end</span>
+866:       <span class="ruby-keyword kw">end</span>
+867: 
+868:       <span class="ruby-identifier">vector</span>
+869:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

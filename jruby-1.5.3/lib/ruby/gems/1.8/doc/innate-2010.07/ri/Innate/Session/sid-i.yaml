@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::Session#sid
+is_singleton: false
+name: sid
+params: ()
+visibility: public

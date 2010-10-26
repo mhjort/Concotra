@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: redirect_referer
+block_params: 
+comment: 
+full_name: Innate::Helper::Redirect#redirect_referrer
+is_singleton: false
+name: redirect_referrer
+params: (fallback = Innate.options.prefix)
+visibility: public

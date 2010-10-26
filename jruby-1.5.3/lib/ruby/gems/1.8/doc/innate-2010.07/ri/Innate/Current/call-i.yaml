@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Run setup and call the app
+full_name: Innate::Current#call
+is_singleton: false
+name: call
+params: (env)
+visibility: public

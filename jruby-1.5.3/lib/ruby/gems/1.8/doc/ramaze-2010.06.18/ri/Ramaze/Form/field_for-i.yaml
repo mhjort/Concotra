@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Decide on the strucuture of the tag based on the hash
+full_name: Ramaze::Form#field_for
+is_singleton: false
+name: field_for
+params: (hash)
+visibility: public

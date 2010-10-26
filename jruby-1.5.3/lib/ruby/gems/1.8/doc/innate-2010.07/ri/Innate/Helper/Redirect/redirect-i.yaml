@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (uri)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "<tt>target</tt> should be anything responding to #to_s. To check or modify the URI the redirect will go to you may pass a block, the result value of the block is ignored:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  redirect(&quot;/&quot;){|uri| uri.scheme = 'http' }\n  redirect(&quot;/&quot;){|uri| uri.host = 'secure.com' if uri.scheme =~ /s/ }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "<tt>options</tt> may contain:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  :scheme =&gt; &quot;http&quot; | &quot;https&quot; | &quot;ftp&quot; | ...\n  :host   =&gt; &quot;localhost&quot; | &quot;foo.com&quot; | &quot;123.123.123.123&quot; | ...\n  :port   =&gt; 7000 | &quot;80&quot; | 80 | ...\n\n  :status =&gt; 302 | 300 | 303 | ...\n  :body   =&gt; &quot;This is a redirect, hold on while we teleport&quot; | ...\n\n  :raw!   =&gt; true | false | nil | ...\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Note that all options are optional and you may just pass a <tt>target</tt>.
+full_name: Innate::Helper::Redirect#redirect
+is_singleton: false
+name: redirect
+params: (target, options = {}) {|uri| ...}
+visibility: public

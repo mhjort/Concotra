@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::Paginate::Paginator::ArrayPager#page_count
+is_singleton: false
+name: page_count
+params: ()
+visibility: public

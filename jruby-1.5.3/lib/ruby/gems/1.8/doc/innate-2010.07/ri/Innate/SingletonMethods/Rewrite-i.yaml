@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::SingletonMethods#Rewrite
+is_singleton: false
+name: Rewrite
+params: (key, value = nil, &block)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::Link#route_location
+is_singleton: false
+name: route_location
+params: (klass)
+visibility: public

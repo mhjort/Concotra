@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: filter_run
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#filter_run_including
+is_singleton: false
+name: filter_run_including
+params: (options={})
+visibility: public

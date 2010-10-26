@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: included
+comment: 
+constants: []
+
+full_name: Innate::Helper::Render
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: render_custom
+  - !ruby/object:RI::MethodSummary 
+    name: render_file
+  - !ruby/object:RI::MethodSummary 
+    name: render_full
+  - !ruby/object:RI::MethodSummary 
+    name: render_partial
+  - !ruby/object:RI::MethodSummary 
+    name: render_view
+name: Render
+superclass: 

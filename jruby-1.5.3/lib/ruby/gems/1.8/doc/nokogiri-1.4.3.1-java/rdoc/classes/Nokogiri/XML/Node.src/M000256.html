@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>element_children (Nokogiri::XML::Node)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>/*
+ * call-seq:
+ *  element_children
+ *
+ * Get the list of children for this node as a NodeSet.  All nodes will be
+ * element nodes.
+ *
+ * Example:
+ *
+ *   @doc.root.element_children.all? { |x| x.element? } # =&gt; true
+ */
+static VALUE element_children(VALUE self)
+{
+  xmlNodePtr node;
+  xmlNodePtr child;
+  xmlNodeSetPtr set;
+  VALUE document;
+  VALUE node_set;
+
+  Data_Get_Struct(self, xmlNode, node);
+
+  child = xmlFirstElementChild(node);
+  set = xmlXPathNodeSetCreate(child);
+
+  document = DOC_RUBY_OBJECT(node-&gt;doc);
+
+  if(!child) return Nokogiri_wrap_xml_node_set(set, document);
+
+  child = xmlNextElementSibling(child);
+  while(NULL != child) {
+    xmlXPathNodeSetAddUnique(set, child);
+    child = xmlNextElementSibling(child);
+  }
+
+  node_set = Nokogiri_wrap_xml_node_set(set, document);
+
+  return node_set;
+}</pre>
+</body>
+</html>

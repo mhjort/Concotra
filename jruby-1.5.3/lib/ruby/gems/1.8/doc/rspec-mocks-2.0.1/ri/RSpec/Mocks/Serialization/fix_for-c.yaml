@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Mocks::Serialization::fix_for
+is_singleton: true
+name: fix_for
+params: (object)
+visibility: public

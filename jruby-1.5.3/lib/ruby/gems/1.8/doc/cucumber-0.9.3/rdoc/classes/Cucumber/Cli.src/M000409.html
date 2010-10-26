@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse! (Cucumber::Cli)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/cli/options.rb, line 98</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+        <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">args</span>
+        <span class="ruby-ivar">@expanded_args</span> = <span class="ruby-ivar">@args</span>.<span class="ruby-identifier">dup</span>
+
+        <span class="ruby-ivar">@args</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Arguable</span>)
+
+        <span class="ruby-ivar">@args</span>.<span class="ruby-identifier">options</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">banner</span> = [<span class="ruby-value str">&quot;Usage: cucumber [options] [ [FILE|DIR|URL][:LINE[:LINE]*] ]+&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>,
+            <span class="ruby-value str">&quot;Examples:&quot;</span>,
+            <span class="ruby-value str">&quot;cucumber examples/i18n/en/features&quot;</span>,
+            <span class="ruby-value str">&quot;cucumber @rerun.txt (See --format rerun)&quot;</span>,
+            <span class="ruby-value str">&quot;cucumber examples/i18n/it/features/somma.feature:6:98:113&quot;</span>,
+            <span class="ruby-value str">&quot;cucumber -s -i http://rubyurl.com/eeCl&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>,
+          ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-r LIBRARY|DIR&quot;</span>, <span class="ruby-value str">&quot;--require LIBRARY|DIR&quot;</span>,
+            <span class="ruby-value str">&quot;Require files before executing the features. If this&quot;</span>,
+            <span class="ruby-value str">&quot;option is not specified, all *.rb files that are&quot;</span>,
+            <span class="ruby-value str">&quot;siblings or below the features will be loaded auto-&quot;</span>,
+            <span class="ruby-value str">&quot;matically. Automatic loading is disabled when this&quot;</span>,
+            <span class="ruby-value str">&quot;option is specified, and all loading becomes explicit.&quot;</span>,
+            <span class="ruby-value str">&quot;Files under directories named \&quot;support\&quot; are always&quot;</span>,
+            <span class="ruby-value str">&quot;loaded first.&quot;</span>,
+            <span class="ruby-value str">&quot;This option can be specified multiple times.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:require</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-constant">Cucumber</span><span class="ruby-operator">::</span><span class="ruby-constant">JRUBY</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">v</span>))
+              <span class="ruby-identifier">require</span> <span class="ruby-value str">'java'</span>
+              <span class="ruby-identifier">$CLASSPATH</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-keyword kw">if</span>(<span class="ruby-constant">Cucumber</span><span class="ruby-operator">::</span><span class="ruby-constant">JRUBY</span>)
+            <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-j DIR&quot;</span>, <span class="ruby-value str">&quot;--jars DIR&quot;</span>,
+            <span class="ruby-value str">&quot;Load all the jars under DIR&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">jars</span><span class="ruby-operator">|</span>
+              <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{jars}/**/*.jar&quot;</span>].<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">jar</span><span class="ruby-operator">|</span> <span class="ruby-identifier">require</span> <span class="ruby-identifier">jar</span>}
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--i18n LANG&quot;</span>,
+            <span class="ruby-value str">&quot;List keywords for in a particular language&quot;</span>,
+            <span class="ruby-value str">%{Run with &quot;--i18n help&quot; to see all languages}</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lang</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'help'</span>
+              <span class="ruby-identifier">list_languages_and_exit</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">list_keywords_and_exit</span>(<span class="ruby-identifier">lang</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-f FORMAT&quot;</span>, <span class="ruby-value str">&quot;--format FORMAT&quot;</span>,
+            <span class="ruby-value str">&quot;How to format features (Default: pretty). Available formats:&quot;</span>,
+            <span class="ruby-operator">*</span><span class="ruby-constant">FORMAT_HELP</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:formats</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">v</span>, <span class="ruby-ivar">@out_stream</span>]
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-o&quot;</span>, <span class="ruby-value str">&quot;--out [FILE|DIR]&quot;</span>,
+            <span class="ruby-value str">&quot;Write output to a file/directory instead of STDOUT. This option&quot;</span>,
+            <span class="ruby-value str">&quot;applies to the previously specified --format, or the&quot;</span>,
+            <span class="ruby-value str">&quot;default format if no format is specified. Check the specific&quot;</span>,
+            <span class="ruby-value str">&quot;formatter's docs to see whether to pass a file or a dir.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:formats</span>] <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value str">'pretty'</span>, <span class="ruby-keyword kw">nil</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:formats</span>].<span class="ruby-identifier">empty?</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:formats</span>][<span class="ruby-value">-1</span>][<span class="ruby-value">1</span>] = <span class="ruby-identifier">v</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-t TAG_EXPRESSION&quot;</span>, <span class="ruby-value str">&quot;--tags TAG_EXPRESSION&quot;</span>,
+            <span class="ruby-value str">&quot;Only execute the features or scenarios with tags matching TAG_EXPRESSION.&quot;</span>,
+            <span class="ruby-value str">&quot;Scenarios inherit tags declared on the Feature level. The simplest&quot;</span>,
+            <span class="ruby-value str">&quot;TAG_EXPRESSION is simply a tag. Example: --tags @dev. When a tag in a tag&quot;</span>,
+            <span class="ruby-value str">&quot;expression starts with a ~, this represents boolean NOT. Example: --tags ~@dev.&quot;</span>,
+            <span class="ruby-value str">&quot;A tag expression can have several tags separated by a comma, which represents&quot;</span>,
+            <span class="ruby-value str">&quot;logical OR. Example: --tags @dev,@wip. The --tags option can be specified&quot;</span>,
+            <span class="ruby-value str">&quot;several times, and this represents logical AND. Example: --tags @foo,~@bar --tags @zap.&quot;</span>,
+            <span class="ruby-value str">&quot;This represents the boolean expression (@foo || !@bar) &amp;&amp; @zap.&quot;</span>,
+            <span class="ruby-value str">&quot;\n&quot;</span>,
+            <span class="ruby-value str">&quot;Beware that if you want to use several negative tags to exclude several tags&quot;</span>,
+            <span class="ruby-value str">&quot;you have to use logical AND: --tags ~@fixme --tags @buggy.&quot;</span>,
+            <span class="ruby-value str">&quot;\n&quot;</span>,
+            <span class="ruby-value str">&quot;Positive tags can be given a threshold to limit the number of occurrences.&quot;</span>, 
+            <span class="ruby-value str">&quot;Example: --tags @qa:3 will fail if there are more than 3 occurrences of the @qa tag.&quot;</span>,
+            <span class="ruby-value str">&quot;This can be practical if you are practicing Kanban or CONWIP.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:tag_expressions</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-n NAME&quot;</span>, <span class="ruby-value str">&quot;--name NAME&quot;</span>,
+            <span class="ruby-value str">&quot;Only execute the feature elements which match part of the given name.&quot;</span>,
+            <span class="ruby-value str">&quot;If this option is given more than once, it will match against all the&quot;</span>,
+            <span class="ruby-value str">&quot;given names.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:name_regexps</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">/#{v}/</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-e&quot;</span>, <span class="ruby-value str">&quot;--exclude PATTERN&quot;</span>, <span class="ruby-value str">&quot;Don't run feature files or require ruby files matching PATTERN&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:excludes</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">v</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-constant">PROFILE_SHORT_FLAG</span>, <span class="ruby-node">&quot;#{PROFILE_LONG_FLAG} PROFILE&quot;</span>,
+              <span class="ruby-value str">&quot;Pull commandline arguments from cucumber.yml which can be defined as&quot;</span>,
+              <span class="ruby-value str">&quot;strings or arrays.  When a 'default' profile is defined and no profile&quot;</span>,
+              <span class="ruby-value str">&quot;is specified it is always used. (Unless disabled, see -P below.)&quot;</span>,
+              <span class="ruby-value str">&quot;When feature files are defined in a profile and on the command line&quot;</span>,
+              <span class="ruby-value str">&quot;then only the ones from the command line are used.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@profiles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-constant">NO_PROFILE_SHORT_FLAG</span>, <span class="ruby-constant">NO_PROFILE_LONG_FLAG</span>,
+            <span class="ruby-value str">&quot;Disables all profile loading to avoid using the 'default' profile.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@disable_profile_loading</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-c&quot;</span>, <span class="ruby-value str">&quot;--[no-]color&quot;</span>,
+            <span class="ruby-value str">&quot;Whether or not to use ANSI color in the output. Cucumber decides&quot;</span>,
+            <span class="ruby-value str">&quot;based on your platform and the output destination if not specified.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+            <span class="ruby-constant">Term</span><span class="ruby-operator">::</span><span class="ruby-constant">ANSIColor</span>.<span class="ruby-identifier">coloring</span> = <span class="ruby-identifier">v</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-d&quot;</span>, <span class="ruby-value str">&quot;--dry-run&quot;</span>, <span class="ruby-value str">&quot;Invokes formatters without executing the steps.&quot;</span>,
+            <span class="ruby-value str">&quot;This also omits the loading of your support/env.rb file if it exists.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:dry_run</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-a&quot;</span>, <span class="ruby-value str">&quot;--autoformat DIR&quot;</span>,
+            <span class="ruby-value str">&quot;Reformats (pretty prints) feature files and write them to DIRECTORY.&quot;</span>,
+            <span class="ruby-value str">&quot;Be careful if you choose to overwrite the originals.&quot;</span>,
+            <span class="ruby-value str">&quot;Implies --dry-run --formatter pretty.&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">directory</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:autoformat</span>] = <span class="ruby-identifier">directory</span>
+            <span class="ruby-constant">Term</span><span class="ruby-operator">::</span><span class="ruby-constant">ANSIColor</span>.<span class="ruby-identifier">coloring</span> = <span class="ruby-keyword kw">false</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:dry_run</span>] = <span class="ruby-keyword kw">true</span>
+            <span class="ruby-ivar">@quiet</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-m&quot;</span>, <span class="ruby-value str">&quot;--no-multiline&quot;</span>,
+            <span class="ruby-value str">&quot;Don't print multiline strings and tables under steps.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:no_multiline</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-s&quot;</span>, <span class="ruby-value str">&quot;--no-source&quot;</span>,
+            <span class="ruby-value str">&quot;Don't print the file and line of the step definition with the steps.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:source</span>] = <span class="ruby-keyword kw">false</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-i&quot;</span>, <span class="ruby-value str">&quot;--no-snippets&quot;</span>, <span class="ruby-value str">&quot;Don't print snippets for pending steps.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:snippets</span>] = <span class="ruby-keyword kw">false</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-q&quot;</span>, <span class="ruby-value str">&quot;--quiet&quot;</span>, <span class="ruby-value str">&quot;Alias for --no-snippets --no-source.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@quiet</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-b&quot;</span>, <span class="ruby-value str">&quot;--backtrace&quot;</span>, <span class="ruby-value str">&quot;Show full backtrace for all errors.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-constant">Cucumber</span>.<span class="ruby-identifier">use_full_backtrace</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-S&quot;</span>, <span class="ruby-value str">&quot;--strict&quot;</span>, <span class="ruby-value str">&quot;Fail if there are any undefined or pending steps.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:strict</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-w&quot;</span>, <span class="ruby-value str">&quot;--wip&quot;</span>, <span class="ruby-value str">&quot;Fail if there are any passing scenarios.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:wip</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-v&quot;</span>, <span class="ruby-value str">&quot;--verbose&quot;</span>, <span class="ruby-value str">&quot;Show the files and features loaded.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:verbose</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-g&quot;</span>, <span class="ruby-value str">&quot;--guess&quot;</span>, <span class="ruby-value str">&quot;Guess best match for Ambiguous steps.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:guess</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-x&quot;</span>, <span class="ruby-value str">&quot;--expand&quot;</span>, <span class="ruby-value str">&quot;Expand Scenario Outline Tables in output.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:expand</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-constant">DRB_FLAG</span>, <span class="ruby-value str">&quot;Run features against a DRb server. (i.e. with the spork gem)&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:drb</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;--port PORT&quot;</span>, <span class="ruby-value str">&quot;Specify DRb port.  Ignored without --drb&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">port</span><span class="ruby-operator">|</span>
+            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:drb_port</span>] = <span class="ruby-identifier">port</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-value str">&quot;--version&quot;</span>, <span class="ruby-value str">&quot;Show version.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@out_stream</span>.<span class="ruby-identifier">puts</span> <span class="ruby-constant">Cucumber</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+            <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">exit</span>(<span class="ruby-value">0</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-value str">&quot;-h&quot;</span>, <span class="ruby-value str">&quot;--help&quot;</span>, <span class="ruby-value str">&quot;You're looking at it.&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-ivar">@out_stream</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">help</span>
+            <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">exit</span>(<span class="ruby-value">0</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">parse!</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@quiet</span>
+          <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:snippets</span>] = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:source</span>] = <span class="ruby-keyword kw">false</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:snippets</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:snippets</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:source</span>]   = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:source</span>].<span class="ruby-identifier">nil?</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">extract_environment_variables</span>
+        <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:paths</span>] = <span class="ruby-ivar">@args</span>.<span class="ruby-identifier">dup</span> <span class="ruby-comment cmt">#whatver is left over</span>
+
+        <span class="ruby-identifier">merge_profiles</span>
+        <span class="ruby-identifier">print_profile_information</span>
+
+        <span class="ruby-keyword kw">self</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

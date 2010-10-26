@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Centralises the change test code in Diff::LCS::Change and Diff::LCS::ContextChange, since it's the same for both classes.
+constants: []
+
+full_name: Diff::LCS::ChangeTypeTests
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: adding?
+  - !ruby/object:RI::MethodSummary 
+    name: changed?
+  - !ruby/object:RI::MethodSummary 
+    name: deleting?
+  - !ruby/object:RI::MethodSummary 
+    name: finished_a?
+  - !ruby/object:RI::MethodSummary 
+    name: finished_b?
+  - !ruby/object:RI::MethodSummary 
+    name: unchanged?
+name: ChangeTypeTests
+superclass: 

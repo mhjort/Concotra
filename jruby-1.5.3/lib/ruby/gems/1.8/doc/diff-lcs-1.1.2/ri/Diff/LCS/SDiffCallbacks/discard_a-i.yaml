@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Diff::LCS::SDiffCallbacks#discard_a
+is_singleton: false
+name: discard_a
+params: (event)
+visibility: public

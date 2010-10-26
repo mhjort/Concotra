@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This helper tries to be an even better way to build forms programmatically, see the specs for lots of examples.
+constants: []
+
+full_name: Ramaze::Helper::BlueForm
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: form
+  - !ruby/object:RI::MethodSummary 
+    name: form_error
+  - !ruby/object:RI::MethodSummary 
+    name: form_errors
+  - !ruby/object:RI::MethodSummary 
+    name: form_errors_from_model
+name: BlueForm
+superclass: 

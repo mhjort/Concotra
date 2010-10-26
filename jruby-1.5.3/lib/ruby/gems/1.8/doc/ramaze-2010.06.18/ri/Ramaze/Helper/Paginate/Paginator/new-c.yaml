@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::Paginate::Paginator::new
+is_singleton: true
+name: new
+params: (data = [], page = 1, limit = 10, var = 'pager')
+visibility: public

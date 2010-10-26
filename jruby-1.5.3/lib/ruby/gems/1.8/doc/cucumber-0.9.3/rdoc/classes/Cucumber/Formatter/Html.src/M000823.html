@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>build_exception_detail (Cucumber::Formatter::Html)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/html.rb, line 336</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build_exception_detail</span>(<span class="ruby-identifier">exception</span>)
+        <span class="ruby-identifier">backtrace</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'message'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">message</span> = <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">message</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">RAILS_ROOT</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'Exception caught'</span>)
+            <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">message</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/Showing &lt;i&gt;(.+)&lt;\/i&gt;(?:.+)#(\d+)/</span>)
+            <span class="ruby-identifier">backtrace</span> <span class="ruby-operator">+=</span> [<span class="ruby-node">&quot;#{RAILS_ROOT}/#{matches[1]}:#{matches[2]}&quot;</span>]
+            <span class="ruby-identifier">message</span> = <span class="ruby-identifier">message</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/&lt;code&gt;([^(\/)]+)&lt;\//</span><span class="ruby-identifier">m</span>)[<span class="ruby-value">1</span>]
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">pre</span> <span class="ruby-keyword kw">do</span> 
+            <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">text!</span>(<span class="ruby-identifier">message</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">div</span>(<span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'backtrace'</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">pre</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">backtrace</span> = <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>
+            <span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\/gems\/(cucumber|rspec)/</span> }
+            <span class="ruby-ivar">@builder</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">backtrace_line</span>(<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>))
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">extra</span> = <span class="ruby-identifier">extra_failure_content</span>(<span class="ruby-identifier">backtrace</span>)
+        <span class="ruby-ivar">@builder</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">extra</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">extra</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

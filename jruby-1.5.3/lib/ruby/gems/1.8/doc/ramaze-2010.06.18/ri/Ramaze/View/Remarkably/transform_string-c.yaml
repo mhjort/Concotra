@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::View::Remarkably::transform_string
+is_singleton: true
+name: transform_string
+params: (action, string)
+visibility: public

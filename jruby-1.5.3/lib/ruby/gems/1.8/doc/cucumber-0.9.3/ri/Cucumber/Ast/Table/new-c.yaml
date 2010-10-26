@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Creates a new instance. <tt>raw</tt> should be an Array of Array of String or an Array of Hash (similar to what #hashes returns). You don't typically create your own Table objects - Cucumber will do it internally and pass them to your Step Definitions."
+full_name: Cucumber::Ast::Table::new
+is_singleton: true
+name: new
+params: (raw, conversion_procs = NULL_CONVERSIONS.dup)
+visibility: public

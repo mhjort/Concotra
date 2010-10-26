@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::Cache::FileBased#cache_fetch
+is_singleton: false
+name: cache_fetch
+params: (*args)
+visibility: public

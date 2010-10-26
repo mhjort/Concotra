@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Ramaze::Reloader::WatchInotify</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Ramaze::Reloader::WatchInotify</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/ramaze/reloader/watch_inotify_rb.html">
+                lib/ramaze/reloader/watch_inotify.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+TODO:
+</p>
+<pre>
+  * There seems to be a problem somewhere that I couldn't identify yet, a
+    file has to be modified twice initially to make it show up as
+    modified here, subsequent changes work just fine.
+    The only workaround I could find right now would be to read/write
+    every single file, but that would be unexpected, irresponsible, and
+    error-prone.
+</pre>
+<p>
+NOTE:
+</p>
+<pre>
+  * I have changed from using a Mutex to using a Queue, which uses a
+    Mutex internally.
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001003">call</a>&nbsp;&nbsp;
+      <a href="#M001009">changed_files</a>&nbsp;&nbsp;
+      <a href="#M001008">close</a>&nbsp;&nbsp;
+      <a href="#M001002">new</a>&nbsp;&nbsp;
+      <a href="#M001007">remove_watch</a>&nbsp;&nbsp;
+      <a href="#M001004">start_watcher</a>&nbsp;&nbsp;
+      <a href="#M001006">watch</a>&nbsp;&nbsp;
+      <a href="#M001005">watcher_cycle</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">POLL_INTERVAL</td>
+          <td>=</td>
+          <td class="context-item-value">2</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">NOTIFY_MASK</td>
+          <td>=</td>
+          <td class="context-item-value">RInotify::MODIFY | RInotify::IN_ONESHOT</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M001002" class="method-detail">
+        <a name="M001002"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001002.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001002.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001003" class="method-detail">
+        <a name="M001003"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001003.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001003.html');return false;">
+          <span class="method-name">call</span><span class="method-args">(cooldown) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M001009" class="method-detail">
+        <a name="M001009"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001009.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001009.html');return false;">
+          <span class="method-name">changed_files</span><span class="method-args">() {|file| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+NOTE:
+</p>
+<pre>
+  We have to add the changed file again after we got a notification, I
+  have no idea why, but using IN_ONESHOT should make sure that there is
+  no memory leak in the C level even if we add a file again.
+  There is a memory leak however in the watch_descriptors hash, since
+  rinotify won't synchronize the contents properly and will only add to
+  the hash, so we have to clean up ourselves.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M001008" class="method-detail">
+        <a name="M001008"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001008.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001008.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M001007" class="method-detail">
+        <a name="M001007"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001007.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001007.html');return false;">
+          <span class="method-name">remove_watch</span><span class="method-args">(file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+FIXME:
+</p>
+<pre>
+  Seems like this won't work due to some bug in the rinotify library.
+  Would be cool if someone could make a FFI version.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M001004" class="method-detail">
+        <a name="M001004"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001004.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001004.html');return false;">
+          <span class="method-name">start_watcher</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+TODO: define a finalizer to cleanup? &#8212; reloader never calls <a
+href="WatchInotify.html#M001008">close</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M001006" class="method-detail">
+        <a name="M001006"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001006.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001006.html');return false;">
+          <span class="method-name">watch</span><span class="method-args">(file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M001005" class="method-detail">
+        <a name="M001005"></a>
+
+        <div class="method-heading">
+          <a href="WatchInotify.src/M001005.html" target="Code" class="method-signature"
+            onclick="popupCode('WatchInotify.src/M001005.html');return false;">
+          <span class="method-name">watcher_cycle</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Not much work here, we just have to empty the event queue and push the
+descriptors for reloading on next request.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

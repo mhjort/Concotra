@@ -1,0 +1,1735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: History.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>History.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>History.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue Oct 26 13:44:06 +0300 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>0.9.3 (2010-10-24)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Better JSON representation of Regexps (Aslak Hellesøy)
+
+</li>
+<li>Update to work with latest spork (Matt Wynne)
+
+</li>
+<li>Prevent MiniTest::Unit#autorun from running in at_exit hook. (Aslak
+Hellesøy)
+
+</li>
+<li>Fixed incorect &#8212;help for &#8212;strict. It fails on both pending and
+undefined. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.9.2 (2010-10-04)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Too many open files - getcwd (666 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.9.1 (2010-10-02)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Just a minor internal change to make Cuke4Duke happy. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.9.0 (2010-09-21)</h2>
+<p>
+Maintenance release for the new release of Gherkin 2.2.3.
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li>Compatibility with rspec-2.0.0.beta.19 mocks (Aslak Hellesøy)
+
+</li>
+<li>JUnit formatter now puts output in CDATA sections. (Dmitry Amelchenko)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>&#8212;dry-run now shows snippets (Ben Hall)
+
+</li>
+<li>Use Bundler for dependency management. (Aslak Hellesøy, Rob Hunter)
+
+</li>
+</ul>
+<h3>Removed features</h3>
+<ul>
+<li>No more Jeweler
+
+</li>
+</ul>
+<h3>Internal changes</h3>
+<ul>
+<li>Big refactoring of StepMother (Matt Wynne)
+
+</li>
+</ul>
+<h2>0.8.5 (2010-07-14)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Location of stepdefs outside the project (in gems) are reported
+incorrectly. (583 Aslak Hellesøy)
+
+</li>
+<li><a href="../classes/Cucumber/Rake/Task.html">Cucumber::Rake::Task</a> uses
+&#8216;bundle exec&#8217; when using bundler (626 John Firebaugh)
+
+</li>
+</ul>
+<h2>0.8.4 (2010-07-12)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fix &quot;Errno::EADDRNOTAVAIL&quot; errors that may be received with spork
+on Snow Leopard. (Lucas Mundim)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>Detect limit for negative tags (636 Aslak Hellesøy)
+
+</li>
+<li>Support for RSpec 2 doubles (mocks and stubs) (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.8.3 (2010-06-16)</h2>
+<p>
+Just a quick bugfix release.
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li>Scenario outlines that fail with exception exit process (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.8.2 (2010-06-16)</h2>
+<p>
+Bugfix release which most importantly fixes an issue with the gem&#8216;s
+gemspec.
+</p>
+<h3>Bufixes</h3>
+<ul>
+<li>Fix v8 support which broke in 0.8.1 because of new gherkin API (Aslak
+Hellesøy)
+
+</li>
+<li>Call Around hooks for each example in scenario outlines. (John Firebaugh)
+
+</li>
+<li>Remove extraneous tmp file from the gemspec, which broke installation in
+some environments. (Fernando Brito, Aslak Hellesøy)
+
+</li>
+<li>0.8.1 fails on JRuby (627 Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>JavaScript to Hide/Expand Scenarios in HTML report (621 stkenned)
+
+</li>
+</ul>
+<h2>0.8.1 (2010-06-15)</h2>
+<h3>Bufixes</h3>
+<ul>
+<li>generate test report fails: ast/outline_table.rb fails in status() (615
+Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>Undefined steps with integers (Given 3 cukes) will generate snippets like
+(Given /(\d+) cukes/). (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.8.0 (2010-06-06)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Require profile option causes a NoMethodError for <a
+href="../classes/Cucumber.html">Cucumber</a> with JRuby (601 John
+Firebaugh)
+
+</li>
+<li>Deprecations warnings with Spork + <a
+href="../classes/Cucumber.html">Cucumber</a> + RSpec 2.0. (619 Brian
+Cardarella)
+
+</li>
+<li>Fixed edge case compatibility problem with Gherkin 1.0.30. (618 Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>Better table support in the V8 Javascript support (Joseph Wilk)
+
+</li>
+<li>JSON formatters (json and json_pretty). (Jari Bakken)
+
+</li>
+</ul>
+<h3>Removed features</h3>
+<ul>
+<li>The &#8212;no-diff option is removed. If you&#8216;re using RSpec you will
+<b>always</b> get diffs. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Upgraded to be compatible with rspec 2.0.0.beta.10 (Aslak Hellesøy)
+
+</li>
+<li>Ruby snippets will use &quot;([^&quot;]*)&quot; instead of
+&quot;([^\&quot;]*)&quot;$/ - wasn&#8216;t properly fixed in 0.7.1. (Aslak
+Hellesøy)
+
+</li>
+<li>Preserve the order features files are passed and use this for execution
+order (617 Joseph Wilk)
+
+</li>
+</ul>
+<h2>0.7.3 (2010-05-17)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Table cells can now contain escaped bars - \| and escaped backslashes - \.
+(Gregory Hnatiuk, Aslak Hellesøy)
+
+</li>
+<li>Added support for Around hooks. (605 John Firebaugh)
+
+</li>
+</ul>
+<h2>0.7.2 (2010-05-03)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>REALLY add backwards compatibility fix (with deprecation warning) for
+legacy 0.6.4 formatters. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.1 (2010-05-03)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Add backwards compatibility fix (with deprecation warning) for legacy 0.6.4
+formatters. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Ruby and Javascript snippets will use &quot;([^&quot;]*)&quot; instead of
+&quot;([^\&quot;]*)&quot;$/ (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0 (2010-05-02)</h2>
+<p>
+This release is an important milestone for <a
+href="../classes/Cucumber.html">Cucumber</a>. A new parser (the gherkin
+gem) parses feature files 50-100 times faster than with 0.6.x and previous
+releases. Make sure you read the upgrade instructions! <a
+href="http://wiki.github.com/aslakhellesoy/cucumber/upgrading">wiki.github.com/aslakhellesoy/cucumber/upgrading</a>
+</p>
+<h2>0.7.0.beta.8 (2010-04-29)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Inconsistent order of execution Background and Before in 0.7.0.beta.2 (600
+Mike Sassak)
+
+</li>
+<li>Make sure both lexing and parsing errors are captured and reported with
+line number (Gregory Hnatiuk)
+
+</li>
+</ul>
+<h2>0.7.0.beta.7 (2010-04-28)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Depend on gherkin-1.0.22, which should now make things work on Windows and
+Ruby 1.8.x-1.9.x. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0.beta.6 (2010-04-28)</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed a small regression with pystrings and calling steps from stepdefs,
+introduced in a previous beta. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0.beta.5 (2010-04-27)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Support RSpec 2. (RSpec &gt;= 1.2.4 is still supported). (Aslak Hellesøy,
+Ryan Bigg)
+
+</li>
+</ul>
+<h3>Removed features</h3>
+<ul>
+<li>No more support for RSpec &lt;= 1.2.3. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0.beta.4 (2010-04-24)</h2>
+<h3>New Features</h3>
+<ul>
+<li>New, experimental V8 javascript support - step definitions in Javascript!
+(Joseph Wilk)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Gherkin is loaded via rubygems if it can&#8216;t be found on the
+$LOAD_PATH. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0.beta.3 (2010-04-23)</h2>
+<h3>Changed Features</h3>
+<ul>
+<li>Step Definitions and calling steps from step definitions can again use And
+and But (was removed in 0.7.0.beta.2) (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0.beta.2 (2010-04-21)</h2>
+<h3>New Features</h3>
+<ul>
+<li>Depend on Gherkin 1.0.18, which has some bugfixes. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.7.0.beta.1 (2010-04-20)</h2>
+<p>
+Treetop is gone and replaced with Ragel. The new Ragel parser lives in the
+gherkin gem. Parse times are up to 100 times faster.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Upgraded Sinatra example to use Sinatra 1.0 and Capybara. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>New i18n translations now have to be contributed to the gherkin project.
+
+</li>
+</ul>
+<h2>0.6.4 2010-03-30</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Better handling of &#8212;guess with optional capture groups (Tim
+Felgentreff)
+
+</li>
+<li>Parsing of rerun.txt can&#8216;t use Shellwords on Windows (581 David
+Esposito)
+
+</li>
+<li>announce can now take non-String arguments just like Kernel#puts - to_s is
+done implicitly. (Aslak Hellesøy)
+
+</li>
+<li>Attempt to fix Cucumber::CODEPAGE error again for Windows (561 Aslak
+Hellesøy)
+
+</li>
+<li>Tab indentation causes multiline step arguments to fail (585 Aslak
+Hellesøy)
+
+</li>
+<li>Properly pass tags over the wire protocol (Matt Wynne)
+
+</li>
+<li>Profile loading should honour the &#8212;strict option (580 Rob Holland)
+
+</li>
+<li>Snippets are properly printed when using &#8217;*&#8217; as step keyword.
+(Used to cause infinite recursion). (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>Added announce_world method, printing the World class and all included
+modules (Ruby only). (Aslak Hellesøy)
+
+</li>
+<li>Added announce to the PDF formatter (Nicolas Bessi)
+
+</li>
+<li>Show fails for After/Before hooks in the progress formatter (584 Joseph
+Wilk)
+
+</li>
+</ul>
+<h2>Changed features</h2>
+<ul>
+<li>Switced to ISO 639-1 (language) and ISO 3166 alpha-2 (region - if
+applicable). Applies to Catalan, Swedish, Welsh, Romanian and Serbian.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.6.3 2010-03-02</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Split arguments in cucumber.yml with shellwords. Example: myprofile:
+&#8212;out=&quot;Features report.html&quot; (Nathaniel Haas)
+
+</li>
+<li>Breakage in Rails 2-3-stable after html_safe is added to the repo. (577
+Aslak Hellesøy)
+
+</li>
+<li>uninitialized constant Cucumber::CODEPAGE (NameError) (561 Aslak Hellesøy)
+
+</li>
+<li>HTML Formatter is broken in cucumber 0.6.2 and cuke4duke 0.2.3 (567 Dan
+Fitch)
+
+</li>
+<li>Ensure consistent load order of support files (564 Mike Sassak)
+
+</li>
+<li>Fix various places in PDF formatter where HTML entities could break prawn
+(Matt Wynne)
+
+</li>
+<li>The rerun formatter outputs failed, pending and undefined scenarios
+(before: only failing) (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>Added &quot;Angenommen&quot; as German synonym for Given (Sven Fuchs, Aslak
+Hellesøy)
+
+</li>
+<li>New ask(question, timeout_seconds=60) method available to stepdefs. Asks
+for input and announce-s question and answer. (Aslak Hellesøy)
+
+</li>
+<li>Links to step definitions are now clickable in TextMate&#8216;s HTML report
+(Rob Aldred)
+
+</li>
+<li>Add diff! message to wire protocol to allow for immediate diff response to
+invokes (Matt Wynne)
+
+</li>
+<li>Add tags to begin/end scenario messages on wire protocol to support tagged
+hooks (571 Matt Wynne)
+
+</li>
+<li>Default timeouts to 120s for invoke, begin_scenario and end_scenario
+messages in wire protocol (572 Matt Wynne)
+
+</li>
+</ul>
+<h2>0.6.2 2010-01-18</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Update &#8212;help for &#8212;tags which was out of date. (Aslak Hellesøy)
+
+</li>
+<li>Explicitly use Prawn 0.6.3 for pdf formatter since 0.7.1 is broken (Aslak
+Hellesøy)
+
+</li>
+<li>PDF formatter renders tables incorrectly (553 Andy Waite)
+
+</li>
+<li>Better colouring in HTML report (Rob Aldred)
+
+</li>
+<li>Detect output encoding properly on JRuby+Windows (Aslak Hellesøy)
+
+</li>
+<li>Added option to override output encoding on Windows with an
+CUCUMBER_OUTPUT_ENCODING env var (Aslak Hellesøy)
+
+</li>
+<li>PDF generation requires &#8216;prawn-format&#8217; (558 Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>New features</h3>
+<ul>
+<li>Show profiles in error scenario summary. (550 Joseph Wilk)
+
+</li>
+</ul>
+<h3>Removed features</h3>
+<ul>
+<li>element_at and table_at have been removed. Use tableish in cucumber-rails
+instead. (Aslak Hellesœy)
+
+</li>
+</ul>
+<h2>0.6.1 2010-01-03</h2>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed broken console handling on Windows/JRuby that was introduced in
+0.6.0. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.6.0 2010-01-03</h2>
+<p>
+Bumping to 0.6.0 for this release since we&#8216;re breaking backwards
+compatibility with tags.
+</p>
+<h3>Changed Features</h3>
+<ul>
+<li>Tag boolean logic is inverted. What was ORed before is now ANDed and vice
+versa. (504 Aslak Hellesøy) This makes it more practical in most cases to
+mix tags from profiles and the command line
+
+<p>
+In previous versions the following command line:
+</p>
+<pre>
+  --tags @foo,~@bar --tags @zap (on the command line)
+</pre>
+<p>
+or the following Hook:
+</p>
+<pre>
+  Before(&quot;@foo,~@bar&quot;, &quot;@zap&quot;) (for Hooks)
+</pre>
+<p>
+would be equivalent to the boolean expression: (@foo &amp;&amp; !@bar) ||
+@zap Starting with this release it will be equivalent to: (@foo || !@bar)
+&amp;&amp; @zap
+</p>
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li><a href="../classes/Cucumber.html">Cucumber</a> not loading the correct
+settings using autospec (496, 523 Aslak Hellesøy, Andrzej Śliwa)
+
+</li>
+<li>Ruby 1.9.2 fails to load features/support/env.rb (549 Aslak Hellesøy)
+
+</li>
+<li>All features (except 4) pass on 1.9.2 (but not on 1.9.1) (Aslak Hellesøy)
+
+</li>
+<li>Add missing require statement in rerun formatter which broke RubyMine (Noah
+Sussman)
+
+</li>
+</ul>
+<h2>0.5.3 2009-12-22</h2>
+<p>
+Another small release today to please a sister project. This time
+Cuke4Nuke.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Simplified wire protocol to mostly use success / fail responses (Matt
+Wynne)
+
+</li>
+</ul>
+<h2>0.5.2 2009-12-22</h2>
+<h3>New Features</h3>
+<ul>
+<li>On JRuby/Cuke4Duke, &#8212;require DIR will put DIR on the $CLASSPATH,
+making it easier to load step def classes (Aslak Hellesøy)
+
+</li>
+<li>New &#8212;jars option that will load jar files. Only available on JRuby.
+Practical for Cuke4Duke. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Add embed back to html formatter (547 Brandon Faloona)
+
+</li>
+<li>Refactored wire protocol code and added configurable timeout to allow for
+long running step definitions. (546 Matt Wynne)
+
+</li>
+</ul>
+<h2>0.5.1 2009-12-16</h2>
+<p>
+Small bugfix release.
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li>Replaced dependency on json gem with an error message, so that the cucumber
+gem installs on JRuby. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.5.0 2009-12-15</h2>
+<p>
+We&#8216;re bumping to 0.5.0 for this release since all of the Rails code
+has now moved to a new gem - cucumber-rails. Please see History.txt in
+cucumber-rails for details about what&#8216;s new on the Rails side.
+</p>
+<h3>New features</h3>
+<ul>
+<li>&quot;Given&quot; in Dutch is now aliased to &quot;Gegeven&quot; or
+&quot;Stel&quot;. (Iain Hecker)
+
+</li>
+<li>New &#8212;i18n option to list keywords in various languages. (Aslak
+Hellesøy)
+
+</li>
+<li>Added a Tcl example using Sam Stephenson&#8216;s ruby-tcl (Aslak Hellesøy)
+
+</li>
+<li>Added * as a synonym for Given/When/Then/And/But (for all i18n languages).
+(462 Aslak Hellesøy)
+
+</li>
+<li>The HTML formatter produces a much nicer report, with TextMate link
+integration. (Rob Aldred)
+
+</li>
+<li>Wire protocol now supports table arguments, step definition source &amp;
+regexp, snippets, pending, table diffing (Matt Wynne)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Per-word trailing-space setting for step keywords using &#8217;&lt;&#8217;.
+See &#8216;fr&#8217; in languages.yml for example. (525 Gregory Hnatiuk)
+
+</li>
+<li>Formatters will no longer be passed File objects. They must use ensure_io,
+ensure_file or ensure_dir. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Exception messages are properly escaped in the HTML report. (Aslak
+Hellesøy)
+
+</li>
+<li>Improved UTF-8 support for Windows. (Aslak Hellesøy)
+
+</li>
+<li>Make element_at / table_at work on Webrat 0.6.0. This is now deprecated it
+in favour of tableish from the cucumber-rails gem. (Aslak Hellesøy)
+
+</li>
+<li>JUnit formatter not handling multiline table steps inside Scenario Outlines
+(538 Matt Wynne)
+
+</li>
+<li>Pending in scenario outline is red (399 Matt Wynne)
+
+</li>
+<li>Allow optional step arguments to play happily with step transforms (Rob
+Holland)
+
+</li>
+<li>Regex escape the path when filtering the backtrace (Corey Donohoe &amp;
+Simon Rozet)
+
+</li>
+<li>Add gem dependency on JSON gem, required by wire protocol (533 Matt Wynne)
+
+</li>
+</ul>
+<h3>Removed Features</h3>
+<ul>
+<li>All Rails-related code is in a separate gem: cucumber-rails. Install that
+if you&#8216;re working with Rails. (483 Aslak Hellesøy)
+
+</li>
+<li>&#8212;language is removed: <a
+href="http://wiki.github.com/aslakhellesoy/cucumber/spoken-languages">wiki.github.com/aslakhellesoy/cucumber/spoken-languages</a>
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.4.4 2009-11-13</h2>
+<p>
+What a bad day to make a release, but here goes.
+</p>
+<h3>New features</h3>
+<ul>
+<li><a href="../classes/Cucumber.html">Cucumber</a> should use
+ActiveSupport::Callbacks for fixtures (516 Adam Salter)
+
+</li>
+<li>Make &#8216;I&#8217; optional in all webrat steps. (Gavin Hughes)
+
+</li>
+<li>Make generated cucumber.rake work with a vendored gem (Alex Rothenberg)
+
+</li>
+<li>Native support for ANSIColor on IronRuby via the iron-term-ansicolor gem
+(Will Green)
+
+</li>
+<li>Call a bunch of steps from step definitions - also with tables or
+pystrings. Copy-paste friendly (Bodaniel Jeanes, Jack Chen, Aslak
+Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Pretty printer fails when expanding scenario outlines with -x when the
+background includes a table (515 Mike Sassak)
+
+</li>
+<li>Ensure tags used with Before/After hooks always get parsed (520 Joseph
+Wilk)
+
+</li>
+<li>Define IRONRUBY correctly on Ruby 1.9 (Joe Van Dyk)
+
+</li>
+<li>RbStepDefinition#invoke calls backtrace_line on self rather than @proc (503
+Mike Sassak)
+
+</li>
+<li>Avoid duplicate cucumber entries in database.yml (Daniel Hofstetter)
+
+</li>
+<li>Added respond_to? when checking config.cache_classes for older Rails
+versions (Jeremy Durham)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Rails support has been moved to the cucumber-rails gem (Dennis Blöte,
+Aslak Hellesøy) TODO - WIKI DOCUMENTATION BEFORE RELEASE
+
+</li>
+<li>The code for Czech has changed from cz to cs. (deepj)
+
+</li>
+<li>$cucumber_interrupted is now Cucumber.wants_to_quit - avoid global
+variable, which gives warnings. (Aslak Hellesøy)
+
+</li>
+<li>Examples keyword without a colon is deprecated loudly. Gherkin will not
+recognize it at all. (Gherkin 30 Mike Sassak)
+
+</li>
+</ul>
+<h2>0.4.3 2009-10-28</h2>
+<p>
+The exciting thing about this release is that the wire protocol is starting
+to take shape. This means you can now use <a
+href="../classes/Cucumber.html">Cucumber</a> with .NET - writing step
+definitions in C#. And this is without having to use IronRuby at all! See
+Cuke4Nuke (<a
+href="http://wiki.github.com/richardlawrence/Cuke4Nuke">wiki.github.com/richardlawrence/Cuke4Nuke</a>)
+for more information.
+</p>
+<p>
+As usual there are several small features and bug fixes.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Add support for ORing tags which are passed in with seperate &#8212;tag
+arguments. Make comma seperated tags use AND (368 Joseph Wilk)
+
+</li>
+<li>New Wire Protocol - allowing out of process execution of <a
+href="../classes/Cucumber.html">Cucumber</a> scenarios. (428 Matt Wynne)
+
+</li>
+<li>Added an example illustrating how to get screenshots in HTML reports
+(examples/watir) (Aslak Hellesøy)
+
+</li>
+<li>Added new embed(file, mime_type) method to visitors and Ruby Worlds to make
+it easier to embed screenshots (Aslak Hellesøy)
+
+</li>
+<li>The announce method available from Ruby Step Definitions will print
+<b>after</b> the step is executed. (487 Zoltan Penzeli)
+
+</li>
+<li>Add support for rolling back transaction for all open database connections.
+(John Ferlito)
+
+</li>
+<li>Show scenario and step summary in HTML formatter (285 Joseph Wilk)
+
+</li>
+<li>Ast::Table can now be constructed with an Array of Hash. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>The announce method will no longer escape HTML if the html formatter is
+used. Escaping must be done manually. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed incorrect rendering of step arguments with UTF8 characters (Aslak
+Hellesøy)
+
+</li>
+<li>&quot;&#8212;format rerun&quot;, with a Scenario Outline, kills cucumber
+(492 Aslak Hellesøy)
+
+</li>
+<li>Usage formatter is not reporting time correctly. (Elliot Crosby-McCullough)
+
+</li>
+<li>JUnit formatter raises a more helpful error when run on a feature with no
+name. (493 Matt Wynne)
+
+</li>
+<li>Better Danish translation (Thorbjørn Ravn Andersen)
+
+</li>
+</ul>
+<h2>0.4.2 2009-10-14</h2>
+<p>
+Bugfix release. The 0.4.1 release was hosed when switching from Hoe to
+Jeweler.
+</p>
+<h2>0.4.1 2009-10-14</h2>
+<p>
+This is mostly a bugfix release. Some of <a
+href="../classes/Cucumber.html">Cucumber</a>&#8216;s own features have been
+fixed so they pass on more platforms, making it easier for people to
+contribute. The README.txt also describes how to get up and running with
+the development environment.
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li><a href="../classes/Cucumber.html">Cucumber</a>&#8216;s features verified
+passing on MRI 1.8.6 (OSX), 1.8.7 (OSX), 1.9.1 (OSX/Win) and JRuby 1.4.0RC1
+(OSX). (Aslak Hellesøy)
+
+</li>
+<li>Ensure no errors are raised when limiting with tags which are not in the
+feature set (464 Joseph Wilk)
+
+</li>
+<li>Missing Romanian keywords added for Examples, Scenario Outline and
+Background (to my best google translate knowledge) (Aslak Hellesøy)
+
+</li>
+<li>Make rerun and &#8212;drb work together again after formatter API changes
+(485 Erik Hansson, John Ferlito)
+
+</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>The Rails cucumber generator will only default to RSpec if installed. And
+print better help. (Aslak Hellesøy)
+
+</li>
+<li>Added &#8216;but&#8217; variants to Japanese. (Kakutani Shintaro)
+
+</li>
+<li>README.txt explains people how to run all tests. Install gems with
+geminstaller. (Aslak Hellesøy)
+
+</li>
+<li>Added support for Serbian language, both Cyrillic and Latin with usage
+examples. (Dejan Dimic)
+
+</li>
+<li>Add new &#8216;debug&#8217; formatter for debugging and visualising the
+calls to listeners. (Matt Wynne)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>Use <a
+href="http://github.com/aslakhellesoy/wac">github.com/aslakhellesoy/wac</a>
+instead of <a
+href="http://github.com/aslakhellesoy/ansicolor">github.com/aslakhellesoy/ansicolor</a>
+on Windows/JRuby (456 Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Internal changes</h3>
+<ul>
+<li>Ditched Hoe for Jeweler (Aslak Hellesøy)
+
+</li>
+<li>Added StepMother#invoke(step_name, multiline_argument=nil) - needed by
+cuke4duke ticket 26 (Aslak Hellesøy)
+
+</li>
+<li>StepDefinitionMethods is gone.
+
+</li>
+</ul>
+<h2>0.4.0 2009-10-09</h2>
+<p>
+The back to stable release. When we went from 0.3.11 to 0.3.90 we thought
+we were close to a 0.4.0 release. Then the community went nuts and a lot of
+great contributions came in. Some of those broke backwards compatibility,
+and we decided it would be better to do this while still on 0.3.x.
+</p>
+<p>
+Rails users: you <b>must</b> run script/generate cucumber after installing
+this version.
+</p>
+<p>
+If something breaks for you, please please please read this file carefully.
+It&#8216;s most likely something referenced here, and that will give you
+more information so you can solve any problems. If not, just get in touch
+on IRC or the Google Group.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Total feature parsing time is shown when run with &#8212;verbose. Useful
+for benchmarking with future Ragel parser (Aslak Hellesøy)
+
+</li>
+<li>Tables yielded to step definitions are no longer frozen, so you can edit
+their data without dup&#8216;ing (Aslak Hellesøy)
+
+</li>
+<li>Transform can now transform tables, using /table:col1,col2,col3/ (478 Corey
+Haines)
+
+</li>
+<li>cucumber.yml can also end in .yaml and be located in .config/ or config/
+dirs (447 trans)
+
+</li>
+<li>Turkish support. (Hakan Şenol Ensari)
+
+</li>
+<li>Upgrade Rails generator to set a dependency to Spork 0.7.3. (Aslak
+Hellesøy)
+
+</li>
+<li>Installation via rubygems will print a message telling people to read this
+file. (Aslak Hellesøy)
+
+</li>
+<li>Files generated by the Rails cucumber generator have information about the
+risks of editing. (Aslak Hellesøy)
+
+</li>
+<li>Rotten <a href="../classes/Cucumber.html">Cucumber</a> alert on Rails if
+you upgrade your gem without regenerating with script/generate cucumber.
+(Aslak Hellesøy)
+
+</li>
+<li>Stop the confusion between &quot;homepage&quot; and &quot;home page&quot;
+by allowing both (Ryan Bigg &amp; Bodaniel Jeanes)
+
+</li>
+<li>Make script/cucumber file generated by the Rails cucumber generator look
+for cucumber in vendored gems as well. (Tom ten Thij)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Step tables now default empty table cells to empty strings and not nil (470
+Joseph Wilk)
+
+</li>
+</ul>
+<h3>Removed Features</h3>
+<ul>
+<li>The feature_list, feature_pattern, step_list and step_pattern properties
+are removed from the Rake task. Use profiles instead. (Aslak Hellesøy)
+
+</li>
+<li>The FeatureTask is removed. Use profiles instead.
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>instance_exec get declared private (477 Tim Galeckas)
+
+</li>
+<li>Transforms can return nil. (Thomas Marek)
+
+</li>
+<li>Generated rails rake tasks doesn&#8216;t use the vendored version cucumber
+binary (468 Josh Nichols)
+
+</li>
+<li>Incorrect diagnostics in case when Before raises in presence of Background
+(465 Fedor Kocherga)
+
+</li>
+<li>Error on pystring in scenario outline with pretty formatter (475 Aslak
+Hellesøy)
+
+</li>
+<li>Adding After(&#8217;@allow-rescue&#8217;) to set allow_rescue back to its
+former value. (Alf Mikula)
+
+</li>
+<li>Feature files are now sorted before they are executed, because different
+operating systems may list files differently. (Aslak Hellesøy)
+
+</li>
+<li>Fixed image loading for Windows in PDF formatter. Allow use of both png and
+jpg. (461 Declan Whelan)
+
+</li>
+<li>Before(&#8217;~@no-txn&#8217;) is run on all scenarios without @no-txn
+causing Cucumber::Rails::World.use_transactional_fixtures to always be
+true. (457 Aslak Hellesøy)
+
+</li>
+<li>JUnit formatter not handling scenario outline tables (472 Matt Wynne)
+
+</li>
+<li>Language help broken (467 Matt Wynne)
+
+</li>
+<li>Language help formatter aligns output better on Ruby 1.8.6 (Aslak
+Hellesøy)
+
+</li>
+<li>Better backtraces for Ruby 1.8.7. (Jakob Skov-Pedersen)
+
+</li>
+<li>String step definitions ( Given &#8216;I have $number cucumbers&#8217; )
+are escaped before being turned into regular expressions. (David Waite)
+
+</li>
+</ul>
+<h2>0.3.104 2009-09-27</h2>
+<p>
+This release has some minor changes to the command line and formatters. The
+biggest change is internally, paving the way for more programming language
+support in Cuke4Duke, which now supports step definitions written in Java,
+Scala, Groovy, Clojure and Javascript!
+</p>
+<h3>New Features</h3>
+<ul>
+<li>&quot;usage&quot; formatter should display progress (437 Aslak Hellesøy)
+
+</li>
+<li>Added example for Ramaze. (Yutaka HARA)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Fixed regression in profile formatter from 0.3.102. (Aslak Hellesøy)
+
+</li>
+<li>Raise a proper error message if someone forgets @ for tags, example:
+&#8212;tags ~foo or &#8212;tags bar. (Aslak Hellesøy)
+
+</li>
+<li>lib/cucumber/formatter/html.rb requires xml (458 Brent Snook)
+
+</li>
+<li>lib/cucumber/formatter/html.rb requires ruby-debug (455 Assaf Arkin)
+
+</li>
+<li>Allow for STDOUT formatters to be defined in profiles. Addresses an <a
+href="../classes/Autotest.html">Autotest</a> plugin issue. (375 Gabriel
+Medina)
+
+</li>
+</ul>
+<h3>Removed features</h3>
+<ul>
+<li>The &#8212;dry-run option no longer implies &#8212;no-source and
+&#8212;no-snippets. It only implies &#8212;no-snippets. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>The profile and usage formatters have been combined to the usage formatter.
+Use it eith or without &#8212;dry-run. See &#8212;help for more. (Aslak
+Hellesøy)
+
+</li>
+<li>The steps formatter has been renamed to stepdefs formatter. (Aslak
+Hellesøy)
+
+</li>
+<li>The internal programming language API has changed, giving more power to the
+implementation. See 428. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.3.103 2009-09-24</h2>
+<p>
+This release gives you back some of the control over the Rails environment
+that was accidentally taken away from you in the previous release.
+</p>
+<p>
+Using this release on a Rails project requires a rerun of script/generate
+cucumber.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Added a new @no-txn tag to selectively turn off transactions for a
+particlular scenario.
+
+</li>
+<li>Added back a way to globally turn off transactions.
+
+</li>
+<li>Renamed @allow_rescue tag to @allow-rescue.
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Gracefully handle cases when optional regexp groups are not matched. Ex:
+/should( not)? be flashed &#8217;([^&#8217;]*?)&#8217;$/ (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>The Formatter API has completely changed. Formatters are no longer a
+double-dispacth visitor - just a single-dispatch listener (438 Matt Wynne)
+
+</li>
+</ul>
+<h2>0.3.102 2009-09-22</h2>
+<p>
+This release has some changes in the Rails support, so make sure you run
+&quot;script/generate cucumber&quot; after you upgrade. Other noteworthy
+new features are improved Hook, tags and Transform support, and as always -
+several smaller bug fixes.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Added new internal API for Regexp and groups, allowing other programming
+languages to leverage native regexps. (Aslak Hellesøy)
+
+</li>
+<li>New @allow_rescue tag for Rails scenarios. Causes exceptions raised in
+actions to be caught by rails and not bubble up to <a
+href="../classes/Cucumber.html">Cucumber</a> (Aslak Hellesøy)
+
+</li>
+<li>Negative tags can now be used in hooks, just like the command line&#8216;s
+&#8212;tags option: Before(&#8217;~@yarr&#8217;) - will run for all
+scenarios that *don&#8216;t* have the @yarr tag. (Aslak Hellesøy)
+
+</li>
+<li>Transform has current &quot;World&quot; scope (Larry Diehl)
+
+</li>
+<li>Other Transforms can be reused by calling Transform with a string inside of
+another Transform definition (Larry Diehl)
+
+</li>
+<li>Execute &quot;After&quot; hooks in reverse order of declaration for better
+behavior with dependent blocks and to mimic the behavior of at_exit (David
+Waite)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>features/support/env.rb runs commands twice (bugfix cuts total time by
+almost 50% w00t) (452 Jim Meyer)
+
+</li>
+<li>Problems adding custom formatters to features/support. (features/support is
+added to $LOAD_PATH) (449 Aslak Hellesøy)
+
+</li>
+<li>Some options set in cucumber.yml profiles are ignored (446 Leonard CHIN)
+
+</li>
+<li>Missing step_definition snippets not properly displayed (433 Aslak
+Hellesøy)
+
+</li>
+<li>rspec-rails, :lib =&gt; false (447 David Chelimsky)
+
+</li>
+<li><a href="../classes/Cucumber.html">Cucumber</a> with Spork breaks on OS X
+Snow Leopard (431 David Chelimsky)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Tag names passed on the command line <b>always</b> have to use the @ sign.
+&#8212;tags foo or &#8212;tags ~bar won&#8216;t work. Use &#8212;tags @foo
+or &#8212;tags ~@bar (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Removed features</h3>
+<ul>
+<li>The Cucumber::Rails.bypass_rescue no longer exists. Errors will always
+bubble up, unless you use the new @allow_rescue tag. (Aslak Hellesøy)
+
+</li>
+<li>The Cucumber::Rails.use_transactional_fixtures no longer exists.
+Transactional fixtures are always enabled for the cucumber environment.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.3.101 2009-09-15</h2>
+<p>
+Two exciting things in this release. Step Argument Transforms and a PDF
+formatter you can use to send your features to your customer for review!
+</p>
+<h3>New Features</h3>
+<ul>
+<li>New pdf formatter (425 Mads Buus)
+
+</li>
+<li>Step Argument Transforms: These let you use the Transform method to
+register regular expressions to catch and transform/coerce arguments before
+they are yielded to step definitions: <a
+href="http://wiki.github.com/aslakhellesoy/cucumber/step-argument-transforms">wiki.github.com/aslakhellesoy/cucumber/step-argument-transforms</a>
+(Larry Diehl &amp; Dave Astels)
+
+</li>
+<li>Adding webrat steps for asserting content does or does not exist within a
+particular element (using webrat&#8216;s within method) (Kieran Pilkington)
+
+</li>
+</ul>
+<h2>0.3.100 2009-09-09</h2>
+<p>
+The JavaZone release!
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Added support for Uzbek (msarvar)
+
+</li>
+<li>The file argument on the cucumber command line will replace contents of
+file on cli if file is prefixed with @ (Tero Tilus)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Backtraces on JRuby are handled in a cleaner way when the exception comes
+from Java (NativeException). (Aslak Hellesøy)
+
+</li>
+<li>When exceptions occur in a Before block the rest of the scenario is now
+skipped (331 Matt Wynne)
+
+</li>
+</ul>
+<h2>0.3.99 2009-09-03</h2>
+<h3>New Features</h3>
+<ul>
+<li>Support for Croatian (Bkrsta)
+
+</li>
+<li>Make feature available from scenario so you can do: Before{|scenario|
+scenario.feature}. (Aslak Hellesøy)
+
+</li>
+<li>cucumber.yml parsing supports ERB syntax (427 Gregory Hnatiuk)
+
+</li>
+<li>New AfterConfiguration hook added; a block can be specified that takes <a
+href="../classes/Cucumber/Cli/Configuration.html">Cucumber::Cli::Configuration</a>
+(423 Brent Snook)
+
+</li>
+<li>Cucumber::Cli::Configuration#feature_dirs and out_stream exposed as public
+attributes so that they may be used in AfterConfiguration hook (423 Brent
+Snook)
+
+</li>
+</ul>
+<h2>0.3.98 2009-08-25</h2>
+<p>
+Just a small release to help Cuke4Duke, which will be presented at
+Agile2009 in 2 days.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Backtrace filtering now happens in StepInvocation class, meaning other
+languages (Cuke4Duke) can get backtraces stripped. (Aslak Hellesøy)
+
+</li>
+<li>Cucumber::Ast::Table#map_headers now allows for a block that will convert
+all the headers. See docs for details. (Ben Mabey)
+
+</li>
+</ul>
+<h2>0.3.97 2009-08-23</h2>
+<p>
+The AA-FTT release. Creating a release for the AA-FTT meeting in Chicago so
+that we can play with the new language API and maybe knock out some better
+.NET support.
+</p>
+<h3>Bugfixes</h3>
+<ul>
+<li>Allow comments on examples sections underneath scenario outlines (420 Mike
+Sassak)
+
+</li>
+<li>Table.map_headers! will fail with a decent error message when 0 or 2+
+headers are matched. (Aslak Hellesøy)
+
+</li>
+<li>Fixed an issue with comments with preceding spaces after a background
+causing a parse error (401 Joseph Wilk)
+
+</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>The public API is documented and there is a new :sdoc task to generate nice
+searchable API docs.
+
+</li>
+<li>Add :default =&gt; :cucumber when setting up Rake tasks for <a
+href="../classes/Cucumber.html">Cucumber</a> in Rails (Aslak Hellesøy)
+
+</li>
+<li>New When /^I fill in &quot;([^\&quot;]*)&quot; for
+&quot;([^\&quot;]*)&quot;$/ Webrat step for Rails (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>Changed the Programming Language API to support languages without
+&quot;bleed through&quot; (e.g. rubypython can&#8216;t invoke ruby objs)
+(Aslak Hellesøy)
+
+</li>
+<li>The Programming Language API manages hooks on the language level instead of
+on the step mother level (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.3.96 2009-08-15</h2>
+<p>
+This release doesn&#8216;t have any significant new features or bug fixes,
+but there are big internal changes. This release has a new API for plugging
+in other programming languages. You can read more about that here: <a
+href="http://groups.google.com/group/cukes/browse_thread/thread/b9db8bf1f3ec9708">groups.google.com/group/cukes/browse_thread/thread/b9db8bf1f3ec9708</a>
+</p>
+<p>
+This might break other tools that are using <a
+href="../classes/Cucumber.html">Cucumber</a>&#8216;s internal APIs. For
+example Spork broke and had to be patched. Please upgrade to Spork 0.5.9 if
+you are using Spork.
+</p>
+<h3>New Features</h3>
+<ul>
+<li>Ability to preload natural language in Spork&#8216;s prefork. Rerun
+script/generate cucumber &#8212;spork to see how. (Aslak Hellesøy)
+
+</li>
+<li>Ability to control which DRb port is used via the &#8212;port flag or by
+setting CUCUMBER_DRB environment variable. (Chris Flipse)
+
+</li>
+<li>Upgrade Rails generator to use webrat 0.5.0. (Aslak Hellesøy)
+
+</li>
+<li>Upgrade Sinatra example to work with rack-test 0.4.1 and webrat 0.5.0.
+(Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>&#8212;strict will cause an exit code 1 for missing and pending (used to be
+for missing only). (Mads Buus)
+
+</li>
+<li>junit formatter doesn&#8216;t report pending steps unless &#8212;strict is
+used. (Mads Buus)
+
+</li>
+</ul>
+<h2>0.3.95 2009-08-13</h2>
+<p>
+This release improves Webrat support for table-like HTML markup. Now you
+can easily turn the HTML elements table, dl, ol and ul elements into a 2D
+array. This is particularly useful for comparing data in your HTML with a
+<a href="../classes/Cucumber.html">Cucumber</a> table using
+Cucumber::Ast::Table#diff!
+</p>
+<p>
+This release also fixes several bugs related to &#8212;drb (Spork) and
+profiles (cucumber.yml)
+</p>
+<h3>Bug Fixes</h3>
+<ul>
+<li>&#8212;guess will always prefer the longest regexp with no groups if they
+exist.
+
+</li>
+<li>Prevent delays if a NoMethodError is raise in a step definition. Define a
+light inspect in World. (374 Aslak Hellesøy)
+
+</li>
+<li>Restore &#8216;features&#8217; as the default feature running path. (412
+Ben Mabey)
+
+</li>
+<li>&#8212;drb degrades gracefully when no drb server is running and no
+formatter is provided. (410 Ben Mabey)
+
+</li>
+<li>&#8212;language picked up from profiles again. (409 Ben Mabey)
+
+</li>
+<li>Resolved infinite loop problem when &#8212;drb was defined in a profile.
+(408 Ben Mabey)
+
+</li>
+</ul>
+<h3>New Features</h3>
+<ul>
+<li>Cucumber::World#table has been overloaded to work with 2D Array in addition
+to a table String to be parsed.
+
+</li>
+<li>New When /^I fill in the following:$/ step definition for Webrat. Useful
+for filling out a form with a Table. (Aslak Hellesøy)
+
+</li>
+<li>The object returned by element_at (Webrat::Element) has a to_table that
+works for table, dl, ol and ul. (Aslak Hellesøy)
+
+</li>
+<li>An explanation of why failures are ok is printed when &#8212;wip is used.
+(Aslak Hellesøy)
+
+</li>
+<li>Added cucumber alias for cucumber:ok in Rails Rake tasks. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Changed features</h3>
+<ul>
+<li>element_at(&#8216;table&#8217;).to_table should be used instead of
+table_at(&#8216;table&#8217;).to_a. The old way is deprecated but still
+works. (Aslak Hellesøy)
+
+</li>
+<li>element_at (and the depracated table_at) no longer takes a DOM id, only CSS
+selectors. Change &quot;my_id&quot; to &quot;my_id&quot;. (Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.3.94 2009-08-06</h2>
+<p>
+Kanban take II.
+</p>
+<p>
+Release 0.3.6 introduced a new &#8212;wip switch that can be used to limit
+work in progress (WIP). Limiting WIP is central for Kanban Software
+Development (<a
+href="http://www.infoq.com/articles/hiranabe-lean-agile-kanban">www.infoq.com/articles/hiranabe-lean-agile-kanban</a>).
+</p>
+<p>
+However, this feature went mostly unnoticed, and because we think
+it&#8216;s so great we have decided to make it the default for Rails
+projects. When you bootstrap your Rails project for <a
+href="../classes/Cucumber.html">Cucumber</a> you will now get 2 <a
+href="../classes/Cucumber.html">Cucumber</a> Rake tasks for Kanban
+development:
+</p>
+<pre>
+  cucumber:ok  : Run features that should pass. This runs your &quot;good,old&quot; features
+  cucumber:wip : Run the features you're working on that don't pass yet. Tag them with @wip. Max 2!
+</pre>
+<p>
+So upgrade today and get into the habit of tagging new features with @wip
+(or invent your own tags). You&#8216;ll achieve better flow this way.
+</p>
+<h3>New features</h3>
+<ul>
+<li>Support limiting the number of feature elements with certain tags (353
+Joseph Wilk)
+
+</li>
+<li>script/generate cucumber sets up &#8216;cucumber:ok&#8217; and
+&#8216;cucumber:wip&#8217; tasks and deprecates &#8216;features&#8217;.
+More Kanban love. (344 Aslak Hellesøy)
+
+</li>
+<li>Better JUnit formatter: feature-&gt;testsuite, scenario-&gt;testcase.
+Better timing and support for background and scenario outline. (Mads Buus
+Westmark)
+
+</li>
+<li>Added examples/python that uses rubypython. (Aslak Hellesøy)
+
+</li>
+<li>Checks the number of available colors on the terminal with ruby-terminfo if
+ruby-terminfo is installed. This prevents Apple&#8216;s Terminal.app from
+stalling (Yugui - Yuki Sonoda).
+
+<ul>
+<li>Set &#8216;xterm-256color&#8217; to TERM if your terminal supports grey.
+
+</li>
+<li>ruby-terminfo is available as genki-ruby-terminfo gem from github.
+
+</li>
+</ul>
+</li>
+<li>Document builtin formatters with &#8212;help. (406 Aslak Hellesøy)
+
+</li>
+<li>Added support for using regular expressions when mapping table headers.
+(Peter Williams)
+
+</li>
+</ul>
+<h2>0.3.93 2009-08-03</h2>
+<p>
+Highlights in this release: Improved profile handling (cucumber.yml) and a
+fix for cucumber hanging.
+</p>
+<h3>New features</h3>
+<ul>
+<li>script/generate cucumber &#8212;spork now sets up a spork gem dependency in
+the cucumber.rb environment. (Aslak Hellesøy)
+
+</li>
+<li>Feature files defined on the command line override any that are present in
+profiles. (344 Ben Mabey)
+
+</li>
+<li>Default (STDOUT) formatter defined in profile can be overridden from the
+command line. (344 Ben Mabey)
+
+</li>
+<li>Displays which profile, if any, is being used. (Ben Mabey)
+
+</li>
+<li>click_link_within(parent, link) webrat step (Joakim Kolsjö)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>script/cucumber correctly loads the gem&#8216;s binary if the plugin
+isn&#8216;t installed.
+
+</li>
+<li><a href="../classes/Cucumber.html">Cucumber</a> hangs waiting for Ctrl+C if
+an Error is raised. (374 Aslak Hellesøy)
+
+</li>
+</ul>
+<h2>0.3.92 2009-07-29</h2>
+<p>
+This release has some minor improvements to the new Table.diff!
+functionality. For example, if you&#8216;re using Webrat and you want to
+compare a feature table with a HTML table containing links in one of the
+columns, you can do:
+</p>
+<pre>
+  actual = Cucumber::Ast::Table.new(table_at('table').to_a)
+  actual.map_column!('Name') { |text| text.strip.match(/&gt;(.*)&lt;/)[1] }
+  table.diff!(actual)
+</pre>
+<h3>New features</h3>
+<ul>
+<li>Allow Step Definitions to accept mix of required &amp; optional args (Niels
+Ganser)
+
+</li>
+<li>table_a.diff!(table_b) now uses column conversions from both tables
+(Table#map_column!) (Aslak Hellesøy)
+
+</li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Upgrade Sinatra example to work with rack-test 0.3.0 and
+aslakhellesoy-webrat 0.4.4.1 (Aslak Hellesøy)
+
+</li>
+<li>require &#8216;cucumber/webrat/table_locator&#8217; added to Spork
+environment for Rails (Anders Furseth)
+
+</li>
+</ul>
+<h3>Changed Features</h3>
+<ul>
+<li>The &#8216;default&#8217; profile is now ALWAYS used unless you specify
+another profile or use the -P or &#8212;no-profile flag. (344 Ben Mabey)
+
+</li>
+</ul>
+<h2>0.3.91 2009-07-27</h2>
+<h3>New Features</h3>
+<ul>
+<li>CTRL-C will exit immediately instead of carrying on until all features are
+run. (Aslak Hellesøy)
+
+</li>
+<li>Run can be stopped programmatically by setting $cucumber_interrupted =
+true, for example in an After block. (Aslak Hellesøy)
+
+</li>
+<li>Support limiting the number of feature elements with certain tags (353
+Joseph Wilk)
+
+</li>
+<li>Table support for cuke4duke
+
+</li>
+</ul>
+<h2>0.3.90 2009-07-22</h2>
+<p>
+The Hot summer release
+</p>
+<p>
+This is a hot summer in Norway, and Cucumbers are growing in abundance. To
+celebrate this we give you a new release with lots of new features and
+bugfixes. This is also one of the last releases in the 0.3 series (hence
+the 0.3.90 number), so 0.4 (or maybe 1.0!) will be coming up soon. The
+highlights of this release are:
+</p>
+<h3>Egality</h3>
+<p>
+English is not the world&#8216;s most spoken language, so why should <a
+href="../classes/Cucumber.html">Cucumber</a> force non-English speakers to
+use the
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

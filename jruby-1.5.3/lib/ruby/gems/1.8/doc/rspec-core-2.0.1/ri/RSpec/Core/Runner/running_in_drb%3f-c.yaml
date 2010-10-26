@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Runner::running_in_drb?
+is_singleton: true
+name: running_in_drb?
+params: ()
+visibility: public

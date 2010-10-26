@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Console#print_elements
+is_singleton: false
+name: print_elements
+params: (elements, status, kind)
+visibility: public

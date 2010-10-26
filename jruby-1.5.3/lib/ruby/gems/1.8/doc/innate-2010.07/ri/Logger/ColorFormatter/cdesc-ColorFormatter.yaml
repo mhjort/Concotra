@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: color?
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Extended Formatter that supports ANSI colors.
+  - !ruby/struct:SM::Flow::P 
+    body: "The basic mapping of ANSI colors is as follows:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    | reset | bold | dark | underline | blink | negative\n"
+  - !ruby/struct:SM::Flow::P 
+    body: MOD | 0 | 1 | 2 | 4 | 5 | 7
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   | black | red | green | yellow | blue | magenta | cyan | white\n"
+  - !ruby/struct:SM::Flow::P 
+    body: FG | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 BG | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47
+  - !ruby/struct:SM::Flow::P 
+    body: "The output is done by: &quot;\\e[#{mod};#{fg};#{bg}m#{string}\\e[0m&quot; The suffix is to reset the terminal to the original state again."
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: LEVEL_COLOR
+    value: "{       'DEBUG'   => \"\\e[0;34;40m%s\\e[0m\", # blue on black       'INFO'    => \"\\e[0;37;40m%s\\e[0m\", # white on black       'WARN'    => \"\\e[0;33;40m%s\\e[0m\", # yellow on black       'ERROR'   => \"\\e[0;31;40m%s\\e[0m\", # red on black       'FATAL'   => \"\\e[0;35;40m%s\\e[0m\", # red on black       'UNKNOWN' => \"\\e[0;32;40m%s\\e[0m\", # green on black     }"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FORMAT_TIME
+    value: "\"%Y-%m-%d %H:%M:%S\""
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FORMAT_LINE
+    value: "\"%s [%s $%d] %5s | %s: %s\\n\""
+full_name: Logger::ColorFormatter
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+  - !ruby/object:RI::MethodSummary 
+    name: colorize
+  - !ruby/object:RI::MethodSummary 
+    name: format_time
+name: ColorFormatter
+superclass: Formatter

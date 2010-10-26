@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Use this method to achieve thread-safety for sensitive operations.
+  - !ruby/struct:SM::Flow::P 
+    body: This should be of most use when manipulating files to prevent other threads from doing the same, no other code will be scheduled during execution of this method.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Proc] block the things you want to execute"
+full_name: Innate::SingletonMethods#sync
+is_singleton: false
+name: sync
+params: (&block)
+visibility: public

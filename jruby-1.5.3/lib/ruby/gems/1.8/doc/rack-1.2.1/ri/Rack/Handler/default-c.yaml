@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Handler::default
+is_singleton: true
+name: default
+params: (options = {})
+visibility: public

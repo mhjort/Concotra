@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#full_backtrace=
+is_singleton: false
+name: full_backtrace=
+params: (bool)
+visibility: public

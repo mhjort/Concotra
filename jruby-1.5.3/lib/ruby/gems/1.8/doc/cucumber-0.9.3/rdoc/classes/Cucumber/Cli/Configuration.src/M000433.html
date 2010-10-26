@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>all_files_to_load (Cucumber::Cli::Configuration)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/cli/configuration.rb, line 79</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all_files_to_load</span>
+        <span class="ruby-identifier">requires</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:require</span>].<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span><span class="ruby-identifier">require_dirs</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:require</span>]
+        <span class="ruby-identifier">files</span> = <span class="ruby-identifier">requires</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\\/</span>, <span class="ruby-value str">'/'</span>) <span class="ruby-comment cmt"># In case we're on windows. Globs don't work with backslashes.</span>
+          <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\/$/</span>, <span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># Strip trailing slash.</span>
+          <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Dir</span>[<span class="ruby-node">&quot;#{path}/**/*&quot;</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">path</span>
+        <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">uniq</span>
+        <span class="ruby-identifier">remove_excluded_files_from</span>(<span class="ruby-identifier">files</span>)
+        <span class="ruby-identifier">files</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">f</span>)}
+        <span class="ruby-identifier">files</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">f</span>) <span class="ruby-operator">==</span> <span class="ruby-value str">'.feature'</span> }
+        <span class="ruby-identifier">files</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^http/</span>}
+        <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

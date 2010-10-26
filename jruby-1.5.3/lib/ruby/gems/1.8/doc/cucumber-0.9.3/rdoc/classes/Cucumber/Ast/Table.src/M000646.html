@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>map_headers! (Cucumber::Ast::Table)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/ast/table.rb, line 236</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">map_headers!</span>(<span class="ruby-identifier">mappings</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">header_cells</span> = <span class="ruby-identifier">cell_matrix</span>[<span class="ruby-value">0</span>]
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+          <span class="ruby-identifier">header_values</span> = <span class="ruby-identifier">header_cells</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">value</span> } <span class="ruby-operator">-</span> <span class="ruby-identifier">mappings</span>.<span class="ruby-identifier">keys</span>
+          <span class="ruby-identifier">mappings</span> = <span class="ruby-identifier">mappings</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-constant">Hash</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">header_values</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">header_values</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)).<span class="ruby-identifier">flatten</span>])
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">mappings</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pre</span>, <span class="ruby-identifier">post</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">mapped_cells</span> = <span class="ruby-identifier">header_cells</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">cell</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pre</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">value</span>}
+          <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No headers matched #{pre.inspect}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mapped_cells</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{mapped_cells.length} headers matched #{pre.inspect}: #{mapped_cells.map{|c| c.value}.inspect}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mapped_cells</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">mapped_cells</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">value</span> = <span class="ruby-identifier">post</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@conversion_procs</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">pre</span>)
+            <span class="ruby-ivar">@conversion_procs</span>[<span class="ruby-identifier">post</span>] = <span class="ruby-ivar">@conversion_procs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">pre</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

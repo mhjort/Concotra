@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Very crude paginator, may contain serious bugs, please fix :) pass it the result of YourModel.paginate, target is where links point to.
+full_name: Ramaze::Helper::Sequel#paginator
+is_singleton: false
+name: paginator
+params: (paginated, target)
+visibility: public

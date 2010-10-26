@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "FIXME:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Seems like this won't work due to some bug in the rinotify library.\n  Would be cool if someone could make a FFI version.\n"
+full_name: Ramaze::Reloader::WatchInotify#remove_watch
+is_singleton: false
+name: remove_watch
+params: (file)
+visibility: public

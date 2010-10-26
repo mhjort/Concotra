@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (file)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "NOTE:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  We have to add the changed file again after we got a notification, I\n  have no idea why, but using IN_ONESHOT should make sure that there is\n  no memory leak in the C level even if we add a file again.\n  There is a memory leak however in the watch_descriptors hash, since\n  rinotify won't synchronize the contents properly and will only add to\n  the hash, so we have to clean up ourselves.\n"
+full_name: Ramaze::Reloader::WatchInotify#changed_files
+is_singleton: false
+name: changed_files
+params: () {|file| ...}
+visibility: public

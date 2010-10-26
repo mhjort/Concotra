@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Alias for #handle_success"
+full_name: Cucumber::WireSupport::WireProtocol::Requests::StepMatches#handle_step_matches
+is_singleton: false
+name: handle_step_matches
+params: (params)
+visibility: public

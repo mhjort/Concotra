@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: object
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: options
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: pick
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: SECONDS
+    value: (1900..2100), (1..12), (1..31), (0..23), (0..59), (0..59)
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DATE_GENERIC
+    value: "[       [ :day,   DAYS ],       [ :month, MONTHS ],       [ :year,  YEARS ] ]"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: TIME_GENERIC
+    value: "[       [ :day,   DAYS ],       [ :month, MONTHS ],       [ :year,  YEARS ],       [ :hour,  HOURS ],       [ :min,   MINUTES ],       [ :sec,   SECONDS ] ]"
+full_name: Ramaze::Form
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: field_for
+  - !ruby/object:RI::MethodSummary 
+    name: to_s
+name: Form
+superclass: Object

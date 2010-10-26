@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Nokogiri::XML::NodeSet</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Nokogiri::XML::NodeSet</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/nokogiri/ffi/xml/node_set_rb.html">
+                lib/nokogiri/ffi/xml/node_set.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/nokogiri/xml/node_set_rb.html">
+                lib/nokogiri/xml/node_set.rb
+                </a>
+        <br />
+                <a href="../../../files/ext/nokogiri/html_document_c.html">
+                ext/nokogiri/html_document.c
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+xmlXPathFreeNodeSet() contains an implicit assumption that it is being
+called <a href="NodeSet.html#M000299">before</a> any of its pointed-to
+nodes have been free()d. this assumption lies in the operation where it
+dereferences nodeTab pointers while searching for namespace nodes to free.
+</p>
+<p>
+however, since Ruby&#8216;s GC mechanism cannot guarantee the strict order
+in which ruby objects will be GC&#8216;d, nodes may be garbage collected <a
+href="NodeSet.html#M000299">before</a> a nodeset containing pointers to
+those nodes. (this is true regardless of how we declare dependencies
+between objects with rb_gc_mark().)
+</p>
+<p>
+as a result, xmlXPathFreeNodeSet() will perform unsafe memory operations,
+and calling it would be evil.
+</p>
+<p>
+on the bright side, though, <a
+href="../../Nokogiri.html">Nokogiri</a>&#8216;s API currently does not
+cause namespace nodes to be included in node sets, ever.
+</p>
+<p>
+armed with that fact, we examined xmlXPathFreeNodeSet() and related libxml
+code and determined that, within the <a
+href="../../Nokogiri.html">Nokogiri</a> abstraction, we will not leak
+memory if we simply free the node <a
+href="NodeSet.html#M000314">set</a>&#8216;s memory directly. that&#8216;s
+only quasi-evil!
+</p>
+<p>
+there&#8216;s probably a lesson in here somewhere about intermingling,
+within a single array, structs with different memory-ownership semantics.
+or more generally, a lesson about building an API in C/C++ that does not
+contain assumptions about the strict order in which memory will be
+released. hey, that sounds like a great idea for a blog post! get to it!
+</p>
+<p>
+&quot;In Valgrind We Trust.&quot; seriously.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000307">%</a>&nbsp;&nbsp;
+      <a href="#M000342">&amp;</a>&nbsp;&nbsp;
+      <a href="#M000337">-</a>&nbsp;&nbsp;
+      <a href="#M000302">/</a>&nbsp;&nbsp;
+      <a href="#M000328">==</a>&nbsp;&nbsp;
+      <a href="#M000305">&gt;</a>&nbsp;&nbsp;
+      <a href="#M000333">[]</a>&nbsp;&nbsp;
+      <a href="#M000311">add_class</a>&nbsp;&nbsp;
+      <a href="#M000300">after</a>&nbsp;&nbsp;
+      <a href="#M000306">at</a>&nbsp;&nbsp;
+      <a href="#M000309">at_css</a>&nbsp;&nbsp;
+      <a href="#M000308">at_xpath</a>&nbsp;&nbsp;
+      <a href="#M000313">attr</a>&nbsp;&nbsp;
+      <a href="#M000315">attribute</a>&nbsp;&nbsp;
+      <a href="#M000299">before</a>&nbsp;&nbsp;
+      <a href="#M000329">children</a>&nbsp;&nbsp;
+      <a href="#M000303">css</a>&nbsp;&nbsp;
+      <a href="#M000341">delete</a>&nbsp;&nbsp;
+      <a href="#M000340">dup</a>&nbsp;&nbsp;
+      <a href="#M000317">each</a>&nbsp;&nbsp;
+      <a href="#M000297">empty?</a>&nbsp;&nbsp;
+      <a href="#M000310">filter</a>&nbsp;&nbsp;
+      <a href="#M000295">first</a>&nbsp;&nbsp;
+      <a href="#M000343">include?</a>&nbsp;&nbsp;
+      <a href="#M000298">index</a>&nbsp;&nbsp;
+      <a href="#M000320">inner_html</a>&nbsp;&nbsp;
+      <a href="#M000318">inner_text</a>&nbsp;&nbsp;
+      <a href="#M000331">inspect</a>&nbsp;&nbsp;
+      <a href="#M000296">last</a>&nbsp;&nbsp;
+      <a href="#M000332">length</a>&nbsp;&nbsp;
+      <a href="#M000294">new</a>&nbsp;&nbsp;
+      <a href="#M000326">pop</a>&nbsp;&nbsp;
+      <a href="#M000335">push</a>&nbsp;&nbsp;
+      <a href="#M000316">remove_attr</a>&nbsp;&nbsp;
+      <a href="#M000312">remove_class</a>&nbsp;&nbsp;
+      <a href="#M000330">reverse</a>&nbsp;&nbsp;
+      <a href="#M000301">search</a>&nbsp;&nbsp;
+      <a href="#M000314">set</a>&nbsp;&nbsp;
+      <a href="#M000327">shift</a>&nbsp;&nbsp;
+      <a href="#M000334">slice</a>&nbsp;&nbsp;
+      <a href="#M000319">text</a>&nbsp;&nbsp;
+      <a href="#M000339">to_a</a>&nbsp;&nbsp;
+      <a href="#M000323">to_html</a>&nbsp;&nbsp;
+      <a href="#M000322">to_s</a>&nbsp;&nbsp;
+      <a href="#M000324">to_xhtml</a>&nbsp;&nbsp;
+      <a href="#M000325">to_xml</a>&nbsp;&nbsp;
+      <a href="#M000338">unlink</a>&nbsp;&nbsp;
+      <a href="#M000321">wrap</a>&nbsp;&nbsp;
+      <a href="#M000304">xpath</a>&nbsp;&nbsp;
+      <a href="#M000336">|</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Enumerable</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">[]</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">slice</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">push</td>
+          <td>-&gt;</td>
+          <td class="context-item-value"><<</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">unlink</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">remove</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">length</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">size</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">to_a</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">to_ary</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">|</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">+</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">document</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The <a href="Document.html">Document</a> this <a
+href="NodeSet.html">NodeSet</a> is associated with
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000294" class="method-detail">
+        <a name="M000294"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000294.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000294.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(document, list = []) {|self if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="NodeSet.html">NodeSet</a> with <tt>document</tt>
+defaulting to <tt>list</tt>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000307" class="method-detail">
+        <a name="M000307"></a>
+
+        <div class="method-heading">
+          <span class="method-name">%</span><span class="method-args">(path, ns = document.root ? document.root.namespaces : {})</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="NodeSet.html#M000306">at</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000342" class="method-detail">
+        <a name="M000342"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000342.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000342.html');return false;">
+          <span class="method-name">&(node_set)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set Intersection — Returns a <a href="NodeSet.html#M000294">new</a> <a
+href="NodeSet.html">NodeSet</a> containing nodes common to the two
+NodeSets.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000337" class="method-detail">
+        <a name="M000337"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000337.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000337.html');return false;">
+          <span class="method-name">-(node_set)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Difference - returns a <a href="NodeSet.html#M000294">new</a> <a
+href="NodeSet.html">NodeSet</a> that is a copy of this <a
+href="NodeSet.html">NodeSet</a>, removing <a
+href="NodeSet.html#M000317">each</a> item that also appears in
+<tt>node_set</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000302" class="method-detail">
+        <a name="M000302"></a>
+
+        <div class="method-heading">
+          <span class="method-name">/</span><span class="method-args">(*paths)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="NodeSet.html#M000301">search</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000328" class="method-detail">
+        <a name="M000328"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000328.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000328.html');return false;">
+          <span class="method-name">==</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Equality &#8212; Two NodeSets are equal if the contain the same number of
+elements and if <a href="NodeSet.html#M000317">each</a> element is equal to
+the corresponding element in the other <a href="NodeSet.html">NodeSet</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000305" class="method-detail">
+        <a name="M000305"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000305.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000305.html');return false;">
+          <span class="method-name">&gt;</span><span class="method-args">(selector)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search this <a href="NodeSet.html">NodeSet</a>&#8216;s nodes&#8217;
+immediate <a href="NodeSet.html#M000329">children</a> using <a
+href="../CSS.html">CSS</a> selector <tt>selector</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000333" class="method-detail">
+        <a name="M000333"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000333.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000333.html');return false;">
+          <span class="method-name">[index] &rarr; Node or nil<br />
+[start, length] &rarr; NodeSet or nil<br />
+[range] &rarr; NodeSet or nil<br />
+slice(index) &rarr; Node or nil<br />
+slice(start, length) &rarr; NodeSet or nil<br />
+slice(range) &rarr; NodeSet or nil<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Element.html">Element</a> reference - returns the node <a
+href="NodeSet.html#M000306">at</a> <tt><a
+href="NodeSet.html#M000298">index</a></tt>, or returns a <a
+href="NodeSet.html">NodeSet</a> containing nodes starting <a
+href="NodeSet.html#M000306">at</a> <tt>start</tt> and continuing for <tt><a
+href="NodeSet.html#M000332">length</a></tt> elements, or returns a <a
+href="NodeSet.html">NodeSet</a> containing nodes specified by
+<tt>range</tt>. Negative <tt>indices</tt> count backward from the end of
+the <tt>node_set</tt> (-1 is the <a href="NodeSet.html#M000296">last</a>
+node). Returns nil if the <tt><a href="NodeSet.html#M000298">index</a></tt>
+(or <tt>start</tt>) are out of range.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000311" class="method-detail">
+        <a name="M000311"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000311.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000311.html');return false;">
+          <span class="method-name">add_class</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Append the class <a href="NodeSet.html#M000315">attribute</a> <tt>name</tt>
+to all <a href="Node.html">Node</a> objects in the <a
+href="NodeSet.html">NodeSet</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000300" class="method-detail">
+        <a name="M000300"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000300.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000300.html');return false;">
+          <span class="method-name">after</span><span class="method-args">(datum)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Insert <tt>datum</tt> <a href="NodeSet.html#M000300">after</a> the <a
+href="NodeSet.html#M000296">last</a> <a href="Node.html">Node</a> in this
+<a href="NodeSet.html">NodeSet</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000306" class="method-detail">
+        <a name="M000306"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000306.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000306.html');return false;">
+          <span class="method-name">at</span><span class="method-args">(path, ns = document.root ? document.root.namespaces : {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+If path is a string, <a href="NodeSet.html#M000301">search</a> this
+document for <tt>path</tt> returning the <a
+href="NodeSet.html#M000295">first</a> <a href="Node.html">Node</a>.
+Otherwise, <a href="NodeSet.html#M000298">index</a> in to the array with
+<tt>path</tt>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000309" class="method-detail">
+        <a name="M000309"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000309.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000309.html');return false;">
+          <span class="method-name">at_css</span><span class="method-args">(*rules)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search this <a href="NodeSet.html">NodeSet</a> for the <a
+href="NodeSet.html#M000295">first</a> occurrence of <a
+href="../CSS.html">CSS</a> <tt>rules</tt>. Equivalent to <tt><a
+href="NodeSet.html#M000303">css</a>(rules).<a
+href="NodeSet.html#M000295">first</a></tt> See <a
+href="NodeSet.html#M000303">NodeSet#css</a> for more information.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000308" class="method-detail">
+        <a name="M000308"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000308.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000308.html');return false;">
+          <span class="method-name">at_xpath</span><span class="method-args">(*paths)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search this <a href="NodeSet.html">NodeSet</a> for the <a
+href="NodeSet.html#M000295">first</a> occurrence of <a
+href="XPath.html">XPath</a> <tt>paths</tt>. Equivalent to <tt><a
+href="NodeSet.html#M000304">xpath</a>(paths).<a
+href="NodeSet.html#M000295">first</a></tt> See <a
+href="NodeSet.html#M000304">NodeSet#xpath</a> for more information.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000313" class="method-detail">
+        <a name="M000313"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000313.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000313.html');return false;">
+          <span class="method-name">attr</span><span class="method-args">(key, value = nil, &amp;blk)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the <a href="NodeSet.html#M000315">attribute</a> <tt>key</tt> to
+<tt>value</tt> or the return value of <tt>blk</tt> on all <a
+href="Node.html">Node</a> objects in the <a
+href="NodeSet.html">NodeSet</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000315" class="method-detail">
+        <a name="M000315"></a>
+
+        <div class="method-heading">
+          <span class="method-name">attribute</span><span class="method-args">(key, value = nil, &amp;blk)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="NodeSet.html#M000313">attr</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000299" class="method-detail">
+        <a name="M000299"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000299.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000299.html');return false;">
+          <span class="method-name">before</span><span class="method-args">(datum)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Insert <tt>datum</tt> <a href="NodeSet.html#M000299">before</a> the <a
+href="NodeSet.html#M000295">first</a> <a href="Node.html">Node</a> in this
+<a href="NodeSet.html">NodeSet</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000329" class="method-detail">
+        <a name="M000329"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000329.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000329.html');return false;">
+          <span class="method-name">children</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="NodeSet.html#M000294">new</a> <a
+href="NodeSet.html">NodeSet</a> containing all the <a
+href="NodeSet.html#M000329">children</a> of all the nodes in the <a
+href="NodeSet.html">NodeSet</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000303" class="method-detail">
+        <a name="M000303"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000303.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000303.html');return false;">
+          <span class="method-name">css</span><span class="method-args">(*paths)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search this <a href="NodeSet.html">NodeSet</a> for <a
+href="NodeSet.html#M000303">css</a> <tt>paths</tt>
+</p>
+<p>
+For more information see <a
+href="Node.html#M000188">Nokogiri::XML::Node#css</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000341" class="method-detail">
+        <a name="M000341"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000341.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000341.html');return false;">
+          <span class="method-name">delete(node)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Delete <tt>node</tt> from the Nodeset, if it is a member. Returns the
+deleted node if found, otherwise returns nil.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000340" class="method-detail">
+        <a name="M000340"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000340.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000340.html');return false;">
+          <span class="method-name">dup<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Duplicate this node <a href="NodeSet.html#M000314">set</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000317" class="method-detail">
+        <a name="M000317"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000317.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000317.html');return false;">
+          <span class="method-name">each</span><span class="method-args">() {|self[x]| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Iterate over <a href="NodeSet.html#M000317">each</a> node, yielding to
+<tt>block</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000297" class="method-detail">
+        <a name="M000297"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000297.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000297.html');return false;">
+          <span class="method-name">empty?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Is this <a href="NodeSet.html">NodeSet</a> <a
+href="NodeSet.html#M000297">empty?</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000310" class="method-detail">
+        <a name="M000310"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000310.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000310.html');return false;">
+          <span class="method-name">filter</span><span class="method-args">(expr)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Filter this list for nodes that match <tt>expr</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000295" class="method-detail">
+        <a name="M000295"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000295.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000295.html');return false;">
+          <span class="method-name">first</span><span class="method-args">(n = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="NodeSet.html#M000295">first</a> element of the <a
+href="NodeSet.html">NodeSet</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000343" class="method-detail">
+        <a name="M000343"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000343.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000343.html');return false;">
+          <span class="method-name">include?(node)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if any member of node <a href="NodeSet.html#M000314">set</a>
+equals <tt>node</tt>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000298" class="method-detail">
+        <a name="M000298"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000298.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000298.html');return false;">
+          <span class="method-name">index</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="NodeSet.html#M000298">index</a> of the <a
+href="NodeSet.html#M000295">first</a> node in self that is == to
+<tt>node</tt>. Returns nil if no match is found.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000320" class="method-detail">
+        <a name="M000320"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000320.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000320.html');return false;">
+          <span class="method-name">inner_html</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the inner html of all contained <a href="Node.html">Node</a> objects
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000318" class="method-detail">
+        <a name="M000318"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000318.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000318.html');return false;">
+          <span class="method-name">inner_text</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the inner <a href="NodeSet.html#M000319">text</a> of all contained <a
+href="Node.html">Node</a> objects
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000331" class="method-detail">
+        <a name="M000331"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000331.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000331.html');return false;">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return a nicely formated string representation
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000296" class="method-detail">
+        <a name="M000296"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000296.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000296.html');return false;">
+          <span class="method-name">last</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="NodeSet.html#M000296">last</a> element of the <a
+href="NodeSet.html">NodeSet</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000332" class="method-detail">
+        <a name="M000332"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000332.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000332.html');return false;">
+          <span class="method-name">length<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="NodeSet.html#M000332">length</a> of the node <a
+href="NodeSet.html#M000314">set</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000326" class="method-detail">
+        <a name="M000326"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000326.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000326.html');return false;">
+          <span class="method-name">pop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes the <a href="NodeSet.html#M000296">last</a> element from <a
+href="NodeSet.html#M000314">set</a> and returns it, or <tt>nil</tt> if the
+<a href="NodeSet.html#M000314">set</a> is empty
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000335" class="method-detail">
+        <a name="M000335"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000335.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000335.html');return false;">
+          <span class="method-name">push(node)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Append <tt>node</tt> to the <a href="NodeSet.html">NodeSet</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000316" class="method-detail">
+        <a name="M000316"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000316.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000316.html');return false;">
+          <span class="method-name">remove_attr</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove the attributed named <tt>name</tt> from all <a
+href="Node.html">Node</a> objects in the <a href="NodeSet.html">NodeSet</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000312" class="method-detail">
+        <a name="M000312"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000312.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000312.html');return false;">
+          <span class="method-name">remove_class</span><span class="method-args">(name = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove the class <a href="NodeSet.html#M000315">attribute</a> <tt>name</tt>
+from all <a href="Node.html">Node</a> objects in the <a
+href="NodeSet.html">NodeSet</a>. If <tt>name</tt> is nil, remove the class
+<a href="NodeSet.html#M000315">attribute</a> from all Nodes in the <a
+href="NodeSet.html">NodeSet</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000330" class="method-detail">
+        <a name="M000330"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000330.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000330.html');return false;">
+          <span class="method-name">reverse</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="NodeSet.html#M000294">new</a> <a
+href="NodeSet.html">NodeSet</a> containing all the nodes in the <a
+href="NodeSet.html">NodeSet</a> in <a
+href="NodeSet.html#M000330">reverse</a> order
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000301" class="method-detail">
+        <a name="M000301"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000301.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000301.html');return false;">
+          <span class="method-name">search</span><span class="method-args">(*paths)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search this document for <tt>paths</tt>
+</p>
+<p>
+For more information see <a
+href="Node.html#M000188">Nokogiri::XML::Node#css</a> and <a
+href="Node.html#M000187">Nokogiri::XML::Node#xpath</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000314" class="method-detail">
+        <a name="M000314"></a>
+
+        <div class="method-heading">
+          <span class="method-name">set</span><span class="method-args">(key, value = nil, &amp;blk)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="NodeSet.html#M000313">attr</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000327" class="method-detail">
+        <a name="M000327"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000327.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000327.html');return false;">
+          <span class="method-name">shift</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="NodeSet.html#M000295">first</a> element of the <a
+href="NodeSet.html">NodeSet</a> and removes it. Returns <tt>nil</tt> if the
+<a href="NodeSet.html#M000314">set</a> is empty.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000334" class="method-detail">
+        <a name="M000334"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000334.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000334.html');return false;">
+          <span class="method-name">[index] &rarr; Node or nil<br />
+[start, length] &rarr; NodeSet or nil<br />
+[range] &rarr; NodeSet or nil<br />
+slice(index) &rarr; Node or nil<br />
+slice(start, length) &rarr; NodeSet or nil<br />
+slice(range) &rarr; NodeSet or nil<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Element.html">Element</a> reference - returns the node <a
+href="NodeSet.html#M000306">at</a> <tt><a
+href="NodeSet.html#M000298">index</a></tt>, or returns a <a
+href="NodeSet.html">NodeSet</a> containing nodes starting <a
+href="NodeSet.html#M000306">at</a> <tt>start</tt> and continuing for <tt><a
+href="NodeSet.html#M000332">length</a></tt> elements, or returns a <a
+href="NodeSet.html">NodeSet</a> containing nodes specified by
+<tt>range</tt>. Negative <tt>indices</tt> count backward from the end of
+the <tt>node_set</tt> (-1 is the <a href="NodeSet.html#M000296">last</a>
+node). Returns nil if the <tt><a href="NodeSet.html#M000298">index</a></tt>
+(or <tt>start</tt>) are out of range.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000319" class="method-detail">
+        <a name="M000319"></a>
+
+        <div class="method-heading">
+          <span class="method-name">text</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="NodeSet.html#M000318">inner_text</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000339" class="method-detail">
+        <a name="M000339"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000339.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000339.html');return false;">
+          <span class="method-name">to_a<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return this list as an Array
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000323" class="method-detail">
+        <a name="M000323"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000323.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000323.html');return false;">
+          <span class="method-name">to_html</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert this <a href="NodeSet.html">NodeSet</a> to <a
+href="../HTML.html">HTML</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000322" class="method-detail">
+        <a name="M000322"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000322.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000322.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert this <a href="NodeSet.html">NodeSet</a> to a string.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000324" class="method-detail">
+        <a name="M000324"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000324.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000324.html');return false;">
+          <span class="method-name">to_xhtml</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert this <a href="NodeSet.html">NodeSet</a> to XHTML
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000325" class="method-detail">
+        <a name="M000325"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000325.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000325.html');return false;">
+          <span class="method-name">to_xml</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert this <a href="NodeSet.html">NodeSet</a> to <a
+href="../XML.html">XML</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000338" class="method-detail">
+        <a name="M000338"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000338.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000338.html');return false;">
+          <span class="method-name">unlink<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Unlink this <a href="NodeSet.html">NodeSet</a> and all <a
+href="Node.html">Node</a> objects it contains from their current context.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000321" class="method-detail">
+        <a name="M000321"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000321.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000321.html');return false;">
+          <span class="method-name">wrap</span><span class="method-args">(html, &amp;blk)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wrap this <a href="NodeSet.html">NodeSet</a> with <tt>html</tt> or the
+results of the builder in <tt>blk</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000304" class="method-detail">
+        <a name="M000304"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000304.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000304.html');return false;">
+          <span class="method-name">xpath</span><span class="method-args">(*paths)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Search this <a href="NodeSet.html">NodeSet</a> for <a
+href="XPath.html">XPath</a> <tt>paths</tt>
+</p>
+<p>
+For more information see <a
+href="Node.html#M000187">Nokogiri::XML::Node#xpath</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000336" class="method-detail">
+        <a name="M000336"></a>
+
+        <div class="method-heading">
+          <a href="NodeSet.src/M000336.html" target="Code" class="method-signature"
+            onclick="popupCode('NodeSet.src/M000336.html');return false;">
+          <span class="method-name">|(node_set)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a <a href="NodeSet.html#M000294">new</a> <a
+href="NodeSet.html#M000314">set</a> built by merging the <a
+href="NodeSet.html#M000314">set</a> and the elements of the given <a
+href="NodeSet.html#M000314">set</a>.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

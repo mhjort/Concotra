@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>feature_name (Cucumber::Formatter::Junit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/junit.rb, line 52</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">feature_name</span>(<span class="ruby-identifier">keyword</span>, <span class="ruby-identifier">name</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnNamedFeatureError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@current_feature</span>.<span class="ruby-identifier">file</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\r?\n/</span>)
+        <span class="ruby-ivar">@feature_name</span> = <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

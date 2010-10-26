@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#libs=
+is_singleton: false
+name: libs=
+params: (libs)
+visibility: public

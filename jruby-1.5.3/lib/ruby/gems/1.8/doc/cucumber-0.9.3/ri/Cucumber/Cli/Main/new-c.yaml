@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli::Main::new
+is_singleton: true
+name: new
+params: (args, out_stream = STDOUT, error_stream = STDERR)
+visibility: public

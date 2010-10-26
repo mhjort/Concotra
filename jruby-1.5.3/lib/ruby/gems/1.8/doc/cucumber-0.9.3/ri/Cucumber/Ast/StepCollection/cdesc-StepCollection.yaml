@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Holds an Array of Step or StepDefinition
+constants: []
+
+full_name: Cucumber::Ast::StepCollection
+includes: []
+
+instance_methods: []
+
+name: StepCollection
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Creates a ContextChange from an array produced by ContextChange#to_a.
+full_name: Diff::LCS::ContextChange::from_a
+is_singleton: true
+name: from_a
+params: (arr)
+visibility: public

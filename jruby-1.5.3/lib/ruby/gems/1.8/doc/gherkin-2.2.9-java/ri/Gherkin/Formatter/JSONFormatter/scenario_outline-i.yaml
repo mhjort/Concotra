@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Formatter::JSONFormatter#scenario_outline
+is_singleton: false
+name: scenario_outline
+params: (scenario_outline)
+visibility: public

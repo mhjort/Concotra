@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>arguments_from (Cucumber::JsSupport::JsStepDefinition)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/js_support/js_language.rb, line 46</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">arguments_from</span>(<span class="ruby-identifier">step_name</span>)
+        <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">eval_js</span> <span class="ruby-node">&quot;#{@regexp}.exec('#{step_name}')&quot;</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">matches</span>
+          <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
+            <span class="ruby-constant">JsArg</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">match</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Called when both the old and new values have changed.
+full_name: Diff::LCS::DefaultCallbacks::change
+is_singleton: true
+name: change
+params: (event)
+visibility: public

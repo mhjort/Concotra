@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Selenium::Methods#wait_for
+is_singleton: false
+name: wait_for
+params: (*args, &block)
+visibility: public

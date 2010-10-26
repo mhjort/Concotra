@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: radio
+block_params: 
+comment: 
+full_name: Ramaze::Helper::BlueForm::Form#input_radio
+is_singleton: false
+name: input_radio
+params: (label, name, values, options = {})
+visibility: public

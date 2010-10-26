@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Autotest::Rspec2#setup_rspec_project_mappings
+is_singleton: false
+name: setup_rspec_project_mappings
+params: ()
+visibility: public

@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: included
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Shortcuts to some CGI methods
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Public instance methods of helpers in here will be recognized as actions
+    name: LOOKUP
+    value: EXPOSE = Set.new
+full_name: Innate::Helper
+includes: []
+
+instance_methods: []
+
+name: Helper
+superclass: 

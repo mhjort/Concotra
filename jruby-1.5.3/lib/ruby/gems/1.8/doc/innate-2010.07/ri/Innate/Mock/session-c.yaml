@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: Session.new
+comment: 
+full_name: Innate::Mock::session
+is_singleton: true
+name: session
+params: () {|Session.new| ...}
+visibility: public

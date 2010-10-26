@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Builder::parse_file
+is_singleton: true
+name: parse_file
+params: (config, opts = Server::Options.new)
+visibility: public

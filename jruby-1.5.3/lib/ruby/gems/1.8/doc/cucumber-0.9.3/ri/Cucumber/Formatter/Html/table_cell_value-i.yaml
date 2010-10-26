@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html#table_cell_value
+is_singleton: false
+name: table_cell_value
+params: (value, status)
+visibility: public

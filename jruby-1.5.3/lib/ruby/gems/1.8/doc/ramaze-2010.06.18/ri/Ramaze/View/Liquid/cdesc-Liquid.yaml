@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+  - !ruby/object:RI::MethodSummary 
+    name: register_tag
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Liquid is a smarty-style templating engine that restricts the usage of code inside templates. This is mostly helpful if you want to let users submit templates but prevent them from running arbitrary code.
+  - !ruby/struct:SM::Flow::P 
+    body: Liquid offers a pipe-like syntax for chaining operations on objects. Any instance variable from your Controller is available as a variable inside Liquid, so be sensitive about what data you provide.
+  - !ruby/struct:SM::Flow::P 
+    body: If you want to allow partials you can provide a kind of virtual filesystem that contains partials. These can be rendered using the Liquid `{% include 'name' %}` tag. The include tag has no relation to the Ramaze::Helper::Render, it simply inlines the file.
+  - !ruby/struct:SM::Flow::P 
+    body: To tell Liquid where to find partials, you have to set the file_system. The naming-convention for liquid-partials is to use a '_' prefix to the filename and the '.liquid' filename extension. The names of partials are restricted to ASCII alpha-numeric characters and underscores. You can also use '/' to use templates located in deeper directories. The partial has access to the same variables as the template including it.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example setting file_system"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  template_path = './partials/'\n  Liquid::Template.file_system = Liquid::LocalFileSystem.new(template_path)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example using include"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  {% include 'foo' %}\n  {% include 'bar/foo' %}\n"
+  - !ruby/struct:SM::Flow::P 
+    body: This will include the files located at './partials/_foo.liquid' and './partials/bar/_foo.liquid'.
+  - !ruby/struct:SM::Flow::P 
+    body: This functionality gets even more interesting if you customize it with your own virtual file-system, you can use anything that responds to `#read_template_file(path)`. That way you can even fetch templates from a database or instruct Liquid to allow you access to your own templates in the '/views' directory.
+constants: []
+
+full_name: Ramaze::View::Liquid
+includes: []
+
+instance_methods: []
+
+name: Liquid
+superclass: 

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: returns a list of Namespace nodes in scope for <em>self</em>. this is all namespaces defined in the node, or in any ancestor node.
+full_name: Nokogiri::XML::Node#namespace_scopes
+is_singleton: false
+name: namespace_scopes
+params: |
+  namespace_scopes()
+
+visibility: public

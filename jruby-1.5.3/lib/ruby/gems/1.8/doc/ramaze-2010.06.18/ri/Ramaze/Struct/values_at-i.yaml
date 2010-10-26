@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Makes it possible to access the keys directly by their name, not only their index. The original Struct#values_at tries to call #to_int on the arguments. in Ruby &lt; 1.9 this would lead to a quite unintuitive IndexError, while in 1.9 it will say outright that it cannot convert Symbol into Integer. I think this is neither useful nor expected, so we extend Struct#values_at to recognize valid members of the Struct passed into the method and return their values in the same order, just like Hash#values_at."
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: " Point = Struct.new(:x, :y)\n point = Point.new(15, 10)\n\n # Old behaviour:\n point.values_at(0, 1)\n # =&gt; [15, 10]\n point.values_at(0..1)\n # =&gt; [15, 10]\n point.values_at(:y, :x)\n # =&gt; IndexError: offset 20697 too large for struct(size:2)\n\n # Added new behaviour:\n point.values_at(:y, :x)\n # =&gt; [10, 15]\n"
+full_name: Ramaze::Struct#values_at
+is_singleton: false
+name: values_at
+params: (*keys)
+visibility: public

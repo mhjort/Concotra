@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns true if the current node is empty, otherwise false.
+full_name: Nokogiri::XML::Reader#empty_element?
+is_singleton: false
+name: empty_element?
+params: |
+  reader.empty_element? # => true or false
+
+visibility: public

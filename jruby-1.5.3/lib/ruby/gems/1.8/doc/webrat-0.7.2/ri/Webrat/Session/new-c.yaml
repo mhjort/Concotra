@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Session::new
+is_singleton: true
+name: new
+params: (adapter = nil)
+visibility: public

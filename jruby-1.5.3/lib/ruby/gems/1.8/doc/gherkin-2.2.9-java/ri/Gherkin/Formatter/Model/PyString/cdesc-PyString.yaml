@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: line
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: value
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Gherkin::Formatter::Model::PyString
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: line_range
+name: PyString
+superclass: Hashable

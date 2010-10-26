@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Registers any number of <tt>world_modules</tt> (Ruby Modules) and/or a Proc. The <tt>proc</tt> will be executed once before each scenario to create an Object that the scenario's steps will run within. Any <tt>world_modules</tt> will be mixed into this Object (via Object#extend).
+  - !ruby/struct:SM::Flow::P 
+    body: This method is typically called from one or more Ruby scripts under <tt>features/support</tt>. You can call this method as many times as you like (to register more modules), but if you try to register more than one Proc you will get an error.
+  - !ruby/struct:SM::Flow::P 
+    body: "Cucumber will not yield anything to the <tt>proc</tt>. Examples:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   World do\n     MyClass.new\n   end\n\n   World(MyModule)\n"
+full_name: Cucumber::RbSupport::RbDsl#World
+is_singleton: false
+name: World
+params: (*world_modules, &proc)
+visibility: public

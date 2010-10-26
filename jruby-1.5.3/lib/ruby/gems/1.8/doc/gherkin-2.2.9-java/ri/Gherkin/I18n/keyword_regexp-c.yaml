@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns all keyword translations and aliases of <tt>keywords</tt>, escaped and joined with <tt>|</tt>. This method is convenient for editor support and syntax highlighting engines for Gherkin, where there is typically a code generation tool to generate regular expressions for recognising the various I18n translations of Gherkin's keywords.
+  - !ruby/struct:SM::Flow::P 
+    body: The <tt>keywords</tt> arguments can be one of <tt>:feature</tt>, <tt>:background</tt>, <tt>:scenario</tt>, <tt>:scenario_outline</tt>, <tt>:examples</tt>, <tt>:step</tt>.
+full_name: Gherkin::I18n::keyword_regexp
+is_singleton: true
+name: keyword_regexp
+params: (*keywords)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: self if block_given?
+comment: 
+full_name: RSpec::Core::RakeTask::new
+is_singleton: true
+name: new
+params: (*args) {|self if block_given?| ...}
+visibility: public

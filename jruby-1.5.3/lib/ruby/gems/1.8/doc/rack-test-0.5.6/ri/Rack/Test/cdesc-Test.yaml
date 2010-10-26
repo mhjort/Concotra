@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: encoding_aware_strings?
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERSION
+    value: "\"0.5.6\""
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_HOST
+    value: "\"example.org\""
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MULTIPART_BOUNDARY
+    value: "\"----------XnJLe9ZIbbGUYtzPQJ16u1\""
+full_name: Rack::Test
+includes: []
+
+instance_methods: []
+
+name: Test
+superclass: 

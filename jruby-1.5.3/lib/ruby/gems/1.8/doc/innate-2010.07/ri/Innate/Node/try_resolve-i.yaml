@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Let's try to find some valid action for given <tt>path</tt>. Otherwise we dispatch to {action_missing}.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String] path from env['PATH_INFO']"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Response]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Node#resolve Node#action_found Node#action_missing @author manveru"
+full_name: Innate::Node#try_resolve
+is_singleton: false
+name: try_resolve
+params: (path)
+visibility: public

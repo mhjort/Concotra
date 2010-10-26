@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: SequelImage::InstanceMethods#filename
+is_singleton: false
+name: filename
+params: (size)
+visibility: public

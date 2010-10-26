@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli::Configuration#feature_files
+is_singleton: false
+name: feature_files
+params: ()
+visibility: public

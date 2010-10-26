@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::I18n#keyword_table
+is_singleton: false
+name: keyword_table
+params: ()
+visibility: public

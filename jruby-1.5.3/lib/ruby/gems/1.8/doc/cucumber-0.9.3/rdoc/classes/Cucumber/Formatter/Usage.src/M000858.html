@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>max_step_length (Cucumber::Formatter::Usage)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/usage.rb, line 100</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">max_step_length</span>
+        <span class="ruby-ivar">@stepdef_to_match</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">step</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">step</span>[<span class="ruby-identifier">:keyword</span>].<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'U*'</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">step</span>[<span class="ruby-identifier">:step_match</span>].<span class="ruby-identifier">format_args</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'U*'</span>).<span class="ruby-identifier">length</span>
+        <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">max</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

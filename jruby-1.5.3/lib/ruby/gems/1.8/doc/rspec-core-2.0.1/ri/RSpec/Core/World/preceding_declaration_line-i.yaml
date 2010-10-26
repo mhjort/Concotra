@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::World#preceding_declaration_line
+is_singleton: false
+name: preceding_declaration_line
+params: (filter_line)
+visibility: public

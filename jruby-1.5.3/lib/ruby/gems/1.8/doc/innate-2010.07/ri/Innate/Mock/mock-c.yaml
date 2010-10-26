@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::Mock::mock
+is_singleton: true
+name: mock
+params: (method, *args)
+visibility: public

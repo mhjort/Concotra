@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Pretty prints current action with parameters, cookies and enviroment variables.
+full_name: Ramaze::Request#pretty_print
+is_singleton: false
+name: pretty_print
+params: (pp)
+visibility: public

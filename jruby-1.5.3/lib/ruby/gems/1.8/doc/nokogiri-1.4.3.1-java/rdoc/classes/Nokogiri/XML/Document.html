@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Nokogiri::XML::Document</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Nokogiri::XML::Document</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/nokogiri/xml/document_rb.html">
+                lib/nokogiri/xml/document.rb
+                </a>
+        <br />
+                <a href="../../../files/ext/nokogiri/html_document_c.html">
+                ext/nokogiri/html_document.c
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Node.html">
+                Nokogiri::XML::Node
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Document.html">Nokogiri::XML::Document</a> wraps an xml <a
+href="Document.html#M000386">document</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000395">&lt;&lt;</a>&nbsp;&nbsp;
+      <a href="#M000394">add_child</a>&nbsp;&nbsp;
+      <a href="#M000387">collect_namespaces</a>&nbsp;&nbsp;
+      <a href="#M000384">create_cdata</a>&nbsp;&nbsp;
+      <a href="#M000382">create_element</a>&nbsp;&nbsp;
+      <a href="#M000406">create_entity</a>&nbsp;&nbsp;
+      <a href="#M000383">create_text_node</a>&nbsp;&nbsp;
+      <a href="#M000391">decorate</a>&nbsp;&nbsp;
+      <a href="#M000388">decorators</a>&nbsp;&nbsp;
+      <a href="#M000386">document</a>&nbsp;&nbsp;
+      <a href="#M000404">dup</a>&nbsp;&nbsp;
+      <a href="#M000401">encoding</a>&nbsp;&nbsp;
+      <a href="#M000402">encoding=</a>&nbsp;&nbsp;
+      <a href="#M000393">fragment</a>&nbsp;&nbsp;
+      <a href="#M000385">name</a>&nbsp;&nbsp;
+      <a href="#M000392">namespaces</a>&nbsp;&nbsp;
+      <a href="#M000398">new</a>&nbsp;&nbsp;
+      <a href="#M000381">parse</a>&nbsp;&nbsp;
+      <a href="#M000397">read_io</a>&nbsp;&nbsp;
+      <a href="#M000396">read_memory</a>&nbsp;&nbsp;
+      <a href="#M000407">remove_namespaces!</a>&nbsp;&nbsp;
+      <a href="#M000399">root</a>&nbsp;&nbsp;
+      <a href="#M000400">root=</a>&nbsp;&nbsp;
+      <a href="#M000390">slop!</a>&nbsp;&nbsp;
+      <a href="#M000405">url</a>&nbsp;&nbsp;
+      <a href="#M000389">validate</a>&nbsp;&nbsp;
+      <a href="#M000403">version</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">serialize</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">to_xml</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">dup</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">clone</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">errors</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+A list of <a href="SyntaxError.html">Nokogiri::XML::SyntaxError</a> found
+when parsing a <a href="Document.html#M000386">document</a>
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000398" class="method-detail">
+        <a name="M000398"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000398.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000398.html');return false;">
+          <span class="method-name">new(version = default)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Document.html#M000398">new</a> <a
+href="Document.html#M000386">document</a> with <tt><a
+href="Document.html#M000403">version</a></tt> (defaults to &quot;1.0&quot;)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000381" class="method-detail">
+        <a name="M000381"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000381.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000381.html');return false;">
+          <span class="method-name">parse</span><span class="method-args">(string_or_io, url = nil, encoding = nil, options = ParseOptions::DEFAULT_XML) {|options if block_given?| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Parse an <a href="../XML.html">XML</a> file. <tt>thing</tt> may be a
+String, or any object that responds to <em>read</em> and <em>close</em>
+such as an IO, or StringIO. <tt><a
+href="Document.html#M000405">url</a></tt> is resource where this <a
+href="Document.html#M000386">document</a> is located. <tt><a
+href="Document.html#M000401">encoding</a></tt> is the <a
+href="Document.html#M000401">encoding</a> that should be used when
+processing the <a href="Document.html#M000386">document</a>.
+<tt>options</tt> is a number that sets options in the parser, such as
+Nokogiri::XML::ParseOptions::RECOVER. See the constants in <a
+href="ParseOptions.html">Nokogiri::XML::ParseOptions</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000397" class="method-detail">
+        <a name="M000397"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000397.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000397.html');return false;">
+          <span class="method-name">read_io(io, url, encoding, options)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Document.html#M000398">new</a> <a
+href="Document.html#M000386">document</a> from an IO object
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000396" class="method-detail">
+        <a name="M000396"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000396.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000396.html');return false;">
+          <span class="method-name">read_memory(string, url, encoding, options)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Document.html#M000398">new</a> <a
+href="Document.html#M000386">document</a> from a String
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000395" class="method-detail">
+        <a name="M000395"></a>
+
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span class="method-args">(child)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Document.html#M000394">add_child</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000394" class="method-detail">
+        <a name="M000394"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000394.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000394.html');return false;">
+          <span class="method-name">add_child</span><span class="method-args">(child)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000387" class="method-detail">
+        <a name="M000387"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000387.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000387.html');return false;">
+          <span class="method-name">collect_namespaces</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recursively get all <a href="Document.html#M000392">namespaces</a> from
+this node and its subtree and return them as a hash.
+</p>
+<p>
+For example, given this <a href="Document.html#M000386">document</a>:
+</p>
+<pre>
+  &lt;root xmlns:foo=&quot;bar&quot;&gt;
+    &lt;bar xmlns:hello=&quot;world&quot; /&gt;
+  &lt;/root&gt;
+</pre>
+<p>
+This method will return:
+</p>
+<pre>
+  { 'xmlns:foo' =&gt; 'bar', 'xmlns:hello' =&gt; 'world' }
+</pre>
+<p>
+WARNING: this method will clobber duplicate names in the keys. For example,
+given this <a href="Document.html#M000386">document</a>:
+</p>
+<pre>
+  &lt;root xmlns:foo=&quot;bar&quot;&gt;
+    &lt;bar xmlns:foo=&quot;baz&quot; /&gt;
+  &lt;/root&gt;
+</pre>
+<p>
+The hash returned will look like this: { &#8216;xmlns:foo&#8217; =&gt;
+&#8216;bar&#8217; }
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000384" class="method-detail">
+        <a name="M000384"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000384.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000384.html');return false;">
+          <span class="method-name">create_cdata</span><span class="method-args">(text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="CDATA.html">CDATA</a> element containing <tt>text</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000382" class="method-detail">
+        <a name="M000382"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000382.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000382.html');return false;">
+          <span class="method-name">create_element</span><span class="method-args">(name, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create an element with <tt><a href="Document.html#M000385">name</a></tt>,
+and optionally setting the content and attributes.
+</p>
+<pre>
+  doc.create_element &quot;div&quot; # &lt;div&gt;&lt;/div&gt;
+  doc.create_element &quot;div&quot;, :class =&gt; &quot;container&quot; # &lt;div class='container'&gt;&lt;/div&gt;
+  doc.create_element &quot;div&quot;, &quot;contents&quot; # &lt;div&gt;contents&lt;/div&gt;
+  doc.create_element &quot;div&quot;, &quot;contents&quot;, :class =&gt; &quot;container&quot; # &lt;div class='container'&gt;contents&lt;/div&gt;
+  doc.create_element &quot;div&quot; { |node| node['class'] = &quot;container&quot; } # &lt;div class='container'&gt;&lt;/div&gt;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000406" class="method-detail">
+        <a name="M000406"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000406.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000406.html');return false;">
+          <span class="method-name"> doc.create_entity(name, type, external_id, system_id, content)<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Document.html#M000398">new</a> entity named <tt><a
+href="Document.html#M000385">name</a></tt>.
+</p>
+<p>
+<tt>type</tt> is an integer representing the type of entity to be created,
+and it defaults to Nokogiri::XML::EntityDecl::INTERNAL_GENERAL. See the
+constants on <a href="EntityDecl.html">Nokogiri::XML::EntityDecl</a> for
+more information.
+</p>
+<p>
+<tt>external_id</tt>, <tt>system_id</tt>, and <tt>content</tt> set the
+External ID, System ID, and content respectively. All of these parameters
+are optional.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000383" class="method-detail">
+        <a name="M000383"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000383.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000383.html');return false;">
+          <span class="method-name">create_text_node</span><span class="method-args">(text, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a text node with <tt>text</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000391" class="method-detail">
+        <a name="M000391"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000391.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000391.html');return false;">
+          <span class="method-name">decorate</span><span class="method-args">(node)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Apply any <a href="Document.html#M000388">decorators</a> to <tt>node</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000388" class="method-detail">
+        <a name="M000388"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000388.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000388.html');return false;">
+          <span class="method-name">decorators</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the list of <a href="Document.html#M000388">decorators</a> given
+<tt>key</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000386" class="method-detail">
+        <a name="M000386"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000386.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000386.html');return false;">
+          <span class="method-name">document</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A reference to <tt>self</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000404" class="method-detail">
+        <a name="M000404"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000404.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000404.html');return false;">
+          <span class="method-name">dup<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Copy this <a href="Document.html">Document</a>. An optional depth may be
+passed in, but it defaults to a deep copy. 0 is a shallow copy, 1 is a deep
+copy.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000401" class="method-detail">
+        <a name="M000401"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000401.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000401.html');return false;">
+          <span class="method-name">encoding<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Document.html#M000401">encoding</a> for this <a
+href="Document.html">Document</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000402" class="method-detail">
+        <a name="M000402"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000402.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000402.html');return false;">
+          <span class="method-name">encoding= encoding<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the <a href="Document.html#M000401">encoding</a> string for this <a
+href="Document.html">Document</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000393" class="method-detail">
+        <a name="M000393"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000393.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000393.html');return false;">
+          <span class="method-name">fragment</span><span class="method-args">(tags = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a
+href="DocumentFragment.html">Nokogiri::XML::DocumentFragment</a> from
+<tt>tags</tt> Returns an empty <a href="Document.html#M000393">fragment</a>
+if <tt>tags</tt> is nil.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000385" class="method-detail">
+        <a name="M000385"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000385.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000385.html');return false;">
+          <span class="method-name">name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The <a href="Document.html#M000385">name</a> of this <a
+href="Document.html#M000386">document</a>. Always returns &quot;<a
+href="Document.html#M000386">document</a>&quot;
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000392" class="method-detail">
+        <a name="M000392"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000392.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000392.html');return false;">
+          <span class="method-name">namespaces</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the hash of <a href="Document.html#M000392">namespaces</a> on the <a
+href="Document.html#M000399">root</a> <a
+href="Node.html">Nokogiri::XML::Node</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000407" class="method-detail">
+        <a name="M000407"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000407.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000407.html');return false;">
+          <span class="method-name">remove_namespaces!<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove all <a href="Document.html#M000392">namespaces</a> from all nodes in
+the <a href="Document.html#M000386">document</a>.
+</p>
+<p>
+This could be useful for developers who either don&#8216;t understand <a
+href="Document.html#M000392">namespaces</a> or don&#8216;t care about them.
+</p>
+<p>
+The following example shows a use case, and you can decide for yourself
+whether this is a good thing or not:
+</p>
+<pre>
+  doc = Nokogiri::XML &lt;&lt;-EOXML
+     &lt;root&gt;
+       &lt;car xmlns:part=&quot;http://general-motors.com/&quot;&gt;
+         &lt;part:tire&gt;Michelin Model XGV&lt;/part:tire&gt;
+       &lt;/car&gt;
+       &lt;bicycle xmlns:part=&quot;http://schwinn.com/&quot;&gt;
+         &lt;part:tire&gt;I'm a bicycle tire!&lt;/part:tire&gt;
+       &lt;/bicycle&gt;
+     &lt;/root&gt;
+     EOXML
+
+  doc.xpath(&quot;//tire&quot;).to_s # =&gt; &quot;&quot;
+  doc.xpath(&quot;//part:tire&quot;, &quot;part&quot; =&gt; &quot;http://general-motors.com/&quot;).to_s # =&gt; &quot;&lt;part:tire&gt;Michelin Model XGV&lt;/part:tire&gt;&quot;
+  doc.xpath(&quot;//part:tire&quot;, &quot;part&quot; =&gt; &quot;http://schwinn.com/&quot;).to_s # =&gt; &quot;&lt;part:tire&gt;I'm a bicycle tire!&lt;/part:tire&gt;&quot;
+
+  doc.remove_namespaces!
+
+  doc.xpath(&quot;//tire&quot;).to_s # =&gt; &quot;&lt;tire&gt;Michelin Model XGV&lt;/tire&gt;&lt;tire&gt;I'm a bicycle tire!&lt;/tire&gt;&quot;
+  doc.xpath(&quot;//part:tire&quot;, &quot;part&quot; =&gt; &quot;http://general-motors.com/&quot;).to_s # =&gt; &quot;&quot;
+  doc.xpath(&quot;//part:tire&quot;, &quot;part&quot; =&gt; &quot;http://schwinn.com/&quot;).to_s # =&gt; &quot;&quot;
+</pre>
+<p>
+For more information on why this probably is <b>not</b> a good thing in
+general, please direct your browser to <a
+href="http://tenderlovemaking.com/2009/04/23/namespaces-in-xml">tenderlovemaking.com/2009/04/23/namespaces-in-xml</a>/
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000399" class="method-detail">
+        <a name="M000399"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000399.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000399.html');return false;">
+          <span class="method-name">root<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Document.html#M000399">root</a> node for this <a
+href="Document.html#M000386">document</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000400" class="method-detail">
+        <a name="M000400"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000400.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000400.html');return false;">
+          <span class="method-name">root=<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the <a href="Document.html#M000399">root</a> element on this <a
+href="Document.html#M000386">document</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000390" class="method-detail">
+        <a name="M000390"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000390.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000390.html');return false;">
+          <span class="method-name">slop!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Explore a <a href="Document.html#M000386">document</a> with shortcut
+methods.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000405" class="method-detail">
+        <a name="M000405"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000405.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000405.html');return false;">
+          <span class="method-name">url<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Document.html#M000405">url</a> <a
+href="Document.html#M000385">name</a> for this <a
+href="Document.html#M000386">document</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000389" class="method-detail">
+        <a name="M000389"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000389.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000389.html');return false;">
+          <span class="method-name">validate</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Validate this <a href="Document.html">Document</a> against it&#8216;s <a
+href="DTD.html">DTD</a>. Returns a list of errors on the <a
+href="Document.html#M000386">document</a> or <tt>nil</tt> when there is no
+<a href="DTD.html">DTD</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000403" class="method-detail">
+        <a name="M000403"></a>
+
+        <div class="method-heading">
+          <a href="Document.src/M000403.html" target="Code" class="method-signature"
+            onclick="popupCode('Document.src/M000403.html');return false;">
+          <span class="method-name">version<br />
+</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="../XML.html">XML</a> <a
+href="Document.html#M000403">version</a> for this <a
+href="Document.html">Document</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

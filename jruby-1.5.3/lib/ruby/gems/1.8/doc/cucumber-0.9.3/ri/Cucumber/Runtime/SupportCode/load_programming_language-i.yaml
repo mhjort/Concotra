@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Loads and registers programming language implementation. Instances are cached, so calling with the same argument twice will return the same instance.
+full_name: Cucumber::Runtime::SupportCode#load_programming_language
+is_singleton: false
+name: load_programming_language
+params: (ext)
+visibility: public

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Ramaze::Helper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Ramaze::Helper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/ramaze/helper/link_rb.html">
+                lib/ramaze/helper/link.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/layout_rb.html">
+                lib/ramaze/helper/layout.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/stack_rb.html">
+                lib/ramaze/helper/stack.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/xhtml_rb.html">
+                lib/ramaze/helper/xhtml.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/gravatar_rb.html">
+                lib/ramaze/helper/gravatar.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/simple_captcha_rb.html">
+                lib/ramaze/helper/simple_captcha.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/remarkably_rb.html">
+                lib/ramaze/helper/remarkably.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/tagz_rb.html">
+                lib/ramaze/helper/tagz.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/erector_rb.html">
+                lib/ramaze/helper/erector.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/sequel_form_rb.html">
+                lib/ramaze/helper/sequel_form.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/httpdigest_rb.html">
+                lib/ramaze/helper/httpdigest.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/blue_form_rb.html">
+                lib/ramaze/helper/blue_form.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/disqus_rb.html">
+                lib/ramaze/helper/disqus.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/cache_rb.html">
+                lib/ramaze/helper/cache.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/ultraviolet_rb.html">
+                lib/ramaze/helper/ultraviolet.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/bench_rb.html">
+                lib/ramaze/helper/bench.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/maruku_rb.html">
+                lib/ramaze/helper/maruku.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/auth_rb.html">
+                lib/ramaze/helper/auth.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/identity_rb.html">
+                lib/ramaze/helper/identity.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/gestalt_rb.html">
+                lib/ramaze/helper/gestalt.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/user_rb.html">
+                lib/ramaze/helper/user.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/localize_rb.html">
+                lib/ramaze/helper/localize.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/nitroform_rb.html">
+                lib/ramaze/helper/nitroform.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/form_rb.html">
+                lib/ramaze/helper/form.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/flash_rb.html">
+                lib/ramaze/helper/flash.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/paginate_rb.html">
+                lib/ramaze/helper/paginate.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/partial_rb.html">
+                lib/ramaze/helper/partial.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/helper/request_accessor_rb.html">
+                lib/ramaze/helper/request_accessor.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The purpose of this class is to provide an easy way of setting/retrieving
+from the current flash.
+</p>
+<p>
+<a href="Helper/Flash.html">Flash</a> is a way to keep a temporary pairs of
+keys and values for the duration of two requests, the current and
+following.
+</p>
+<p>
+Very vague Example:
+</p>
+<p>
+On the first request, for example on registering:
+</p>
+<pre>
+  flash[:error] = &quot;You should reconsider your username, it's taken already&quot;
+  redirect R(self, :register)
+</pre>
+<p>
+This is the request from the redirect:
+</p>
+<pre>
+  do_stuff if flash[:error]
+</pre>
+<p>
+On the request after this, flash[:error] is gone.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Helper/Auth.html" class="link">Ramaze::Helper::Auth</a><br />
+Module <a href="Helper/Bench.html" class="link">Ramaze::Helper::Bench</a><br />
+Module <a href="Helper/BlueForm.html" class="link">Ramaze::Helper::BlueForm</a><br />
+Module <a href="Helper/Cache.html" class="link">Ramaze::Helper::Cache</a><br />
+Module <a href="Helper/Disqus.html" class="link">Ramaze::Helper::Disqus</a><br />
+Module <a href="Helper/Erector.html" class="link">Ramaze::Helper::Erector</a><br />
+Module <a href="Helper/Facebook.html" class="link">Ramaze::Helper::Facebook</a><br />
+Module <a href="Helper/Flash.html" class="link">Ramaze::Helper::Flash</a><br />
+Module <a href="Helper/Form.html" class="link">Ramaze::Helper::Form</a><br />
+Module <a href="Helper/Formatting.html" class="link">Ramaze::Helper::Formatting</a><br />
+Module <a href="Helper/Gestalt.html" class="link">Ramaze::Helper::Gestalt</a><br />
+Module <a href="Helper/Gravatar.html" class="link">Ramaze::Helper::Gravatar</a><br />
+Module <a href="Helper/HttpDigest.html" class="link">Ramaze::Helper::HttpDigest</a><br />
+Module <a href="Helper/Identity.html" class="link">Ramaze::Helper::Identity</a><br />
+Module <a href="Helper/Layout.html" class="link">Ramaze::Helper::Layout</a><br />
+Module <a href="Helper/Link.html" class="link">Ramaze::Helper::Link</a><br />
+Module <a href="Helper/Localize.html" class="link">Ramaze::Helper::Localize</a><br />
+Module <a href="Helper/Markaby.html" class="link">Ramaze::Helper::Markaby</a><br />
+Module <a href="Helper/Maruku.html" class="link">Ramaze::Helper::Maruku</a><br />
+Module <a href="Helper/Pager.html" class="link">Ramaze::Helper::Pager</a><br />
+Module <a href="Helper/Paginate.html" class="link">Ramaze::Helper::Paginate</a><br />
+Module <a href="Helper/Partial.html" class="link">Ramaze::Helper::Partial</a><br />
+Module <a href="Helper/Remarkably.html" class="link">Ramaze::Helper::Remarkably</a><br />
+Module <a href="Helper/RequestAccessor.html" class="link">Ramaze::Helper::RequestAccessor</a><br />
+Module <a href="Helper/Sequel.html" class="link">Ramaze::Helper::Sequel</a><br />
+Module <a href="Helper/SequelForm.html" class="link">Ramaze::Helper::SequelForm</a><br />
+Module <a href="Helper/SimpleCaptcha.html" class="link">Ramaze::Helper::SimpleCaptcha</a><br />
+Module <a href="Helper/Stack.html" class="link">Ramaze::Helper::Stack</a><br />
+Module <a href="Helper/Thread.html" class="link">Ramaze::Helper::Thread</a><br />
+Module <a href="Helper/Ultraviolet.html" class="link">Ramaze::Helper::Ultraviolet</a><br />
+Module <a href="Helper/User.html" class="link">Ramaze::Helper::User</a><br />
+Module <a href="Helper/XHTML.html" class="link">Ramaze::Helper::XHTML</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Tagz</td>
+          <td>=</td>
+          <td class="context-item-value">::Tagz</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Nitroform</td>
+          <td>=</td>
+          <td class="context-item-value">::Nitro::FormHelper</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+This helper simply includes the Nitro::FormHelper so you can use its
+methods in your <a href="Controller.html">Controller</a>.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

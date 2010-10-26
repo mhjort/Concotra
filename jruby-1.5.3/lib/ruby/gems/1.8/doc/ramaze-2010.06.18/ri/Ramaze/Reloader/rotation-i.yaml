@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: path
+comment: 
+full_name: Ramaze::Reloader#rotation
+is_singleton: false
+name: rotation
+params: () {|path| ...}
+visibility: public

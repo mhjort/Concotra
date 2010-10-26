@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>send (Ramaze::EmailHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/contrib/email.rb, line 51</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">recipient</span>, <span class="ruby-identifier">subject</span>, <span class="ruby-identifier">message</span>)
+        {<span class="ruby-identifier">:recipient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">recipient</span>, <span class="ruby-identifier">:subject</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">subject</span>, <span class="ruby-identifier">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;EmailHelper error: Missing or invalid #{k}: #{v.inspect}&quot;</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">sender</span> = <span class="ruby-identifier">trait</span>[<span class="ruby-identifier">:sender_full</span>] <span class="ruby-operator">||</span> <span class="ruby-node">&quot;#{trait[:sender_address]} &lt;#{trait[:sender_address]}&gt;&quot;</span>
+        <span class="ruby-identifier">subject</span> = [<span class="ruby-identifier">trait</span>[<span class="ruby-identifier">:subject_prefix</span>], <span class="ruby-identifier">subject</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>).<span class="ruby-identifier">strip</span>
+        <span class="ruby-identifier">id</span> = <span class="ruby-identifier">trait</span>[<span class="ruby-identifier">:id_generator</span>].<span class="ruby-identifier">call</span>
+        <span class="ruby-identifier">email</span> = <span class="ruby-node">%{From: #{sender}
+To: &lt;#{recipient}&gt;
+Date: #{Time.now.rfc2822}
+Subject: #{subject}
+Message-Id: #{id}
+
+#{message}
+}</span>
+
+        <span class="ruby-identifier">send_smtp</span>( <span class="ruby-identifier">email</span>, <span class="ruby-identifier">recipient</span>, <span class="ruby-identifier">subject</span> )
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

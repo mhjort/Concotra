@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: shortcut for user._logout
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [nil]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Ramaze::Helper::User::Wrapper#_logout @author manveru"
+full_name: Ramaze::Helper::User#user_logout
+is_singleton: false
+name: user_logout
+params: ()
+visibility: public

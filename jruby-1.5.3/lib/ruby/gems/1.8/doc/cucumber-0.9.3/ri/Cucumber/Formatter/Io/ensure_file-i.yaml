@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Io#ensure_file
+is_singleton: false
+name: ensure_file
+params: (path, name)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Io#ensure_io
+is_singleton: false
+name: ensure_io
+params: (path_or_io, name)
+visibility: public

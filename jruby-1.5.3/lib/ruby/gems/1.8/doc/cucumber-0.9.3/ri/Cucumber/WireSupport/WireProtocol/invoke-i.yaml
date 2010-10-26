@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::WireProtocol#invoke
+is_singleton: false
+name: invoke
+params: (step_definition_id, args)
+visibility: public

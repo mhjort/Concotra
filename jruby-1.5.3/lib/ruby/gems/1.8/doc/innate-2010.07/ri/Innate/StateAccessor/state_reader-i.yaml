@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Reader accessor for Thread.current[key]
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class Foo\n    include Innate::StateAccessor\n    state_reader(:session)\n    state_reader(:random){ rand(100_000) }\n\n    def calculate\n      val1 = session[:num1] + session[:num2] + random\n      val2 = session[:num1] + session[:num2] + random\n      val1 == val2 # =&gt; true\n    end\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "NOTE:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  If given <tt>initializer</tt>, there will be some performance impact since we\n  cannot use class_eval and have to use define_method instead, we also\n  have to check every time whether the initializer was executed already.\n\n  In 1.8.x the overhead of define_method is 3x that of class_eval/def\n  In 1.9.1 the overhead of define_method is 1.5x that of class_eval/def\n\n  This may only be an issue for readers that are called a lot of times.\n"
+full_name: Innate::StateAccessor#state_reader
+is_singleton: false
+name: state_reader
+params: (*names, &initializer)
+visibility: public

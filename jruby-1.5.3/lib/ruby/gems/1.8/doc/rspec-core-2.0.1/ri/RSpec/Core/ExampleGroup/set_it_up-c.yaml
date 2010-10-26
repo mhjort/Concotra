@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::ExampleGroup::set_it_up
+is_singleton: true
+name: set_it_up
+params: (*args)
+visibility: public

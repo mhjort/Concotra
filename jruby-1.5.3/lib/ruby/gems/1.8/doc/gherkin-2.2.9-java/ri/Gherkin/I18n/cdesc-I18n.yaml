@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: iso_code
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: all
+  - !ruby/object:RI::MethodSummary 
+    name: code_keyword_for
+  - !ruby/object:RI::MethodSummary 
+    name: code_keywords
+  - !ruby/object:RI::MethodSummary 
+    name: get
+  - !ruby/object:RI::MethodSummary 
+    name: keyword_regexp
+  - !ruby/object:RI::MethodSummary 
+    name: language_table
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: unicode_escape
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FEATURE_ELEMENT_KEYS
+    value: "%w{feature background scenario scenario_outline examples}"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: STEP_KEYWORD_KEYS
+    value: "%w{given when then and but}"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: KEYWORD_KEYS
+    value: FEATURE_ELEMENT_KEYS + STEP_KEYWORD_KEYS
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: LANGUAGES
+    value: YAML.load_file(File.dirname(__FILE__) + '/i18n.yml')
+full_name: Gherkin::I18n
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Rubify
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: c
+  - !ruby/object:RI::MethodSummary 
+    name: code_keywords
+  - !ruby/object:RI::MethodSummary 
+    name: keyword_table
+  - !ruby/object:RI::MethodSummary 
+    name: keywords
+  - !ruby/object:RI::MethodSummary 
+    name: lexer
+  - !ruby/object:RI::MethodSummary 
+    name: rb
+  - !ruby/object:RI::MethodSummary 
+    name: step_keywords
+  - !ruby/object:RI::MethodSummary 
+    name: underscored_iso_code
+name: I18n
+superclass: Object

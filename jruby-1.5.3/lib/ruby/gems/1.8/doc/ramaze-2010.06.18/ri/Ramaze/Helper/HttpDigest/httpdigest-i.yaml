@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::HttpDigest#httpdigest
+is_singleton: false
+name: httpdigest
+params: (uid, realm, &block)
+visibility: public

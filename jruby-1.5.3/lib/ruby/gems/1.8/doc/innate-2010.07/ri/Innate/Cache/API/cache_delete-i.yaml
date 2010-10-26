@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (key)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Remove the corresponding key/value pair for each key passed. If removing is not an option it should set the corresponding value to nil.
+  - !ruby/struct:SM::Flow::P 
+    body: If only one key was deleted, answer with the corresponding value. If multiple keys were deleted, answer with an Array containing the values.
+  - !ruby/struct:SM::Flow::P 
+    body: "NOTE: Due to differences in the underlying implementation in the"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "      caches, some may not return the deleted value as it would mean\n      another lookup before deletion. This is the case for caches on\n      memcached or any database system.\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Object] key the key for the value to delete @param [Object] keys any other keys to delete as well @return [Object Array nil] @author manveru"
+full_name: Innate::Cache::API#cache_delete
+is_singleton: false
+name: cache_delete
+params: (key, *keys) {|key| ...}
+visibility: public

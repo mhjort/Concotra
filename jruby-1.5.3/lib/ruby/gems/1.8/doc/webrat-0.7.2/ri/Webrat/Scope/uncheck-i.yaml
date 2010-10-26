@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Verifies that an input checkbox exists on the current page and marks it as unchecked, so that the value will not be submitted with the form.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  uncheck 'Remember Me'\n"
+full_name: Webrat::Scope#uncheck
+is_singleton: false
+name: uncheck
+params: (field_locator)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Try to retrieve the corresponding Hash for the passed keys, will try to retrieve the key from a parent if no match is found on the current instance. If multiple keys are passed it will try to find a matching child and pass the request on to it.
+full_name: Innate::Options#get
+is_singleton: false
+name: get
+params: (key, *keys)
+visibility: public

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>does_not_match? (RSpec::Matchers::Matcher)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/matchers/matcher.rb, line 45</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">does_not_match?</span>(<span class="ruby-identifier">actual</span>)
+        <span class="ruby-ivar">@actual</span> = <span class="ruby-identifier">actual</span>
+        <span class="ruby-ivar">@match_for_should_not_block</span> <span class="ruby-operator">?</span>
+          <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">actual</span>, <span class="ruby-operator">&amp;</span><span class="ruby-ivar">@match_for_should_not_block</span>) <span class="ruby-operator">:</span>
+          <span class="ruby-operator">!</span><span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">actual</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

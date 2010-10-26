@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Cucumber::Formatter::Pdf)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/pdf.rb, line 26</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">step_mother</span>, <span class="ruby-identifier">path_or_io</span>, <span class="ruby-identifier">options</span>)
+        <span class="ruby-ivar">@step_mother</span> = <span class="ruby-identifier">step_mother</span>
+        <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">ensure_file</span>(<span class="ruby-identifier">path_or_io</span>, <span class="ruby-value str">&quot;pdf&quot;</span>)
+
+        <span class="ruby-keyword kw">if</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:dry_run</span>])
+          <span class="ruby-ivar">@status_colors</span> = { <span class="ruby-identifier">:passed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BLACK</span>, <span class="ruby-identifier">:skipped</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BLACK</span>, <span class="ruby-identifier">:undefined</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BLACK</span>, <span class="ruby-identifier">:failed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">BLACK</span>, <span class="ruby-identifier">:announced</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">GREY</span>}
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@status_colors</span> = { <span class="ruby-identifier">:passed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'055902'</span>, <span class="ruby-identifier">:skipped</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">GREY</span>, <span class="ruby-identifier">:undefined</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'F27405'</span>, <span class="ruby-identifier">:failed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'730202'</span>, <span class="ruby-identifier">:announced</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">GREY</span>}
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-ivar">@pdf</span> = <span class="ruby-constant">Prawn</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@scrap</span> = <span class="ruby-constant">Prawn</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@doc</span> = <span class="ruby-ivar">@scrap</span>
+        <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+        <span class="ruby-ivar">@exceptions</span> = []
+        <span class="ruby-ivar">@indent</span> = <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@buffer</span> = []
+        <span class="ruby-identifier">load_cover_page_image</span>
+        <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">text</span> <span class="ruby-value str">&quot;\n\n\nCucumber features&quot;</span>, <span class="ruby-identifier">:align</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:center</span>, <span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">32</span>
+        <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">draw_text</span> <span class="ruby-node">&quot;Generated: #{Time.now.strftime(&quot;%Y-%m-%d %H:%M&quot;)}&quot;</span>, <span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">:at</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>, <span class="ruby-value">24</span>]
+        <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">draw_text</span> <span class="ruby-node">&quot;$ cucumber #{ARGV.join(&quot; &quot;)}&quot;</span>, <span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>, <span class="ruby-identifier">:at</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>,<span class="ruby-value">10</span>]
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:dry_run</span>]
+          <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">bounding_box</span> [<span class="ruby-value">450</span>,<span class="ruby-value">100</span>] , <span class="ruby-identifier">:width</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> <span class="ruby-keyword kw">do</span>  
+            <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">text</span> <span class="ruby-value str">'Legend'</span>, <span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+            <span class="ruby-ivar">@status_colors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+              <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">fill_color</span> <span class="ruby-identifier">v</span>
+              <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">text</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+              <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">fill_color</span> <span class="ruby-constant">BLACK</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

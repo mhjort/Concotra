@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Upon inclusion we make ourselves comfortable.
+full_name: Innate::Node::included
+is_singleton: true
+name: included
+params: (into)
+visibility: public

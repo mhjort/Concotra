@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Runtime#features_paths
+is_singleton: false
+name: features_paths
+params: ()
+visibility: public

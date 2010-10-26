@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Start a new rack server (like running rackup). This will parse ARGV and provide standard ARGV rackup options, defaulting to load 'config.ru'.
+  - !ruby/struct:SM::Flow::P 
+    body: Providing an options hash will prevent ARGV parsing and will not include any default options.
+  - !ruby/struct:SM::Flow::P 
+    body: "This method can be used to very easily launch a CGI application, for example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: " Rack::Server.start(\n   :app =&gt; lambda do |e|\n     [200, {'Content-Type' =&gt; 'text/html'}, ['hello world']]\n   end,\n   :server =&gt; 'cgi'\n )\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Further options available here are documented on Rack::Server#initialize
+full_name: Rack::Server::start
+is_singleton: true
+name: start
+params: (options = nil)
+visibility: public

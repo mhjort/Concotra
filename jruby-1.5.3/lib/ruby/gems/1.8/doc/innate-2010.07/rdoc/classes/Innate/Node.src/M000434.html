@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>layout (Innate::Node)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/innate/node.rb, line 669</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">layout</span>(<span class="ruby-identifier">layout_name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">layout_name</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">block</span>
+        <span class="ruby-comment cmt"># default name, but still check with block</span>
+        <span class="ruby-identifier">trait</span>(<span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lambda</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">wish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">layout_name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">wish</span>) })
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">layout_name</span>
+        <span class="ruby-comment cmt"># name of a method or template</span>
+        <span class="ruby-identifier">trait</span>(<span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">layout_name</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">block</span>
+        <span class="ruby-comment cmt"># call block every request with name and wish, returned value is name</span>
+        <span class="ruby-comment cmt"># of layout template or method</span>
+        <span class="ruby-identifier">trait</span>(<span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-comment cmt"># remove layout for this node</span>
+        <span class="ruby-identifier">trait</span>(<span class="ruby-identifier">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">ancestral_trait</span>[<span class="ruby-identifier">:layout</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Combined state_writer and state_reader. <tt>initializer</tt> is a block that may be given and its result will be the new value in case the method created by state_reader was never called before and the value wasn't set before.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  state_accessor(:session)\n  state_accessor(:user){ session[:user] }\n"
+full_name: Innate::StateAccessor#state_accessor
+is_singleton: false
+name: state_accessor
+params: (*names, &initializer)
+visibility: public

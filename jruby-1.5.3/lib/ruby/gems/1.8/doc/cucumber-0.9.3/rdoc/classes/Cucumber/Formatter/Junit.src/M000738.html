@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>after_feature (Cucumber::Formatter::Junit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/junit.rb, line 29</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">after_feature</span>(<span class="ruby-identifier">feature</span>)
+        <span class="ruby-ivar">@testsuite</span> = <span class="ruby-constant">OrderedXmlMarkup</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> )
+        <span class="ruby-ivar">@testsuite</span>.<span class="ruby-identifier">instruct!</span>
+        <span class="ruby-ivar">@testsuite</span>.<span class="ruby-identifier">testsuite</span>(
+          <span class="ruby-identifier">:failures</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@failures</span>,
+          <span class="ruby-identifier">:errors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@errors</span>,
+          <span class="ruby-identifier">:tests</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@tests</span>,
+          <span class="ruby-identifier">:time</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;%.6f&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-ivar">@time</span>,
+          <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@feature_name</span> ) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-ivar">@testsuite</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">target!</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">write_file</span>(<span class="ruby-identifier">feature_result_filename</span>(<span class="ruby-identifier">feature</span>.<span class="ruby-identifier">file</span>), <span class="ruby-ivar">@testsuite</span>.<span class="ruby-identifier">target!</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

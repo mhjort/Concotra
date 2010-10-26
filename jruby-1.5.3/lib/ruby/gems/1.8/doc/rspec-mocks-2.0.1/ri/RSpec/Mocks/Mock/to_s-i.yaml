@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: to_str
+block_params: 
+comment: 
+full_name: RSpec::Mocks::Mock#to_s
+is_singleton: false
+name: to_s
+params: ()
+visibility: public

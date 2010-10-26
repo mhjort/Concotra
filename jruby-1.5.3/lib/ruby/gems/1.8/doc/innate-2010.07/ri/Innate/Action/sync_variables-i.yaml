@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Copy the instance variable names and values from given from_action#instance into the Action#variables of the action this method is called on.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Action #instance] from_action @return [Action] from_action @see Action#wrap_in_layout @api unstable @author manveru"
+full_name: Innate::Action#sync_variables
+is_singleton: false
+name: sync_variables
+params: (from_action)
+visibility: public

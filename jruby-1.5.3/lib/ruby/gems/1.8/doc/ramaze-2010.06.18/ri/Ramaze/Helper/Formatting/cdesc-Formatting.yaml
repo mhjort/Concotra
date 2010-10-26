@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FORMATTING_NUMBER_COUNTER
+    value: "{ 0 => 'no', 2 => 'two', 3 => 'three',       4 => 'four', 5 => 'five', 6 => 'six', 7 => 'seven', 8 => 'eight',       9 => 'nine', 10 => 'ten' }"
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Copied from actionpack, and revised by insane-dreamer to fix a bug (original fails on some URLs)
+    name: AUTO_LINK_RE
+    value: "%r{       (                          # leading text         <\\w+.*?>|                # leading HTML tag, or         [^=!:'\"/]|               # leading punctuation, or         ^                        # beginning of line       )       (         (?:https?://)|           # protocol spec, or         (?:www\\.)                # www.*       )       (         [-\\w]+                   # subdomain or domain         (?:\\.[-\\w]+)*            # remaining subdomains or domain         (?::\\d+)?                # port         (?:/(?:[~\\w\\+@%=\\(\\)-]|(?:[,.;:'][^\\s<$]))*)* # path         (?:\\?[\\w\\+@%&=.;:-]+)?   # query string         (?:\\#[\\w\\-]*)?           # trailing anchor       )       ([[:punct:]]|<|$|)         # trailing text     }x unless defined? AUTO_LINK_RE"
+full_name: Ramaze::Helper::Formatting
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: auto_link
+  - !ruby/object:RI::MethodSummary 
+    name: autolink
+  - !ruby/object:RI::MethodSummary 
+    name: nl2br
+  - !ruby/object:RI::MethodSummary 
+    name: number_counter
+  - !ruby/object:RI::MethodSummary 
+    name: number_format
+  - !ruby/object:RI::MethodSummary 
+    name: obfuscate_email
+  - !ruby/object:RI::MethodSummary 
+    name: ordinal
+  - !ruby/object:RI::MethodSummary 
+    name: tagcloud
+  - !ruby/object:RI::MethodSummary 
+    name: time_diff
+name: Formatting
+superclass: 

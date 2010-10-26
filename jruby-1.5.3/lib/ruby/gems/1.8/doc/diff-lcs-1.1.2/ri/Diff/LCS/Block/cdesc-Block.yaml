@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: changes
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: insert
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: remove
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A block is an operation removing, adding, or changing a group of items. Basically, this is just a list of changes, where each change adds or deletes a single item. Used by bin/ldiff.
+constants: []
+
+full_name: Diff::LCS::Block
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: diff_size
+  - !ruby/object:RI::MethodSummary 
+    name: op
+name: Block
+superclass: Object

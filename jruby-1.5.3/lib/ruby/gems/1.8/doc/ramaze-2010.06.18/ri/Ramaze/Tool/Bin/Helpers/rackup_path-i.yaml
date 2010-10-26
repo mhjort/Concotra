@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Find the path to rackup, by searching for -R (undocumented cli argument), then checking RUBYLIB for the <em>first</em> rack it can find there, finally falling back to gems and looking for rackup in the gem bindir. If we can't find rackup we're raising; not even #usage is sane without rackup."
+full_name: Ramaze::Tool::Bin::Helpers#rackup_path
+is_singleton: false
+name: rackup_path
+params: (
+visibility: public

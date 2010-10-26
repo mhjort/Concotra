@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>update_layout_mappings (Innate::Node)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/innate/node.rb, line 807</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update_layout_mappings</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ancestral_trait</span>[<span class="ruby-identifier">:fast_mappings</span>]
+        <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@layout_templates</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-identifier">:@layout_templates</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">paths</span> = <span class="ruby-identifier">possible_paths_for</span>(<span class="ruby-identifier">layout_mappings</span>)
+      <span class="ruby-ivar">@layout_templates</span> = <span class="ruby-identifier">update_mapping_shared</span>(<span class="ruby-identifier">paths</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

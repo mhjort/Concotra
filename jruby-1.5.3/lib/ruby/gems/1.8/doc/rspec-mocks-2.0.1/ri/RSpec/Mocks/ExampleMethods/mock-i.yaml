@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Just like double, but use double
+full_name: RSpec::Mocks::ExampleMethods#mock
+is_singleton: false
+name: mock
+params: (*args)
+visibility: public

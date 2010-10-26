@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Parser::GherkinBuilder#syntax_error
+is_singleton: false
+name: syntax_error
+params: (state, event, legal_events, line)
+visibility: public

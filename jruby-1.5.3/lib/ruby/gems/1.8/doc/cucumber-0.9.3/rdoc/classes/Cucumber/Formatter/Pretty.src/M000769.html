@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>step_name (Cucumber::Formatter::Pretty)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/pretty.rb, line 148</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">step_name</span>(<span class="ruby-identifier">keyword</span>, <span class="ruby-identifier">step_match</span>, <span class="ruby-identifier">status</span>, <span class="ruby-identifier">source_indent</span>, <span class="ruby-identifier">background</span>)
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@hide_this_step</span>
+        <span class="ruby-identifier">source_indent</span> = <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:source</span>]
+        <span class="ruby-identifier">name_to_report</span> = <span class="ruby-identifier">format_step</span>(<span class="ruby-identifier">keyword</span>, <span class="ruby-identifier">step_match</span>, <span class="ruby-identifier">status</span>, <span class="ruby-identifier">source_indent</span>)
+        <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">name_to_report</span>.<span class="ruby-identifier">indent</span>(<span class="ruby-ivar">@scenario_indent</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>))
+        <span class="ruby-identifier">print_announcements</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

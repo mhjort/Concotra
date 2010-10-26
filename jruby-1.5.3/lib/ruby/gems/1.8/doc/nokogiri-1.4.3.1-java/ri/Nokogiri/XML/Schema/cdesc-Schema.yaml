@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Errors while parsing the schema file
+    name: errors
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: from_document
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: read_memory
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: In case someone passes us a node. ugh.
+constants: []
+
+full_name: Nokogiri::XML::Schema
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: valid?
+  - !ruby/object:RI::MethodSummary 
+    name: validate
+  - !ruby/object:RI::MethodSummary 
+    name: validate_document
+  - !ruby/object:RI::MethodSummary 
+    name: validate_file
+name: Schema
+superclass: Object

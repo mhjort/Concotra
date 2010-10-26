@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::View::None::call
+is_singleton: true
+name: call
+params: (action, string)
+visibility: public

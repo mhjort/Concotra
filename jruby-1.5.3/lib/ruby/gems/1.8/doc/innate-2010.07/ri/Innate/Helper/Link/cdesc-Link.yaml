@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: included
+comment: 
+constants: []
+
+full_name: Innate::Helper::Link
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: a
+  - !ruby/object:RI::MethodSummary 
+    name: anchor
+  - !ruby/object:RI::MethodSummary 
+    name: r
+  - !ruby/object:RI::MethodSummary 
+    name: route
+  - !ruby/object:RI::MethodSummary 
+    name: route_location
+  - !ruby/object:RI::MethodSummary 
+    name: route_self
+  - !ruby/object:RI::MethodSummary 
+    name: rs
+name: Link
+superclass: 

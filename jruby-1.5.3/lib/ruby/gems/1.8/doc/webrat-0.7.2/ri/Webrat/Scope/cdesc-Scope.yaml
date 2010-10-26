@@ -1,0 +1,55 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: session
+    rw: R
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DATE_TIME_SUFFIXES
+    value: "{       :year   => '1i',       :month  => '2i',       :day    => '3i',       :hour   => '4i',       :minute => '5i'"
+full_name: Webrat::Scope
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Logging
+  - !ruby/object:RI::IncludedModule 
+    name: Locators
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: attach_file
+  - !ruby/object:RI::MethodSummary 
+    name: check
+  - !ruby/object:RI::MethodSummary 
+    name: choose
+  - !ruby/object:RI::MethodSummary 
+    name: click_area
+  - !ruby/object:RI::MethodSummary 
+    name: click_button
+  - !ruby/object:RI::MethodSummary 
+    name: click_link
+  - !ruby/object:RI::MethodSummary 
+    name: fill_in
+  - !ruby/object:RI::MethodSummary 
+    name: scoped_dom
+  - !ruby/object:RI::MethodSummary 
+    name: select
+  - !ruby/object:RI::MethodSummary 
+    name: select_date
+  - !ruby/object:RI::MethodSummary 
+    name: select_datetime
+  - !ruby/object:RI::MethodSummary 
+    name: select_time
+  - !ruby/object:RI::MethodSummary 
+    name: set_hidden_field
+  - !ruby/object:RI::MethodSummary 
+    name: submit_form
+  - !ruby/object:RI::MethodSummary 
+    name: uncheck
+  - !ruby/object:RI::MethodSummary 
+    name: unselect
+name: Scope
+superclass: Object

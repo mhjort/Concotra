@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: uncheck
+block_params: 
+comment: 
+full_name: Webrat::SeleniumSession#check
+is_singleton: false
+name: check
+params: (label_text)
+visibility: public

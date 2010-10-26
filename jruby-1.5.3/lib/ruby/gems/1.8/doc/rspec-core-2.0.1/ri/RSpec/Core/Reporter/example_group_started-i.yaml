@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Reporter#example_group_started
+is_singleton: false
+name: example_group_started
+params: (group)
+visibility: public

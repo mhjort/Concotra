@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Executed once an {Action} has been found.
+  - !ruby/struct:SM::Flow::P 
+    body: Reset the {Innate::Response} instance, catch :respond and :redirect. {Action#call} has to return a String.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Action] action"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Innate::Response]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Action#call Innate::Response @author manveru"
+full_name: Innate::Node#action_found
+is_singleton: false
+name: action_found
+params: (action)
+visibility: public

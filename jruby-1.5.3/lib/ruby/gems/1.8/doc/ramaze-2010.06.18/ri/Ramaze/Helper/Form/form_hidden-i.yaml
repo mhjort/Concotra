@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::Form#form_hidden
+is_singleton: false
+name: form_hidden
+params: (name, value = nil)
+visibility: public

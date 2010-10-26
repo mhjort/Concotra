@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue Oct 26 13:44:05 +0300 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="../classes/Diff/LCS.html">Diff::LCS</a> README
+</p>
+<h6>==========</h6>
+<p>
+<a href="../classes/Diff/LCS.html">Diff::LCS</a> is a port of
+Algorithm::Diff[1] that uses the McIlroy-Hunt longest common subsequence
+(LCS) algorithm to compute intelligent differences between two sequenced
+enumerable containers[2]. The implementation is based on Mario I.
+Wolczko&#8216;s[3] Smalltalk version (1.2, 1993)[4] and Ned Konz&#8216;s[5]
+Perl version (Algorithm::Diff)[6].
+</p>
+<p>
+This release is version 1.1.2, fixing an htmldiff bug in 1.1.1. Version
+1.1.0 added new features, including the ability to patch and unpatch
+changes as well as a new contextual diff callback, <a
+href="../classes/Diff/LCS/ContextDiffCallbacks.html">Diff::LCS::ContextDiffCallbacks</a>,
+that should improve the context sensitivity of patching.
+</p>
+<p>
+Using this module is quite simple. By default, <a
+href="../classes/Diff/LCS.html">Diff::LCS</a> does not extend objects with
+the <a href="../classes/Diff/LCS.html">Diff::LCS</a> interface, but will be
+called as if it were a function:
+</p>
+<pre>
+  require 'diff/lcs'
+
+  seq1 = %w(a b c e h j l m n p)
+  seq2 = %w(b c d e f j k l m r s t)
+
+  lcs = Diff::LCS.LCS(seq1, seq2)
+  diffs = Diff::LCS.diff(seq1, seq2)
+  sdiff = Diff::LCS.sdiff(seq1, seq2)
+  seq = Diff::LCS.traverse_sequences(seq1, seq2, callback_obj)
+  bal = Diff::LCS.traverse_balanced(seq1, seq2, callback_obj)
+  seq2 == Diff::LCS.patch!(seq1, diffs)
+  seq1 == Diff::LCS.unpatch!(seq2, diffs)
+  seq2 == Diff::LCS.patch!(seq1, sdiff)
+  seq1 == Diff::LCS.unpatch!(seq2, sdiff)
+</pre>
+<p>
+Objects can be extended with <a
+href="../classes/Diff/LCS.html">Diff::LCS</a>:
+</p>
+<pre>
+  seq1.extend(Diff::LCS)
+  lcs = seq1.lcs(seq2)
+  diffs = seq1.diff(seq2)
+  sdiff = seq1.sdiff(seq2)
+  seq = seq1.traverse_sequences(seq2, callback_obj)
+  bal = seq1.traverse_balanced(seq2, callback_obj)
+  seq2 == seq1.patch!(diffs)
+  seq1 == seq2.unpatch!(diffs)
+  seq2 == seq1.patch!(sdiff)
+  seq1 == seq2.unpatch!(sdiff)
+</pre>
+<p>
+By requiring &#8216;diff/lcs/array&#8217; or &#8216;diff/lcs/string&#8217;,
+<a href="../classes/Array.html">Array</a> or <a
+href="../classes/String.html">String</a> will be extended for use this way.
+</p>
+<p>
+Copyright
+</p>
+<h6>===</h6>
+<p>
+# Copyright 2004 Austin Ziegler &lt;diff-lcs@halostatue.ca&gt; # adapted
+from: # Algorithm::Diff (Perl) by Ned Konz &lt;perl@bike-nomad.com&gt; #
+Smalltalk by Mario I. Wolczko &lt;mario@wolczko.com&gt; # implements
+McIlroy-Hunt diff algorithm # # This program is free software. It may be
+redistributed and/or modified # under the terms of the GPL version 2 (or
+later), the Perl Artistic # licence, or the Ruby licence. # # $Id: README,v
+1.7 2004/10/17 20:31:10 austin Exp $
+</p>
+<p>
+Footnotes
+</p>
+<h6>===</h6>
+<dl>
+<dt>1</dt><dd>This library is called <a href="../classes/Diff/LCS.html">Diff::LCS</a>
+because there are multiple Ruby libraries called Algorithm::Diff maintained
+by other authors.
+
+</dd>
+<dt>2</dt><dd>By sequenced enumerable, I mean that the order of enumeration is
+predictable and consistent for the same set of data. While it is
+theoretically possible to generate a diff for unordereded hash, it will
+only be meaningful if the enumeration of the hashes is consistent. In
+general, this will mean that containers that behave like <a
+href="../classes/String.html">String</a> or <a
+href="../classes/Array.html">Array</a> will perform best.
+
+</dd>
+<dt>3</dt><dd>mario@wolczko.com
+
+</dd>
+<dt>4</dt><dd><a
+href="ftp://st.cs.uiuc.edu/pub/Smalltalk/MANCHESTER/manchester/4.0/diff.st">st.cs.uiuc.edu/pub/Smalltalk/MANCHESTER/manchester/4.0/diff.st</a>
+
+</dd>
+<dt>5</dt><dd>perl@bike-nomad.com
+
+</dd>
+<dt>6</dt><dd><a
+href="http://search.cpan.org/~nedkonz/Algorithm-Diff-1.15">search.cpan.org/~nedkonz/Algorithm-Diff-1.15</a>/
+
+</dd>
+</dl>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Called when the old value is discarded in favour of the new value.
+full_name: Diff::LCS::DefaultCallbacks::discard_a
+is_singleton: true
+name: discard_a
+params: (event)
+visibility: public

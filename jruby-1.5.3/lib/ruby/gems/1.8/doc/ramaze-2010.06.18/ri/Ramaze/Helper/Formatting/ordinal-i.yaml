@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Answer with the ordinal version of a number.
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  ordinal(1)   # =&gt; &quot;1st&quot;\n  ordinal(2)   # =&gt; &quot;2nd&quot;\n  ordinal(3)   # =&gt; &quot;3rd&quot;\n  ordinal(13)  # =&gt; &quot;13th&quot;\n  ordinal(33)  # =&gt; &quot;33rd&quot;\n  ordinal(100) # =&gt; &quot;100th&quot;\n  ordinal(133) # =&gt; &quot;133rd&quot;\n"
+full_name: Ramaze::Helper::Formatting#ordinal
+is_singleton: false
+name: ordinal
+params: (number)
+visibility: public

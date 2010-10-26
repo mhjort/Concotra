@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build_multipart
+  - !ruby/object:RI::MethodSummary 
+    name: parse_multipart
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A multipart form data parser, adapted from IOWA.
+  - !ruby/struct:SM::Flow::P 
+    body: Usually, Rack::Request#POST takes care of calling this.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: EOL
+    value: "\"\\r\\n\""
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MULTIPART_BOUNDARY
+    value: "\"AaB03x\""
+full_name: Multipart
+includes: []
+
+instance_methods: []
+
+name: Multipart
+superclass: 

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Pass it an object for your ORM and options for the &lt;form&gt; tag Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  sequel_form(User, :action =&gt; '/create')\n  sequel_form(Tag, :action =&gt; '/find', :method =&gt; 'post')\n"
+full_name: Ramaze::Helper::SequelForm#sequel_form
+is_singleton: false
+name: sequel_form
+params: (object, options = {})
+visibility: public

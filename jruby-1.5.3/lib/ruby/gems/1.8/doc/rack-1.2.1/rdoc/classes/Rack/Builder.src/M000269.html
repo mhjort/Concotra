@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_file (Rack::Builder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/builder.rb, line 27</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse_file</span>(<span class="ruby-identifier">config</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>)
+      <span class="ruby-identifier">options</span> = {}
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">config</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\.ru$/</span>
+        <span class="ruby-identifier">cfgfile</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">config</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cfgfile</span>[<span class="ruby-regexp re">/^#\\(.*)/</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">opts</span>
+          <span class="ruby-identifier">options</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s+/</span>)
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">cfgfile</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp re">/^__END__\n.*/</span>, <span class="ruby-value str">''</span>)
+        <span class="ruby-identifier">app</span> = <span class="ruby-identifier">eval</span> <span class="ruby-value str">&quot;Rack::Builder.new {( &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cfgfile</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\n )}.to_app&quot;</span>,
+          <span class="ruby-constant">TOPLEVEL_BINDING</span>, <span class="ruby-identifier">config</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-identifier">config</span>
+        <span class="ruby-identifier">app</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">config</span>, <span class="ruby-value str">'.rb'</span>).<span class="ruby-identifier">capitalize</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">app</span>, <span class="ruby-identifier">options</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

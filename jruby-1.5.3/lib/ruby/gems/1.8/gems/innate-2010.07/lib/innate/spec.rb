@@ -1,0 +1,1 @@
+require 'innate/spec/bacon'

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>announce (Cucumber::Formatter::Pdf)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/pdf.rb, line 74</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">announce</span>(<span class="ruby-identifier">announcement</span>)
+        <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">fill_color</span>(<span class="ruby-ivar">@status_colors</span>[<span class="ruby-identifier">:announced</span>])  
+        <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">text</span> <span class="ruby-identifier">announcement</span>, <span class="ruby-identifier">:size</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+        <span class="ruby-ivar">@pdf</span>.<span class="ruby-identifier">fill_color</span> <span class="ruby-constant">BLACK</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

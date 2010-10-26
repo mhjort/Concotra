@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Thin shouldn't give excessive output, especially not to $stdout
+full_name: Innate::Adapter::start_thin
+is_singleton: true
+name: start_thin
+params: (app, config)
+visibility: public

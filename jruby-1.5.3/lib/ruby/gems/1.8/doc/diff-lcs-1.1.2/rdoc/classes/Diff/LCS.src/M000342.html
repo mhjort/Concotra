@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>diff (Diff::LCS)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/diff/lcs.rb, line 254</span>
+254:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">diff</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">callbacks</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-comment cmt"># :yields diff changes:</span>
+255:       <span class="ruby-identifier">callbacks</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">DiffCallbacks</span>
+256:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Class</span>)
+257:         <span class="ruby-identifier">cb</span> = <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-identifier">callbacks</span>
+258:         <span class="ruby-identifier">callbacks</span> = <span class="ruby-identifier">cb</span>
+259:       <span class="ruby-keyword kw">end</span>
+260:       <span class="ruby-identifier">traverse_sequences</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">callbacks</span>)
+261:       <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">finish</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:finish</span>)
+262: 
+263:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+264:         <span class="ruby-identifier">res</span> = <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">diffs</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hunk</span><span class="ruby-operator">|</span>
+265:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hunk</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+266:             <span class="ruby-identifier">hunk</span> = <span class="ruby-identifier">hunk</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">block</span> }
+267:           <span class="ruby-keyword kw">else</span>
+268:             <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">hunk</span>
+269:           <span class="ruby-keyword kw">end</span>
+270:         <span class="ruby-keyword kw">end</span>
+271:         <span class="ruby-identifier">res</span>
+272:       <span class="ruby-keyword kw">else</span>
+273:         <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">diffs</span>
+274:       <span class="ruby-keyword kw">end</span>
+275:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Ramaze::CoreExtensions::String</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Ramaze::CoreExtensions::String</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/ramaze/snippets/string/end_with_rb.html">
+                lib/ramaze/snippets/string/end_with.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/color_rb.html">
+                lib/ramaze/snippets/string/color.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/unindent_rb.html">
+                lib/ramaze/snippets/string/unindent.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/ord_rb.html">
+                lib/ramaze/snippets/string/ord.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/snake_case_rb.html">
+                lib/ramaze/snippets/string/snake_case.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/esc_rb.html">
+                lib/ramaze/snippets/string/esc.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/start_with_rb.html">
+                lib/ramaze/snippets/string/start_with.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/ramaze/snippets/string/camel_case_rb.html">
+                lib/ramaze/snippets/string/camel_case.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Extensions for <a href="String.html">String</a>
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000953">camel_case</a>&nbsp;&nbsp;
+      <a href="#M000944">end_with?</a>&nbsp;&nbsp;
+      <a href="#M000951">escape</a>&nbsp;&nbsp;
+      <a href="#M000949">ord</a>&nbsp;&nbsp;
+      <a href="#M000950">snake_case</a>&nbsp;&nbsp;
+      <a href="#M000952">start_with?</a>&nbsp;&nbsp;
+      <a href="#M000946">ui</a>&nbsp;&nbsp;
+      <a href="#M000948">ui!</a>&nbsp;&nbsp;
+      <a href="#M000945">unindent</a>&nbsp;&nbsp;
+      <a href="#M000947">unindent!</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">'escape'</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">'esc'</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000953" class="method-detail">
+        <a name="M000953"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000953.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000953.html');return false;">
+          <span class="method-name">camel_case</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+simple transformation to CamelCase from <a
+href="String.html#M000950">snake_case</a>
+</p>
+<pre>
+  'foo_bar'.camel_case # =&gt; 'FooBar'
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000944" class="method-detail">
+        <a name="M000944"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000944.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000944.html');return false;">
+          <span class="method-name">end_with?</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Compatibility with 1.9
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000951" class="method-detail">
+        <a name="M000951"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000951.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000951.html');return false;">
+          <span class="method-name">escape</span><span class="method-args">(which = :html)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="String.html#M000951">String#escape</a> is an extensible escaping
+mechanism for string. currently it suports
+</p>
+<pre>
+  '&lt;div&gt;foo bar&lt;/div&gt;'.esc(:html)
+  'foo bar'.esc(:uri)
+  'foo bar'.esc(:cgi)
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000949" class="method-detail">
+        <a name="M000949"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000949.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000949.html');return false;">
+          <span class="method-name">ord</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+compatibility with Ruby 1.9
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000950" class="method-detail">
+        <a name="M000950"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000950.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000950.html');return false;">
+          <span class="method-name">snake_case</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+convert to <a href="String.html#M000950">snake_case</a> from CamelCase
+</p>
+<pre>
+  'FooBar'.snake_case # =&gt; 'foo_bar'
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000952" class="method-detail">
+        <a name="M000952"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000952.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000952.html');return false;">
+          <span class="method-name">start_with?</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Compatibility with 1.9
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000946" class="method-detail">
+        <a name="M000946"></a>
+
+        <div class="method-heading">
+          <span class="method-name">ui</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="String.html#M000945">unindent</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000948" class="method-detail">
+        <a name="M000948"></a>
+
+        <div class="method-heading">
+          <span class="method-name">ui!</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="String.html#M000945">unindent</a>!
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000945" class="method-detail">
+        <a name="M000945"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000945.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000945.html');return false;">
+          <span class="method-name">unindent</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Useful for writing indented <a href="String.html">String</a> and <a
+href="String.html#M000945">unindent</a> on demand, based on the first line
+with indentation.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000947" class="method-detail">
+        <a name="M000947"></a>
+
+        <div class="method-heading">
+          <a href="String.src/M000947.html" target="Code" class="method-signature"
+            onclick="popupCode('String.src/M000947.html');return false;">
+          <span class="method-name">unindent!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Destructive variant of undindent, replacing the <a
+href="String.html">String</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

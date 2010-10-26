@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::WirePacket::parse
+is_singleton: true
+name: parse
+params: (raw)
+visibility: public

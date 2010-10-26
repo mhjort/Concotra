@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Innate::Helper::Aspect::SingletonMethods
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Traited
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_action_wrapper
+  - !ruby/object:RI::MethodSummary 
+    name: after
+  - !ruby/object:RI::MethodSummary 
+    name: after_all
+  - !ruby/object:RI::MethodSummary 
+    name: before
+  - !ruby/object:RI::MethodSummary 
+    name: before_all
+  - !ruby/object:RI::MethodSummary 
+    name: wrap
+name: SingletonMethods
+superclass: 

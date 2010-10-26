@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ", options)"
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This method is used to access Ramaze::Cache.cache_helper_value. It provides an easy way to cache long-running computations, gathering external resources like RSS feeds or DB queries that are the same for every user of an application. This method changes behaviour if a block is passed, which can be used to do lazy computation of the cached value conveniently when using a custom TTL or longer expressions that don't fit on one line with ||=.
+  - !ruby/struct:SM::Flow::P 
+    body: "@usage Example to get the cache object directly"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  count = cache_value[:count] ||= Article.count\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@usage Example with block"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  count = cache_value(:count){ Article.count }\n  count = cache_value(:count, :ttl =&gt; 60){ Article.count }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Object] The cache wrapper assigned for :cache_helper_value @see Innate::Cache @author manveru"
+full_name: Ramaze::Helper::Cache#cache_value
+is_singleton: false
+name: cache_value
+params: (key = nil, options = {}) {|, options)| ...}
+visibility: public

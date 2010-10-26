@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>openid_begin (Ramaze::Helper::Identity)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/identity.rb, line 39</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">openid_begin</span>
+        <span class="ruby-comment cmt"># The OpenID URL pointing to a user's OpenID page,</span>
+        <span class="ruby-comment cmt"># for example: http://username.myopenid.com)</span>
+        <span class="ruby-identifier">url</span> = <span class="ruby-identifier">request</span>[<span class="ruby-value str">'url'</span>]
+        <span class="ruby-identifier">redirect_referrer</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:openid</span>] <span class="ruby-operator">||=</span> {}
+        <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:openid</span>][<span class="ruby-identifier">:entry</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">referrer</span>
+
+        <span class="ruby-identifier">openid_request</span> = <span class="ruby-identifier">openid_consumer</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-identifier">url</span>)
+
+        <span class="ruby-comment cmt"># We want these communications to be a secure as the server can</span>
+        <span class="ruby-comment cmt"># support!</span>
+        <span class="ruby-identifier">papereq</span> = <span class="ruby-constant">OpenID</span><span class="ruby-operator">::</span><span class="ruby-constant">PAPE</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">papereq</span>.<span class="ruby-identifier">add_policy_uri</span>(<span class="ruby-constant">OpenID</span><span class="ruby-operator">::</span><span class="ruby-constant">PAPE</span><span class="ruby-operator">::</span><span class="ruby-constant">AUTH_PHISHING_RESISTANT</span>)
+        <span class="ruby-identifier">papereq</span>.<span class="ruby-identifier">max_auth_age</span> = <span class="ruby-value">2</span><span class="ruby-operator">*</span><span class="ruby-value">60</span><span class="ruby-operator">*</span><span class="ruby-value">60</span>
+        <span class="ruby-identifier">openid_request</span>.<span class="ruby-identifier">add_extension</span>(<span class="ruby-identifier">papereq</span>)
+
+        <span class="ruby-comment cmt"># Request information about the person</span>
+        <span class="ruby-identifier">sregreq</span> = <span class="ruby-constant">OpenID</span><span class="ruby-operator">::</span><span class="ruby-constant">SReg</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">sregreq</span>.<span class="ruby-identifier">request_fields</span>([<span class="ruby-value str">'fullname'</span>, <span class="ruby-value str">'nickname'</span>, <span class="ruby-value str">'dob'</span>, <span class="ruby-value str">'email'</span>,
+                               <span class="ruby-value str">'gender'</span>, <span class="ruby-value str">'postcode'</span>, <span class="ruby-value str">'country'</span>, <span class="ruby-value str">'language'</span>,
+                               <span class="ruby-value str">'timezone'</span>])
+        <span class="ruby-identifier">openid_request</span>.<span class="ruby-identifier">add_extension</span>(<span class="ruby-identifier">sregreq</span>)
+        <span class="ruby-identifier">openid_request</span>.<span class="ruby-identifier">return_to_args</span>[<span class="ruby-value str">'did_pape'</span>] = <span class="ruby-value str">'y'</span>
+
+        <span class="ruby-identifier">root</span>      = <span class="ruby-node">&quot;http://#{request.http_host}/&quot;</span>
+        <span class="ruby-identifier">return_to</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">domain</span>(<span class="ruby-identifier">rs</span>(<span class="ruby-identifier">:openid_complete</span>)).<span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">immediate</span> = <span class="ruby-keyword kw">false</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">openid_request</span>.<span class="ruby-identifier">send_redirect?</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">return_to</span>, <span class="ruby-identifier">immediate</span>)
+          <span class="ruby-identifier">redirect_url</span> =
+            <span class="ruby-identifier">openid_request</span>.<span class="ruby-identifier">redirect_url</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">return_to</span>, <span class="ruby-identifier">immediate</span>)
+          <span class="ruby-identifier">raw_redirect</span> <span class="ruby-identifier">redirect_url</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-comment cmt"># what the hell is @form_text ?</span>
+        <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">OpenID</span><span class="ruby-operator">::</span><span class="ruby-constant">OpenIDError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>
+        <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:error</span>] = <span class="ruby-node">&quot;Discovery failed for #{url}: #{ex}&quot;</span>
+        <span class="ruby-identifier">raw_redirect</span> <span class="ruby-identifier">rs</span>(<span class="ruby-identifier">:/</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

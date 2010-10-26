@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#mock_with
+is_singleton: false
+name: mock_with
+params: (mock_framework)
+visibility: public

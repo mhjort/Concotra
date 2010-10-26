@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: before
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Time in the past, i.e. 3.days.ago
+full_name: Ramaze::CoreExtensions::Numeric#ago
+is_singleton: false
+name: ago
+params: (t = Time.now)
+visibility: public

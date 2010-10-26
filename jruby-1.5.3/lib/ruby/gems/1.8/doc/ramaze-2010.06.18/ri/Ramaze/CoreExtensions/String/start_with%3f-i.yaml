@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Compatibility with 1.9
+full_name: Ramaze::CoreExtensions::String#start_with?
+is_singleton: false
+name: start_with?
+params: (other)
+visibility: public

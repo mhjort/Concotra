@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: parse!
+comment: 
+constants: []
+
+full_name: RSpec::Core::Parser
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: parse
+  - !ruby/object:RI::MethodSummary 
+    name: parse!
+  - !ruby/object:RI::MethodSummary 
+    name: parser
+name: Parser
+superclass: Object

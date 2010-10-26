@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The <tt>uri</tt> argument is the location of the source. It can be a path or a path:line1:line2 etc. If <tt>source</tt> is passed, <tt>uri</tt> is ignored.
+full_name: Cucumber::FeatureFile::new
+is_singleton: true
+name: new
+params: (uri, source=nil)
+visibility: public

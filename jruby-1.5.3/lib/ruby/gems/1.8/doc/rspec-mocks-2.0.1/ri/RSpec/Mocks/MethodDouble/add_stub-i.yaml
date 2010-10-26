@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Mocks::MethodDouble#add_stub
+is_singleton: false
+name: add_stub
+params: (error_generator, expectation_ordering, expected_from, opts={}, &implementation)
+visibility: public

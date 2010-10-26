@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Force join table generation
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  User.create_join(Article, 'articles_users')\n  # or let the method figure out the correct join table using sequel\n  # conventions.\n  User.create_join(Article)\n"
+full_name: Sequel::Model::create_join
+is_singleton: true
+name: create_join
+params: (to, name = nil)
+visibility: public

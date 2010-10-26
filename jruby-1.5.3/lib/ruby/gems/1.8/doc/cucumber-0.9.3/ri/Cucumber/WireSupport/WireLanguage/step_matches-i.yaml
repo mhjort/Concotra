@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::WireLanguage#step_matches
+is_singleton: false
+name: step_matches
+params: (step_name, formatted_step_name)
+visibility: public

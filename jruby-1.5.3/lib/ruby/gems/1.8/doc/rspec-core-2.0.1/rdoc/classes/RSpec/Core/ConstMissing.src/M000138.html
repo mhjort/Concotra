@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>const_missing (RSpec::Core::ConstMissing)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/backward_compatibility.rb, line 4</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:Rspec</span>, <span class="ruby-identifier">:Spec</span>
+          <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">warn_deprecation</span> <span class="ruby-value str">&quot;*****************************************************************\nDEPRECATION WARNING: you are using a deprecated constant that will\nbe removed from a future version of RSpec.\n\n* \#{name} is deprecated.\n* RSpec is the new top-level module in RSpec-2\n\n\#{caller(0)[1]}\n*****************************************************************\n&quot;</span>
+          <span class="ruby-constant">RSpec</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

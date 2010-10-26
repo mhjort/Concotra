@@ -1,0 +1,62 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: name
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: options
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROTO
+    value: "[]"
+full_name: ProjectCreator
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Enumerable
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: amend?
+  - !ruby/object:RI::MethodSummary 
+    name: copy
+  - !ruby/object:RI::MethodSummary 
+    name: copy?
+  - !ruby/object:RI::MethodSummary 
+    name: create
+  - !ruby/object:RI::MethodSummary 
+    name: create_root?
+  - !ruby/object:RI::MethodSummary 
+    name: each
+  - !ruby/object:RI::MethodSummary 
+    name: fatal
+  - !ruby/object:RI::MethodSummary 
+    name: force?
+  - !ruby/object:RI::MethodSummary 
+    name: got_proto?
+  - !ruby/object:RI::MethodSummary 
+    name: mkdir
+  - !ruby/object:RI::MethodSummary 
+    name: mkdir?
+  - !ruby/object:RI::MethodSummary 
+    name: post_process
+  - !ruby/object:RI::MethodSummary 
+    name: proceed
+  - !ruby/object:RI::MethodSummary 
+    name: proceed_directories
+  - !ruby/object:RI::MethodSummary 
+    name: proceed_files
+  - !ruby/object:RI::MethodSummary 
+    name: proto
+  - !ruby/object:RI::MethodSummary 
+    name: relate
+  - !ruby/object:RI::MethodSummary 
+    name: target
+name: ProjectCreator
+superclass: Object

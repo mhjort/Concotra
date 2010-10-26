@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: cells
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: comments
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: line
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Gherkin::Formatter::Model::Row
+includes: []
+
+instance_methods: []
+
+name: Row
+superclass: Hashable

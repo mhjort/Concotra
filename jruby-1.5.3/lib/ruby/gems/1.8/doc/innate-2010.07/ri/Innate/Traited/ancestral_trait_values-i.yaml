@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::Traited#ancestral_trait_values
+is_singleton: false
+name: ancestral_trait_values
+params: (key)
+visibility: public

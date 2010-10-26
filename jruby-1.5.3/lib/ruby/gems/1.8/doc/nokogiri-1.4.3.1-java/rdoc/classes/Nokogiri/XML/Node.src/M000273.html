@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>namespace_scopes (Nokogiri::XML::Node)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>/*
+ *  call-seq:
+ *    namespace_scopes()
+ *
+ *  returns a list of Namespace nodes in scope for _self_. this is all
+ *  namespaces defined in the node, or in any ancestor node.
+ */
+static VALUE namespace_scopes(VALUE self)
+{
+  xmlNodePtr node ;
+  VALUE list;
+  xmlNsPtr *ns_list;
+  int j;
+
+  Data_Get_Struct(self, xmlNode, node);
+
+  list = rb_ary_new();
+  ns_list = xmlGetNsList(node-&gt;doc, node);
+
+  if(!ns_list) return list;
+
+  for (j = 0 ; ns_list[j] != NULL ; ++j) {
+    rb_ary_push(list, Nokogiri_wrap_xml_namespace(node-&gt;doc, ns_list[j]));
+  }
+
+  xmlFree(ns_list);
+  return list;
+}</pre>
+</body>
+</html>

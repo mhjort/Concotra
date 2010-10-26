@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli#custom_profiles
+is_singleton: false
+name: custom_profiles
+params: ()
+visibility: public

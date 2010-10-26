@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber#red_cukes
+is_singleton: false
+name: red_cukes
+params: (n)
+visibility: public

@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Issues a request for the URL pointed to by a link on the current page, follows any redirects, and verifies the final page load was successful.
+  - !ruby/struct:SM::Flow::P 
+    body: click_link has very basic support for detecting Rails-generated JavaScript onclick handlers for PUT, POST and DELETE links, as well as CSRF authenticity tokens if they are present.
+  - !ruby/struct:SM::Flow::P 
+    body: Javascript imitation can be disabled by passing the option :javascript =&gt; false
+  - !ruby/struct:SM::Flow::P 
+    body: Passing a :method in the options hash overrides the HTTP method used for making the link request
+  - !ruby/struct:SM::Flow::P 
+    body: "It will try to find links by (in order of precedence):"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  innerHTML, with simple &amp;nbsp; handling\n  title\n  id\n"
+  - !ruby/struct:SM::Flow::P 
+    body: innerHTML and title are matchable by text subtring or Regexp id is matchable by full text equality or Regexp
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  click_link &quot;Sign up&quot;\n  click_link &quot;Sign up&quot;, :javascript =&gt; false\n  click_link &quot;Sign up&quot;, :method =&gt; :put\n"
+full_name: Webrat::Scope#click_link
+is_singleton: false
+name: click_link
+params: (text_or_title_or_id, options = {})
+visibility: public

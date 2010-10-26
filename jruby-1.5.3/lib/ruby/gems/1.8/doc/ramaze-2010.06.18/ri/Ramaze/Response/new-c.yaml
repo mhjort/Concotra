@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Response::new
+is_singleton: true
+name: new
+params: (body = [], status = 200, header = {}, &block)
+visibility: public

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>set_session (Rack::Session::Memcache)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/session/memcache.rb, line 67</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_session</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">session_id</span>, <span class="ruby-identifier">new_session</span>, <span class="ruby-identifier">options</span>)
+        <span class="ruby-identifier">expiry</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:expire_after</span>]
+        <span class="ruby-identifier">expiry</span> = <span class="ruby-identifier">expiry</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">expiry</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">lock</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.multithread'</span>]
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:renew</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:drop</span>]
+          <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">session_id</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:drop</span>]
+          <span class="ruby-identifier">session_id</span> = <span class="ruby-identifier">generate_sid</span>
+          <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">add</span> <span class="ruby-identifier">session_id</span>, {} <span class="ruby-comment cmt"># so we don't worry about cache miss on #set</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">session</span> = <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">session_id</span>) <span class="ruby-operator">||</span> {}
+        <span class="ruby-identifier">old_session</span> = <span class="ruby-identifier">new_session</span>.<span class="ruby-identifier">instance_variable_get</span> <span class="ruby-value str">'@old'</span>
+        <span class="ruby-identifier">old_session</span> = <span class="ruby-identifier">old_session</span> <span class="ruby-value">? </span><span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">old_session</span>) <span class="ruby-operator">:</span> {}
+
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">old_session</span> <span class="ruby-keyword kw">and</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">new_session</span>
+          <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.errors'</span>].
+            <span class="ruby-identifier">puts</span> <span class="ruby-value str">'Bad old_session or new_session sessions provided.'</span>
+        <span class="ruby-keyword kw">else</span> <span class="ruby-comment cmt"># merge sessions</span>
+          <span class="ruby-comment cmt"># alterations are either update or delete, making as few changes as</span>
+          <span class="ruby-comment cmt"># possible to prevent possible issues.</span>
+
+          <span class="ruby-comment cmt"># removed keys</span>
+          <span class="ruby-identifier">delete</span> = <span class="ruby-identifier">old_session</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">new_session</span>.<span class="ruby-identifier">keys</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$VERBOSE</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">delete</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.errors'</span>].
+              <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;//@#{session_id}: delete #{delete*','}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">delete</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">k</span> }
+
+          <span class="ruby-comment cmt"># added or altered keys</span>
+          <span class="ruby-identifier">update</span> = <span class="ruby-identifier">new_session</span>.<span class="ruby-identifier">keys</span>.
+            <span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">new_session</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">old_session</span>[<span class="ruby-identifier">k</span>] }
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$VERBOSE</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">update</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.errors'</span>].<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;//@#{session_id}: update #{update*','}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">update</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">new_session</span>[<span class="ruby-identifier">k</span>] }
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">set</span> <span class="ruby-identifier">session_id</span>, <span class="ruby-identifier">session</span>, <span class="ruby-identifier">expiry</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">session_id</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">MemCache</span><span class="ruby-operator">::</span><span class="ruby-constant">MemCacheError</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNREFUSED</span>
+        <span class="ruby-comment cmt"># MemCache server cannot be contacted</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;#{self} is unable to find memcached server.&quot;</span>
+        <span class="ruby-identifier">warn</span> <span class="ruby-identifier">$!</span>.<span class="ruby-identifier">inspect</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+      <span class="ruby-keyword kw">ensure</span>
+        <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">unlock</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">locked?</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

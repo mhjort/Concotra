@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Just like run_hook, except it removes the blocks as it evalutes them, ensuring that they will only be run once.
+full_name: RSpec::Core::Hooks#run_hook!
+is_singleton: false
+name: run_hook!
+params: (hook, scope, example_group_instance)
+visibility: public

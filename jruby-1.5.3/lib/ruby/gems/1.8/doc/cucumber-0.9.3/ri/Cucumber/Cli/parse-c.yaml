@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Cli::parse
+is_singleton: true
+name: parse
+params: (args, out_stream, error_stream, options = {})
+visibility: public

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Rack::Sendfile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Rack::Sendfile</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/rack/sendfile_rb.html">
+                lib/rack/sendfile.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="Sendfile.html">Sendfile</a></h1>
+<p>
+The <a href="Sendfile.html">Sendfile</a> middleware intercepts responses
+whose body is being served from a file and replaces it with a server
+specific X-<a href="Sendfile.html">Sendfile</a> header. The web server is
+then responsible for writing the file contents to the client. This can
+dramatically reduce the amount of work required by the Ruby backend and
+takes advantage of the web server&#8216;s optimized file delivery code.
+</p>
+<p>
+In order to take advantage of this middleware, the response body must
+respond to <tt>to_path</tt> and the request must include an X-<a
+href="Sendfile.html">Sendfile</a>-Type header. Rack::File and other
+components implement <tt>to_path</tt> so there&#8216;s rarely anything you
+need to do in your application. The X-<a
+href="Sendfile.html">Sendfile</a>-Type header is typically set in your web
+servers configuration. The following sections attempt to document
+</p>
+<h3>Nginx</h3>
+<p>
+Nginx supports the X-Accel-Redirect header. This is similar to X-<a
+href="Sendfile.html">Sendfile</a> but requires parts of the filesystem to
+be mapped into a private URL hierarachy.
+</p>
+<p>
+The following example shows the Nginx configuration required to create a
+private &quot;/files/&quot; area, enable X-Accel-Redirect, and pass the
+special X-<a href="Sendfile.html">Sendfile</a>-Type and X-Accel-Mapping
+headers to the backend:
+</p>
+<pre>
+  location ~ /files/(.*) {
+    internal;
+    alias /var/www/$1;
+  }
+
+  location / {
+    proxy_redirect     off;
+
+    proxy_set_header   Host                $host;
+    proxy_set_header   X-Real-IP           $remote_addr;
+    proxy_set_header   X-Forwarded-For     $proxy_add_x_forwarded_for;
+
+    proxy_set_header   X-Sendfile-Type     X-Accel-Redirect;
+    proxy_set_header   X-Accel-Mapping     /files/=/var/www/;
+
+    proxy_pass         http://127.0.0.1:8080/;
+  }
+</pre>
+<p>
+Note that the X-<a href="Sendfile.html">Sendfile</a>-Type header must be
+set exactly as shown above. The X-Accel-Mapping header should specify the
+name of the private URL pattern, followed by an equals sign (=), followed
+by the location on the file system that it maps to. The middleware performs
+a simple substitution on the resulting path.
+</p>
+<p>
+See Also: <a
+href="http://wiki.codemongers.com/NginxXSendfile">wiki.codemongers.com/NginxXSendfile</a>
+</p>
+<h3>lighttpd</h3>
+<p>
+Lighttpd has supported some variation of the X-<a
+href="Sendfile.html">Sendfile</a> header for some time, although only
+recent version support X-<a href="Sendfile.html">Sendfile</a> in a reverse
+proxy configuration.
+</p>
+<pre>
+  $HTTP[&quot;host&quot;] == &quot;example.com&quot; {
+     proxy-core.protocol = &quot;http&quot;
+     proxy-core.balancer = &quot;round-robin&quot;
+     proxy-core.backends = (
+       &quot;127.0.0.1:8000&quot;,
+       &quot;127.0.0.1:8001&quot;,
+       ...
+     )
+
+     proxy-core.allow-x-sendfile = &quot;enable&quot;
+     proxy-core.rewrite-request = (
+       &quot;X-Sendfile-Type&quot; =&gt; (&quot;.*&quot; =&gt; &quot;X-Sendfile&quot;)
+     )
+   }
+</pre>
+<p>
+See Also: <a
+href="http://redmine.lighttpd.net/wiki/lighttpd/Docs:ModProxyCore">redmine.lighttpd.net/wiki/lighttpd/Docs:ModProxyCore</a>
+</p>
+<h3>Apache</h3>
+<p>
+X-<a href="Sendfile.html">Sendfile</a> is supported under Apache 2.x using
+a separate module:
+</p>
+<p>
+<a href="http://tn123.ath.cx/mod_xsendfile">tn123.ath.cx/mod_xsendfile</a>/
+</p>
+<p>
+Once the module is compiled and installed, you can enable it using
+XSendFile config directive:
+</p>
+<pre>
+  RequestHeader Set X-Sendfile-Type X-Sendfile
+  ProxyPassReverse / http://localhost:8001/
+  XSendFile on
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000230">call</a>&nbsp;&nbsp;
+      <a href="#M000229">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">F</td>
+          <td>=</td>
+          <td class="context-item-value">::File</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000229" class="method-detail">
+        <a name="M000229"></a>
+
+        <div class="method-heading">
+          <a href="Sendfile.src/M000229.html" target="Code" class="method-signature"
+            onclick="popupCode('Sendfile.src/M000229.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(app, variation=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000230" class="method-detail">
+        <a name="M000230"></a>
+
+        <div class="method-heading">
+          <a href="Sendfile.src/M000230.html" target="Code" class="method-signature"
+            onclick="popupCode('Sendfile.src/M000230.html');return false;">
+          <span class="method-name">call</span><span class="method-args">(env)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

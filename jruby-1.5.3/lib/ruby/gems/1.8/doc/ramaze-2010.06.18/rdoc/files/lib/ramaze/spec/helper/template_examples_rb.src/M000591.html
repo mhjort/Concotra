@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>spec_template (lib/ramaze/spec/helper/template_examples.rb)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/spec/helper/template_examples.rb, line 7</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">spec_template</span>(<span class="ruby-identifier">spec_engine</span>)
+    <span class="ruby-identifier">it</span> <span class="ruby-value str">'works on /'</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">get</span>(<span class="ruby-value str">'/'</span>).<span class="ruby-identifier">body</span>.<span class="ruby-identifier">strip</span>.
+        <span class="ruby-identifier">should</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">%r{&lt;a href\s*=\s*&quot;/&quot;&gt;Home&lt;/a&gt;\s+\|\s+&lt;a href\s*=\s*&quot;/internal&quot;&gt;internal&lt;/a&gt;\s+\|\s+&lt;a href\s*=\s*&quot;/external&quot;&gt;external&lt;/a&gt;}</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-node">%w[/internal /external]</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">url</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">it</span> <span class="ruby-node">&quot;works on #{url}&quot;</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">html</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">url</span>).<span class="ruby-identifier">body</span>
+        <span class="ruby-identifier">html</span>.<span class="ruby-identifier">should</span>.<span class="ruby-identifier">not</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">html</span>.<span class="ruby-identifier">should</span> <span class="ruby-operator">=~</span> <span class="ruby-node">%r{&lt;title&gt;Template::#{spec_engine} (internal|external)&lt;/title&gt;}</span>
+        <span class="ruby-identifier">html</span>.<span class="ruby-identifier">should</span> <span class="ruby-operator">=~</span> <span class="ruby-node">%r{&lt;h1&gt;The (internal|external) Template for #{spec_engine}&lt;/h1&gt;}</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

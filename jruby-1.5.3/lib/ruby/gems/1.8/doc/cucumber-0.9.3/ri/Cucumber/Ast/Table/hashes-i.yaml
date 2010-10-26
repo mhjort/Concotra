@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Converts this table into an Array of Hash where the keys of each Hash are the headers in the table. For example, a Table built from the following plain text:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  | a | b | sum |\n  | 2 | 3 | 5   |\n  | 7 | 9 | 16  |\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Gets converted into the following:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  [{'a' =&gt; '2', 'b' =&gt; '3', 'sum' =&gt; '5'}, {'a' =&gt; '7', 'b' =&gt; '9', 'sum' =&gt; '16'}]\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Use #map_column! to specify how values in a column are converted."
+full_name: Cucumber::Ast::Table#hashes
+is_singleton: false
+name: hashes
+params: ()
+visibility: public

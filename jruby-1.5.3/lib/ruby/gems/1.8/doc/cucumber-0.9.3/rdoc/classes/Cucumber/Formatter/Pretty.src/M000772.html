@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>before_multiline_arg (Cucumber::Formatter::Pretty)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/pretty.rb, line 170</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">before_multiline_arg</span>(<span class="ruby-identifier">multiline_arg</span>)
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:no_multiline</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@hide_this_step</span>
+        <span class="ruby-ivar">@table</span> = <span class="ruby-identifier">multiline_arg</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Prints out the world class, followed by all included modules.
+full_name: Cucumber::RbSupport::RbWorld#announce_world
+is_singleton: false
+name: announce_world
+params: ()
+visibility: public

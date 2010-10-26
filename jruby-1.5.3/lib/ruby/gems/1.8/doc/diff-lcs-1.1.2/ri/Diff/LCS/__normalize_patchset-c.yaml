@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Normalize the patchset. A patchset is always a sequence of changes, but how those changes are represented may vary, depending on how they were generated. In all cases we support, we also support the array representation of the changes. The formats are:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  [ # patchset &lt;- Diff::LCS.diff(a, b)\n    [ # one or more hunks\n      Diff::LCS::Change # one or more changes\n    ] ]\n\n  [ # patchset, equivalent to the above\n    [ # one or more hunks\n      [ action, line, value ] # one or more changes\n    ] ]\n\n  [ # patchset &lt;- Diff::LCS.diff(a, b, Diff::LCS::ContextDiffCallbacks)\n    #       OR &lt;- Diff::LCS.sdiff(a, b, Diff::LCS::ContextDiffCallbacks)\n    [ # one or more hunks\n      Diff::LCS::ContextChange # one or more changes\n    ] ]\n\n  [ # patchset, equivalent to the above\n    [ # one or more hunks\n      [ action, [ old line, old value ], [ new line, new value ] ]\n        # one or more changes\n    ] ]\n\n  [ # patchset &lt;- Diff::LCS.sdiff(a, b)\n    #       OR &lt;- Diff::LCS.diff(a, b, Diff::LCS::SDiffCallbacks)\n    Diff::LCS::ContextChange # one or more changes\n  ]\n\n  [ # patchset, equivalent to the above\n    [ action, [ old line, old value ], [ new line, new value ] ]\n      # one or more changes\n  ]\n"
+  - !ruby/struct:SM::Flow::P 
+    body: The result of this will be either of the following.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  [ # patchset\n    Diff::LCS::ContextChange # one or more changes\n  ]\n\n  [ # patchset\n    Diff::LCS::Change # one or more changes\n  ]\n"
+  - !ruby/struct:SM::Flow::P 
+    body: If either of the above is provided, it will be returned as such.
+full_name: Diff::LCS::__normalize_patchset
+is_singleton: true
+name: __normalize_patchset
+params: (patchset)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Call a Transform with a string from another Transform definition
+full_name: Cucumber::RbSupport::RbWorld#Transform
+is_singleton: false
+name: Transform
+params: (arg)
+visibility: public

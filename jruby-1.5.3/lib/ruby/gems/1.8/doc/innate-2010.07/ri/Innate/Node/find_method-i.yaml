@@ -1,0 +1,34 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: We check arity if possible, but will happily dispatch to any method that has default parameters. If you don't want your method to be responsible for messing up a request you should think twice about the arguments you specify due to limitations in Ruby.
+  - !ruby/struct:SM::Flow::P 
+    body: "So if you want your method to take only one parameter which may have a default value following will work fine:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  def index(foo = &quot;bar&quot;, *rest)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "But following will respond to /arg1/arg2 and then fail due to ArgumentError:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  def index(foo = &quot;bar&quot;)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Here a glance at how parameters are expressed in arity:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  def index(a)                  # =&gt; 1\n  def index(a = :a)             # =&gt; -1\n  def index(a, *r)              # =&gt; -2\n  def index(a = :a, *r)         # =&gt; -1\n\n  def index(a, b)               # =&gt; 2\n  def index(a, b, *r)           # =&gt; -3\n  def index(a, b = :b)          # =&gt; -2\n  def index(a, b = :b, *r)      # =&gt; -2\n\n  def index(a = :a, b = :b)     # =&gt; -1\n  def index(a = :a, b = :b, *r) # =&gt; -1\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String, Symbol] name @param [Array] params"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String, Symbol]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Node#fill_action Node#find_layout @author manveru"
+  - !ruby/struct:SM::Flow::P 
+    body: "@todo Once 1.9 is mainstream we can use Method#parameters to do accurate"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "      prediction\n"
+full_name: Innate::Node#find_method
+is_singleton: false
+name: find_method
+params: (name, params)
+visibility: public

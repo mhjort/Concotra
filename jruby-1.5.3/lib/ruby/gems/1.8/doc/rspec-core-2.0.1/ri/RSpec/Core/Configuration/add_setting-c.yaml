@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration::add_setting
+is_singleton: true
+name: add_setting
+params: (name, opts={})
+visibility: public

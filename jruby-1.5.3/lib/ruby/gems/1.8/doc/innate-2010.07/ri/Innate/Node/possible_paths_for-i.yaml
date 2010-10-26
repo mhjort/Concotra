@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Answer with an array of possible paths in order of significance for template lookup of the given <tt>mappings</tt>.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [#map] An array two Arrays of inner and outer directories."
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array] @see update_view_mappings update_layout_mappings update_template_mappings @author manveru"
+full_name: Innate::Node#possible_paths_for
+is_singleton: false
+name: possible_paths_for
+params: (mappings)
+visibility: public

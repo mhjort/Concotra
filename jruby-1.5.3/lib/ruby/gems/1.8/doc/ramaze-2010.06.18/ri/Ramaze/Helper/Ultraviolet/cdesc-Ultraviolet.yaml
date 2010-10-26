@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Ramaze::Helper::Ultraviolet
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Innate::Traited
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ultraviolet
+  - !ruby/object:RI::MethodSummary 
+    name: ultraviolet_css
+name: Ultraviolet
+superclass: 

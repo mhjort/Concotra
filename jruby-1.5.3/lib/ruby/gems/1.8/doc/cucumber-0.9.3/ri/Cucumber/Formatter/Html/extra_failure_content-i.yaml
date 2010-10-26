@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html#extra_failure_content
+is_singleton: false
+name: extra_failure_content
+params: (file_colon_line)
+visibility: public

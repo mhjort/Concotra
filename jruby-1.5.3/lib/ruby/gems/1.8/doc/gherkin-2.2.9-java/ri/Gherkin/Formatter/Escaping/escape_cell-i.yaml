@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Escapes a pipes and backslashes:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "| becomes \\|"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: \ becomes \
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: This is used in the pretty formatter.
+full_name: Gherkin::Formatter::Escaping#escape_cell
+is_singleton: false
+name: escape_cell
+params: (s)
+visibility: public

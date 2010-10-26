@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Registers a new Ruby StepDefinition. This method is aliased to <tt>Given</tt>, <tt>When</tt> and <tt>Then</tt>, and also to the i18n translations whenever a feature of a new language is loaded.
+  - !ruby/struct:SM::Flow::P 
+    body: "The +&amp;proc+ gets executed in the context of a <tt>World</tt> object, which is defined by #World. A new <tt>World</tt> object is created for each scenario and is shared across step definitions within that scenario."
+full_name: Cucumber::RbSupport::RbDsl#register_rb_step_definition
+is_singleton: false
+name: register_rb_step_definition
+params: (regexp, &proc)
+visibility: public

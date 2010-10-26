@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Consider objects that have Aspect included
+full_name: Innate::Helper::Aspect::ancestral_aop
+is_singleton: true
+name: ancestral_aop
+params: (from)
+visibility: public

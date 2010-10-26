@@ -1,0 +1,60 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The method that starts the whole business.
+  - !ruby/struct:SM::Flow::P 
+    body: Call Innate.start after you defined your application.
+  - !ruby/struct:SM::Flow::P 
+    body: Usually, this is a blocking call and will not return until the adapter has finished, which usually happens when you kill the application or hit ^C.
+  - !ruby/struct:SM::Flow::P 
+    body: We do return if options.started is true, which indicates that all you wanted to do is setup the environment and update options.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # passing options\n  Innate.start :adapter =&gt; :mongrel, :mode =&gt; :live\n\n  # defining custom middleware\n  Innate.start do |m|\n    m.innate\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [nil] if options.started is true @yield [MiddlewareCompiler] @param [Proc] block will be passed to {middleware!}"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :host [String] ('0.0.0.0')"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  IP address or hostname that we respond to - 0.0.0.0 for all\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :port [Fixnum] (7000)"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Port for the server\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :started [boolean] (false)"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Indicate that calls Innate::start will be ignored\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :adapter [Symbol] (:webrick)"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Web server to run on\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :setup [Array] ([Innate::Cache, Innate::Node])"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Will send ::setup to each element during Innate::start\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :header [Hash] ({'Content-Type' =&gt; 'text/html'})"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Headers that will be merged into the response before Node::call\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :trap [String] ('SIGINT')"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Trap this signal to issue shutdown, nil/false to disable trap\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :state [Symbol] (:Fiber)"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Keep state in Thread or Fiber, fall back to Thread if Fiber not available\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :mode [Symbol] (:dev)"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Indicates which default middleware to use, (:dev|:live)\n"
+full_name: Innate::SingletonMethods#start
+is_singleton: false
+name: start
+params: (options = {}, &block)
+visibility: public

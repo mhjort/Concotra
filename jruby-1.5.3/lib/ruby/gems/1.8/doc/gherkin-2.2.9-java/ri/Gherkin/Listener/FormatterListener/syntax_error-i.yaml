@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Listener::FormatterListener#syntax_error
+is_singleton: false
+name: syntax_error
+params: (state, ev, legal_events, uri, line)
+visibility: public

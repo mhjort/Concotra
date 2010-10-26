@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Ast::TreeWalker#visit_tag_name
+is_singleton: false
+name: visit_tag_name
+params: (tag_name)
+visibility: public

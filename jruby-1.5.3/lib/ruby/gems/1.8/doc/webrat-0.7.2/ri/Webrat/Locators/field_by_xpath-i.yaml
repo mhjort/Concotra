@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Webrat::Locators#field_by_xpath
+is_singleton: false
+name: field_by_xpath
+params: (xpath)
+visibility: public

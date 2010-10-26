@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::Runtime::SupportCode
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Constantize
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: around
+  - !ruby/object:RI::MethodSummary 
+    name: configure
+  - !ruby/object:RI::MethodSummary 
+    name: fire_hook
+  - !ruby/object:RI::MethodSummary 
+    name: invoke
+  - !ruby/object:RI::MethodSummary 
+    name: invoke_steps
+  - !ruby/object:RI::MethodSummary 
+    name: load_files!
+  - !ruby/object:RI::MethodSummary 
+    name: load_files_from_paths
+  - !ruby/object:RI::MethodSummary 
+    name: load_programming_language
+  - !ruby/object:RI::MethodSummary 
+    name: step_definitions
+  - !ruby/object:RI::MethodSummary 
+    name: unknown_programming_language?
+  - !ruby/object:RI::MethodSummary 
+    name: unmatched_step_definitions
+name: SupportCode
+superclass: Object

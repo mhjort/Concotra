@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::HttpDigest#httpdigest_failure_internal
+is_singleton: false
+name: httpdigest_failure_internal
+params: (uid,realm)
+visibility: public

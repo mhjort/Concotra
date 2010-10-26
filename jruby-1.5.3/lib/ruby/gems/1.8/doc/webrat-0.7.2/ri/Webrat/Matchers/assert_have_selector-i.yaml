@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Asserts that the body of the response contains the supplied selector
+full_name: Webrat::Matchers#assert_have_selector
+is_singleton: false
+name: assert_have_selector
+params: (name, attributes = {}, &block)
+visibility: public

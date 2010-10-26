@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: "[]"
+block_params: 
+comment: 
+full_name: Innate::Cache#fetch
+is_singleton: false
+name: fetch
+params: (key, default = nil)
+visibility: public

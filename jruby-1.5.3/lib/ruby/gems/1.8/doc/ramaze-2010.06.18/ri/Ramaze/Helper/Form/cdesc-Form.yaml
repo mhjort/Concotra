@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Ramaze::Helper::Form
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: form_build
+  - !ruby/object:RI::MethodSummary 
+    name: form_checkbox
+  - !ruby/object:RI::MethodSummary 
+    name: form_checkbox_tag
+  - !ruby/object:RI::MethodSummary 
+    name: form_error
+  - !ruby/object:RI::MethodSummary 
+    name: form_errors
+  - !ruby/object:RI::MethodSummary 
+    name: form_errors_from_model
+  - !ruby/object:RI::MethodSummary 
+    name: form_file
+  - !ruby/object:RI::MethodSummary 
+    name: form_hidden
+  - !ruby/object:RI::MethodSummary 
+    name: form_input
+  - !ruby/object:RI::MethodSummary 
+    name: form_password
+  - !ruby/object:RI::MethodSummary 
+    name: form_select
+  - !ruby/object:RI::MethodSummary 
+    name: form_submit
+  - !ruby/object:RI::MethodSummary 
+    name: form_tabindex
+  - !ruby/object:RI::MethodSummary 
+    name: form_text
+  - !ruby/object:RI::MethodSummary 
+    name: form_textarea
+name: Form
+superclass: 

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse! (Rack::Server::Options)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/server.rb, line 6</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">options</span> = {}
+        <span class="ruby-identifier">opt_parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-value">24</span>, <span class="ruby-value str">'  '</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-value str">&quot;Usage: rackup [ruby options] [rack options] [rackup config]&quot;</span>
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;Ruby options:&quot;</span>
+
+          <span class="ruby-identifier">lineno</span> = <span class="ruby-value">1</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-e&quot;</span>, <span class="ruby-value str">&quot;--eval LINE&quot;</span>, <span class="ruby-value str">&quot;evaluate a LINE of code&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">eval</span> <span class="ruby-identifier">line</span>, <span class="ruby-constant">TOPLEVEL_BINDING</span>, <span class="ruby-value str">&quot;-e&quot;</span>, <span class="ruby-identifier">lineno</span>
+            <span class="ruby-identifier">lineno</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-d&quot;</span>, <span class="ruby-value str">&quot;--debug&quot;</span>, <span class="ruby-value str">&quot;set debugging flags (set $DEBUG to true)&quot;</span>) {
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:debug</span>] = <span class="ruby-keyword kw">true</span>
+          }
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-w&quot;</span>, <span class="ruby-value str">&quot;--warn&quot;</span>, <span class="ruby-value str">&quot;turn warnings on for your script&quot;</span>) {
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:warn</span>] = <span class="ruby-keyword kw">true</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-I&quot;</span>, <span class="ruby-value str">&quot;--include PATH&quot;</span>,
+                  <span class="ruby-value str">&quot;specify $LOAD_PATH (may be used more than once)&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:include</span>] = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;:&quot;</span>)
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-r&quot;</span>, <span class="ruby-value str">&quot;--require LIBRARY&quot;</span>,
+                  <span class="ruby-value str">&quot;require the library, before executing your script&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">library</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:require</span>] = <span class="ruby-identifier">library</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;Rack options:&quot;</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-s&quot;</span>, <span class="ruby-value str">&quot;--server SERVER&quot;</span>, <span class="ruby-value str">&quot;serve using SERVER (webrick/mongrel)&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:server</span>] = <span class="ruby-identifier">s</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-o&quot;</span>, <span class="ruby-value str">&quot;--host HOST&quot;</span>, <span class="ruby-value str">&quot;listen on HOST (default: 0.0.0.0)&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">host</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:Host</span>] = <span class="ruby-identifier">host</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-p&quot;</span>, <span class="ruby-value str">&quot;--port PORT&quot;</span>, <span class="ruby-value str">&quot;use PORT (default: 9292)&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">port</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:Port</span>] = <span class="ruby-identifier">port</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-E&quot;</span>, <span class="ruby-value str">&quot;--env ENVIRONMENT&quot;</span>, <span class="ruby-value str">&quot;use ENVIRONMENT for defaults (default: development)&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:environment</span>] = <span class="ruby-identifier">e</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-D&quot;</span>, <span class="ruby-value str">&quot;--daemonize&quot;</span>, <span class="ruby-value str">&quot;run daemonized in the background&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:daemonize</span>] = <span class="ruby-identifier">d</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value str">&quot;-P&quot;</span>, <span class="ruby-value str">&quot;--pid FILE&quot;</span>, <span class="ruby-value str">&quot;file to store PID (default: rack.pid)&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:pid</span>] = <span class="ruby-identifier">f</span>
+          }
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;&quot;</span>
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-value str">&quot;Common options:&quot;</span>
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-value str">&quot;-h&quot;</span>, <span class="ruby-value str">&quot;--help&quot;</span>, <span class="ruby-value str">&quot;Show this message&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-identifier">opts</span>
+            <span class="ruby-identifier">exit</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-value str">&quot;--version&quot;</span>, <span class="ruby-value str">&quot;Show version&quot;</span>) <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Rack #{Rack.version}&quot;</span>
+            <span class="ruby-identifier">exit</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">opt_parser</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-identifier">args</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:config</span>] = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>
+        <span class="ruby-identifier">options</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

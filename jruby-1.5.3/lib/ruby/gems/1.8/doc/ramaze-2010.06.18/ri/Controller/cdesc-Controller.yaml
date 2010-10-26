@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Define a subclass of Ramaze::Controller holding your defaults for all controllers
+constants: []
+
+full_name: Controller
+includes: []
+
+instance_methods: []
+
+name: Controller
+superclass: Ramaze::Controller

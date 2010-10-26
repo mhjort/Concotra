@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>__normalize_patchset (Diff::LCS)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>      <span class="ruby-comment cmt"># File lib/diff/lcs.rb, line 1075</span>
+1075:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">__normalize_patchset</span>(<span class="ruby-identifier">patchset</span>)
+1076:       <span class="ruby-identifier">patchset</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hunk</span><span class="ruby-operator">|</span>
+1077:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">hunk</span>
+1078:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">ContextChange</span>, <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>
+1079:           <span class="ruby-identifier">hunk</span>
+1080:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+1081:           <span class="ruby-keyword kw">if</span> (<span class="ruby-keyword kw">not</span> <span class="ruby-identifier">hunk</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">hunk</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">hunk</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+1082:             <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">ContextChange</span>.<span class="ruby-identifier">from_a</span>(<span class="ruby-identifier">hunk</span>)
+1083:           <span class="ruby-keyword kw">else</span>
+1084:             <span class="ruby-identifier">hunk</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">change</span><span class="ruby-operator">|</span>
+1085:               <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">change</span>
+1086:               <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">ContextChange</span>, <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>
+1087:                 <span class="ruby-identifier">change</span>
+1088:               <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+1089:                   <span class="ruby-comment cmt"># change[1] will ONLY be an array in a ContextChange#to_a call.</span>
+1090:                   <span class="ruby-comment cmt"># In Change#to_a, it represents the line (singular).</span>
+1091:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">change</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+1092:                   <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">ContextChange</span>.<span class="ruby-identifier">from_a</span>(<span class="ruby-identifier">change</span>)
+1093:                 <span class="ruby-keyword kw">else</span>
+1094:                   <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>.<span class="ruby-identifier">from_a</span>(<span class="ruby-identifier">change</span>)
+1095:                 <span class="ruby-keyword kw">end</span>
+1096:               <span class="ruby-keyword kw">end</span>
+1097:             <span class="ruby-keyword kw">end</span>
+1098:           <span class="ruby-keyword kw">end</span>
+1099:         <span class="ruby-keyword kw">else</span>
+1100:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Cannot normalise a hunk of class #{hunk.class}.&quot;</span>
+1101:         <span class="ruby-keyword kw">end</span>
+1102:       <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">flatten</span>
+1103:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

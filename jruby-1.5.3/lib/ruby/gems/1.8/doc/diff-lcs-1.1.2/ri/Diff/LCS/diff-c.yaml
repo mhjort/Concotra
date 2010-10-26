@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: block
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Diff::LCS.diff computes the smallest set of additions and deletions necessary to turn the first sequence into the second, and returns a description of these changes.
+  - !ruby/struct:SM::Flow::P 
+    body: "See Diff::LCS::DiffCallbacks for the default behaviour. An alternate behaviour may be implemented with Diff::LCS::ContextDiffCallbacks. If a Class argument is provided for <tt>callbacks</tt>, #diff will attempt to initialise it. If the <tt>callbacks</tt> object (possibly initialised) responds to #finish, it will be called."
+full_name: Diff::LCS::diff
+is_singleton: true
+name: diff
+params: (seq1, seq2, callbacks = nil, &block) {|block| ...}
+visibility: public

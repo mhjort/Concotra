@@ -1,0 +1,62 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: method_name
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: RSpec::Mocks::MethodDouble
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_expectation
+  - !ruby/object:RI::MethodSummary 
+    name: add_negative_expectation
+  - !ruby/object:RI::MethodSummary 
+    name: add_stub
+  - !ruby/object:RI::MethodSummary 
+    name: clear
+  - !ruby/object:RI::MethodSummary 
+    name: configure_method
+  - !ruby/object:RI::MethodSummary 
+    name: define_proxy_method
+  - !ruby/object:RI::MethodSummary 
+    name: expectations
+  - !ruby/object:RI::MethodSummary 
+    name: obfuscate
+  - !ruby/object:RI::MethodSummary 
+    name: object_responds_to?
+  - !ruby/object:RI::MethodSummary 
+    name: object_singleton_class
+  - !ruby/object:RI::MethodSummary 
+    name: proxy_for_nil_class?
+  - !ruby/object:RI::MethodSummary 
+    name: raise_method_not_stubbed_error
+  - !ruby/object:RI::MethodSummary 
+    name: remove_stub
+  - !ruby/object:RI::MethodSummary 
+    name: reset
+  - !ruby/object:RI::MethodSummary 
+    name: reset_nil_expectations_warning
+  - !ruby/object:RI::MethodSummary 
+    name: restore_original_method
+  - !ruby/object:RI::MethodSummary 
+    name: stash_original_method
+  - !ruby/object:RI::MethodSummary 
+    name: stashed_method_name
+  - !ruby/object:RI::MethodSummary 
+    name: stubs
+  - !ruby/object:RI::MethodSummary 
+    name: verify
+  - !ruby/object:RI::MethodSummary 
+    name: visibility
+  - !ruby/object:RI::MethodSummary 
+    name: warn_if_nil_class
+name: MethodDouble
+superclass: Hash

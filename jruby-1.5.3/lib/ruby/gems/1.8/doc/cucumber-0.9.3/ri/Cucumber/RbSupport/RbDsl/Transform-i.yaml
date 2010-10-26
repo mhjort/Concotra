@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Registers a proc that will be called with a step definition argument if it matches the pattern passed as the first argument to Transform. Alternatively, if the pattern contains captures then they will be yielded as arguments to the provided proc. The return value of the proc is consequently yielded to the step definition.
+full_name: Cucumber::RbSupport::RbDsl#Transform
+is_singleton: false
+name: Transform
+params: (regexp, &proc)
+visibility: public

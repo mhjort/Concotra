@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Parser::ParseError::new
+is_singleton: true
+name: new
+params: (state, new_state, expected_states, uri, line)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Controller::inherited
+is_singleton: true
+name: inherited
+params: (into)
+visibility: public

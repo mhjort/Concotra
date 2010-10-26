@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: See StepMother#invoke_steps
+full_name: Cucumber::RbSupport::RbWorld#steps
+is_singleton: false
+name: steps
+params: (steps_text)
+visibility: public

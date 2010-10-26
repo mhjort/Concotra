@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Adapter from the &quot;raw&quot; Gherkin <tt>Listener</tt> API to the slightly more high-level <tt>Formatter</tt> API, which is easier to implement (less state to keep track of).
+constants: []
+
+full_name: Gherkin::Listener::FormatterListener
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: background
+  - !ruby/object:RI::MethodSummary 
+    name: comment
+  - !ruby/object:RI::MethodSummary 
+    name: eof
+  - !ruby/object:RI::MethodSummary 
+    name: examples
+  - !ruby/object:RI::MethodSummary 
+    name: feature
+  - !ruby/object:RI::MethodSummary 
+    name: py_string
+  - !ruby/object:RI::MethodSummary 
+    name: row
+  - !ruby/object:RI::MethodSummary 
+    name: scenario
+  - !ruby/object:RI::MethodSummary 
+    name: scenario_outline
+  - !ruby/object:RI::MethodSummary 
+    name: step
+  - !ruby/object:RI::MethodSummary 
+    name: syntax_error
+  - !ruby/object:RI::MethodSummary 
+    name: tag
+name: FormatterListener
+superclass: Object

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Insert <tt>node_or_tags</tt> after this Node (as a sibling). <tt>node_or_tags</tt> can be a Nokogiri::XML::Node, a ::DocumentFragment, a ::NodeSet, or a string containing markup.
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the new sibling node.
+  - !ruby/struct:SM::Flow::P 
+    body: Also see related method <tt>after</tt>.
+full_name: Nokogiri::XML::Node#add_next_sibling
+is_singleton: false
+name: add_next_sibling
+params: (node_or_tags)
+visibility: public

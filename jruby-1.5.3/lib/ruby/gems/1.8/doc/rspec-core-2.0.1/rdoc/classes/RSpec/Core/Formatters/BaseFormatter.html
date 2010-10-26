@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RSpec::Core::Formatters::BaseFormatter</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RSpec::Core::Formatters::BaseFormatter</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/rspec/core/formatters/base_formatter_rb.html">
+                lib/rspec/core/formatters/base_formatter.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../../../Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000043">add_example_group</a>&nbsp;&nbsp;
+      <a href="#M000057">backtrace_line</a>&nbsp;&nbsp;
+      <a href="#M000054">close</a>&nbsp;&nbsp;
+      <a href="#M000064">color_enabled?</a>&nbsp;&nbsp;
+      <a href="#M000056">configuration</a>&nbsp;&nbsp;
+      <a href="#M000051">dump_failures</a>&nbsp;&nbsp;
+      <a href="#M000053">dump_pending</a>&nbsp;&nbsp;
+      <a href="#M000052">dump_summary</a>&nbsp;&nbsp;
+      <a href="#M000047">example_failed</a>&nbsp;&nbsp;
+      <a href="#M000042">example_group_finished</a>&nbsp;&nbsp;
+      <a href="#M000041">example_group_started</a>&nbsp;&nbsp;
+      <a href="#M000045">example_passed</a>&nbsp;&nbsp;
+      <a href="#M000046">example_pending</a>&nbsp;&nbsp;
+      <a href="#M000044">example_started</a>&nbsp;&nbsp;
+      <a href="#M000059">find_failed_line</a>&nbsp;&nbsp;
+      <a href="#M000055">format_backtrace</a>&nbsp;&nbsp;
+      <a href="#M000048">message</a>&nbsp;&nbsp;
+      <a href="#M000039">new</a>&nbsp;&nbsp;
+      <a href="#M000062">output_supports_sync</a>&nbsp;&nbsp;
+      <a href="#M000063">profile_examples?</a>&nbsp;&nbsp;
+      <a href="#M000058">read_failed_line</a>&nbsp;&nbsp;
+      <a href="#M000061">restore_sync_output</a>&nbsp;&nbsp;
+      <a href="#M000040">start</a>&nbsp;&nbsp;
+      <a href="#M000050">start_dump</a>&nbsp;&nbsp;
+      <a href="#M000060">start_sync_output</a>&nbsp;&nbsp;
+      <a href="#M000049">stop</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Helpers.html">Helpers</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">duration</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">example_count</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">example_group</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">examples</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">failed_examples</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">failure_count</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">output</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">pending_count</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">pending_examples</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000039.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(output)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000043.html');return false;">
+          <span class="method-name">add_example_group</span><span class="method-args">(example_group)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000054.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is invoked at the very end. Allows the formatter to clean up,
+like closing open streams.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000051.html');return false;">
+          <span class="method-name">dump_failures</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Dumps detailed information about each example failure.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000053.html');return false;">
+          <span class="method-name">dump_pending</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This gets invoked after the summary if option is set to do so.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000052.html');return false;">
+          <span class="method-name">dump_summary</span><span class="method-args">(duration, example_count, failure_count, pending_count)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is invoked after the dumping of examples and failures.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000047.html');return false;">
+          <span class="method-name">example_failed</span><span class="method-args">(example)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000042.html');return false;">
+          <span class="method-name">example_group_finished</span><span class="method-args">(example_group)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is invoked at the end of the execution of each example group.
+<tt>example_group</tt> is the example_group.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000041.html');return false;">
+          <span class="method-name">example_group_started</span><span class="method-args">(example_group)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is invoked at the beginning of the execution of each example
+group. <tt>example_group</tt> is the example_group.
+</p>
+<p>
+The next method to be invoked after this is <tt><a
+href="BaseFormatter.html#M000045">example_passed</a></tt>, <tt><a
+href="BaseFormatter.html#M000046">example_pending</a></tt>, or
+<tt>example_finished</tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000045.html');return false;">
+          <span class="method-name">example_passed</span><span class="method-args">(example)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000046.html');return false;">
+          <span class="method-name">example_pending</span><span class="method-args">(example)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000044.html');return false;">
+          <span class="method-name">example_started</span><span class="method-args">(example)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000055.html');return false;">
+          <span class="method-name">format_backtrace</span><span class="method-args">(backtrace, example)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000048.html');return false;">
+          <span class="method-name">message</span><span class="method-args">(message)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000040.html');return false;">
+          <span class="method-name">start</span><span class="method-args">(example_count)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is invoked before any examples are run, right after they have
+all been collected. This can be useful for special formatters that need to
+provide progress on feedback (graphical ones)
+</p>
+<p>
+This will only be invoked once, and the next one to be invoked is <a
+href="BaseFormatter.html#M000041">example_group_started</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000050.html');return false;">
+          <span class="method-name">start_dump</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This method is invoked after all of the examples have executed. The next
+method to be invoked after this one is dump_failure (once for each failed
+example),
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000049.html');return false;">
+          <span class="method-name">stop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000057.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000057.html');return false;">
+          <span class="method-name">backtrace_line</span><span class="method-args">(line)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000064.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000064.html');return false;">
+          <span class="method-name">color_enabled?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000056.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000056.html');return false;">
+          <span class="method-name">configuration</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000059.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000059.html');return false;">
+          <span class="method-name">find_failed_line</span><span class="method-args">(backtrace, path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000062.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000062.html');return false;">
+          <span class="method-name">output_supports_sync</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000063.html');return false;">
+          <span class="method-name">profile_examples?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000058.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000058.html');return false;">
+          <span class="method-name">read_failed_line</span><span class="method-args">(exception, example)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000061.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000061.html');return false;">
+          <span class="method-name">restore_sync_output</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="BaseFormatter.src/M000060.html" target="Code" class="method-signature"
+            onclick="popupCode('BaseFormatter.src/M000060.html');return false;">
+          <span class="method-name">start_sync_output</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

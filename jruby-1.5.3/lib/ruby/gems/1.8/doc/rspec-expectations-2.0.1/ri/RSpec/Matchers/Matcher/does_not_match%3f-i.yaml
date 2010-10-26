@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Used internally by <tt>should_not</tt>
+full_name: RSpec::Matchers::Matcher#does_not_match?
+is_singleton: false
+name: does_not_match?
+params: (actual)
+visibility: public

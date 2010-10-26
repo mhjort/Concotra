@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: base_dir
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: log_levels
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: time_format
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A customized logger (based on Informer) that creates multiple log files based on time
+constants: []
+
+full_name: Ramaze::Logger::RotatingInformer
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Innate::Traited
+  - !ruby/object:RI::IncludedModule 
+    name: Logging
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: base_dir=
+  - !ruby/object:RI::MethodSummary 
+    name: closed?
+  - !ruby/object:RI::MethodSummary 
+    name: log
+  - !ruby/object:RI::MethodSummary 
+    name: log_interpolate
+  - !ruby/object:RI::MethodSummary 
+    name: shutdown
+  - !ruby/object:RI::MethodSummary 
+    name: timestamp
+name: RotatingInformer
+superclass: Object

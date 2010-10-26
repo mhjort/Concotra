@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (*args)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Copy all thread variables into the new thread
+full_name: Thread::into
+is_singleton: true
+name: into
+params: (*args) {|*args| ...}
+visibility: public

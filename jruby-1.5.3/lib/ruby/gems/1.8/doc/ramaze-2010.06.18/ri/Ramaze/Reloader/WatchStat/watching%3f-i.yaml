@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Reloader::WatchStat#watching?
+is_singleton: false
+name: watching?
+params: (file)
+visibility: public

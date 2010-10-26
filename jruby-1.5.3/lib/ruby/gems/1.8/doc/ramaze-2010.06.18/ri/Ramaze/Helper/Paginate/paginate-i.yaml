@@ -1,0 +1,32 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns a new Paginator instance.
+  - !ruby/struct:SM::Flow::P 
+    body: Note that the pagination relies on being inside a Ramaze request to gain necessary metadata about the page it resides on, you cannot use it outside of Ramaze yet.
+  - !ruby/struct:SM::Flow::P 
+    body: The examples below are meant to be used within your controller or view.
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage with Array:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  data = (1..100).to_a\n  @pager = paginate(data, :limit =&gt; 30, :page =&gt; 2)\n  @pager.navigation\n  @pager.each{|e| puts(e) }\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage with Sequel:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  data = Article.filter(:public =&gt; true)\n  @pager = paginate(data, :limit =&gt; 5)\n  @pager.navigation\n  @pager.each{|e| puts(e)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Note that you must first extend Sequel with the pagination extension.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Sequel.extension :pagination\n"
+  - !ruby/struct:SM::Flow::P 
+    body: <tt>dataset</tt> may be a Sequel dataset or an Array <tt>options</tt> Takes precedence to trait[:paginate] and may contain
+  - !ruby/struct:SM::Flow::VERB 
+    body: "          following pairs:\n  :limit  The number of elements used when you call #each on the\n          paginator\n  :var    The variable name being used in the request, this is helpful\n          if you want to use two or more independent paginations on the\n          same page.\n  :page   The page you are currently on, if not given it will be\n          retrieved from current request variables. Defaults to 1 if\n          neither exists.\n"
+full_name: Ramaze::Helper::Paginate#paginate
+is_singleton: false
+name: paginate
+params: (dataset, options = {})
+visibility: public

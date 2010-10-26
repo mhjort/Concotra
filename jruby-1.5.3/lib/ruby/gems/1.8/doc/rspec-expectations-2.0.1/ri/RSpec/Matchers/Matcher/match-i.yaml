@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: match_for_should
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: See RSpec::Matchers
+full_name: RSpec::Matchers::Matcher#match
+is_singleton: false
+name: match
+params: (&block)
+visibility: public

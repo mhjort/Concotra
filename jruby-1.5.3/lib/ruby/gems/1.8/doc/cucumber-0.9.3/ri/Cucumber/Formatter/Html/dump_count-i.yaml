@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html#dump_count
+is_singleton: false
+name: dump_count
+params: (count, what, state=nil)
+visibility: protected

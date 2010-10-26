@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>setup_procedure (Ramaze::Controller)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/controller.rb, line 48</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">setup_procedure</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">ancestral_trait</span>[<span class="ruby-identifier">:provide_set</span>]
+        <span class="ruby-identifier">engine</span>(<span class="ruby-identifier">:Etanni</span>)
+        <span class="ruby-identifier">trait</span>(<span class="ruby-identifier">:provide_set</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">map</span>(<span class="ruby-identifier">generate_mapping</span>(<span class="ruby-identifier">name</span>)) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">trait</span>[<span class="ruby-identifier">:skip_controller_map</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

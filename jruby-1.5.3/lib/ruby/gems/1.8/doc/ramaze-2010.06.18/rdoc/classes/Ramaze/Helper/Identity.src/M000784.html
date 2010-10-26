@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>openid_login_form (Ramaze::Helper::Identity)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/identity.rb, line 27</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">openid_login_form</span>(<span class="ruby-identifier">caption</span>=<span class="ruby-value str">&quot;login&quot;</span>)
+        <span class="ruby-node">%{
+&lt;form method=&quot;GET&quot; action=&quot;#{rs(:openid_begin)}&quot;&gt;
+  Identity URL: &lt;input type=&quot;text&quot; name=&quot;url&quot; /&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;#{caption}&quot;/&gt;
+&lt;/form&gt;
+        }</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

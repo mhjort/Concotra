@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Mocks::ArgumentExpectation#matchers_match?
+is_singleton: false
+name: matchers_match?
+params: (*args)
+visibility: public

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Use this method in your application, but do not use it in conditionals as it will never be nil or false.
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Ramaze::Helper::User::Wrapper] wrapped return value from model or callback"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @author manveru"
+full_name: Ramaze::Helper::User#user
+is_singleton: false
+name: user
+params: ()
+visibility: public

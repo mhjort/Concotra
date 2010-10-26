@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MaRuKu::Out::HTML#to_html_code
+is_singleton: false
+name: to_html_code
+params: ()
+visibility: public

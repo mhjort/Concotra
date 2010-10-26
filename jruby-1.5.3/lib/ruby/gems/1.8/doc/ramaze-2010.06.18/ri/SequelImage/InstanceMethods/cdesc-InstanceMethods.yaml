@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: SequelImage::InstanceMethods
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: basename
+  - !ruby/object:RI::MethodSummary 
+    name: cleanup
+  - !ruby/object:RI::MethodSummary 
+    name: conf
+  - !ruby/object:RI::MethodSummary 
+    name: file
+  - !ruby/object:RI::MethodSummary 
+    name: filename
+  - !ruby/object:RI::MethodSummary 
+    name: generate_thumbnails
+  - !ruby/object:RI::MethodSummary 
+    name: next_name
+  - !ruby/object:RI::MethodSummary 
+    name: path
+  - !ruby/object:RI::MethodSummary 
+    name: public_file
+  - !ruby/object:RI::MethodSummary 
+    name: public_path
+  - !ruby/object:RI::MethodSummary 
+    name: public_root
+name: InstanceMethods
+superclass: 

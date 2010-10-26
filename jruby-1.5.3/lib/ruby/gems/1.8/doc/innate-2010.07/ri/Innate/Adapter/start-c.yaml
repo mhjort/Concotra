@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Pass given app to the Handler, handler is chosen based on config.adapter option. If there is a method named start_name_of_adapter it will be run instead of the default run method of the handler, this makes it easy to define custom startup of handlers for your server of choice.
+full_name: Innate::Adapter::start
+is_singleton: true
+name: start
+params: (app, given_options = nil)
+visibility: public

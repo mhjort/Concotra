@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Holds the value of a comment parsed from a feature file:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # Lorem ipsum\n  # dolor sit amet\n"
+  - !ruby/struct:SM::Flow::P 
+    body: This gets parsed into a Comment with value <tt>&quot;# Lorem ipsum\n# dolor sit amet\n&quot;</tt>
+constants: []
+
+full_name: Cucumber::Ast::Comment
+includes: []
+
+instance_methods: []
+
+name: Comment
+superclass: Object

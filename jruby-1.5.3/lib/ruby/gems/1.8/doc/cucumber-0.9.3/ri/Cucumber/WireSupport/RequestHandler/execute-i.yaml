@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::RequestHandler#execute
+is_singleton: false
+name: execute
+params: (request_params = nil)
+visibility: public

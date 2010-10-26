@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Provides shortcuts to the link/script tags.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: LINK_TAG
+    value: "'<link href=%p media=%p rel=\"stylesheet\" type=\"text/css\" />'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: SCRIPT_TAG
+    value: "'<script src=%p type=\"text/javascript\"></script>'"
+full_name: Ramaze::Helper::XHTML
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: css
+  - !ruby/object:RI::MethodSummary 
+    name: css_for
+  - !ruby/object:RI::MethodSummary 
+    name: js
+  - !ruby/object:RI::MethodSummary 
+    name: js_for
+name: XHTML
+superclass: 

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (action)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Renders an action without any layout. You can further tweak the action to be rendered by passing a block.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  render_partial(:index)\n  render_partial(:index, :title =&gt; :foo)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Please note that you only have to supply the action name, if your action requires arguments then you have to pass a name suitable for that.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage with action that requires arguments"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  # requires two arguments\n  def foo(a, b)\n  end\n\n  # pass two suitable arguments\n  render_partial('foo/1/2')\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see render_custom @author manveru"
+full_name: Innate::Helper::Render#render_partial
+is_singleton: false
+name: render_partial
+params: (action_name, variables = {}) {|action| ...}
+visibility: public

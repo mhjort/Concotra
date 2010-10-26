@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::InstanceForm#args_for
+is_singleton: false
+name: args_for
+params: (hash)
+visibility: public

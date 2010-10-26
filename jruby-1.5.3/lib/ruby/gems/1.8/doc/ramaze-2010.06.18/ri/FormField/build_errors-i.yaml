@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FormField#build_errors
+is_singleton: false
+name: build_errors
+params: (gestalt)
+visibility: public

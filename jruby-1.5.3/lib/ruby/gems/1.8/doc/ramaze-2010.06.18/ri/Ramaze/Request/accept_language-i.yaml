@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: locales
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Try to find out which languages the client would like to have and sort them by weight, (most wanted first).
+  - !ruby/struct:SM::Flow::P 
+    body: Returns and array of locales from env['HTTP_ACCEPT_LANGUAGE]. e.g. [&quot;fi&quot;, &quot;en&quot;, &quot;ja&quot;, &quot;fr&quot;, &quot;de&quot;, &quot;es&quot;, &quot;it&quot;, &quot;nl&quot;, &quot;sv&quot;]
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  request.accept_language\n  # =&gt; ['en-us', 'en', 'de-at', 'de']\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String #to_s] string the value of HTTP_ACCEPT_LANGUAGE @return [Array] list of locales @see Request#accept_language_with_weight @author manveru"
+full_name: Ramaze::Request#accept_language
+is_singleton: false
+name: accept_language
+params: (string = env['HTTP_ACCEPT_LANGUAGE'])
+visibility: public

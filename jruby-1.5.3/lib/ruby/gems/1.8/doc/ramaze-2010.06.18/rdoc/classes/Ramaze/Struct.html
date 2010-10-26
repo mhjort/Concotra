@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Ramaze::Struct</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Ramaze::Struct</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/ramaze/snippets/ramaze/struct_rb.html">
+                lib/ramaze/snippets/ramaze/struct.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                ::Struct
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M001124">values_at</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M001124" class="method-detail">
+        <a name="M001124"></a>
+
+        <div class="method-heading">
+          <a href="Struct.src/M001124.html" target="Code" class="method-signature"
+            onclick="popupCode('Struct.src/M001124.html');return false;">
+          <span class="method-name">values_at</span><span class="method-args">(*keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Makes it possible to access the keys directly by their name, not only their
+index. The original <a href="Struct.html#M001124">Struct#values_at</a>
+tries to call to_int on the arguments. in Ruby &lt; 1.9 this would lead to
+a quite unintuitive IndexError, while in 1.9 it will say outright that it
+cannot convert Symbol into Integer. I think this is neither useful nor
+expected, so we extend <a href="Struct.html#M001124">Struct#values_at</a>
+to recognize valid members of the <a href="Struct.html">Struct</a> passed
+into the method and return their values in the same order, just like
+Hash#values_at.
+</p>
+<p>
+Example:
+</p>
+<pre>
+ Point = Struct.new(:x, :y)
+ point = Point.new(15, 10)
+
+ # Old behaviour:
+ point.values_at(0, 1)
+ # =&gt; [15, 10]
+ point.values_at(0..1)
+ # =&gt; [15, 10]
+ point.values_at(:y, :x)
+ # =&gt; IndexError: offset 20697 too large for struct(size:2)
+
+ # Added new behaviour:
+ point.values_at(:y, :x)
+ # =&gt; [10, 15]
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Undefined#nested!
+is_singleton: false
+name: nested!
+params: ()
+visibility: public

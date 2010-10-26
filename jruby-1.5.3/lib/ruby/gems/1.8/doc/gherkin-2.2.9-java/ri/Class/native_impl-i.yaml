@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Class#native_impl
+is_singleton: false
+name: native_impl
+params: (lib)
+visibility: public

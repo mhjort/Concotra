@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>start (Webrat::Selenium::ApplicationServers::Rack)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/webrat/selenium/application_servers/rack.rb, line 8</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start</span>
+          <span class="ruby-ivar">@pid</span> = <span class="ruby-identifier">fork</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-value str">&quot;log&quot;</span>)
+              <span class="ruby-identifier">redirect_io</span>(<span class="ruby-constant">STDOUT</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;log&quot;</span>, <span class="ruby-value str">&quot;webrat.webrick.stdout.log&quot;</span>))
+              <span class="ruby-identifier">redirect_io</span>(<span class="ruby-constant">STDERR</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;log&quot;</span>, <span class="ruby-value str">&quot;webrat.webrick.stderr.log&quot;</span>))
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">exec</span> <span class="ruby-identifier">start_command</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

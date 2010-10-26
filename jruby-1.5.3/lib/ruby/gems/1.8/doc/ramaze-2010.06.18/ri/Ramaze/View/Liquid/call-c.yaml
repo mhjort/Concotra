@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Liquid requires the variable keys to be strings, most likely for security resons (don't allow arbitrary symbols).
+full_name: Ramaze::View::Liquid::call
+is_singleton: true
+name: call
+params: (action, string)
+visibility: public

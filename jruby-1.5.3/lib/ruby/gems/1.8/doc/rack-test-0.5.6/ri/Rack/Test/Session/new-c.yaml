@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Creates a Rack::Test::Session for a given Rack app or Rack::MockSession.
+  - !ruby/struct:SM::Flow::P 
+    body: "Note: Generally, you won't need to initialize a Rack::Test::Session directly. Instead, you should include Rack::Test::Methods into your testing context. (See README.rdoc for an example)"
+full_name: Rack::Test::Session::new
+is_singleton: true
+name: new
+params: (mock_session)
+visibility: public

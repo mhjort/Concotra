@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>module_eval_with_args (RSpec::Core::Extensions::ModuleEvalWithArgs)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/extensions/module_eval_with_args.rb, line 7</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">module_eval_with_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+          <span class="ruby-comment cmt"># ruby &gt; 1.8.6</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">module_exec</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:module_exec</span>)
+
+          <span class="ruby-comment cmt"># If there are no args and the block doesn't expect any, there's no</span>
+          <span class="ruby-comment cmt"># need to fake module_exec with our hack below.</span>
+          <span class="ruby-comment cmt"># Notes:</span>
+          <span class="ruby-comment cmt">#   * lambda {      }.arity # =&gt; -1</span>
+          <span class="ruby-comment cmt">#   * lambda { ||   }.arity # =&gt;  0</span>
+          <span class="ruby-comment cmt">#   * lambda { |*a| }.arity # =&gt; -1</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">module_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">zero?</span>
+
+          <span class="ruby-identifier">orig_singleton_methods</span> = <span class="ruby-identifier">singleton_methods</span>
+          <span class="ruby-identifier">instance_eval_with_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+          <span class="ruby-comment cmt"># The only difference between instance_eval and module_eval is static method defs.</span>
+          <span class="ruby-comment cmt">#   * `def foo` in instance_eval defines a singleton method on the instance</span>
+          <span class="ruby-comment cmt">#   * `def foo` in class/module_eval defines an instance method for the class/module</span>
+          <span class="ruby-comment cmt"># Here we deal with this difference by defining an instance method for</span>
+          <span class="ruby-comment cmt"># each new singleton method.</span>
+          <span class="ruby-comment cmt"># This has the side effect of duplicating methods (all new class methods will</span>
+          <span class="ruby-comment cmt"># become instance methods and vice versa), but I don't see a way around it...</span>
+          (<span class="ruby-identifier">singleton_methods</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">orig_singleton_methods</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">m</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">method</span>(<span class="ruby-identifier">m</span>)) }
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Try to obtain given engine by its registered name.
+full_name: Innate::View#get
+is_singleton: false
+name: get
+params: (engine)
+visibility: public

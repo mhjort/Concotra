@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::WireSupport::Connection#call_remote
+is_singleton: false
+name: call_remote
+params: (request_handler, message, params)
+visibility: public

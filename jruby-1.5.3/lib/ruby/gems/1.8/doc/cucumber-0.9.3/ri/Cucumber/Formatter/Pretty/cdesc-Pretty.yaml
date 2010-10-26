@@ -1,0 +1,89 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: indent
+    rw: W
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: step_mother
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The formatter used for <tt>--format pretty</tt> (the default formatter).
+  - !ruby/struct:SM::Flow::P 
+    body: This formatter prints features to plain text - exactly how they were parsed, just prettier. That means with proper indentation and alignment of table columns.
+  - !ruby/struct:SM::Flow::P 
+    body: If the output is STDOUT (and not a file), there are bright colours to watch too.
+constants: []
+
+full_name: Cucumber::Formatter::Pretty
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: FileUtils
+  - !ruby/object:RI::IncludedModule 
+    name: Console
+  - !ruby/object:RI::IncludedModule 
+    name: Io
+  - !ruby/object:RI::IncludedModule 
+    name: Gherkin::Formatter::Escaping
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: after_background
+  - !ruby/object:RI::MethodSummary 
+    name: after_feature_element
+  - !ruby/object:RI::MethodSummary 
+    name: after_features
+  - !ruby/object:RI::MethodSummary 
+    name: after_multiline_arg
+  - !ruby/object:RI::MethodSummary 
+    name: after_outline_table
+  - !ruby/object:RI::MethodSummary 
+    name: after_table_cell
+  - !ruby/object:RI::MethodSummary 
+    name: after_table_row
+  - !ruby/object:RI::MethodSummary 
+    name: after_tags
+  - !ruby/object:RI::MethodSummary 
+    name: background_name
+  - !ruby/object:RI::MethodSummary 
+    name: before_background
+  - !ruby/object:RI::MethodSummary 
+    name: before_examples_array
+  - !ruby/object:RI::MethodSummary 
+    name: before_feature
+  - !ruby/object:RI::MethodSummary 
+    name: before_feature_element
+  - !ruby/object:RI::MethodSummary 
+    name: before_multiline_arg
+  - !ruby/object:RI::MethodSummary 
+    name: before_outline_table
+  - !ruby/object:RI::MethodSummary 
+    name: before_step
+  - !ruby/object:RI::MethodSummary 
+    name: before_step_result
+  - !ruby/object:RI::MethodSummary 
+    name: before_table_row
+  - !ruby/object:RI::MethodSummary 
+    name: comment_line
+  - !ruby/object:RI::MethodSummary 
+    name: examples_name
+  - !ruby/object:RI::MethodSummary 
+    name: exception
+  - !ruby/object:RI::MethodSummary 
+    name: feature_name
+  - !ruby/object:RI::MethodSummary 
+    name: py_string
+  - !ruby/object:RI::MethodSummary 
+    name: scenario_name
+  - !ruby/object:RI::MethodSummary 
+    name: step_name
+  - !ruby/object:RI::MethodSummary 
+    name: table_cell_value
+  - !ruby/object:RI::MethodSummary 
+    name: tag_name
+name: Pretty
+superclass: Object

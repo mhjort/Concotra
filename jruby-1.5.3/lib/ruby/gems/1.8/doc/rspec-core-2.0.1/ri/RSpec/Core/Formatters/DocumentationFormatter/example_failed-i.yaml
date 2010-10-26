@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::DocumentationFormatter#example_failed
+is_singleton: false
+name: example_failed
+params: (example)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Is there an overlap between hunk arg0 and old hunk arg1? Note: if end of old hunk is one less than beginning of second, they overlap"
+full_name: Diff::LCS::Hunk#overlaps?
+is_singleton: false
+name: overlaps?
+params: (hunk = nil)
+visibility: public

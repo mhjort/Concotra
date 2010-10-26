@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Cucumber::Ast::Table)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/ast/table.rb, line 74</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">raw</span>, <span class="ruby-identifier">conversion_procs</span> = <span class="ruby-constant">NULL_CONVERSIONS</span>.<span class="ruby-identifier">dup</span>)
+        <span class="ruby-ivar">@cells_class</span> = <span class="ruby-constant">Cells</span>
+        <span class="ruby-ivar">@cell_class</span> = <span class="ruby-constant">Cell</span>
+
+        <span class="ruby-identifier">raw</span> = <span class="ruby-identifier">ensure_array_of_array</span>(<span class="ruby-identifier">rubify</span>(<span class="ruby-identifier">raw</span>))
+        <span class="ruby-comment cmt"># Verify that it's square</span>
+        <span class="ruby-identifier">transposed</span> = <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">transpose</span>
+        <span class="ruby-identifier">create_cell_matrix</span>(<span class="ruby-identifier">raw</span>)
+        <span class="ruby-ivar">@conversion_procs</span> = <span class="ruby-identifier">conversion_procs</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

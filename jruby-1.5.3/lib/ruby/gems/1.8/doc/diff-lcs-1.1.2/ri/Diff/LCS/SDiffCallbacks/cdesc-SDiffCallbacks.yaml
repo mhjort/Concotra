@@ -1,0 +1,56 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Returns the difference set collected during the diff process.
+    name: diffs
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "This will produce a simple array of diff change objects. Each element in the #diffs array is a single ContextChange. In the set of #diffs provided by SDiffCallbacks, both old and new objects will be presented for both changed &lt;strong&gt;and unchanged&lt;/strong&gt; objects. <tt>nil</tt> will be substituted for a discarded object."
+  - !ruby/struct:SM::Flow::P 
+    body: The diffset produced by this callback, when provided to Diff::LCS#sdiff, will compute and display the necessary components to show two sequences and their minimized differences side by side, just like the Unix utility <tt>sdiff</tt>.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    same             same\n    before     |     after\n    old        &lt;     -\n    -          &gt;     new\n\n    seq1 = %w(a b c e h j l m n p)\n    seq2 = %w(b c d e f j k l m r s t)\n\n    diffs = Diff::LCS.sdiff(seq1, seq2)\n      # This example shows a simplified array format.\n      # [ [ &quot;-&quot;, [  0, &quot;a&quot;], [  0, nil ] ],\n      #   [ &quot;=&quot;, [  1, &quot;b&quot;], [  0, &quot;b&quot; ] ],\n      #   [ &quot;=&quot;, [  2, &quot;c&quot;], [  1, &quot;c&quot; ] ],\n      #   [ &quot;+&quot;, [  3, nil], [  2, &quot;d&quot; ] ],\n      #   [ &quot;=&quot;, [  3, &quot;e&quot;], [  3, &quot;e&quot; ] ],\n      #   [ &quot;!&quot;, [  4, &quot;h&quot;], [  4, &quot;f&quot; ] ],\n      #   [ &quot;=&quot;, [  5, &quot;j&quot;], [  5, &quot;j&quot; ] ],\n      #   [ &quot;+&quot;, [  6, nil], [  6, &quot;k&quot; ] ],\n      #   [ &quot;=&quot;, [  6, &quot;l&quot;], [  7, &quot;l&quot; ] ],\n      #   [ &quot;=&quot;, [  7, &quot;m&quot;], [  8, &quot;m&quot; ] ],\n      #   [ &quot;!&quot;, [  8, &quot;n&quot;], [  9, &quot;r&quot; ] ],\n      #   [ &quot;!&quot;, [  9, &quot;p&quot;], [ 10, &quot;s&quot; ] ],\n      #   [ &quot;+&quot;, [ 10, nil], [ 11, &quot;t&quot; ] ] ]\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "The result of this operation is similar to that of Diff::LCS::ContextDiffCallbacks. They may be compared as:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    s = Diff::LCS.sdiff(seq1, seq2).reject { |e| e.action == &quot;=&quot; }\n    c = Diff::LCS.sdiff(seq1, seq2, Diff::LCS::ContextDiffCallbacks).flatten\n\n    s == c # -&gt; true\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Use
+  - !ruby/struct:SM::Flow::P 
+    body: This callback object must be initialised and is used by the Diff::LCS#sdiff method.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    cbo = Diff::LCS::SDiffCallbacks.new\n    Diff::LCS.LCS(seq1, seq2, cbo)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: As with the other initialisable callback objects, Diff::LCS::SDiffCallbacks can be initialised with a block. As there is no &quot;fininishing&quot; to be done, this has no effect on the state of the object.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    cbo = Diff::LCS::SDiffCallbacks.new { |tcbo| Diff::LCS.LCS(seq1, seq2, tcbo) }\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Simplified Array Format
+  - !ruby/struct:SM::Flow::P 
+    body: "The simplified array format used in the example above can be obtained with:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    require 'pp'\n    pp diffs.map { |e| e.to_a }\n"
+constants: []
+
+full_name: Diff::LCS::SDiffCallbacks
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: change
+  - !ruby/object:RI::MethodSummary 
+    name: discard_a
+  - !ruby/object:RI::MethodSummary 
+    name: discard_b
+  - !ruby/object:RI::MethodSummary 
+    name: match
+name: SDiffCallbacks
+superclass: Object

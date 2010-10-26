@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Formatters::ProgressFormatter#start_dump
+is_singleton: false
+name: start_dump
+params: ()
+visibility: public

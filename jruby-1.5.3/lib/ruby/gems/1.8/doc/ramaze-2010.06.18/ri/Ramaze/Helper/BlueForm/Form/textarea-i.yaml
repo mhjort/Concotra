@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::BlueForm::Form#textarea
+is_singleton: false
+name: textarea
+params: (label, name, value = nil)
+visibility: public

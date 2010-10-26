@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Innate::Node#update_view_mappings
+is_singleton: false
+name: update_view_mappings
+params: ()
+visibility: public

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>require_mock_framework_adapter (RSpec::Core::Configuration)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/configuration.rb, line 113</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_mock_framework_adapter</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">mock_framework</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/rspec/i</span>
+          <span class="ruby-value str">'rspec/core/mocking/with_rspec'</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/mocha/i</span>
+          <span class="ruby-value str">'rspec/core/mocking/with_mocha'</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/rr/i</span>
+          <span class="ruby-value str">'rspec/core/mocking/with_rr'</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/flexmock/i</span>
+          <span class="ruby-value str">'rspec/core/mocking/with_flexmock'</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-value str">'rspec/core/mocking/with_absolutely_nothing'</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

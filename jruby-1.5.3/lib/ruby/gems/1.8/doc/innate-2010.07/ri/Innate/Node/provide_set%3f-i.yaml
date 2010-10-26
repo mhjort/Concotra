@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This will return true if the only provides set are by {Node::included}.
+  - !ruby/struct:SM::Flow::P 
+    body: The reasoning behind this is to determine whether the user has touched the provides at all, in which case we will not override the provides in subclasses.
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [true, false] (false)"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api internal @see {Node::included} @author manveru"
+full_name: Innate::Node#provide_set?
+is_singleton: false
+name: provide_set?
+params: ()
+visibility: public

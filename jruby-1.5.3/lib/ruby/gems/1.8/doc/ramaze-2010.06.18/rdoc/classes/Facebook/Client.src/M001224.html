@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>call (Facebook::Client)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/contrib/facebook/facebook.rb, line 35</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span> <span class="ruby-identifier">method</span>, <span class="ruby-identifier">opts</span> = {}
+      <span class="ruby-identifier">args</span> = { <span class="ruby-identifier">:api_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">KEY</span>,
+               <span class="ruby-identifier">:call_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>,
+               <span class="ruby-identifier">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'JSON'</span>,
+               <span class="ruby-identifier">:v</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'1.0'</span>,
+               <span class="ruby-identifier">:session_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:session_key</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">SESSION</span>,
+               <span class="ruby-identifier">:method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">method</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                                                    <span class="ruby-node">&quot;#{k}=&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">v</span>
+                                                              <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>
+                                                                <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_json</span>
+                                                              <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+                                                                <span class="ruby-identifier">v</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">','</span>)
+                                                              <span class="ruby-keyword kw">else</span>
+                                                                <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span>
+                                                              <span class="ruby-keyword kw">end</span>
+                                                  }.<span class="ruby-identifier">sort</span>
+
+      <span class="ruby-identifier">data</span> = <span class="ruby-constant">Array</span>[<span class="ruby-node">&quot;sig=#{Digest::MD5.hexdigest(args.join+SECRET)}&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>)
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">post</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNRESET</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+        <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">connect</span>
+        <span class="ruby-keyword kw">retry</span>
+      <span class="ruby-keyword kw">end</span> <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">connect</span>
+
+      <span class="ruby-identifier">ret</span> = <span class="ruby-keyword kw">case</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">ret</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'true'</span>;    <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">ret</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'false'</span>;   <span class="ruby-keyword kw">false</span>
+            <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">ret</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'&quot;'</span>; <span class="ruby-identifier">ret</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>]
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-keyword kw">begin</span>
+                <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">ret</span>)
+              <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Error parsing #{ret.inspect}&quot;</span>
+                <span class="ruby-identifier">raise</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'fql.query'</span>
+        <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Facebook</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-identifier">ret</span>[<span class="ruby-value str">'error_msg'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ret</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">ret</span>[<span class="ruby-value str">'error_code'</span>]
+
+      <span class="ruby-identifier">ret</span>
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@keepalive</span>
+        <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-ivar">@server</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

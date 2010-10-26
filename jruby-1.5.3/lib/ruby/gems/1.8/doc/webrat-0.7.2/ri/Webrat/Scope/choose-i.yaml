@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Verifies that an input radio button exists on the current page and marks it as checked, so that the value will be submitted with the form.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  choose 'First Option'\n"
+full_name: Webrat::Scope#choose
+is_singleton: false
+name: choose
+params: (field_locator)
+visibility: public

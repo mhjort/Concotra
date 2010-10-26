@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>start_webrick (Innate::Adapter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/innate/adapter.rb, line 60</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">start_webrick</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">config</span>)
+      <span class="ruby-identifier">handler</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Handler</span>.<span class="ruby-identifier">get</span>(<span class="ruby-value str">'webrick'</span>)
+      <span class="ruby-identifier">config</span> = {
+        <span class="ruby-identifier">:BindAddress</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">config</span>[<span class="ruby-identifier">:Host</span>],
+        <span class="ruby-identifier">:Port</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">config</span>[<span class="ruby-identifier">:Port</span>],
+        <span class="ruby-identifier">:Logger</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Log</span>,
+      }
+
+      <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">config</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

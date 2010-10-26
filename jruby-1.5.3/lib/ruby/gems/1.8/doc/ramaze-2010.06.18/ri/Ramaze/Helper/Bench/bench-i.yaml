@@ -1,0 +1,31 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Will first run an empty loop to determine the overhead it imposes, then goes on to yield your block <tt>iterations</tt> times.
+  - !ruby/struct:SM::Flow::P 
+    body: The last yielded return value will be returned upon completion of the benchmark and the result of the benchmark itself will be sent to Log.info
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class MainController &lt; Ramaze::Controller\n    def index\n      @users = bench{ User.all }\n      @tags = bench{ Article.tags }\n    end\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "This will show something like following in your log:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: ..
+        body: "INFO Bench ./start.rb:3:in `index': 0.121163845062256"
+      - !ruby/struct:SM::Flow::LI 
+        label: ..
+        body: "INFO Bench ./start.rb:4:in `index': 2.234987235098341"
+    type: :LABELED
+  - !ruby/struct:SM::Flow::P 
+    body: So now we know that the Article.tags call takes the most time and should be improved.
+full_name: Ramaze::Helper::Bench#bench
+is_singleton: false
+name: bench
+params: (iterations = 1) {|| ...}
+visibility: public

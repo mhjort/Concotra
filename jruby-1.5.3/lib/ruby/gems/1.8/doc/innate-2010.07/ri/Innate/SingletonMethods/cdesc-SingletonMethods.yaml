@@ -1,0 +1,57 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Contains all the module functions for Innate, we keep them in a module so Ramaze can simply use them as well.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROXY_OPTIONS
+    value: "{ :port => 'adapter.port', :host => 'adapter.host',                       :adapter => 'adapter.handler' }"
+full_name: Innate::SingletonMethods
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: Rewrite
+  - !ruby/object:RI::MethodSummary 
+    name: Route
+  - !ruby/object:RI::MethodSummary 
+    name: at
+  - !ruby/object:RI::MethodSummary 
+    name: call
+  - !ruby/object:RI::MethodSummary 
+    name: defer
+  - !ruby/object:RI::MethodSummary 
+    name: go_figure_root
+  - !ruby/object:RI::MethodSummary 
+    name: map
+  - !ruby/object:RI::MethodSummary 
+    name: middleware
+  - !ruby/object:RI::MethodSummary 
+    name: middleware!
+  - !ruby/object:RI::MethodSummary 
+    name: middleware_recompile
+  - !ruby/object:RI::MethodSummary 
+    name: node
+  - !ruby/object:RI::MethodSummary 
+    name: node_from_backtrace
+  - !ruby/object:RI::MethodSummary 
+    name: setup_dependencies
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: start!
+  - !ruby/object:RI::MethodSummary 
+    name: stop
+  - !ruby/object:RI::MethodSummary 
+    name: sync
+  - !ruby/object:RI::MethodSummary 
+    name: teardown_dependencies
+  - !ruby/object:RI::MethodSummary 
+    name: to
+name: SingletonMethods
+superclass: 

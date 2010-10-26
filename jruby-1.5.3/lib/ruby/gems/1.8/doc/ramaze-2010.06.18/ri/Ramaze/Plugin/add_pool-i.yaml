@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Plugin#add_pool
+is_singleton: false
+name: add_pool
+params: (pool)
+visibility: public

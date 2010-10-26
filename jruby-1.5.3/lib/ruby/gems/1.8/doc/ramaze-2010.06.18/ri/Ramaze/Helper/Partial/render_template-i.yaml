@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Render the template file in view_root of the current controller.
+  - !ruby/struct:SM::Flow::P 
+    body: "TODO:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: Doesn't work for absolute paths, but there are no specs for that yet.
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: the local variable hack isn't working because innate allocates a new binding. For now one can simply use instance variables, which I prefer anyway.
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: "the local binding hack:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  variables.each do |key, value|\n    value = &quot;ObjectSpace._id2ref(#{value.object_id})&quot;\n    eval &quot;#{key} = #{value}&quot;, action.binding\n  end\n"
+full_name: Ramaze::Helper::Partial#render_template
+is_singleton: false
+name: render_template
+params: (path, variables = {})
+visibility: public

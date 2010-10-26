@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: visitor
+    rw: W
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cucumber::Runtime::UserInterface
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: announce
+  - !ruby/object:RI::MethodSummary 
+    name: ask
+  - !ruby/object:RI::MethodSummary 
+    name: embed
+name: UserInterface
+superclass: 

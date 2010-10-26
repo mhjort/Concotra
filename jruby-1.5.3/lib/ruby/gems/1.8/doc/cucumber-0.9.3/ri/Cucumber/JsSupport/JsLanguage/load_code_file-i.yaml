@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::JsSupport::JsLanguage#load_code_file
+is_singleton: false
+name: load_code_file
+params: (js_file)
+visibility: public

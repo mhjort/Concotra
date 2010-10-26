@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Ramaze::CoreExtensions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Ramaze::CoreExtensions</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/ramaze/snippets/object/scope_rb.html">
+                lib/ramaze/snippets/object/scope.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/object/instance_variable_defined_rb.html">
+                lib/ramaze/snippets/object/instance_variable_defined.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/object/__dir___rb.html">
+                lib/ramaze/snippets/object/__dir__.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/object/pretty_rb.html">
+                lib/ramaze/snippets/object/pretty.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/array/put_within_rb.html">
+                lib/ramaze/snippets/array/put_within.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/kernel/pretty_inspect_rb.html">
+                lib/ramaze/snippets/kernel/pretty_inspect.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/binding/locals_rb.html">
+                lib/ramaze/snippets/binding/locals.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/numeric/filesize_format_rb.html">
+                lib/ramaze/snippets/numeric/filesize_format.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/numeric/time_rb.html">
+                lib/ramaze/snippets/numeric/time.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/proc/locals_rb.html">
+                lib/ramaze/snippets/proc/locals.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/end_with_rb.html">
+                lib/ramaze/snippets/string/end_with.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/color_rb.html">
+                lib/ramaze/snippets/string/color.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/unindent_rb.html">
+                lib/ramaze/snippets/string/unindent.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/ord_rb.html">
+                lib/ramaze/snippets/string/ord.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/snake_case_rb.html">
+                lib/ramaze/snippets/string/snake_case.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/esc_rb.html">
+                lib/ramaze/snippets/string/esc.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/start_with_rb.html">
+                lib/ramaze/snippets/string/start_with.rb
+                </a>
+        <br />
+                <a href="../../files/lib/ramaze/snippets/string/camel_case_rb.html">
+                lib/ramaze/snippets/string/camel_case.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="CoreExtensions/Array.html" class="link">Ramaze::CoreExtensions::Array</a><br />
+Module <a href="CoreExtensions/Binding.html" class="link">Ramaze::CoreExtensions::Binding</a><br />
+Module <a href="CoreExtensions/Kernel.html" class="link">Ramaze::CoreExtensions::Kernel</a><br />
+Module <a href="CoreExtensions/Numeric.html" class="link">Ramaze::CoreExtensions::Numeric</a><br />
+Module <a href="CoreExtensions/Object.html" class="link">Ramaze::CoreExtensions::Object</a><br />
+Module <a href="CoreExtensions/Proc.html" class="link">Ramaze::CoreExtensions::Proc</a><br />
+Module <a href="CoreExtensions/String.html" class="link">Ramaze::CoreExtensions::String</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

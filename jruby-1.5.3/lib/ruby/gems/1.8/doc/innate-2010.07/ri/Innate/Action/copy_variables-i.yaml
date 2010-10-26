@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Copy Action#variables as instance variables into the given object. Defaults to copying the variables to self.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Object #instance_variable_set] object @return [NilClass] there is no indication of failure or success @see Action#render @author manveru"
+full_name: Innate::Action#copy_variables
+is_singleton: false
+name: copy_variables
+params: (object = instance)
+visibility: public

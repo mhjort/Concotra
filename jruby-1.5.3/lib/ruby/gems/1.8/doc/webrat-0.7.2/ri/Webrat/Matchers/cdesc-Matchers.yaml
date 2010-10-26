@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Webrat::Matchers
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: assert_contain
+  - !ruby/object:RI::MethodSummary 
+    name: assert_have_no_selector
+  - !ruby/object:RI::MethodSummary 
+    name: assert_have_no_xpath
+  - !ruby/object:RI::MethodSummary 
+    name: assert_have_selector
+  - !ruby/object:RI::MethodSummary 
+    name: assert_have_xpath
+  - !ruby/object:RI::MethodSummary 
+    name: assert_not_contain
+  - !ruby/object:RI::MethodSummary 
+    name: contain
+  - !ruby/object:RI::MethodSummary 
+    name: have_selector
+  - !ruby/object:RI::MethodSummary 
+    name: have_xpath
+  - !ruby/object:RI::MethodSummary 
+    name: match_selector
+  - !ruby/object:RI::MethodSummary 
+    name: match_xpath
+name: Matchers
+superclass: 

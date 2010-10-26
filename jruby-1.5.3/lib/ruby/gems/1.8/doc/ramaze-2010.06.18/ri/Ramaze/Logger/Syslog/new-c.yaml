@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Open the syslog library, if it is allready open, we reopen it using the new argument list. The argument list is passed on to the Syslog library so please check that, and man syslog for detailed information. There are 3 parameters:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  ident:  The identification used in the log file, defaults to $0\n  options:  defaults to  Syslog::LOG_PID | Syslog::LOG_CONS\n  facility: defaults to Syslog::LOG_USER\n"
+full_name: Ramaze::Logger::Syslog::new
+is_singleton: true
+name: new
+params: ( *args )
+visibility: public

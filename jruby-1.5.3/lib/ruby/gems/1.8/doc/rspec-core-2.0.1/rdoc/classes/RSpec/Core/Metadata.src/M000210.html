@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>process (RSpec::Core::Metadata)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/core/metadata.rb, line 26</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">user_metadata</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+        <span class="ruby-identifier">ensure_valid_keys</span>(<span class="ruby-identifier">user_metadata</span>)
+
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:describes</span>] = <span class="ruby-identifier">described_class_from</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:description</span>] = <span class="ruby-identifier">description_from</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:full_description</span>] = <span class="ruby-identifier">full_description_from</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:block</span>] = <span class="ruby-identifier">user_metadata</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:example_group_block</span>)
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:file_path</span>], <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:line_number</span>] = <span class="ruby-identifier">file_and_line_number_from</span>(<span class="ruby-identifier">caller</span>)
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>][<span class="ruby-identifier">:location</span>] = <span class="ruby-identifier">location_from</span>(<span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">:example_group</span>])
+
+        <span class="ruby-identifier">update</span>(<span class="ruby-identifier">user_metadata</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

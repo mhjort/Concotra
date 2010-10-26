@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Try to figure out the domain we are running on, this might work for some deployments but fail for others, given the combination of servers in front.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example usage"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  domain\n  # =&gt; #&lt;URI::HTTPS:0xb769ecb0 URL:https://localhost:7000/&gt;\n  domain('/foo')\n  # =&gt; #&lt;URI::HTTPS:0xb769ecb0 URL:https://localhost:7000/foo&gt;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [#to_s] path"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [URI]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @author manveru"
+full_name: Innate::Request#domain
+is_singleton: false
+name: domain
+params: (path = nil, options = {})
+visibility: public

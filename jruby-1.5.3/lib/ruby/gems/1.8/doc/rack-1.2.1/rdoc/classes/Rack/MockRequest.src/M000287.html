@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>env_for (Rack::MockRequest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/mock.rb, line 75</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">env_for</span>(<span class="ruby-identifier">uri</span>=<span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-identifier">opts</span>={})
+      <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-identifier">uri</span>)
+      <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;/#{uri.path}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?/</span>
+
+      <span class="ruby-identifier">env</span> = <span class="ruby-constant">DEFAULT_ENV</span>.<span class="ruby-identifier">dup</span>
+
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;REQUEST_METHOD&quot;</span>] = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:method</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:method</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;GET&quot;</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;SERVER_NAME&quot;</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span> <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;example.org&quot;</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;SERVER_PORT&quot;</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span> <span class="ruby-value">? </span><span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;80&quot;</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;QUERY_STRING&quot;</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;PATH_INFO&quot;</span>] = (<span class="ruby-operator">!</span><span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;/&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;rack.url_scheme&quot;</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;http&quot;</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;HTTPS&quot;</span>] = <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;rack.url_scheme&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;https&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;on&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;off&quot;</span>
+
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;SCRIPT_NAME&quot;</span>] = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:script_name</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:fatal</span>]
+        <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;rack.errors&quot;</span>] = <span class="ruby-constant">FatalWarner</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;rack.errors&quot;</span>] = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:params</span>]
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;REQUEST_METHOD&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;GET&quot;</span>
+          <span class="ruby-identifier">params</span> = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">parse_nested_query</span>(<span class="ruby-identifier">params</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+          <span class="ruby-identifier">params</span>.<span class="ruby-identifier">update</span>(<span class="ruby-constant">Utils</span>.<span class="ruby-identifier">parse_nested_query</span>(<span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;QUERY_STRING&quot;</span>]))
+          <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;QUERY_STRING&quot;</span>] = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">build_nested_query</span>(<span class="ruby-identifier">params</span>)
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">opts</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:input</span>)
+          <span class="ruby-identifier">opts</span>[<span class="ruby-value str">&quot;CONTENT_TYPE&quot;</span>] = <span class="ruby-value str">&quot;application/x-www-form-urlencoded&quot;</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span> = <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">Multipart</span>.<span class="ruby-identifier">build_multipart</span>(<span class="ruby-identifier">params</span>)
+              <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>] = <span class="ruby-identifier">data</span>
+              <span class="ruby-identifier">opts</span>[<span class="ruby-value str">&quot;CONTENT_LENGTH&quot;</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>
+              <span class="ruby-identifier">opts</span>[<span class="ruby-value str">&quot;CONTENT_TYPE&quot;</span>] = <span class="ruby-node">&quot;multipart/form-data; boundary=#{Utils::Multipart::MULTIPART_BOUNDARY}&quot;</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>] = <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">build_nested_query</span>(<span class="ruby-identifier">params</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>] = <span class="ruby-identifier">params</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">empty_str</span> = <span class="ruby-value str">&quot;&quot;</span>
+      <span class="ruby-identifier">empty_str</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-value str">&quot;ASCII-8BIT&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">empty_str</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:force_encoding</span>
+      <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">empty_str</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>]
+        <span class="ruby-identifier">rack_input</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>])
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">rack_input</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:input</span>]
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">rack_input</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">BINARY</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rack_input</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:set_encoding</span>)
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack.input'</span>] = <span class="ruby-identifier">rack_input</span>
+
+      <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;CONTENT_LENGTH&quot;</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">env</span>[<span class="ruby-value str">&quot;rack.input&quot;</span>].<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>
+
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">field</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">env</span>[<span class="ruby-identifier">field</span>] = <span class="ruby-identifier">value</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">field</span>
+      }
+
+      <span class="ruby-identifier">env</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

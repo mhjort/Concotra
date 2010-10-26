@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Webrat::HaveTagMatcher
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: assert_have_no_tag
+  - !ruby/object:RI::MethodSummary 
+    name: assert_have_tag
+  - !ruby/object:RI::MethodSummary 
+    name: have_tag
+  - !ruby/object:RI::MethodSummary 
+    name: match_tag
+name: HaveTagMatcher
+superclass: 

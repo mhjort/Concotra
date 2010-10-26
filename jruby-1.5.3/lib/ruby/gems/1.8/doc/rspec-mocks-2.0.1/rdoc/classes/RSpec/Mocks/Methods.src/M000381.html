@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>should_receive (RSpec::Mocks::Methods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rspec/mocks/methods.rb, line 4</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">sym</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">__mock_proxy</span>.<span class="ruby-identifier">add_message_expectation</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:expected_from</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">caller</span>(<span class="ruby-value">1</span>)[<span class="ruby-value">0</span>], <span class="ruby-identifier">sym</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

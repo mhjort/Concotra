@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: byte_offset
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: val
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::StepArgument
+includes: []
+
+instance_methods: []
+
+name: StepArgument
+superclass: Object

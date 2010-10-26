@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Configuration#require_mock_framework_adapter
+is_singleton: false
+name: require_mock_framework_adapter
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Metadata#for_example
+is_singleton: false
+name: for_example
+params: (description, options)
+visibility: public

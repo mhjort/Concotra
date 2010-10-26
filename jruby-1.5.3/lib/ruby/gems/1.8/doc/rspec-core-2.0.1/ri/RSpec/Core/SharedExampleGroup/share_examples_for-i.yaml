@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: shared_examples_for
+block_params: 
+comment: 
+full_name: RSpec::Core::SharedExampleGroup#share_examples_for
+is_singleton: false
+name: share_examples_for
+params: (name, &block)
+visibility: public

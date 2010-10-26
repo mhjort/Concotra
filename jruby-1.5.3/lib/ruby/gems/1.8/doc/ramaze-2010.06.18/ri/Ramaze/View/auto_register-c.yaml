@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Combine Kernel#autoload and Innate::View::register
+full_name: Ramaze::View::auto_register
+is_singleton: true
+name: auto_register
+params: (name, *exts)
+visibility: public

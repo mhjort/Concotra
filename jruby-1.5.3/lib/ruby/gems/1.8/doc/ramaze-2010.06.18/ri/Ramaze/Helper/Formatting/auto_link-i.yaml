@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: autolink
+block_params: (text)
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Turns all urls into clickable links. If a block is given, each url is yielded and the result is used as the link text.
+full_name: Ramaze::Helper::Formatting#auto_link
+is_singleton: false
+name: auto_link
+params: (text, opts = {}) {|text| ...}
+visibility: public

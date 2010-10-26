@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::Form#form_checkbox_tag
+is_singleton: false
+name: form_checkbox_tag
+params: (label, name, value, checked = false)
+visibility: public

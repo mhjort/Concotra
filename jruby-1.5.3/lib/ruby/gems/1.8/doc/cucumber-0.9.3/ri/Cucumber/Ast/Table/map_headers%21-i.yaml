@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Redefines the table headers. This makes it possible to use prettier and more flexible header names in the features. The keys of <tt>mappings</tt> are Strings or regular expressions (anything that responds to #=== will work) that may match column headings in the table. The values of <tt>mappings</tt> are desired names for the columns."
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  | Phone Number | Address |\n  | 123456       | xyz     |\n  | 345678       | abc     |\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "A StepDefinition receiving this table can then map the columns with both Regexp and String:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  table.map_headers!(/phone( number)?/i =&gt; :phone, 'Address' =&gt; :address)\n  table.hashes\n  # =&gt; [{:phone =&gt; '123456', :address =&gt; 'xyz'}, {:phone =&gt; '345678', :address =&gt; 'abc'}]\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "You may also pass in a block if you wish to convert all of the headers:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  table.map_headers! { |header| header.downcase }\n  table.hashes.keys\n  # =&gt; ['phone number', 'address']\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "When a block is passed in along with a hash then the mappings in the hash take precendence:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  table.map_headers!('Address' =&gt; 'ADDRESS') { |header| header.downcase }\n  table.hashes.keys\n  # =&gt; ['phone number', 'ADDRESS']\n"
+full_name: Cucumber::Ast::Table#map_headers!
+is_singleton: false
+name: map_headers!
+params: (mappings={}, &block)
+visibility: public

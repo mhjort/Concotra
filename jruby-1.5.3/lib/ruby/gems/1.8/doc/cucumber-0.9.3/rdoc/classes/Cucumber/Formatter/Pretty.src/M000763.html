@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>examples_name (Cucumber::Formatter::Pretty)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/pretty.rb, line 103</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">examples_name</span>(<span class="ruby-identifier">keyword</span>, <span class="ruby-identifier">name</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@visiting_first_example_name</span>
+        <span class="ruby-ivar">@visiting_first_example_name</span> = <span class="ruby-keyword kw">false</span>
+        <span class="ruby-identifier">names</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">strip</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+        <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;    #{keyword}: #{names[0]}&quot;</span>)
+        <span class="ruby-identifier">names</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;      #{s}&quot;</span> } <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">names</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">flush</span>
+        <span class="ruby-ivar">@indent</span> = <span class="ruby-value">6</span>
+        <span class="ruby-ivar">@scenario_indent</span> = <span class="ruby-value">6</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

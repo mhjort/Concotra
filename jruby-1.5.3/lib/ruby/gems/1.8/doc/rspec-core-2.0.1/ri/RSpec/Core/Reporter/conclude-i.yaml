@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: abort
+block_params: 
+comment: 
+full_name: RSpec::Core::Reporter#conclude
+is_singleton: false
+name: conclude
+params: ()
+visibility: public

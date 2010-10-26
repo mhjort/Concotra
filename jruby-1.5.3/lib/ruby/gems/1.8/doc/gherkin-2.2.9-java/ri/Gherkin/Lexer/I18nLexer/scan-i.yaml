@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Gherkin::Lexer::I18nLexer#scan
+is_singleton: false
+name: scan
+params: (source)
+visibility: public

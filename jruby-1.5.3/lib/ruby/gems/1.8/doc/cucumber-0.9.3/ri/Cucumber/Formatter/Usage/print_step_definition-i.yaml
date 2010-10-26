@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Usage#print_step_definition
+is_singleton: false
+name: print_step_definition
+params: (stepdef_key)
+visibility: public

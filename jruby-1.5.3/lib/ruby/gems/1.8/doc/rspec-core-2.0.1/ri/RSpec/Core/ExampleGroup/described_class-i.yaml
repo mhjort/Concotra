@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::ExampleGroup#described_class
+is_singleton: false
+name: described_class
+params: ()
+visibility: public

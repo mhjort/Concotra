@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: RSpec::Core::Formatters::BaseTextFormatter
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: blue
+  - !ruby/object:RI::MethodSummary 
+    name: bold
+  - !ruby/object:RI::MethodSummary 
+    name: close
+  - !ruby/object:RI::MethodSummary 
+    name: color
+  - !ruby/object:RI::MethodSummary 
+    name: colorise_summary
+  - !ruby/object:RI::MethodSummary 
+    name: dump_failures
+  - !ruby/object:RI::MethodSummary 
+    name: dump_pending
+  - !ruby/object:RI::MethodSummary 
+    name: dump_profile
+  - !ruby/object:RI::MethodSummary 
+    name: dump_summary
+  - !ruby/object:RI::MethodSummary 
+    name: green
+  - !ruby/object:RI::MethodSummary 
+    name: grey
+  - !ruby/object:RI::MethodSummary 
+    name: magenta
+  - !ruby/object:RI::MethodSummary 
+    name: message
+  - !ruby/object:RI::MethodSummary 
+    name: red
+  - !ruby/object:RI::MethodSummary 
+    name: summary_line
+  - !ruby/object:RI::MethodSummary 
+    name: white
+  - !ruby/object:RI::MethodSummary 
+    name: yellow
+name: BaseTextFormatter
+superclass: BaseFormatter

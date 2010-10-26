@@ -1,0 +1,69 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: event if block_given?
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "#traverse_balanced is an alternative to #traverse_sequences. It uses a different algorithm to iterate through the entries in the computed longest common subsequence. Instead of viewing the changes as insertions or deletions from one of the sequences, #traverse_balanced will report <em>changes</em> between the sequences. To represent a"
+  - !ruby/struct:SM::Flow::P 
+    body: "The arguments to #traverse_balanced are the two sequences to traverse and a callback object, like this:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  traverse_balanced(seq1, seq2, Diff::LCS::ContextDiffCallbacks.new)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "#sdiff is implemented with #traverse_balanced."
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Callback Methods
+  - !ruby/struct:SM::Flow::P 
+    body: Optional callback methods are <em>emphasized</em>.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "callbacks#match:"
+        body: Called when <tt>a</tt> and <tt>b</tt> are pointing to common elements in <tt>A</tt> and <tt>B</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "callbacks#discard_a:"
+        body: Called when <tt>a</tt> is pointing to an element not in <tt>B</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "callbacks#discard_b:"
+        body: Called when <tt>b</tt> is pointing to an element not in <tt>A</tt>.
+      - !ruby/struct:SM::Flow::LI 
+        label: "<em>callbacks#change</em>:"
+        body: Called when <tt>a</tt> and <tt>b</tt> are pointing to the same relative position, but <tt>A[a]</tt> and <tt>B[b]</tt> are not the same; a <em>change</em> has occurred.
+    type: :NOTE
+  - !ruby/struct:SM::Flow::P 
+    body: "#traverse_balanced might be a bit slower than #traverse_sequences, noticable only while processing huge amounts of data."
+  - !ruby/struct:SM::Flow::P 
+    body: "The <tt>sdiff</tt> function of this module is implemented as call to #traverse_balanced."
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Algorithm
+  - !ruby/struct:SM::Flow::VERB 
+    body: "      a---+\n          v\n      A = a b c e h j l m n p\n      B = b c d e f j k l m r s t\n          ^\n      b---+\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Matches
+  - !ruby/struct:SM::Flow::P 
+    body: "If there are two arrows (<tt>a</tt> and <tt>b</tt>) pointing to elements of sequences <tt>A</tt> and <tt>B</tt>, the arrows will initially point to the first elements of their respective sequences. #traverse_sequences will advance the arrows through the sequences one element at a time, calling a method on the user-specified callback object before each advance. It will advance the arrows in such a way that if there are elements <tt>A[ii]</tt> and <tt>B[jj]</tt> which are both equal and part of the longest common subsequence, there will be some moment during the execution of #traverse_sequences when arrow <tt>a</tt> is pointing to <tt>A[ii]</tt> and arrow <tt>b</tt> is pointing to <tt>B[jj]</tt>. When this happens, #traverse_sequences will call <tt>callbacks#match</tt> and then it will advance both arrows."
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Discards
+  - !ruby/struct:SM::Flow::P 
+    body: "Otherwise, one of the arrows is pointing to an element of its sequence that is not part of the longest common subsequence. #traverse_sequences will advance that arrow and will call <tt>callbacks#discard_a</tt> or <tt>callbacks#discard_b</tt>, depending on which arrow it advanced."
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Changes
+  - !ruby/struct:SM::Flow::P 
+    body: "If both <tt>a</tt> and <tt>b</tt> point to elements that are not part of the longest common subsequence, then #traverse_sequences will try to call <tt>callbacks#change</tt> and advance both arrows. If <tt>callbacks#change</tt> is not implemented, then <tt>callbacks#discard_a</tt> and <tt>callbacks#discard_b</tt> will be called in turn."
+  - !ruby/struct:SM::Flow::P 
+    body: "The methods for <tt>callbacks#match</tt>, <tt>callbacks#discard_a</tt>, <tt>callbacks#discard_b</tt>, and <tt>callbacks#change</tt> are invoked with an event comprising the action (&quot;=&quot;, &quot;+&quot;, &quot;-&quot;, or &quot;!&quot;, respectively), the indicies <tt>ii</tt> and <tt>jj</tt>, and the elements <tt>A[ii]</tt> and <tt>B[jj]</tt>. Return values are discarded by #traverse_balanced."
+  - !ruby/struct:SM::Flow::H 
+    level: 3
+    text: Context
+  - !ruby/struct:SM::Flow::P 
+    body: Note that <tt>ii</tt> and <tt>jj</tt> may not be the same index position, even if <tt>a</tt> and <tt>b</tt> are considered to be pointing to matching or changed elements.
+full_name: Diff::LCS::traverse_balanced
+is_singleton: true
+name: traverse_balanced
+params: (seq1, seq2, callbacks = Diff::LCS::BalancedCallbacks) {|event if block_given?| ...}
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: self
+comment: 
+full_name: Ramaze::Helper::BlueForm::Form#build
+is_singleton: false
+name: build
+params: (form_errors = {}) {|self| ...}
+visibility: public

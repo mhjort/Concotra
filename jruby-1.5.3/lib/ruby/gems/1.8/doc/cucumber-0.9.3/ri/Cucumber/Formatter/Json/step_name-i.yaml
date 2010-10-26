@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Json#step_name
+is_singleton: false
+name: step_name
+params: (keyword, step_match, status, source_indent, background)
+visibility: public

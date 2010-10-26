@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "TODO: DOCUMENT ME"
+full_name: Nokogiri::XML::Node#in_context
+is_singleton: false
+name: in_context
+params: (p1, p2)
+visibility: public

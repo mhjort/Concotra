@@ -1,0 +1,45 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: middlewares
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: name
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build
+  - !ruby/object:RI::MethodSummary 
+    name: build!
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: COMPILED
+    value: "{}"
+full_name: Innate::MiddlewareCompiler
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: apps
+  - !ruby/object:RI::MethodSummary 
+    name: call
+  - !ruby/object:RI::MethodSummary 
+    name: cascade
+  - !ruby/object:RI::MethodSummary 
+    name: compile
+  - !ruby/object:RI::MethodSummary 
+    name: compile!
+  - !ruby/object:RI::MethodSummary 
+    name: innate
+  - !ruby/object:RI::MethodSummary 
+    name: run
+  - !ruby/object:RI::MethodSummary 
+    name: use
+name: MiddlewareCompiler
+superclass: Object

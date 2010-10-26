@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Keywords that can be used in Gherkin source
+full_name: Gherkin::I18n#step_keywords
+is_singleton: false
+name: step_keywords
+params: ()
+visibility: public

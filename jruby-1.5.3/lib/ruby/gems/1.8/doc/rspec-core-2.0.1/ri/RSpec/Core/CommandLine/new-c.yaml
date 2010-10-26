@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::CommandLine::new
+is_singleton: true
+name: new
+params: (options, configuration=RSpec::configuration, world=RSpec::world)
+visibility: public

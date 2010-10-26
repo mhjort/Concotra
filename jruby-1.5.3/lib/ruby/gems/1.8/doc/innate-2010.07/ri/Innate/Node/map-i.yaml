@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Shortcut to map or remap this Node.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Usage for explicit mapping:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class FooBar\n    include Innate::Node\n    map '/foo_bar'\n  end\n\n  Innate.to(FooBar) # =&gt; '/foo_bar'\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Usage for automatic mapping:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class FooBar\n    include Innate::Node\n    map mapping\n  end\n\n  Innate.to(FooBar) # =&gt; '/foo_bar'\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [#to_s] location"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see Innate::SingletonMethods::map @author manveru"
+full_name: Innate::Node#map
+is_singleton: false
+name: map
+params: (location)
+visibility: public

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>usage (Ramaze::Tool::Bin::Cmd)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/tool/bin.rb, line 180</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">usage</span> <span class="ruby-comment cmt"># {{{</span>
+          <span class="ruby-identifier">txt</span> = [
+            <span class="ruby-value str">&quot;\n  Usage:&quot;</span>,
+            <span class="ruby-value str">&quot;ramaze &lt;start [PIDFILE]|stop [PIDFILE]|restart [PIDFILE]|status [PIDFILE]|create PROJECT|console&gt; [ruby/rack options]\n&quot;</span>,
+            <span class="ruby-value str">&quot;Commands:\n&quot;</span>,
+            <span class="ruby-value str">&quot;  * All commands which take an optional PIDFILE (defaults to PROJECT.pid otherwise).&quot;</span>,
+            <span class="ruby-value str">&quot;  * All commands which start a ramaze instance will default to webrick on port 7000&quot;</span>,
+            <span class="ruby-value str">&quot;    unless you supply the rack options -p/--port PORT and/or * -s/--server SERVER.\n&quot;</span>,
+            <span class="ruby-value str">&quot; start   - Starts an instance of this application.\n&quot;</span>,
+            <span class="ruby-value str">&quot; stop    - Stops a running instance of this application.\n&quot;</span>,
+            <span class="ruby-value str">&quot; restart - Stops running instance of this application, then starts it back up.  Pidfile&quot;</span>,
+            <span class="ruby-value str">&quot;           (if supplied) is used for both stop and start.\n&quot;</span>,
+            <span class="ruby-value str">&quot; status  - Gives status of a running ramaze instance\n&quot;</span>,
+            <span class="ruby-value str">&quot; create  - Creates a new prototype Ramaze application in a directory named PROJECT in&quot;</span>,
+            <span class="ruby-value str">&quot;           the current directory.  ramaze create foo would make ./foo containing an&quot;</span>,
+            <span class="ruby-value str">&quot;           application prototype. Rack options are ignored here.\n&quot;</span>,
+            <span class="ruby-value str">&quot; console - Starts an irb console with app.rb (and irb completion) loaded. This command&quot;</span>,
+            <span class="ruby-value str">&quot;           ignores rack options, ARGV is passed on to IRB.\n\n\t&quot;</span>
+          ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n\t&quot;</span>)
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">is_windows?</span>
+            <span class="ruby-identifier">txt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">%x{ruby #{rackup_path} --help}</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/^Usage:/</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n\t&quot;</span>)
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">txt</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">%x{#{rackup_path} --help}</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/^Usage:/</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n\t&quot;</span>)
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">txt</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/^\t$/</span>, <span class="ruby-value str">''</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

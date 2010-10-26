@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: node mapping procedure
+  - !ruby/struct:SM::Flow::P 
+    body: when Node is included into an object, it's added to NODE_LIST when object::map(location) is sent, it maps the object into DynaMap when Innate.start is issued, it calls Node::setup Node::setup iterates NODE_LIST and maps all objects not in DynaMap by using Node::generate_mapping(object.name) as location
+  - !ruby/struct:SM::Flow::P 
+    body: when object::map(nil) is sent, the object will be skipped in Node::setup
+full_name: Innate::Node::setup
+is_singleton: true
+name: setup
+params: ()
+visibility: public

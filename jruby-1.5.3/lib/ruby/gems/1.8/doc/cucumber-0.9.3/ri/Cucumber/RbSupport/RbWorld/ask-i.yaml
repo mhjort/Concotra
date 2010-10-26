@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: See StepMother#ask
+full_name: Cucumber::RbSupport::RbWorld#ask
+is_singleton: false
+name: ask
+params: (question, timeout_seconds=60)
+visibility: public

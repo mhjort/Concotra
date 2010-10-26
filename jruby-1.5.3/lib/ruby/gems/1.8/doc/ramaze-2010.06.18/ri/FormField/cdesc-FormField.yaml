@@ -1,0 +1,66 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: db_type
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: field
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: hint
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: id
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: show_errors
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: this
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: value
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: job = Job[4] puts CGI::pretty(FormField.new(job, :contract, show_errors = true, Job::CONTRACTS).to_s)
+constants: []
+
+full_name: FormField
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: build_errors
+  - !ruby/object:RI::MethodSummary 
+    name: build_tag
+  - !ruby/object:RI::MethodSummary 
+    name: checkbox
+  - !ruby/object:RI::MethodSummary 
+    name: db_type
+  - !ruby/object:RI::MethodSummary 
+    name: each_error
+  - !ruby/object:RI::MethodSummary 
+    name: file
+  - !ruby/object:RI::MethodSummary 
+    name: input
+  - !ruby/object:RI::MethodSummary 
+    name: password
+  - !ruby/object:RI::MethodSummary 
+    name: select
+  - !ruby/object:RI::MethodSummary 
+    name: textarea
+  - !ruby/object:RI::MethodSummary 
+    name: to_s
+name: FormField
+superclass: Object

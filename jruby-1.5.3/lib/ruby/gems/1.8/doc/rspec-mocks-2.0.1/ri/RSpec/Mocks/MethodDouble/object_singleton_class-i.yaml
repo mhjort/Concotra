@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Mocks::MethodDouble#object_singleton_class
+is_singleton: false
+name: object_singleton_class
+params: ()
+visibility: public

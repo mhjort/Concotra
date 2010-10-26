@@ -1,0 +1,19 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: a
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Create a link tag
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage, given Wiki is mapped to `/wiki`:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Wiki.a(:home)                   # =&gt; '&lt;a href=&quot;/wiki/home&quot;&gt;home&lt;/a&gt;'\n  Wiki.a('home', :home)           # =&gt; '&lt;a href=&quot;/wiki/home&quot;&gt;home&lt;/a&gt;'\n  Wiki.a('home', :/)              # =&gt; '&lt;a href=&quot;/wiki/&quot;&gt;home&lt;/a&gt;'\n  Wiki.a('foo', :/, :foo =&gt; :bar) # =&gt; '&lt;a href=&quot;/wiki/?foo=bar&quot;&gt;foo&lt;/a&gt;'\n  Wiki.a('example', 'http://example.com')\n  # =&gt; '&lt;a href=&quot;http://example.com&quot;&gt;example&lt;/a&gt;'\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String]"
+full_name: Innate::Helper::Link#anchor
+is_singleton: false
+name: anchor
+params: (text, *args)
+visibility: public

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>__diff_direction (Diff::LCS)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>      <span class="ruby-comment cmt"># File lib/diff/lcs.rb, line 939</span>
+ 939:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">__diff_direction</span>(<span class="ruby-identifier">src</span>, <span class="ruby-identifier">patchset</span>, <span class="ruby-identifier">limit</span> = <span class="ruby-keyword kw">nil</span>)
+ 940:       <span class="ruby-identifier">count</span> = <span class="ruby-identifier">left</span> = <span class="ruby-identifier">left_miss</span> = <span class="ruby-identifier">right</span> = <span class="ruby-identifier">right_miss</span> = <span class="ruby-value">0</span>
+ 941:       <span class="ruby-identifier">string</span> = <span class="ruby-identifier">src</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">String</span>)
+ 942: 
+ 943:       <span class="ruby-identifier">patchset</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">change</span><span class="ruby-operator">|</span>
+ 944:         <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 945: 
+ 946:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">change</span>
+ 947:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>
+ 948:             <span class="ruby-comment cmt"># With a simplistic change, we can't tell the difference between</span>
+ 949:             <span class="ruby-comment cmt"># the left and right on '!' actions, so we ignore those. On '='</span>
+ 950:             <span class="ruby-comment cmt"># actions, if there's a miss, we miss both left and right.</span>
+ 951:           <span class="ruby-identifier">element</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">position</span>]
+ 952: 
+ 953:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">action</span>
+ 954:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'-'</span>
+ 955:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">element</span>
+ 956:               <span class="ruby-identifier">left</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 957:             <span class="ruby-keyword kw">else</span>
+ 958:               <span class="ruby-identifier">left_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 959:             <span class="ruby-keyword kw">end</span>
+ 960:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'+'</span>
+ 961:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">element</span>
+ 962:               <span class="ruby-identifier">right</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 963:             <span class="ruby-keyword kw">else</span>
+ 964:               <span class="ruby-identifier">right_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 965:             <span class="ruby-keyword kw">end</span>
+ 966:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'='</span>
+ 967:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">element</span>
+ 968:               <span class="ruby-identifier">left_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 969:               <span class="ruby-identifier">right_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 970:             <span class="ruby-keyword kw">end</span>
+ 971:           <span class="ruby-keyword kw">end</span>
+ 972:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">ContextChange</span>
+ 973:           <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">action</span>
+ 974:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'-'</span> <span class="ruby-comment cmt"># Remove details from the old string</span>
+ 975:             <span class="ruby-identifier">element</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_position</span>]
+ 976:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_element</span>
+ 977:               <span class="ruby-identifier">left</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 978:             <span class="ruby-keyword kw">else</span>
+ 979:               <span class="ruby-identifier">left_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 980:             <span class="ruby-keyword kw">end</span>
+ 981:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'+'</span>
+ 982:             <span class="ruby-identifier">element</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_position</span>]
+ 983:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_element</span>
+ 984:               <span class="ruby-identifier">right</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 985:             <span class="ruby-keyword kw">else</span>
+ 986:               <span class="ruby-identifier">right_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 987:             <span class="ruby-keyword kw">end</span>
+ 988:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'='</span>
+ 989:             <span class="ruby-identifier">le</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_position</span>]
+ 990:             <span class="ruby-identifier">re</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_position</span>]
+ 991: 
+ 992:             <span class="ruby-identifier">left_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">le</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_element</span>
+ 993:             <span class="ruby-identifier">right_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">re</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_element</span>
+ 994:           <span class="ruby-keyword kw">when</span> <span class="ruby-value str">'!'</span>
+ 995:             <span class="ruby-identifier">element</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_position</span>]
+ 996:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">old_element</span>
+ 997:               <span class="ruby-identifier">left</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 998:             <span class="ruby-keyword kw">else</span>
+ 999:               <span class="ruby-identifier">element</span> = <span class="ruby-identifier">string</span> <span class="ruby-value">? </span><span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_position</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">src</span>[<span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_position</span>]
+1000:               <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">change</span>.<span class="ruby-identifier">new_element</span>
+1001:                 <span class="ruby-identifier">right</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+1002:               <span class="ruby-keyword kw">else</span>
+1003:                 <span class="ruby-identifier">left_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+1004:                 <span class="ruby-identifier">right_miss</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+1005:               <span class="ruby-keyword kw">end</span>
+1006:             <span class="ruby-keyword kw">end</span>
+1007:           <span class="ruby-keyword kw">end</span>
+1008:         <span class="ruby-keyword kw">end</span>
+1009: 
+1010:         <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">limit</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">limit</span>
+1011:       <span class="ruby-keyword kw">end</span>
+1012: 
+1013:       <span class="ruby-identifier">no_left</span> = (<span class="ruby-identifier">left</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">left_miss</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>)
+1014:       <span class="ruby-identifier">no_right</span> = (<span class="ruby-identifier">right</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">right_miss</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>)
+1015: 
+1016:       <span class="ruby-keyword kw">case</span> [<span class="ruby-identifier">no_left</span>, <span class="ruby-identifier">no_right</span>]
+1017:       <span class="ruby-keyword kw">when</span> [<span class="ruby-keyword kw">false</span>, <span class="ruby-keyword kw">true</span>]
+1018:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">:patch</span>
+1019:       <span class="ruby-keyword kw">when</span> [<span class="ruby-keyword kw">true</span>, <span class="ruby-keyword kw">false</span>]
+1020:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">:unpatch</span>
+1021:       <span class="ruby-keyword kw">else</span>
+1022:         <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;The provided patchset does not appear to apply to the provided value as either source or destination value.&quot;</span>
+1023:       <span class="ruby-keyword kw">end</span>
+1024:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,56 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Specify which way contents are provided and processed.
+  - !ruby/struct:SM::Flow::P 
+    body: Use this to set a templating engine, custom Content-Type, or pass a block to take over the processing of the {Action} and template yourself.
+  - !ruby/struct:SM::Flow::P 
+    body: Provides set via this method will be inherited into subclasses.
+  - !ruby/struct:SM::Flow::P 
+    body: The <tt>format</tt> is extracted from the PATH_INFO, it simply represents the last extension name in the path.
+  - !ruby/struct:SM::Flow::P 
+    body: The provide also has influence on the chosen templates for the {Action}.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example providing RSS with ERB templating"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  provide :rss, :engine =&gt; :ERB\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Given a request to `/list.rss` the template lookup first tries to find `list.rss.erb`, if that fails it falls back to `list.erb`. If neither of these are available it will try to use the return value of the method in the {Action} as template.
+  - !ruby/struct:SM::Flow::P 
+    body: A request to `/list.yaml` would match the format 'yaml'
+  - !ruby/struct:SM::Flow::P 
+    body: "@example providing a yaml version of actions"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class Articles\n    include Innate::Node\n    map '/article'\n\n    provide(:yaml, :type =&gt; 'text/yaml'){|action, value| value.to_yaml }\n\n    def list\n      @articles = Article.list\n    end\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example providing plain text inspect version"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  class Articles\n    include Innate::Node\n    map '/article'\n\n    provide(:txt, :type =&gt; 'text/plain'){|action, value| value.inspect }\n\n    def list\n      @articles = Article.list\n    end\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Proc] block"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  upon calling the action, [action, value] will be passed to it and its\n  return value becomes the response body.\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :engine [Symbol String]"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Name of an engine for View::get\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@option param :type [String]"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  default Content-Type if none was set in Response\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@raise [ArgumentError] if neither a block nor an engine was given"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api external @see View::get Node#provides @author manveru"
+  - !ruby/struct:SM::Flow::P 
+    body: "@todo"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  The comment of this method may be too short for the effects it has on\n  the rest of Innate, if you feel something is missing please let me\n  know.\n"
+full_name: Innate::Node#provide
+is_singleton: false
+name: provide
+params: (format, param = {}, &block)
+visibility: public

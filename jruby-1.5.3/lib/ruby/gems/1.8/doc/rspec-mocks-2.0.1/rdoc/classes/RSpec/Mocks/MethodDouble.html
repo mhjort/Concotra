@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RSpec::Mocks::MethodDouble</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RSpec::Mocks::MethodDouble</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/rspec/mocks/method_double_rb.html">
+                lib/rspec/mocks/method_double.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Hash
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000502">add_expectation</a>&nbsp;&nbsp;
+      <a href="#M000503">add_negative_expectation</a>&nbsp;&nbsp;
+      <a href="#M000504">add_stub</a>&nbsp;&nbsp;
+      <a href="#M000501">clear</a>&nbsp;&nbsp;
+      <a href="#M000495">configure_method</a>&nbsp;&nbsp;
+      <a href="#M000497">define_proxy_method</a>&nbsp;&nbsp;
+      <a href="#M000488">expectations</a>&nbsp;&nbsp;
+      <a href="#M000487">new</a>&nbsp;&nbsp;
+      <a href="#M000492">obfuscate</a>&nbsp;&nbsp;
+      <a href="#M000494">object_responds_to?</a>&nbsp;&nbsp;
+      <a href="#M000491">object_singleton_class</a>&nbsp;&nbsp;
+      <a href="#M000506">proxy_for_nil_class?</a>&nbsp;&nbsp;
+      <a href="#M000508">raise_method_not_stubbed_error</a>&nbsp;&nbsp;
+      <a href="#M000505">remove_stub</a>&nbsp;&nbsp;
+      <a href="#M000500">reset</a>&nbsp;&nbsp;
+      <a href="#M000509">reset_nil_expectations_warning</a>&nbsp;&nbsp;
+      <a href="#M000498">restore_original_method</a>&nbsp;&nbsp;
+      <a href="#M000496">stash_original_method</a>&nbsp;&nbsp;
+      <a href="#M000493">stashed_method_name</a>&nbsp;&nbsp;
+      <a href="#M000489">stubs</a>&nbsp;&nbsp;
+      <a href="#M000499">verify</a>&nbsp;&nbsp;
+      <a href="#M000490">visibility</a>&nbsp;&nbsp;
+      <a href="#M000507">warn_if_nil_class</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">method_name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000487" class="method-detail">
+        <a name="M000487"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000487.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000487.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(object, method_name, proxy)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000502" class="method-detail">
+        <a name="M000502"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000502.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000502.html');return false;">
+          <span class="method-name">add_expectation</span><span class="method-args">(error_generator, expectation_ordering, expected_from, opts, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000503" class="method-detail">
+        <a name="M000503"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000503.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000503.html');return false;">
+          <span class="method-name">add_negative_expectation</span><span class="method-args">(error_generator, expectation_ordering, expected_from, &amp;implementation)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000504" class="method-detail">
+        <a name="M000504"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000504.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000504.html');return false;">
+          <span class="method-name">add_stub</span><span class="method-args">(error_generator, expectation_ordering, expected_from, opts={}, &amp;implementation)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000501" class="method-detail">
+        <a name="M000501"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000501.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000501.html');return false;">
+          <span class="method-name">clear</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000495" class="method-detail">
+        <a name="M000495"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000495.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000495.html');return false;">
+          <span class="method-name">configure_method</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000497" class="method-detail">
+        <a name="M000497"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000497.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000497.html');return false;">
+          <span class="method-name">define_proxy_method</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000488" class="method-detail">
+        <a name="M000488"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000488.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000488.html');return false;">
+          <span class="method-name">expectations</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000492" class="method-detail">
+        <a name="M000492"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000492.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000492.html');return false;">
+          <span class="method-name">obfuscate</span><span class="method-args">(method_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000494" class="method-detail">
+        <a name="M000494"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000494.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000494.html');return false;">
+          <span class="method-name">object_responds_to?</span><span class="method-args">(method_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000491" class="method-detail">
+        <a name="M000491"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000491.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000491.html');return false;">
+          <span class="method-name">object_singleton_class</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000506" class="method-detail">
+        <a name="M000506"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000506.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000506.html');return false;">
+          <span class="method-name">proxy_for_nil_class?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000508" class="method-detail">
+        <a name="M000508"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000508.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000508.html');return false;">
+          <span class="method-name">raise_method_not_stubbed_error</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000505" class="method-detail">
+        <a name="M000505"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000505.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000505.html');return false;">
+          <span class="method-name">remove_stub</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000500" class="method-detail">
+        <a name="M000500"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000500.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000500.html');return false;">
+          <span class="method-name">reset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000509" class="method-detail">
+        <a name="M000509"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000509.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000509.html');return false;">
+          <span class="method-name">reset_nil_expectations_warning</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000498" class="method-detail">
+        <a name="M000498"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000498.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000498.html');return false;">
+          <span class="method-name">restore_original_method</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000496" class="method-detail">
+        <a name="M000496"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000496.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000496.html');return false;">
+          <span class="method-name">stash_original_method</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000493" class="method-detail">
+        <a name="M000493"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000493.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000493.html');return false;">
+          <span class="method-name">stashed_method_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000489" class="method-detail">
+        <a name="M000489"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000489.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000489.html');return false;">
+          <span class="method-name">stubs</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000499" class="method-detail">
+        <a name="M000499"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000499.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000499.html');return false;">
+          <span class="method-name">verify</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000490" class="method-detail">
+        <a name="M000490"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000490.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000490.html');return false;">
+          <span class="method-name">visibility</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000507" class="method-detail">
+        <a name="M000507"></a>
+
+        <div class="method-heading">
+          <a href="MethodDouble.src/M000507.html" target="Code" class="method-signature"
+            onclick="popupCode('MethodDouble.src/M000507.html');return false;">
+          <span class="method-name">warn_if_nil_class</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

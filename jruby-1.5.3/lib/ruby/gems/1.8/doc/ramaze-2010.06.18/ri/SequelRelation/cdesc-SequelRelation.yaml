@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: relations
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Pretty DSL to express Sequel relations
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  SequelRelation.relations do\n    the User do\n      has_many Article\n      has_one Avatar\n    end\n\n    the Article do\n      belongs_to User\n    end\n\n    the Avatar do\n      belongs_to User\n    end\n  end\n"
+constants: []
+
+full_name: SequelRelation
+includes: []
+
+instance_methods: []
+
+name: SequelRelation
+superclass: 

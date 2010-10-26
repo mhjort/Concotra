@@ -1,0 +1,179 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/Webrat/Selenium/ApplicationServerFactory.html#M000539">app_server_instance (Webrat::Selenium::ApplicationServerFactory)</a><br />
+    <a href="classes/Webrat/Configuration.html#M000631">application_port_for_selenium (Webrat::Configuration)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000490">assert_contain (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000564">assert_contain (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000562">assert_have_no_selector (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000488">assert_have_no_selector (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000485">assert_have_no_tag (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/HaveTagMatcher.html#M000558">assert_have_no_tag (Webrat::HaveTagMatcher)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000569">assert_have_no_xpath (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000494">assert_have_no_xpath (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000487">assert_have_selector (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000561">assert_have_selector (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/HaveTagMatcher.html#M000557">assert_have_tag (Webrat::HaveTagMatcher)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000484">assert_have_tag (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000568">assert_have_xpath (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000493">assert_have_xpath (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000491">assert_not_contain (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000565">assert_not_contain (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Scope.html#M000609">attach_file (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000580">automate (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000630">automate (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000618">basic_auth (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000540">boot (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000541">boot (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Base.html#M000527">boot (Webrat::Selenium::ApplicationServers::Base)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000590">check (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000601">check (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Session.html#M000619">check_for_infinite_redirects (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Scope.html#M000603">choose (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000589">choose (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000610">click_area (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000585">click_button (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000612">click_button (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000611">click_link (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000586">click_link (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000624">click_link_within (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000587">click_link_within (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000489">contain (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000563">contain (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000598">create_browser (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000584">current_url (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveSelector.html#M000497">does_not_match? (Webrat::Selenium::Matchers::HaveSelector)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveXpath.html#M000502">does_not_match? (Webrat::Selenium::Matchers::HaveXpath)</a><br />
+    <a href="classes/Webrat/Session.html#M000627">dom (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Sinatra.html#M000525">fail (Webrat::Selenium::ApplicationServers::Sinatra)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rails.html#M000519">fail (Webrat::Selenium::ApplicationServers::Rails)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rack.html#M000534">fail (Webrat::Selenium::ApplicationServers::Rack)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Merb.html#M000513">fail (Webrat::Selenium::ApplicationServers::Merb)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/External.html#M000508">fail (Webrat::Selenium::ApplicationServers::External)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000549">fail (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveXpath.html#M000503">failure_message (Webrat::Selenium::Matchers::HaveXpath)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveSelector.html#M000498">failure_message (Webrat::Selenium::Matchers::HaveSelector)</a><br />
+    <a href="classes/Webrat/Locators.html#M000551">field_by_xpath (Webrat::Locators)</a><br />
+    <a href="classes/Webrat/Locators.html#M000554">field_labeled (Webrat::Locators)</a><br />
+    <a href="classes/Webrat/Locators.html#M000553">field_named (Webrat::Locators)</a><br />
+    <a href="classes/Webrat/Locators.html#M000552">field_with_id (Webrat::Locators)</a><br />
+    <a href="classes/Webrat/Scope.html#M000599">fill_in (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000582">fill_in (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000592">fire_event (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000559">have_selector (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000486">have_selector (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000482">have_tag (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/HaveTagMatcher.html#M000555">have_tag (Webrat::HaveTagMatcher)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000492">have_xpath (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000566">have_xpath (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Session.html#M000616">header (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000617">http_accept (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000620">infinite_redirect_limit_exceeded? (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000621">internal_redirect? (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000545">jar_path (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000593">key_down (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000594">key_up (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000560">match_selector (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/HaveTagMatcher.html#M000556">match_tag (Webrat::HaveTagMatcher)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers.html#M000483">match_tag (Webrat::Selenium::Matchers)</a><br />
+    <a href="classes/Webrat/Matchers.html#M000567">match_xpath (Webrat::Matchers)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveXpath.html#M000501">matches? (Webrat::Selenium::Matchers::HaveXpath)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveSelector.html#M000496">matches? (Webrat::Selenium::Matchers::HaveSelector)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Merb.html#M000516">merb_command (Webrat::Selenium::ApplicationServers::Merb)</a><br />
+    <a href="classes/Webrat/Configuration.html#M000632">mode= (Webrat::Configuration)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveXpath.html#M000504">negative_failure_message (Webrat::Selenium::Matchers::HaveXpath)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveSelector.html#M000499">negative_failure_message (Webrat::Selenium::Matchers::HaveSelector)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveSelector.html#M000495">new (Webrat::Selenium::Matchers::HaveSelector)</a><br />
+    <a href="classes/Webrat/Session.html#M000615">new (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SeleniumResponse.html#M000577">new (Webrat::SeleniumResponse)</a><br />
+    <a href="classes/Webrat/Selenium/Matchers/HaveXpath.html#M000500">new (Webrat::Selenium::Matchers::HaveXpath)</a><br />
+    <a href="classes/Webrat/SinatraAdapter.html#M000572">new (Webrat::SinatraAdapter)</a><br />
+    <a href="classes/Webrat/SaveAndOpenPage.html#M000571">open_in_browser (Webrat::SaveAndOpenPage)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Sinatra.html#M000526">pid_file (Webrat::Selenium::ApplicationServers::Sinatra)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/External.html#M000509">pid_file (Webrat::Selenium::ApplicationServers::External)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Merb.html#M000514">pid_file (Webrat::Selenium::ApplicationServers::Merb)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rails.html#M000520">pid_file (Webrat::Selenium::ApplicationServers::Rails)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Base.html#M000531">prepare_pid_file (Webrat::Selenium::ApplicationServers::Base)</a><br />
+    <a href="classes/Webrat/Session.html#M000622">redirected_to (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000623">reload (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000544">remote_control (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000583">response (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/RackAdapter.html#M000576">response (Webrat::RackAdapter)</a><br />
+    <a href="classes/Webrat/Selenium/Methods.html#M000536">response (Webrat::Selenium::Methods)</a><br />
+    <a href="classes/Webrat/RackAdapter.html#M000573">response_body (Webrat::RackAdapter)</a><br />
+    <a href="classes/Webrat/RackAdapter.html#M000574">response_code (Webrat::RackAdapter)</a><br />
+    <a href="classes/Webrat/RackAdapter.html#M000575">response_headers (Webrat::RackAdapter)</a><br />
+    <a href="classes/Webrat/SaveAndOpenPage.html#M000570">save_and_open_page (Webrat::SaveAndOpenPage)</a><br />
+    <a href="classes/Webrat/Selenium/Methods.html#M000538">save_and_open_screengrab (Webrat::Selenium::Methods)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000597">save_and_open_screengrab (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000614">scoped_dom (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000588">select (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000604">select (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000606">select_date (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000608">select_datetime (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000607">select_time (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000596">selenium (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/SeleniumResponse.html#M000578">selenium (Webrat::SeleniumResponse)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000546">selenium_grid? (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Scope.html#M000600">set_hidden_field (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Selenium/SilenceStream.html#M000505">silence_stream (Webrat::Selenium::SilenceStream)</a><br />
+    <a href="classes/Webrat/Session.html#M000629">simulate (Webrat::Session)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000579">simulate (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rails.html#M000517">start (Webrat::Selenium::ApplicationServers::Rails)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Merb.html#M000511">start (Webrat::Selenium::ApplicationServers::Merb)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Sinatra.html#M000523">start (Webrat::Selenium::ApplicationServers::Sinatra)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/External.html#M000506">start (Webrat::Selenium::ApplicationServers::External)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rack.html#M000532">start (Webrat::Selenium::ApplicationServers::Rack)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000542">start (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rails.html#M000521">start_command (Webrat::Selenium::ApplicationServers::Rails)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rack.html#M000535">start_command (Webrat::Selenium::ApplicationServers::Rack)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Merb.html#M000515">start_command (Webrat::Selenium::ApplicationServers::Merb)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Sinatra.html#M000524">stop (Webrat::Selenium::ApplicationServers::Sinatra)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000550">stop (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rails.html#M000518">stop (Webrat::Selenium::ApplicationServers::Rails)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Merb.html#M000512">stop (Webrat::Selenium::ApplicationServers::Merb)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rack.html#M000533">stop (Webrat::Selenium::ApplicationServers::Rack)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/External.html#M000507">stop (Webrat::Selenium::ApplicationServers::External)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Base.html#M000528">stop_at_exit (Webrat::Selenium::ApplicationServers::Base)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000543">stop_at_exit (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Rails.html#M000522">stop_command (Webrat::Selenium::ApplicationServers::Rails)</a><br />
+    <a href="classes/Webrat/Scope.html#M000613">submit_form (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000591">uncheck (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Scope.html#M000602">uncheck (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/Scope.html#M000605">unselect (Webrat::Scope)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000581">visit (Webrat::SeleniumSession)</a><br />
+    <a href="classes/Webrat/Session.html#M000626">visit (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000547">wait (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Base.html#M000529">wait (Webrat::Selenium::ApplicationServers::Base)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/External.html#M000510">wait (Webrat::Selenium::ApplicationServers::External)</a><br />
+    <a href="classes/Webrat/Selenium/Methods.html#M000537">wait_for (Webrat::Selenium::Methods)</a><br />
+    <a href="classes/Webrat/SeleniumSession.html#M000595">wait_for (Webrat::SeleniumSession)</a><br />
+    <a href="classes/TCPSocket.html#M000481">wait_for_service_termination_with_timeout (TCPSocket)</a><br />
+    <a href="classes/TCPSocket.html#M000480">wait_for_service_with_timeout (TCPSocket)</a><br />
+    <a href="classes/Webrat/Selenium/ApplicationServers/Base.html#M000530">wait_for_socket (Webrat::Selenium::ApplicationServers::Base)</a><br />
+    <a href="classes/Webrat/Selenium/SeleniumRCServer.html#M000548">wait_for_socket (Webrat::Selenium::SeleniumRCServer)</a><br />
+    <a href="classes/Webrat/Session.html#M000625">within (Webrat::Session)</a><br />
+    <a href="classes/Webrat/Session.html#M000628">xml_content_type? (Webrat::Session)</a><br />
+  </div>
+</div>
+</body>
+</html>

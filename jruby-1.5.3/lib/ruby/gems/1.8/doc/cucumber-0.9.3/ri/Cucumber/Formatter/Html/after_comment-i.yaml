@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Formatter::Html#after_comment
+is_singleton: false
+name: after_comment
+params: (comment)
+visibility: public

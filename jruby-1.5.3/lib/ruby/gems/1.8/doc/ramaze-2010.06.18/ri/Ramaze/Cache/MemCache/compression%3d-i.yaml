@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: turn compression on or off
+full_name: Ramaze::Cache::MemCache#compression=
+is_singleton: false
+name: compression=
+params: (bool)
+visibility: public

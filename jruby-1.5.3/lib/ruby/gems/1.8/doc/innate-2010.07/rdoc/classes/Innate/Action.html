@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Innate::Action</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Innate::Action</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/innate/action_rb.html">
+                lib/innate/action.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Struct.new(*ACTION_MEMBERS)
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000575">binding</a>&nbsp;&nbsp;
+      <a href="#M000574">call</a>&nbsp;&nbsp;
+      <a href="#M000577">copy_variables</a>&nbsp;&nbsp;
+      <a href="#M000572">create</a>&nbsp;&nbsp;
+      <a href="#M000584">full_path</a>&nbsp;&nbsp;
+      <a href="#M000581">layout_view_or_method</a>&nbsp;&nbsp;
+      <a href="#M000573">merge!</a>&nbsp;&nbsp;
+      <a href="#M000583">name</a>&nbsp;&nbsp;
+      <a href="#M000578">render</a>&nbsp;&nbsp;
+      <a href="#M000580">render_in_layout</a>&nbsp;&nbsp;
+      <a href="#M000576">sync_variables</a>&nbsp;&nbsp;
+      <a href="#M000585">valid?</a>&nbsp;&nbsp;
+      <a href="#M000582">wrap_in_current</a>&nbsp;&nbsp;
+      <a href="#M000579">wrap_in_layout</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000572" class="method-detail">
+        <a name="M000572"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000572.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000572.html');return false;">
+          <span class="method-name">create</span><span class="method-args">(hash = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Note that the default cannot be a constant as assigning the value objects
+to the struct would modify them and might lead to bugs due to persisting
+action contents.
+</p>
+<p>
+@param [Hash, to_hash] hash used to seed new <a
+href="Action.html">Action</a> instance @return [<a
+href="Action.html">Action</a>] action with the given defaults from hash
+@api stable @author manveru
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000575" class="method-detail">
+        <a name="M000575"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000575.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000575.html');return false;">
+          <span class="method-name">binding</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [Binding] <a href="Action.html#M000575">binding</a> of the instance
+for this <a href="Action.html">Action</a> @see <a
+href="Node.html#M000443">Node#binding</a> @api stable @author manveru
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000574" class="method-detail">
+        <a name="M000574"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000574.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000574.html');return false;">
+          <span class="method-name">call</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Call the <a href="Action.html">Action</a> instance, will insert itself
+temporarily into Current.actions during the <a
+href="Action.html#M000578">render</a> operation so even in nested calls one
+can still access all other <a href="Action.html">Action</a> instances. Will
+initialize the assigned node and <a href="Action.html#M000574">call</a> <a
+href="Action.html#M000578">Action#render</a>
+</p>
+<p>
+@return [String] The rendition of all nested calls @see <a
+href="Action.html#M000578">Action#render</a> <a
+href="Node.html#M000421">Node#action_found</a> @api stable @author manveru
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000577" class="method-detail">
+        <a name="M000577"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000577.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000577.html');return false;">
+          <span class="method-name">copy_variables</span><span class="method-args">(object = instance)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Copy Action#variables as instance variables into the given object. Defaults
+to copying the variables to self.
+</p>
+<p>
+@param [Object instance_variable_set] object @return [NilClass] there is no
+indication of failure or success @see <a
+href="Action.html#M000578">Action#render</a> @author manveru
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000584" class="method-detail">
+        <a name="M000584"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000584.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000584.html');return false;">
+          <span class="method-name">full_path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Path to this action, including params, with the mapping of the current
+controller prepended.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000581" class="method-detail">
+        <a name="M000581"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000581.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000581.html');return false;">
+          <span class="method-name">layout_view_or_method</span><span class="method-args">(name, arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000573" class="method-detail">
+        <a name="M000573"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000573.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000573.html');return false;">
+          <span class="method-name">merge!</span><span class="method-args">(hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000583" class="method-detail">
+        <a name="M000583"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000583.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000583.html');return false;">
+          <span class="method-name">name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Try to figure out a sane <a href="Action.html#M000583">name</a> for current
+action.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000578" class="method-detail">
+        <a name="M000578"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000578.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000578.html');return false;">
+          <span class="method-name">render</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000580" class="method-detail">
+        <a name="M000580"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000580.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000580.html');return false;">
+          <span class="method-name">render_in_layout</span><span class="method-args">() {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000576" class="method-detail">
+        <a name="M000576"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000576.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000576.html');return false;">
+          <span class="method-name">sync_variables</span><span class="method-args">(from_action)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Copy the instance variable names and values from given from_action#instance
+into the Action#variables of the action this method is called on.
+</p>
+<p>
+@param [<a href="Action.html">Action</a> instance] from_action @return [<a
+href="Action.html">Action</a>] from_action @see <a
+href="Action.html#M000579">Action#wrap_in_layout</a> @api unstable @author
+manveru
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000585" class="method-detail">
+        <a name="M000585"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000585.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000585.html');return false;">
+          <span class="method-name">valid?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000582" class="method-detail">
+        <a name="M000582"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000582.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000582.html');return false;">
+          <span class="method-name">wrap_in_current</span><span class="method-args">() {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000579" class="method-detail">
+        <a name="M000579"></a>
+
+        <div class="method-heading">
+          <a href="Action.src/M000579.html" target="Code" class="method-signature"
+            onclick="popupCode('Action.src/M000579.html');return false;">
+          <span class="method-name">wrap_in_layout</span><span class="method-args">() {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

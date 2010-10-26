@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: file
+block_params: 
+comment: 
+full_name: Ramaze::Helper::BlueForm::Form#input_file
+is_singleton: false
+name: input_file
+params: (label, name)
+visibility: public

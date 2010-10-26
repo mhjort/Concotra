@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: statistics about usage
+full_name: Ramaze::Cache::MemCache#stats
+is_singleton: false
+name: stats
+params: ()
+visibility: public

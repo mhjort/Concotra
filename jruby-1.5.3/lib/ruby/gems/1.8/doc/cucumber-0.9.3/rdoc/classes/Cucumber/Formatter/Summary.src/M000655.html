@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>scenario_summary (Cucumber::Formatter::Summary)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/summary.rb, line 5</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">scenario_summary</span>(<span class="ruby-identifier">step_mother</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">scenarios_proc</span> = <span class="ruby-identifier">lambda</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">status</span><span class="ruby-operator">|</span> <span class="ruby-identifier">step_mother</span>.<span class="ruby-identifier">scenarios</span>(<span class="ruby-identifier">status</span>)}
+        <span class="ruby-identifier">dump_count</span>(<span class="ruby-identifier">step_mother</span>.<span class="ruby-identifier">scenarios</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value str">&quot;scenario&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">dump_status_counts</span>(<span class="ruby-identifier">scenarios_proc</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

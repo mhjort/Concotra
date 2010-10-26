@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Verifies that a submit button exists for the form, then submits the form, follows any redirects, and verifies the final page was successful.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  click_button &quot;Login&quot;\n  click_button\n"
+  - !ruby/struct:SM::Flow::P 
+    body: The URL and HTTP method for the form submission are automatically read from the <tt>action</tt> and <tt>method</tt> attributes of the <tt>&lt;form&gt;</tt> element.
+full_name: Webrat::Scope#click_button
+is_singleton: false
+name: click_button
+params: (value = nil)
+visibility: public

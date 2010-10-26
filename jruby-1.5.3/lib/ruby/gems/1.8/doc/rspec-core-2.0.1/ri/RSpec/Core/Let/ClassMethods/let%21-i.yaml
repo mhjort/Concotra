@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Just like <tt>let()</tt>, except the block is invoked by an implicit <tt>before</tt> hook. This serves a dual purpose of setting up state and providing a memoized reference to that state.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Examples
+  - !ruby/struct:SM::Flow::VERB 
+    body: " class Thing\n   def self.count\n     @count ||= 0\n   end\n\n   def self.count=(val)\n     @count += val\n   end\n\n   def self.reset_count\n     @count = 0\n   end\n\n   def initialize\n     self.class.count += 1\n   end\n end\n\n describe Thing do\n   after(:each) { Thing.reset_count }\n\n   context &quot;using let&quot; do\n     let(:thing) { Thing.new }\n\n     it &quot;is not invoked implicitly&quot; do\n       Thing.count.should == 0\n     end\n\n     it &quot;can be invoked explicitly&quot; do\n       thing\n       Thing.count.should == 1\n     end\n   end\n\n   context &quot;using let!&quot; do\n     let!(:thing) { Thing.new }\n\n     it &quot;is invoked implicitly&quot; do\n       Thing.count.should == 1\n     end\n\n     it &quot;returns memoized version on first invocation&quot; do\n       thing\n       Thing.count.should == 1\n     end\n   end\n end\n"
+full_name: RSpec::Core::Let::ClassMethods#let!
+is_singleton: false
+name: let!
+params: (name, &block)
+visibility: public

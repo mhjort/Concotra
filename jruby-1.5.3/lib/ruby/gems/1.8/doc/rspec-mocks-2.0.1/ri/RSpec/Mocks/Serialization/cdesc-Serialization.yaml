@@ -1,0 +1,16 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: fix_for
+comment: 
+constants: []
+
+full_name: RSpec::Mocks::Serialization
+includes: []
+
+instance_methods: []
+
+name: Serialization
+superclass: 

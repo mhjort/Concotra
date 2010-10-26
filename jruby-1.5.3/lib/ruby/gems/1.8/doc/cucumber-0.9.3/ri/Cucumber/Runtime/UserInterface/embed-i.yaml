@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Embed <tt>file</tt> of MIME type <tt>mime_type</tt> into the output. This may or may not be ignored, depending on what kind of formatter(s) are active.
+full_name: Cucumber::Runtime::UserInterface#embed
+is_singleton: false
+name: embed
+params: (file, mime_type)
+visibility: public

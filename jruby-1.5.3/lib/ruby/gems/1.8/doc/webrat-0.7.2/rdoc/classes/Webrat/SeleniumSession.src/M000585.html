@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>click_button (Webrat::SeleniumSession)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/webrat/selenium/selenium_session.rb, line 71</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">click_button</span>(<span class="ruby-identifier">button_text_or_regexp</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">button_text_or_regexp</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span> <span class="ruby-operator">==</span> {}
+        <span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">button_text_or_regexp</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">button_text_or_regexp</span>
+        <span class="ruby-identifier">pattern</span> = <span class="ruby-identifier">adjust_if_regexp</span>(<span class="ruby-identifier">button_text_or_regexp</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">pattern</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">'*'</span>
+      <span class="ruby-identifier">locator</span> = <span class="ruby-node">&quot;button=#{pattern}&quot;</span>
+
+      <span class="ruby-identifier">selenium</span>.<span class="ruby-identifier">wait_for_element</span> <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">:timeout_in_seconds</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>
+      <span class="ruby-identifier">selenium</span>.<span class="ruby-identifier">click</span> <span class="ruby-identifier">locator</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

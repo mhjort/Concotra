@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Diff::LCS::ContextChange::new
+is_singleton: true
+name: new
+params: (action, old_position, old_element, new_position, new_element)
+visibility: public

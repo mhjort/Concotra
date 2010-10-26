@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Diff::LCS::Hunk)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/diff/lcs/hunk.rb, line 25</span>
+25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">data_old</span>, <span class="ruby-identifier">data_new</span>, <span class="ruby-identifier">piece</span>, <span class="ruby-identifier">context</span>, <span class="ruby-identifier">file_length_difference</span>)
+26:       <span class="ruby-comment cmt"># At first, a hunk will have just one Block in it</span>
+27:     <span class="ruby-ivar">@blocks</span> = [ <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">piece</span>) ]
+28:     <span class="ruby-ivar">@data_old</span> = <span class="ruby-identifier">data_old</span>
+29:     <span class="ruby-ivar">@data_new</span> = <span class="ruby-identifier">data_new</span>
+30: 
+31:     <span class="ruby-identifier">before</span> = <span class="ruby-identifier">after</span> = <span class="ruby-identifier">file_length_difference</span>
+32:     <span class="ruby-identifier">after</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">diff_size</span>
+33:     <span class="ruby-ivar">@file_length_difference</span> = <span class="ruby-identifier">after</span> <span class="ruby-comment cmt"># The caller must get this manually</span>
+34: 
+35:       <span class="ruby-comment cmt"># Save the start &amp; end of each array. If the array doesn't exist</span>
+36:       <span class="ruby-comment cmt"># (e.g., we're only adding items in this block), then figure out the</span>
+37:       <span class="ruby-comment cmt"># line number based on the line number of the other file and the</span>
+38:       <span class="ruby-comment cmt"># current difference in file lengths.</span>
+39:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">remove</span>.<span class="ruby-identifier">empty?</span>
+40:       <span class="ruby-identifier">a1</span> = <span class="ruby-identifier">a2</span> = <span class="ruby-keyword kw">nil</span>
+41:     <span class="ruby-keyword kw">else</span>
+42:       <span class="ruby-identifier">a1</span> = <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">remove</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">position</span>
+43:       <span class="ruby-identifier">a2</span> = <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">remove</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">position</span>
+44:     <span class="ruby-keyword kw">end</span>
+45: 
+46:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">insert</span>.<span class="ruby-identifier">empty?</span>
+47:       <span class="ruby-identifier">b1</span> = <span class="ruby-identifier">b2</span> = <span class="ruby-keyword kw">nil</span>
+48:     <span class="ruby-keyword kw">else</span>
+49:       <span class="ruby-identifier">b1</span> = <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">insert</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">position</span>
+50:       <span class="ruby-identifier">b2</span> = <span class="ruby-ivar">@blocks</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">insert</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">position</span>
+51:     <span class="ruby-keyword kw">end</span>
+52: 
+53:     <span class="ruby-ivar">@start_old</span> = <span class="ruby-identifier">a1</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">b1</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">before</span>)
+54:     <span class="ruby-ivar">@start_new</span> = <span class="ruby-identifier">b1</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">a1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">before</span>)
+55:     <span class="ruby-ivar">@end_old</span>   = <span class="ruby-identifier">a2</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">b2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">after</span>)
+56:     <span class="ruby-ivar">@end_new</span>   = <span class="ruby-identifier">b2</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">a2</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">after</span>)
+57: 
+58:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">flag_context</span> = <span class="ruby-identifier">context</span>
+59:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

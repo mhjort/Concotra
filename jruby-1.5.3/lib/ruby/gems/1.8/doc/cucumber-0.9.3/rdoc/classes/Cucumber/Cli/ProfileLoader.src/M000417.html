@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>args_from (Cucumber::Cli::ProfileLoader)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/cli/profile_loader.rb, line 12</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">args_from</span>(<span class="ruby-identifier">profile</span>)
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">cucumber_yml</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">profile</span>)
+          <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ProfileNotFound</span>, <span class="ruby-value str">&quot;Could not find profile: '\#{profile}'\n\nDefined profiles in cucumber.yml:\n* \#{cucumber_yml.keys.join(\&quot;\\n  * \&quot;)}\n&quot;</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">args_from_yml</span> = <span class="ruby-identifier">cucumber_yml</span>[<span class="ruby-identifier">profile</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
+
+        <span class="ruby-keyword kw">case</span>(<span class="ruby-identifier">args_from_yml</span>)
+          <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">YmlLoadError</span>, <span class="ruby-node">&quot;The '#{profile}' profile in cucumber.yml was blank.  Please define the command line arguments for the '#{profile}' profile in cucumber.yml.\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args_from_yml</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\s*$/</span>
+            <span class="ruby-keyword kw">if</span>(<span class="ruby-constant">Cucumber</span><span class="ruby-operator">::</span><span class="ruby-constant">WINDOWS</span>)
+              <span class="ruby-comment cmt">#Shellwords treats backslash as an escape character so here's a rudimentary approximation of the same code</span>
+              <span class="ruby-identifier">args_from_yml</span> = <span class="ruby-identifier">args_from_yml</span>.<span class="ruby-identifier">split</span>
+              <span class="ruby-identifier">args_from_yml</span> = <span class="ruby-identifier">args_from_yml</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/^\&quot;(.*)\&quot;/</span>,<span class="ruby-value str">'\1'</span>) }
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">require</span> <span class="ruby-value str">'shellwords'</span>
+              <span class="ruby-identifier">args_from_yml</span> = <span class="ruby-constant">Shellwords</span>.<span class="ruby-identifier">shellwords</span>(<span class="ruby-identifier">args_from_yml</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">YmlLoadError</span>, <span class="ruby-node">&quot;The '#{profile}' profile in cucumber.yml was empty.  Please define the command line arguments for the '#{profile}' profile in cucumber.yml.\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args_from_yml</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">YmlLoadError</span>, <span class="ruby-node">&quot;The '#{profile}' profile in cucumber.yml was a #{args_from_yml.class}. It must be a String or Array&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">args_from_yml</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: SequelRelation::RelationshipManager#belongs_to
+is_singleton: false
+name: belongs_to
+params: (model)
+visibility: public

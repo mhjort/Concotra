@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Little helper to give you a hand when benching parts of actions
+constants: []
+
+full_name: Ramaze::Helper::Bench
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: bench
+name: Bench
+superclass: 

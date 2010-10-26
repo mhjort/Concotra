@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RSpec::Core::Reporter#message
+is_singleton: false
+name: message
+params: (message)
+visibility: public

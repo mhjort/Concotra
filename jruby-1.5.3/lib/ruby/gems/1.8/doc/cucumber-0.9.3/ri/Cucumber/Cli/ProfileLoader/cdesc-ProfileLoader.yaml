@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Cucumber::Cli::ProfileLoader
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: args_from
+  - !ruby/object:RI::MethodSummary 
+    name: cucumber_yml_defined?
+  - !ruby/object:RI::MethodSummary 
+    name: has_profile?
+name: ProfileLoader
+superclass: Object

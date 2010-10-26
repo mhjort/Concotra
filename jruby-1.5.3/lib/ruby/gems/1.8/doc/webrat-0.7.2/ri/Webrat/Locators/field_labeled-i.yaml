@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Locates a form field based on a <tt>label</tt> element in the HTML source. This can be useful in order to verify that a field is pre-filled with the correct value.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  field_labeled(&quot;First name&quot;).value.should == &quot;Bryan&quot;\n"
+full_name: Webrat::Locators#field_labeled
+is_singleton: false
+name: field_labeled
+params: (label, *field_types)
+visibility: public

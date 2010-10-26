@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "&lt;select&gt; with lots of &lt;option&gt;s"
+full_name: Ramaze::ClassForm#field_time
+is_singleton: false
+name: field_time
+params: (name)
+visibility: public

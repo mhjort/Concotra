@@ -1,0 +1,160 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: LCS
+  - !ruby/object:RI::MethodSummary 
+    name: __diff_direction
+  - !ruby/object:RI::MethodSummary 
+    name: __inverse_vector
+  - !ruby/object:RI::MethodSummary 
+    name: __lcs
+  - !ruby/object:RI::MethodSummary 
+    name: __normalize_patchset
+  - !ruby/object:RI::MethodSummary 
+    name: __position_hash
+  - !ruby/object:RI::MethodSummary 
+    name: __replace_next_larger
+  - !ruby/object:RI::MethodSummary 
+    name: diff
+  - !ruby/object:RI::MethodSummary 
+    name: patch
+  - !ruby/object:RI::MethodSummary 
+    name: patch!
+  - !ruby/object:RI::MethodSummary 
+    name: sdiff
+  - !ruby/object:RI::MethodSummary 
+    name: traverse_balanced
+  - !ruby/object:RI::MethodSummary 
+    name: traverse_sequences
+  - !ruby/object:RI::MethodSummary 
+    name: unpatch!
+comment: 
+  - !ruby/struct:SM::Flow::H 
+    level: 1
+    text: Diff::LCS 1.1.2
+  - !ruby/struct:SM::Flow::P 
+    body: Computes &quot;intelligent&quot; differences between two sequenced Enumerables. This is an implementation of the McIlroy-Hunt &quot;diff&quot; algorithm for Enumerable objects that include Diffable.
+  - !ruby/struct:SM::Flow::P 
+    body: Based on Mario I. Wolczko's &lt;mario@wolczko.com&gt; Smalltalk version (1.2, 1993) and Ned Konz's &lt;perl@bike-nomad.com&gt; Perl version (Algorithm::Diff).
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Synopsis
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  require 'diff/lcs'\n\n  seq1 = %w(a b c e h j l m n p)\n  seq2 = %w(b c d e f j k l m r s t)\n\n  lcs = Diff::LCS.LCS(seq1, seq2)\n  diffs = Diff::LCS.diff(seq1, seq2)\n  sdiff = Diff::LCS.sdiff(seq1, seq2)\n  seq = Diff::LCS.traverse_sequences(seq1, seq2, callback_obj)\n  bal = Diff::LCS.traverse_balanced(seq1, seq2, callback_obj)\n  seq2 == Diff::LCS.patch(seq1, diffs)\n  seq2 == Diff::LCS.patch!(seq1, diffs)\n  seq1 == Diff::LCS.unpatch(seq2, diffs)\n  seq1 == Diff::LCS.unpatch!(seq2, diffs)\n  seq2 == Diff::LCS.patch(seq1, sdiff)\n  seq2 == Diff::LCS.patch!(seq1, sdiff)\n  seq1 == Diff::LCS.unpatch(seq2, sdiff)\n  seq1 == Diff::LCS.unpatch!(seq2, sdiff)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Alternatively, objects can be extended with Diff::LCS:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  seq1.extend(Diff::LCS)\n  lcs = seq1.lcs(seq2)\n  diffs = seq1.diff(seq2)\n  sdiff = seq1.sdiff(seq2)\n  seq = seq1.traverse_sequences(seq2, callback_obj)\n  bal = seq1.traverse_balanced(seq2, callback_obj)\n  seq2 == seq1.patch(diffs)\n  seq2 == seq1.patch!(diffs)\n  seq1 == seq2.unpatch(diffs)\n  seq1 == seq2.unpatch!(diffs)\n  seq2 == seq1.patch(sdiff)\n  seq2 == seq1.patch!(sdiff)\n  seq1 == seq2.unpatch(sdiff)\n  seq1 == seq2.unpatch!(sdiff)\n"
+  - !ruby/struct:SM::Flow::P 
+    body: Default extensions are provided for Array and String objects through the use of 'diff/lcs/array' and 'diff/lcs/string'.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Introduction (by Mark-Jason Dominus)
+  - !ruby/struct:SM::Flow::P 
+    body: <em>The following text is from the Perl documentation. The only changes have been to make the text appear better in Rdoc</em>.
+  - !ruby/struct:SM::Flow::P 
+    body: I once read an article written by the authors of <tt>diff</tt>; they said that they hard worked very hard on the algorithm until they found the right one.
+  - !ruby/struct:SM::Flow::P 
+    body: "I think what they ended up using (and I hope someone will correct me, because I am not very confident about this) was the `longest common subsequence' method. In the LCS problem, you have two sequences of items:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   a b c d f g h j q z\n   a b c d e f g i j k r x y z\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "and you want to find the longest sequence of items that is present in both original sequences in the same order. That is, you want to find a new sequence <b>S</b> which can be obtained from the first sequence by deleting some items, and from the second sequence by deleting other items. You also want <b>S</b> to be as long as possible. In this case <b>S</b> is:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   a b c d f g j z\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "From there it's only a small step to get diff-like output:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   e   h i   k   q r x y\n   +   - +   +   - + + +\n"
+  - !ruby/struct:SM::Flow::P 
+    body: This module solves the LCS problem. It also includes a canned function to generate <tt>diff</tt>-like output.
+  - !ruby/struct:SM::Flow::P 
+    body: It might seem from the example above that the LCS of two sequences is always pretty obvious, but that's not always the case, especially when the two sequences have many repeated elements. For example, consider
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   a x b y c z p d q\n   a b c a x b y c z\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "A naive approach might start by matching up the <tt>a</tt> and <tt>b</tt> that appear at the beginning of each sequence, like this:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   a x b y c         z p d q\n   a   b   c a b y c z\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "This finds the common subsequence +a b c z+. But actually, the LCS is +a x b y c z+:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "         a x b y c z p d q\n   a b c a x b y c z\n"
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Author
+  - !ruby/struct:SM::Flow::P 
+    body: This version is by Austin Ziegler &lt;diff-lcs@halostatue.ca&gt;.
+  - !ruby/struct:SM::Flow::P 
+    body: It is based on the Perl Algorithm::Diff by Ned Konz &lt;perl@bike-nomad.com&gt;, copyright &amp;copy; 2000 - 2002 and the Smalltalk diff version by Mario I. Wolczko &lt;mario@wolczko.com&gt;, copyright &amp;copy;
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "1993."
+        body: Documentation includes work by Mark-Jason Dominus.
+    type: :NUMBER
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Licence
+  - !ruby/struct:SM::Flow::P 
+    body: Copyright &amp;copy; 2004 Austin Ziegler This program is free software; you can redistribute it and/or modify it under the same terms as Ruby, or alternatively under the Perl Artistic licence.
+  - !ruby/struct:SM::Flow::H 
+    level: 2
+    text: Credits
+  - !ruby/struct:SM::Flow::P 
+    body: Much of the documentation is taken directly from the Perl Algorithm::Diff implementation and was written originally by Mark-Jason Dominus &lt;mjd-perl-diff@plover.com&gt; and later by Ned Konz. The basic Ruby implementation was re-ported from the Smalltalk implementation, available at ftp://st.cs.uiuc.edu/pub/Smalltalk/MANCHESTER/manchester/4.0/diff.st
+  - !ruby/struct:SM::Flow::P 
+    body: "#sdiff and #traverse_balanced were written for the Perl version by Mike Schilli &lt;m@perlmeister.com&gt;."
+  - !ruby/struct:SM::Flow::P 
+    body: "&quot;The algorithm is described in <em>A Fast Algorithm for Computing Longest Common Subsequences</em>, CACM, vol.20, no.5, pp.350-353, May 1977, with a few minor improvements to improve the speed.&quot;"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: An alias for DefaultCallbacks that is used in Diff::LCS#traverse_sequences.
+      - !ruby/struct:SM::Flow::VERB 
+        body: "    Diff::LCS.LCS(seq1, seq2, Diff::LCS::SequenceCallbacks)\n"
+    name: SequenceCallbacks
+    value: DefaultCallbacks
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: An alias for DefaultCallbacks that is used in Diff::LCS#traverse_balanced.
+      - !ruby/struct:SM::Flow::VERB 
+        body: "    Diff::LCS.LCS(seq1, seq2, Diff::LCS::BalancedCallbacks)\n"
+    name: BalancedCallbacks
+    value: DefaultCallbacks
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERSION
+    value: "'1.1.2'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PATCH_MAP
+    value: "{ #:nodoc:       :patch => { '+' => '+', '-' => '-', '!' => '!', '=' => '=' },       :unpatch => { '+' => '-', '-' => '+', '!' => '!', '=' => '=' }"
+full_name: Diff::LCS
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: diff
+  - !ruby/object:RI::MethodSummary 
+    name: lcs
+  - !ruby/object:RI::MethodSummary 
+    name: patch
+  - !ruby/object:RI::MethodSummary 
+    name: patch!
+  - !ruby/object:RI::MethodSummary 
+    name: sdiff
+  - !ruby/object:RI::MethodSummary 
+    name: traverse_balanced
+  - !ruby/object:RI::MethodSummary 
+    name: traverse_sequences
+  - !ruby/object:RI::MethodSummary 
+    name: unpatch
+  - !ruby/object:RI::MethodSummary 
+    name: unpatch!
+name: LCS
+superclass: 

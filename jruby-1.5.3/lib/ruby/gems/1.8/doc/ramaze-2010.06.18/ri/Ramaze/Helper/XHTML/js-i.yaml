@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Ramaze::Helper::XHTML#js
+is_singleton: false
+name: js
+params: (name)
+visibility: public

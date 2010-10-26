@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cucumber::Ast::TreeWalker#visit_background_name
+is_singleton: false
+name: visit_background_name
+params: (keyword, name, file_colon_line, source_indent)
+visibility: public

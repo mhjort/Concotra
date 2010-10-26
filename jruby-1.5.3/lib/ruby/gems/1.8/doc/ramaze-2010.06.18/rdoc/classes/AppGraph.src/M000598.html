@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>generate (AppGraph)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/contrib/app_graph.rb, line 14</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">generate</span>
+    <span class="ruby-constant">Ramaze</span><span class="ruby-operator">::</span><span class="ruby-constant">AppMap</span>.<span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">location</span>, <span class="ruby-identifier">app</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">connect</span>(<span class="ruby-identifier">location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">name</span>)
+
+      <span class="ruby-identifier">app</span>.<span class="ruby-identifier">url_map</span>.<span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c_location</span>, <span class="ruby-identifier">c_node</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">connect</span>(<span class="ruby-identifier">app</span>.<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c_node</span>)
+        <span class="ruby-identifier">connect</span>(<span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">mapping</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c_node</span>)
+
+        <span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">update_template_mappings</span>
+        <span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">view_templates</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">wish</span>, <span class="ruby-identifier">mapping</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action_name</span>, <span class="ruby-identifier">template</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">action_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">mapping</span>, <span class="ruby-identifier">action_name</span>)
+            <span class="ruby-identifier">connect</span>(<span class="ruby-identifier">c_node</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">action_path</span>, <span class="ruby-identifier">action_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">template</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">update_method_arities</span>
+        <span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">method_arities</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span>, <span class="ruby-identifier">arity</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">action_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">c_node</span>.<span class="ruby-identifier">mapping</span>, <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-identifier">connect</span>(<span class="ruby-identifier">action_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{c_node}##{method}[#{arity}]&quot;</span>, <span class="ruby-identifier">c_node</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">action_path</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

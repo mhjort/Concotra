@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>httpdigest (Ramaze::Helper::HttpDigest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/httpdigest.rb, line 65</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">httpdigest</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">session</span>[<span class="ruby-constant">SESSION_OPAQUE</span>] <span class="ruby-operator">||=</span> {}
+        <span class="ruby-identifier">session</span>[<span class="ruby-constant">SESSION_OPAQUE</span>][<span class="ruby-identifier">realm</span>] <span class="ruby-operator">||=</span> {}
+
+        <span class="ruby-identifier">http_authorization</span> = <span class="ruby-identifier">httpdigest_http_authorization</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>)
+
+        <span class="ruby-identifier">httpdigest_failure_internal</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">session_nonce</span> = <span class="ruby-identifier">session</span>[<span class="ruby-constant">SESSION_NONCE</span>]
+        <span class="ruby-identifier">httpdigest_failure_internal</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">session_opaque</span> = <span class="ruby-identifier">session</span>[<span class="ruby-constant">SESSION_OPAQUE</span>][<span class="ruby-identifier">realm</span>][<span class="ruby-identifier">uid</span>]
+
+        <span class="ruby-identifier">auth_type</span>, <span class="ruby-identifier">auth_raw</span> = <span class="ruby-identifier">http_authorization</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">' '</span>, <span class="ruby-value">2</span>)
+        <span class="ruby-identifier">httpdigest_failure_internal</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">auth_type</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'Digest'</span>
+
+        <span class="ruby-identifier">authorization</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Auth</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">Params</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">auth_raw</span>)
+
+        <span class="ruby-identifier">digest_response</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">nonce</span>, <span class="ruby-identifier">nc</span>, <span class="ruby-identifier">cnonce</span>, <span class="ruby-identifier">qop</span>, <span class="ruby-identifier">opaque</span>, <span class="ruby-identifier">uri</span> =
+          <span class="ruby-identifier">authorization</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-node">%w[response username nonce nc cnonce qop opaque uri]</span>)
+
+        <span class="ruby-identifier">httpdigest_failure_internal</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">nonce</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">session_nonce</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">opaque</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">session_opaque</span>
+
+        <span class="ruby-identifier">ha1</span> = <span class="ruby-identifier">httpdigest_lookup</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">realm</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">a2</span> = [<span class="ruby-identifier">request</span>.<span class="ruby-identifier">request_method</span>,<span class="ruby-identifier">uri</span>]
+        <span class="ruby-identifier">a2</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">read</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">qop</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;auth-int&quot;</span>
+        <span class="ruby-identifier">ha2</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">a2</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">':'</span>))
+        <span class="ruby-identifier">md5</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>([<span class="ruby-identifier">ha1</span>, <span class="ruby-identifier">nonce</span>, <span class="ruby-identifier">nc</span>, <span class="ruby-identifier">cnonce</span>, <span class="ruby-identifier">qop</span>, <span class="ruby-identifier">ha2</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">':'</span>))
+
+        <span class="ruby-identifier">httpdigest_failure_internal</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">realm</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">digest_response</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">md5</span>
+
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">username</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

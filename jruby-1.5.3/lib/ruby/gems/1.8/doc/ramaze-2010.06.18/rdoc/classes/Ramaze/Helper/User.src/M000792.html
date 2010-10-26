@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>user (Ramaze::Helper::User)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/ramaze/helper/user.rb, line 109</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">user</span>
+        <span class="ruby-identifier">env</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>
+        <span class="ruby-identifier">found</span> = <span class="ruby-identifier">env</span>[<span class="ruby-constant">RAMAZE_HELPER_USER</span>]
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">found</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">found</span>
+
+        <span class="ruby-identifier">model</span>, <span class="ruby-identifier">callback</span> = <span class="ruby-identifier">ancestral_trait</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-identifier">:user_model</span>, <span class="ruby-identifier">:user_callback</span>)
+        <span class="ruby-identifier">model</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">::</span><span class="ruby-constant">User</span>
+        <span class="ruby-identifier">env</span>[<span class="ruby-constant">RAMAZE_HELPER_USER</span>] = <span class="ruby-constant">Wrapper</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">model</span>, <span class="ruby-identifier">callback</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

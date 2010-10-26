@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_step_count (Cucumber::Formatter::Html)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cucumber/formatter/html.rb, line 385</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_step_count</span>(<span class="ruby-identifier">features</span>)
+        <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">features</span> = <span class="ruby-identifier">features</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@features&quot;</span>)
+        <span class="ruby-identifier">features</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">feature</span><span class="ruby-operator">|</span>
+          <span class="ruby-comment cmt">#get background steps</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">feature</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@background&quot;</span>)
+            <span class="ruby-identifier">background</span> = <span class="ruby-identifier">feature</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@background&quot;</span>)
+            <span class="ruby-identifier">background</span>.<span class="ruby-identifier">init</span>
+            <span class="ruby-identifier">background_steps</span> = <span class="ruby-identifier">background</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@steps&quot;</span>).<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@steps&quot;</span>)
+            <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">background_steps</span>.<span class="ruby-identifier">size</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-comment cmt">#get scenarios</span>
+          <span class="ruby-identifier">feature</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@feature_elements&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">scenario</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">init</span>
+            <span class="ruby-comment cmt">#get steps</span>
+            <span class="ruby-identifier">steps</span> = <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@steps&quot;</span>).<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@steps&quot;</span>)
+            <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">steps</span>.<span class="ruby-identifier">size</span>
+
+            <span class="ruby-comment cmt">#get example table</span>
+            <span class="ruby-identifier">examples</span> = <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@examples_array&quot;</span>)
+            <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">nil?</span>
+              <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">example</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">example_matrix</span> = <span class="ruby-identifier">example</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@outline_table&quot;</span>).<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@cell_matrix&quot;</span>)
+                <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">example_matrix</span>.<span class="ruby-identifier">size</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-comment cmt">#get multiline step tables</span>
+            <span class="ruby-identifier">steps</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">step</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">multi_arg</span> = <span class="ruby-identifier">step</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@multiline_arg&quot;</span>)
+              <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">multi_arg</span>.<span class="ruby-identifier">nil?</span>
+              <span class="ruby-identifier">matrix</span> = <span class="ruby-identifier">multi_arg</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value str">&quot;@cell_matrix&quot;</span>)
+              <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">matrix</span>.<span class="ruby-identifier">size</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">matrix</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">count</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

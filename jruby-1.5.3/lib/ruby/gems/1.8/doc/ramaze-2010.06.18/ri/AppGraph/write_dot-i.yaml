@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: AppGraph#write_dot
+is_singleton: false
+name: write_dot
+params: ()
+visibility: public
