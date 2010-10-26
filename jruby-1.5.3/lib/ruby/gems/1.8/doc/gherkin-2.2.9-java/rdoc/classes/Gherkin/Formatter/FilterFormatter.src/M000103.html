@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>examples (Gherkin::Formatter::FilterFormatter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/formatter/filter_formatter.rb, line 59</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">examples</span>(<span class="ruby-identifier">examples</span>)
+        <span class="ruby-identifier">replay!</span>
+        <span class="ruby-ivar">@examples_tags</span> = <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">tags</span>
+        <span class="ruby-ivar">@examples_name</span> = <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">name</span>
+
+        <span class="ruby-identifier">table_body_range</span> = <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">line</span><span class="ruby-operator">..</span><span class="ruby-identifier">examples</span>.<span class="ruby-identifier">rows</span>[<span class="ruby-value">-1</span>].<span class="ruby-identifier">line</span>
+        <span class="ruby-ivar">@examples_range</span> = <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">line_range</span>.<span class="ruby-identifier">first</span><span class="ruby-operator">..</span><span class="ruby-identifier">table_body_range</span>.<span class="ruby-identifier">last</span>
+        <span class="ruby-keyword kw">if</span>(<span class="ruby-ivar">@filter</span>.<span class="ruby-identifier">eval</span>([], [], [<span class="ruby-identifier">table_body_range</span>]))
+          <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">rows</span> = <span class="ruby-ivar">@filter</span>.<span class="ruby-identifier">filter_table_body_rows</span>(<span class="ruby-identifier">examples</span>.<span class="ruby-identifier">rows</span>)
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@examples_events</span> = [<span class="ruby-identifier">examples</span>]
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

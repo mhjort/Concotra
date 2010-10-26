@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>replay (Gherkin::Listener::Event)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/gherkin/listener/event.rb, line 21</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">replay</span>(<span class="ruby-identifier">listener</span>)
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">event</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\nListener: #{listener.class}, args: #{args.inspect}&quot;</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
