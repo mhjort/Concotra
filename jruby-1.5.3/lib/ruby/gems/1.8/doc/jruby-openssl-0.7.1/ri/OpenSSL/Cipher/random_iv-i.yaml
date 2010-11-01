@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Generate, set, and return a random iv. You must call cipher.encrypt or cipher.decrypt before calling this method.
+full_name: OpenSSL::Cipher#random_iv
+is_singleton: false
+name: random_iv
+params: ()
+visibility: public

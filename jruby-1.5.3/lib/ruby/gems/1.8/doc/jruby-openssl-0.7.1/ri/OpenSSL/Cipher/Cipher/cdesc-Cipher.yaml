@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This class is only provided for backwards compatibility. Use OpenSSL::Digest in the future.
+constants: []
+
+full_name: OpenSSL::Cipher::Cipher
+includes: []
+
+instance_methods: []
+
+name: Cipher
+superclass: Cipher

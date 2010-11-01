@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: OpenSSL::SSL::SSLContext#set_params
+is_singleton: false
+name: set_params
+params: (params={})
+visibility: public
