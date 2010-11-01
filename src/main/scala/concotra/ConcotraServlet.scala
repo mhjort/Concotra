@@ -15,8 +15,12 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
     if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")))
       compactResponse(-1, "0") 
     else {
-      val id = Db.newEntry(compact(JsonAST.render(("salary" -> params("salary")) ~ ("firstEmploymentStartDate" -> params("firstEmploymentStartDate")))))
-      compactResponse(id, "1")
+     val status = "1"
+     val id = Db.newEntry(compact(JsonAST.render(
+	("salary" -> params("salary")) ~ 
+	("firstEmploymentStartDate" -> params("firstEmploymentStartDate")) ~ 
+        ("status" -> status))))
+      compactResponse(id, status)
     }
   }
 

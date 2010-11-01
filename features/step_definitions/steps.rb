@@ -1,4 +1,5 @@
 require "selenium-webdriver"
+require "json"
 
 Given /^the application data form is opened$/ do
   @driver = Selenium::WebDriver.for :firefox
@@ -12,9 +13,16 @@ When /^application handler enters following information$/ do |values|
   sleep(1)
 end                                                                                                                                                                                            
 Then /^incomplete application is created$/ do
-  puts find_by_id('savedApplicationId').text
+  id = find_by_id('savedApplicationId').text
   @driver.quit                                                                                                                                               
+  saved_status = read_db_entry(id)["status"]
+  saved_status.should == "1"
 end  
+
+def read_db_entry(id) 
+  entry = IO.read("db/" + id)
+  JSON.parse(entry)
+end
 
 def find_by_id(id)
   @driver.find_element(:id, id) 
