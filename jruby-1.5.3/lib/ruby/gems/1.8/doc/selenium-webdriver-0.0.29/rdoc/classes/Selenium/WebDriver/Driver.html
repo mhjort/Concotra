@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Selenium::WebDriver::Driver</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::Driver</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/selenium/webdriver/common/driver_rb.html">
+                lib/selenium/webdriver/common/driver.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The main class through which you control the <a
+href="Driver.html#M000694">browser</a>.
+</p>
+<p>
+@see <a href="Find.html">Find</a> @see <a
+href="Navigation.html">Navigation</a> @see <a
+href="TargetLocator.html">TargetLocator</a> @see <a
+href="Options.html">Options</a>
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000692">[]</a>&nbsp;&nbsp;
+      <a href="#M000694">browser</a>&nbsp;&nbsp;
+      <a href="#M000695">capabilities</a>&nbsp;&nbsp;
+      <a href="#M000687">close</a>&nbsp;&nbsp;
+      <a href="#M000681">current_url</a>&nbsp;&nbsp;
+      <a href="#M000690">execute_script</a>&nbsp;&nbsp;
+      <a href="#M000674">for</a>&nbsp;&nbsp;
+      <a href="#M000680">get</a>&nbsp;&nbsp;
+      <a href="#M000676">inspect</a>&nbsp;&nbsp;
+      <a href="#M000679">manage</a>&nbsp;&nbsp;
+      <a href="#M000677">navigate</a>&nbsp;&nbsp;
+      <a href="#M000675">new</a>&nbsp;&nbsp;
+      <a href="#M000683">page_source</a>&nbsp;&nbsp;
+      <a href="#M000686">quit</a>&nbsp;&nbsp;
+      <a href="#M000693">ref</a>&nbsp;&nbsp;
+      <a href="#M000691">script</a>&nbsp;&nbsp;
+      <a href="#M000678">switch_to</a>&nbsp;&nbsp;
+      <a href="#M000682">title</a>&nbsp;&nbsp;
+      <a href="#M000685">visible=</a>&nbsp;&nbsp;
+      <a href="#M000684">visible?</a>&nbsp;&nbsp;
+      <a href="#M000689">window_handle</a>&nbsp;&nbsp;
+      <a href="#M000688">window_handles</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Find.html">Find</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">find_element</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">first</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+driver.first(:id, &#8216;foo&#8217;)
+
+</td>
+      </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">find_elements</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">all</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+driver.all(:class, &#8216;bar&#8217;) #=&gt; [#&lt;<a
+href="Element.html">WebDriver::Element</a>:0x1011c3b88, &#8230;]
+
+</td>
+      </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000674" class="method-detail">
+        <a name="M000674"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000674.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000674.html');return false;">
+          <span class="method-name">for</span><span class="method-args">(browser, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Driver.html#M000675">new</a> <a
+href="Driver.html">Driver</a> instance with the correct bridge <a
+href="Driver.html#M000674">for</a> the given <a
+href="Driver.html#M000694">browser</a>
+</p>
+<p>
+@param <a href="Driver.html#M000694">browser</a> [:ie, :internet_explorer,
+:remote, :chrome, :firefox, :ff]
+</p>
+<pre>
+  the driver type to use
+</pre>
+<p>
+@param *rest
+</p>
+<pre>
+  arguments passed to Bridge.new
+</pre>
+<p>
+@return [<a href="Driver.html">Driver</a>]
+</p>
+<p>
+@example
+</p>
+<pre>
+  Driver.for :firefox, :profile =&gt; &quot;some-profile&quot;
+  Driver.for :firefox, :profile =&gt; Profile.new
+  Driver.for :remote,  :url =&gt; &quot;http://localhost:4444/wd/hub&quot;, :desired_capabilities =&gt; caps
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000675" class="method-detail">
+        <a name="M000675"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000675.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000675.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(bridge)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A <a href="Driver.html#M000675">new</a> <a href="Driver.html">Driver</a>
+instance with the given bridge
+</p>
+<p>
+@api private
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000692" class="method-detail">
+        <a name="M000692"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000692.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000692.html');return false;">
+          <span class="method-name">[]</span><span class="method-args">(sel)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the first element matching the given selector. If given a <a
+href="../../String.html">String</a> or Symbol, it will be used as the id of
+the element.
+</p>
+<p>
+@param [<a href="../../String.html">String</a>,Hash] id or selector @return
+[<a href="Element.html">WebDriver::Element</a>]
+</p>
+<pre>
+  driver['someElementId']    #=&gt; #&lt;WebDriver::Element:0x1011c3b88&gt;
+  driver[:tag_name =&gt; 'div'] #=&gt; #&lt;WebDriver::Element:0x1011c3b88&gt;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000694" class="method-detail">
+        <a name="M000694"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000694.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000694.html');return false;">
+          <span class="method-name">browser</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000695" class="method-detail">
+        <a name="M000695"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000695.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000695.html');return false;">
+          <span class="method-name">capabilities</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000687" class="method-detail">
+        <a name="M000687"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000687.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000687.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Close the current window, or the <a href="Driver.html#M000694">browser</a>
+if no windows are left.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000681" class="method-detail">
+        <a name="M000681"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000681.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000681.html');return false;">
+          <span class="method-name">current_url</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the URL of the current page
+</p>
+<p>
+@return [<a href="../../String.html">String</a>]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000690" class="method-detail">
+        <a name="M000690"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000690.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000690.html');return false;">
+          <span class="method-name">execute_script</span><span class="method-args">(script, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Execute the given JavaScript
+</p>
+<p>
+@param [<a href="../../String.html">String</a>] <a
+href="Driver.html#M000691">script</a>
+</p>
+<pre>
+  JavaScript source to execute
+</pre>
+<p>
+@param [<a href="Element.html">WebDriver::Element</a>,Integer, Float,
+Boolean, NilClass, <a href="../../String.html">String</a>, Array] *args
+</p>
+<pre>
+  Arguments will be available in the given script as the 'arguments' array.
+</pre>
+<p>
+@return [<a
+href="Element.html">WebDriver::Element</a>,Integer,Float,Boolean,NilClass,<a
+href="../../String.html">String</a>,Array]
+</p>
+<pre>
+  The value returned from the script.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000680" class="method-detail">
+        <a name="M000680"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000680.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000680.html');return false;">
+          <span class="method-name">get</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Opens the specified URL in the <a href="Driver.html#M000694">browser</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000676" class="method-detail">
+        <a name="M000676"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000676.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000676.html');return false;">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000679" class="method-detail">
+        <a name="M000679"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000679.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000679.html');return false;">
+          <span class="method-name">manage</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [<a href="Options.html">Options</a>] @see <a
+href="Options.html">Options</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000677" class="method-detail">
+        <a name="M000677"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000677.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000677.html');return false;">
+          <span class="method-name">navigate</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [<a href="Navigation.html">Navigation</a>] @see <a
+href="Navigation.html">Navigation</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000683" class="method-detail">
+        <a name="M000683"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000683.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000683.html');return false;">
+          <span class="method-name">page_source</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the source of the current page
+</p>
+<p>
+@return [<a href="../../String.html">String</a>]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000686" class="method-detail">
+        <a name="M000686"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000686.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000686.html');return false;">
+          <span class="method-name">quit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Quit the <a href="Driver.html#M000694">browser</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000693" class="method-detail">
+        <a name="M000693"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000693.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000693.html');return false;">
+          <span class="method-name">ref</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Driver.html#M000674">for</a> <a href="Find.html">Find</a>
+</p>
+<p>
+@private
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000691" class="method-detail">
+        <a name="M000691"></a>
+
+        <div class="method-heading">
+          <span class="method-name">script</span><span class="method-args">(script, *args)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias <a href="Driver.html#M000674">for</a> <a
+href="Driver.html#M000690">execute_script</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000678" class="method-detail">
+        <a name="M000678"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000678.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000678.html');return false;">
+          <span class="method-name">switch_to</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [<a href="TargetLocator.html">TargetLocator</a>] @see <a
+href="TargetLocator.html">TargetLocator</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000682" class="method-detail">
+        <a name="M000682"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000682.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000682.html');return false;">
+          <span class="method-name">title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="Driver.html#M000682">title</a> of the current page
+</p>
+<p>
+@return [<a href="../../String.html">String</a>]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000685" class="method-detail">
+        <a name="M000685"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000685.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000685.html');return false;">
+          <span class="method-name">visible=</span><span class="method-args">(bool)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the visibility of the <a href="Driver.html#M000694">browser</a>. Not
+applicable <a href="Driver.html#M000674">for</a> all browsers.
+</p>
+<p>
+@param [Boolean]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000684" class="method-detail">
+        <a name="M000684"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000684.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000684.html');return false;">
+          <span class="method-name">visible?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the visibility of the <a href="Driver.html#M000694">browser</a>. Not
+applicable <a href="Driver.html#M000674">for</a> all browsers.
+</p>
+<p>
+@return [Boolean]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000689" class="method-detail">
+        <a name="M000689"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000689.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000689.html');return false;">
+          <span class="method-name">window_handle</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the current window handle
+</p>
+<p>
+@return [<a href="../../String.html">String</a>]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000688" class="method-detail">
+        <a name="M000688"></a>
+
+        <div class="method-heading">
+          <a href="Driver.src/M000688.html" target="Code" class="method-signature"
+            onclick="popupCode('Driver.src/M000688.html');return false;">
+          <span class="method-name">window_handles</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the window handles of open <a href="Driver.html#M000694">browser</a>
+windows.
+</p>
+<p>
+@return [Array] @see <a
+href="TargetLocator.html#M000633">TargetLocator#window</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

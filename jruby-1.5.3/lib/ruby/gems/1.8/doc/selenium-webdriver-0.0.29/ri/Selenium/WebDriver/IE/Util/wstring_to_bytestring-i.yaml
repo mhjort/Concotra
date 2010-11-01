@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Util#wstring_to_bytestring
+is_singleton: false
+name: wstring_to_bytestring
+params: (wstring)
+visibility: public

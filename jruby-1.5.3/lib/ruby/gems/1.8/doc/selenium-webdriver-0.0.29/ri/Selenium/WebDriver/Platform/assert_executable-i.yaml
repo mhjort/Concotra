@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Platform#assert_executable
+is_singleton: false
+name: assert_executable
+params: (path)
+visibility: public

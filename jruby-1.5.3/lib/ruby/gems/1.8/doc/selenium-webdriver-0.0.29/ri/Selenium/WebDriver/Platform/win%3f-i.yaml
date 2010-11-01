@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Platform#win?
+is_singleton: false
+name: win?
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::JRuby::Process#io
+is_singleton: false
+name: io
+params: ()
+visibility: public

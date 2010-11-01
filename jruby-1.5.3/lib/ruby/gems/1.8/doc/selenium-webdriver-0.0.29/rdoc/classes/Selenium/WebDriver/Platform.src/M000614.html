@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>os (Selenium::WebDriver::Platform)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/platform.rb, line 26</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">os</span>
+        <span class="ruby-ivar">@os</span> <span class="ruby-operator">||=</span> (
+          <span class="ruby-identifier">host_os</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-value str">'host_os'</span>]
+          <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">host_os</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/mswin|msys|mingw32/</span>
+            <span class="ruby-identifier">:windows</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/darwin|mac os/</span>
+            <span class="ruby-identifier">:macosx</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/linux/</span>
+            <span class="ruby-identifier">:linux</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/solaris|bsd/</span>
+            <span class="ruby-identifier">:unix</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">WebDriverError</span>, <span class="ruby-node">&quot;unknown os: #{host_os.inspect}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        )
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

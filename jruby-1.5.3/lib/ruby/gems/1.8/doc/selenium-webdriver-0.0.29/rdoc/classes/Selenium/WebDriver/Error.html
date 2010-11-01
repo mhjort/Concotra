@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Selenium::WebDriver::Error</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::Error</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/selenium/webdriver/remote/server_error_rb.html">
+                lib/selenium/webdriver/remote/server_error.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/common/error_rb.html">
+                lib/selenium/webdriver/common/error.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000514">for_code</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Error/ElementNotDisplayedError.html" class="link">Selenium::WebDriver::Error::ElementNotDisplayedError</a><br />
+Class <a href="Error/ElementNotEnabledError.html" class="link">Selenium::WebDriver::Error::ElementNotEnabledError</a><br />
+Class <a href="Error/ElementNotSelectableError.html" class="link">Selenium::WebDriver::Error::ElementNotSelectableError</a><br />
+Class <a href="Error/ExpectedError.html" class="link">Selenium::WebDriver::Error::ExpectedError</a><br />
+Class <a href="Error/IndexOutOfBoundsError.html" class="link">Selenium::WebDriver::Error::IndexOutOfBoundsError</a><br />
+Class <a href="Error/InvalidCookieDomainError.html" class="link">Selenium::WebDriver::Error::InvalidCookieDomainError</a><br />
+Class <a href="Error/NoCollectionError.html" class="link">Selenium::WebDriver::Error::NoCollectionError</a><br />
+Class <a href="Error/NoScriptResultError.html" class="link">Selenium::WebDriver::Error::NoScriptResultError</a><br />
+Class <a href="Error/NoStringError.html" class="link">Selenium::WebDriver::Error::NoStringError</a><br />
+Class <a href="Error/NoStringLengthError.html" class="link">Selenium::WebDriver::Error::NoStringLengthError</a><br />
+Class <a href="Error/NoStringWrapperError.html" class="link">Selenium::WebDriver::Error::NoStringWrapperError</a><br />
+Class <a href="Error/NoSuchCollectionError.html" class="link">Selenium::WebDriver::Error::NoSuchCollectionError</a><br />
+Class <a href="Error/NoSuchDocumentError.html" class="link">Selenium::WebDriver::Error::NoSuchDocumentError</a><br />
+Class <a href="Error/NoSuchDriverError.html" class="link">Selenium::WebDriver::Error::NoSuchDriverError</a><br />
+Class <a href="Error/NoSuchElementError.html" class="link">Selenium::WebDriver::Error::NoSuchElementError</a><br />
+Class <a href="Error/NoSuchFrameError.html" class="link">Selenium::WebDriver::Error::NoSuchFrameError</a><br />
+Class <a href="Error/NoSuchWindowError.html" class="link">Selenium::WebDriver::Error::NoSuchWindowError</a><br />
+Class <a href="Error/NullPointerError.html" class="link">Selenium::WebDriver::Error::NullPointerError</a><br />
+Class <a href="Error/ObsoleteElementError.html" class="link">Selenium::WebDriver::Error::ObsoleteElementError</a><br />
+Class <a href="Error/ServerError.html" class="link">Selenium::WebDriver::Error::ServerError</a><br />
+Class <a href="Error/TimeOutError.html" class="link">Selenium::WebDriver::Error::TimeOutError</a><br />
+Class <a href="Error/UnableToSetCookieError.html" class="link">Selenium::WebDriver::Error::UnableToSetCookieError</a><br />
+Class <a href="Error/UnexpectedJavascriptError.html" class="link">Selenium::WebDriver::Error::UnexpectedJavascriptError</a><br />
+Class <a href="Error/UnhandledError.html" class="link">Selenium::WebDriver::Error::UnhandledError</a><br />
+Class <a href="Error/UnknownCommandError.html" class="link">Selenium::WebDriver::Error::UnknownCommandError</a><br />
+Class <a href="Error/UnknownScriptResultError.html" class="link">Selenium::WebDriver::Error::UnknownScriptResultError</a><br />
+Class <a href="Error/UnsupportedOperationError.html" class="link">Selenium::WebDriver::Error::UnsupportedOperationError</a><br />
+Class <a href="Error/WebDriverError.html" class="link">Selenium::WebDriver::Error::WebDriverError</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Errors</td>
+          <td>=</td>
+          <td class="context-item-value">[         IndexOutOfBoundsError,         NoCollectionError,         NoStringError,         NoStringLengthError,         NoStringWrapperError,         NoSuchDriverError,         NoSuchElementError,         NoSuchFrameError,         UnknownCommandError,         ObsoleteElementError,         ElementNotDisplayedError,         ElementNotEnabledError,         UnhandledError,         ExpectedError,         ElementNotSelectableError,         NoSuchDocumentError,         UnexpectedJavascriptError,         NoScriptResultError,         UnknownScriptResultError,         NoSuchCollectionError,         TimeOutError,         NullPointerError,         NoSuchWindowError,         InvalidCookieDomainError,         UnableToSetCookieError</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000514" class="method-detail">
+        <a name="M000514"></a>
+
+        <div class="method-heading">
+          <a href="Error.src/M000514.html" target="Code" class="method-signature"
+            onclick="popupCode('Error.src/M000514.html');return false;">
+          <span class="method-name">for_code</span><span class="method-args">(code)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

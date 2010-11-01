@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::Windows::Lib::create_proc
+is_singleton: true
+name: create_proc
+params: (cmd, opts = {})
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Util#extract_elements_from
+is_singleton: false
+name: extract_elements_from
+params: (elements_ptr_ref)
+visibility: public

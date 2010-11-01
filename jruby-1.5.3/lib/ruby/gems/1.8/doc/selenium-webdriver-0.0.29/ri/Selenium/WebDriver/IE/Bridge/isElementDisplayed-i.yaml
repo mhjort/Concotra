@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Bridge#isElementDisplayed
+is_singleton: false
+name: isElementDisplayed
+params: (element_pointer)
+visibility: public

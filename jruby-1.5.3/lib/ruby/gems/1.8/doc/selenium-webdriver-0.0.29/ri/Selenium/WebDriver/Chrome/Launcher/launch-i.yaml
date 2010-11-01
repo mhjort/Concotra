@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Chrome::Launcher#launch
+is_singleton: false
+name: launch
+params: (server_url)
+visibility: public

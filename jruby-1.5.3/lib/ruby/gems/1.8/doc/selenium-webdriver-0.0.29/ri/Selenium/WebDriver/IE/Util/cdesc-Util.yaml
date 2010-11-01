@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: CP_UTF8
+    value: "65001"
+full_name: Selenium::WebDriver::IE::Util
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: create_element
+  - !ruby/object:RI::MethodSummary 
+    name: create_element_collection
+  - !ruby/object:RI::MethodSummary 
+    name: create_string
+  - !ruby/object:RI::MethodSummary 
+    name: extract_elements_from
+  - !ruby/object:RI::MethodSummary 
+    name: extract_string_from
+  - !ruby/object:RI::MethodSummary 
+    name: string_array_from
+  - !ruby/object:RI::MethodSummary 
+    name: wstring_ptr
+  - !ruby/object:RI::MethodSummary 
+    name: wstring_to_bytestring
+name: Util
+superclass: 

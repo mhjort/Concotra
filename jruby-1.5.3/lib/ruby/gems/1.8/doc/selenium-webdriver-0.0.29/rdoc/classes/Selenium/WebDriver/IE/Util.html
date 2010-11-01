@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Selenium::WebDriver::IE::Util</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::IE::Util</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/selenium/webdriver/ie/util_rb.html">
+                lib/selenium/webdriver/ie/util.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+@private
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000394">create_element</a>&nbsp;&nbsp;
+      <a href="#M000395">create_element_collection</a>&nbsp;&nbsp;
+      <a href="#M000396">create_string</a>&nbsp;&nbsp;
+      <a href="#M000398">extract_elements_from</a>&nbsp;&nbsp;
+      <a href="#M000397">extract_string_from</a>&nbsp;&nbsp;
+      <a href="#M000393">string_array_from</a>&nbsp;&nbsp;
+      <a href="#M000399">wstring_ptr</a>&nbsp;&nbsp;
+      <a href="#M000400">wstring_to_bytestring</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CP_UTF8</td>
+          <td>=</td>
+          <td class="context-item-value">65001</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000394" class="method-detail">
+        <a name="M000394"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000394.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000394.html');return false;">
+          <span class="method-name">create_element</span><span class="method-args">() {|element_ptr_ref| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000395" class="method-detail">
+        <a name="M000395"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000395.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000395.html');return false;">
+          <span class="method-name">create_element_collection</span><span class="method-args">() {|elements_ptr_ref| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000396" class="method-detail">
+        <a name="M000396"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000396.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000396.html');return false;">
+          <span class="method-name">create_string</span><span class="method-args">() {|wrapper| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000398" class="method-detail">
+        <a name="M000398"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000398.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000398.html');return false;">
+          <span class="method-name">extract_elements_from</span><span class="method-args">(elements_ptr_ref)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000397" class="method-detail">
+        <a name="M000397"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000397.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000397.html');return false;">
+          <span class="method-name">extract_string_from</span><span class="method-args">(string_ptr_ref)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000393" class="method-detail">
+        <a name="M000393"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000393.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000393.html');return false;">
+          <span class="method-name">string_array_from</span><span class="method-args">(raw_strings)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000399" class="method-detail">
+        <a name="M000399"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000399.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000399.html');return false;">
+          <span class="method-name">wstring_ptr</span><span class="method-args">(str)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000400" class="method-detail">
+        <a name="M000400"></a>
+
+        <div class="method-heading">
+          <a href="Util.src/M000400.html" target="Code" class="method-signature"
+            onclick="popupCode('Util.src/M000400.html');return false;">
+          <span class="method-name">wstring_to_bytestring</span><span class="method-args">(wstring)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

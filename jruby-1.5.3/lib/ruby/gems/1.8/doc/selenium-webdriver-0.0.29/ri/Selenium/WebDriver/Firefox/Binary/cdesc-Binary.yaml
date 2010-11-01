@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: NO_FOCUS_LIBRARY_NAME
+    value: "\"x_ignore_nofocus.so\""
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: NO_FOCUS_LIBRARIES
+    value: "[           [\"#{WebDriver.root}/selenium/webdriver/firefox/native/linux/amd64/#{NO_FOCUS_LIBRARY_NAME}\", \"amd64/#{NO_FOCUS_LIBRARY_NAME}\"],           [\"#{WebDriver.root}/selenium/webdriver/firefox/native/linux/x86/#{NO_FOCUS_LIBRARY_NAME}\", \"x86/#{NO_FOCUS_LIBRARY_NAME}\"],         ]"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: WAIT_TIMEOUT
+    value: "90"
+full_name: Selenium::WebDriver::Firefox::Binary
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: quit
+  - !ruby/object:RI::MethodSummary 
+    name: start_with
+  - !ruby/object:RI::MethodSummary 
+    name: wait
+name: Binary
+superclass: Object

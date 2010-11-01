@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>screenshot_as (Selenium::WebDriver::DriverExtensions::TakesScreenshot)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/driver_extensions/takes_screenshot.rb, line 15</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">screenshot_as</span>(<span class="ruby-identifier">format</span>)
+          <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">format</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:base64</span>
+            <span class="ruby-identifier">bridge</span>.<span class="ruby-identifier">getScreenshot</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:png</span>
+            <span class="ruby-identifier">bridge</span>.<span class="ruby-identifier">getScreenshot</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;m&quot;</span>)[<span class="ruby-value">0</span>]
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">UnsupportedOperationError</span>, <span class="ruby-node">&quot;unsupported format: #{format.inspect}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

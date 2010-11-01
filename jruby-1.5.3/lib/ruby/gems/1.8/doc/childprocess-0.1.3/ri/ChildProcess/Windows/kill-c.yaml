@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::Windows::kill
+is_singleton: true
+name: kill
+params: (signal, *pids)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Util#string_array_from
+is_singleton: false
+name: string_array_from
+params: (raw_strings)
+visibility: public

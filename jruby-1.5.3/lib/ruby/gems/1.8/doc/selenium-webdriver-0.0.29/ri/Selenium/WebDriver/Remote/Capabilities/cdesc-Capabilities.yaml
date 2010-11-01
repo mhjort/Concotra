@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: browser_name
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: css_selectors_enabled
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: javascript_enabled
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: native_events
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: platform
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: takes_screenshot
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: version
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: android
+  - !ruby/object:RI::MethodSummary 
+    name: chrome
+  - !ruby/object:RI::MethodSummary 
+    name: firefox
+  - !ruby/object:RI::MethodSummary 
+    name: htmlunit
+  - !ruby/object:RI::MethodSummary 
+    name: internet_explorer
+  - !ruby/object:RI::MethodSummary 
+    name: iphone
+  - !ruby/object:RI::MethodSummary 
+    name: json_create
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: safari
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Specification of the desired and/or actual capabilities of the browser that the server is being asked to create.
+constants: []
+
+full_name: Selenium::WebDriver::Remote::Capabilities
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: as_json
+  - !ruby/object:RI::MethodSummary 
+    name: to_json
+name: Capabilities
+superclass: Object

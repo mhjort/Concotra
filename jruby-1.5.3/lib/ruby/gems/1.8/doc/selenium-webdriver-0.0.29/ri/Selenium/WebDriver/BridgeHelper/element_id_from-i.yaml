@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::BridgeHelper#element_id_from
+is_singleton: false
+name: element_id_from
+params: (id)
+visibility: public

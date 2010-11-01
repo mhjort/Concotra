@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Bridge#findElementByPartialLinkText
+is_singleton: false
+name: findElementByPartialLinkText
+params: (parent, link_text)
+visibility: public

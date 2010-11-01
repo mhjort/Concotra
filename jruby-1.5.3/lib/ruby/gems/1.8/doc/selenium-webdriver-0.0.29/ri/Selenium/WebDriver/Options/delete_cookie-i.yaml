@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Delete the cookie with the given name
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String] name the name of the cookie to delete"
+full_name: Selenium::WebDriver::Options#delete_cookie
+is_singleton: false
+name: delete_cookie
+params: (name)
+visibility: public

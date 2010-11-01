@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Forcibly terminate the process, using increasingly harsher methods if possible.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Fixnum] timeout (3) Seconds to wait before trying the next method."
+full_name: ChildProcess::AbstractProcess#stop
+is_singleton: false
+name: stop
+params: (timeout = 3)
+visibility: public

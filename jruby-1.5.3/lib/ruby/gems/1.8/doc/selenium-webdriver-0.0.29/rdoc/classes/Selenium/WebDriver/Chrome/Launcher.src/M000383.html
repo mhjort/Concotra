@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>launcher (Selenium::WebDriver::Chrome::Launcher)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/chrome/launcher.rb, line 11</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">launcher</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+          <span class="ruby-identifier">launcher</span> =  <span class="ruby-keyword kw">case</span> <span class="ruby-constant">Platform</span>.<span class="ruby-identifier">os</span>
+                      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:windows</span>
+                        <span class="ruby-constant">WindowsLauncher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+                      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:macosx</span>
+                        <span class="ruby-constant">MacOSXLauncher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+                      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:unix</span>, <span class="ruby-identifier">:linux</span>
+                        <span class="ruby-constant">UnixLauncher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+                      <span class="ruby-keyword kw">else</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown OS: #{Platform.os}&quot;</span>
+                      <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">launcher</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

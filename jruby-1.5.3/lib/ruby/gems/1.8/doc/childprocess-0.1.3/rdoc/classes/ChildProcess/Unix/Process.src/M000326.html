@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>stop (ChildProcess::Unix::Process)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/childprocess/unix/process.rb, line 9</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stop</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-value">3</span>)
+        <span class="ruby-identifier">assert_started</span>
+        <span class="ruby-identifier">send_term</span>
+
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">poll_for_exit</span>(<span class="ruby-identifier">timeout</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">TimeoutError</span>
+          <span class="ruby-comment cmt"># try next</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">send_kill</span>
+        <span class="ruby-identifier">wait</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECHILD</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ESRCH</span>
+        <span class="ruby-comment cmt"># handle rase condition where process dies between timeout</span>
+        <span class="ruby-comment cmt"># and send_kill</span>
+        <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

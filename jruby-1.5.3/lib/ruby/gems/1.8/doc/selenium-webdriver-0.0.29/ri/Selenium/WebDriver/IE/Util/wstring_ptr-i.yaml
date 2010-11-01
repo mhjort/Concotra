@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Util#wstring_ptr
+is_singleton: false
+name: wstring_ptr
+params: (str)
+visibility: public

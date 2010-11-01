@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_TIMEOUT
+    value: "30"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_INTERVAL
+    value: "0.5"
+full_name: Selenium::WebDriver::Wait
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: until
+name: Wait
+superclass: Object

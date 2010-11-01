@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: switchToActiveElement
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Bridge#getActiveElement
+is_singleton: false
+name: getActiveElement
+params: ()
+visibility: public

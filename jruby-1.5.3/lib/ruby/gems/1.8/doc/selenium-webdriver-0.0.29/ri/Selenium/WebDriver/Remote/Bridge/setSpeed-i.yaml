@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Bridge#setSpeed
+is_singleton: false
+name: setSpeed
+params: (value)
+visibility: public

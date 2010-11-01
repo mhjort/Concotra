@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Chrome::Launcher::MacOSXLauncher::possible_paths
+is_singleton: true
+name: possible_paths
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Firefox::Profile#load_no_focus_lib?
+is_singleton: false
+name: load_no_focus_lib?
+params: ()
+visibility: public

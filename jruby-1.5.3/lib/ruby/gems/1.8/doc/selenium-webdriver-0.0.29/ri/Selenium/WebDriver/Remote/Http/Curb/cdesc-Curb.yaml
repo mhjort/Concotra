@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: An alternative to the default Net::HTTP client.
+  - !ruby/struct:SM::Flow::P 
+    body: This can be used for the Firefox and Remote drivers if you have Curb installed.
+  - !ruby/struct:SM::Flow::P 
+    body: "@example Using Curb"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  require 'selenium/webdriver/remote/http/curb'\n  include Selenium\n\n  driver = WebDriver.for :firefox, :http_client =&gt; WebDriver::Remote::Http::Curb\n"
+constants: []
+
+full_name: Selenium::WebDriver::Remote::Http::Curb
+includes: []
+
+instance_methods: []
+
+name: Curb
+superclass: Common

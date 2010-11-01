@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: timeout
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MAX_REDIRECTS
+    value: "20"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: CONTENT_TYPE
+    value: "\"application/json\""
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_HEADERS
+    value: "{ \"Accept\" => CONTENT_TYPE, \"Content-Length\" => \"0\" }"
+full_name: Selenium::WebDriver::Remote::Http::Common
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: call
+name: Common
+superclass: Object

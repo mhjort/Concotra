@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: EM_NAMESPACE_URI
+    value: "\"http://www.mozilla.org/2004/em-rdf#\""
+full_name: Selenium::WebDriver::Firefox::Extension
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: write_to
+name: Extension
+superclass: Object

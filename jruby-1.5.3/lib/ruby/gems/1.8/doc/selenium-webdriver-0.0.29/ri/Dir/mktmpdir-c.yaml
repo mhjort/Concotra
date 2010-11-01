@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: path
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+full_name: Dir::mktmpdir
+is_singleton: true
+name: mktmpdir
+params: (prefix_suffix=nil, tmpdir=nil) {|path| ...}
+visibility: public

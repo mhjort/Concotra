@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: for Find and execute_script
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+full_name: Selenium::WebDriver::Element#ref
+is_singleton: false
+name: ref
+params: ()
+visibility: public

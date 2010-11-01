@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>dragElement (Selenium::WebDriver::IE::Bridge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/ie/bridge.rb, line 440</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dragElement</span>(<span class="ruby-identifier">element_pointer</span>, <span class="ruby-identifier">right_by</span>, <span class="ruby-identifier">down_by</span>)
+          <span class="ruby-comment cmt"># TODO: check return values?</span>
+          <span class="ruby-identifier">hwnd</span>                = <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:pointer</span>
+          <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">4</span>) { <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:long</span> }
+
+          <span class="ruby-identifier">check_error_code</span> <span class="ruby-constant">Lib</span>.<span class="ruby-identifier">wdeGetDetailsOnceScrolledOnToScreen</span>(<span class="ruby-identifier">element_pointer</span>, <span class="ruby-identifier">hwnd</span>, <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>),
+                           <span class="ruby-value str">&quot;unable to determine location once scrolled on to screen&quot;</span>
+
+          <span class="ruby-constant">Lib</span>.<span class="ruby-identifier">wdeMouseDownAt</span>(<span class="ruby-identifier">hwnd</span>.<span class="ruby-identifier">get_pointer</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">x</span>.<span class="ruby-identifier">get_long</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">y</span>.<span class="ruby-identifier">get_long</span>(<span class="ruby-value">0</span>))
+
+          <span class="ruby-identifier">destination_x</span> = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">get_long</span>(<span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">right_by</span>
+          <span class="ruby-identifier">destination_y</span> = <span class="ruby-identifier">y</span>.<span class="ruby-identifier">get_long</span>(<span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">down_by</span>
+          <span class="ruby-identifier">duration</span>      = <span class="ruby-value">500</span> <span class="ruby-comment cmt"># TODO: parent.manage().getSpeed().getTimeOut();</span>
+
+          <span class="ruby-constant">Lib</span>.<span class="ruby-identifier">wdeMouseMoveTo</span>(<span class="ruby-identifier">hwnd</span>.<span class="ruby-identifier">get_pointer</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">x</span>.<span class="ruby-identifier">get_long</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">y</span>.<span class="ruby-identifier">get_long</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">destination_x</span>, <span class="ruby-identifier">destination_y</span>)
+          <span class="ruby-constant">Lib</span>.<span class="ruby-identifier">wdeMouseUpAt</span>(<span class="ruby-identifier">hwnd</span>.<span class="ruby-identifier">get_pointer</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">destination_x</span>, <span class="ruby-identifier">destination_y</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

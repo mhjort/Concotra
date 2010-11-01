@@ -1,0 +1,75 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: bridge
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Selenium::WebDriver::Element
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: Find
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ==
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: as_json
+  - !ruby/object:RI::MethodSummary 
+    name: attribute
+  - !ruby/object:RI::MethodSummary 
+    name: clear
+  - !ruby/object:RI::MethodSummary 
+    name: click
+  - !ruby/object:RI::MethodSummary 
+    name: displayed?
+  - !ruby/object:RI::MethodSummary 
+    name: drag_and_drop_by
+  - !ruby/object:RI::MethodSummary 
+    name: drag_and_drop_on
+  - !ruby/object:RI::MethodSummary 
+    name: enabled?
+  - !ruby/object:RI::MethodSummary 
+    name: eql?
+  - !ruby/object:RI::MethodSummary 
+    name: hash
+  - !ruby/object:RI::MethodSummary 
+    name: hover
+  - !ruby/object:RI::MethodSummary 
+    name: inspect
+  - !ruby/object:RI::MethodSummary 
+    name: location
+  - !ruby/object:RI::MethodSummary 
+    name: ref
+  - !ruby/object:RI::MethodSummary 
+    name: select
+  - !ruby/object:RI::MethodSummary 
+    name: selected?
+  - !ruby/object:RI::MethodSummary 
+    name: send_key
+  - !ruby/object:RI::MethodSummary 
+    name: send_keys
+  - !ruby/object:RI::MethodSummary 
+    name: size
+  - !ruby/object:RI::MethodSummary 
+    name: style
+  - !ruby/object:RI::MethodSummary 
+    name: submit
+  - !ruby/object:RI::MethodSummary 
+    name: tag_name
+  - !ruby/object:RI::MethodSummary 
+    name: text
+  - !ruby/object:RI::MethodSummary 
+    name: to_json
+  - !ruby/object:RI::MethodSummary 
+    name: toggle
+  - !ruby/object:RI::MethodSummary 
+    name: value
+name: Element
+superclass: Object

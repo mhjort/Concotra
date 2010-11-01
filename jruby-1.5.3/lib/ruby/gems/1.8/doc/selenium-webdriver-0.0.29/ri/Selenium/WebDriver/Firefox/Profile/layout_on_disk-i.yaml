@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Firefox::Profile#layout_on_disk
+is_singleton: false
+name: layout_on_disk
+params: ()
+visibility: public

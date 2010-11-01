@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::Windows::Lib::msvcrt_name
+is_singleton: true
+name: msvcrt_name
+params: ()
+visibility: public

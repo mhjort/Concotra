@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::AbstractIO#inherit!
+is_singleton: false
+name: inherit!
+params: ()
+visibility: public

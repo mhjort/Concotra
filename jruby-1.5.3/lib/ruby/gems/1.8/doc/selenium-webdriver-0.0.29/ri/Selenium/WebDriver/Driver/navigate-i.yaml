@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Navigation] @see Navigation"
+full_name: Selenium::WebDriver::Driver#navigate
+is_singleton: false
+name: navigate
+params: ()
+visibility: public

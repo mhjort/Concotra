@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::Windows::Lib::get_os_file_handle
+is_singleton: true
+name: get_os_file_handle
+params: (fd_or_io)
+visibility: public

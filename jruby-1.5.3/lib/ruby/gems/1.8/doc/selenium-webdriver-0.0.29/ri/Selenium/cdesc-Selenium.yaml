@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "encoding: utf-8"
+constants: []
+
+full_name: Selenium
+includes: []
+
+instance_methods: []
+
+name: Selenium
+superclass: 

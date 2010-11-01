@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+constants: []
+
+full_name: Selenium::WebDriver::Platform
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: assert_executable
+  - !ruby/object:RI::MethodSummary 
+    name: bitsize
+  - !ruby/object:RI::MethodSummary 
+    name: engine
+  - !ruby/object:RI::MethodSummary 
+    name: find_binary
+  - !ruby/object:RI::MethodSummary 
+    name: home
+  - !ruby/object:RI::MethodSummary 
+    name: ironruby?
+  - !ruby/object:RI::MethodSummary 
+    name: jruby?
+  - !ruby/object:RI::MethodSummary 
+    name: linux?
+  - !ruby/object:RI::MethodSummary 
+    name: mac?
+  - !ruby/object:RI::MethodSummary 
+    name: make_writable
+  - !ruby/object:RI::MethodSummary 
+    name: os
+  - !ruby/object:RI::MethodSummary 
+    name: ruby187?
+  - !ruby/object:RI::MethodSummary 
+    name: ruby19?
+  - !ruby/object:RI::MethodSummary 
+    name: win?
+  - !ruby/object:RI::MethodSummary 
+    name: wrap_in_quotes_if_necessary
+name: Platform
+superclass: 

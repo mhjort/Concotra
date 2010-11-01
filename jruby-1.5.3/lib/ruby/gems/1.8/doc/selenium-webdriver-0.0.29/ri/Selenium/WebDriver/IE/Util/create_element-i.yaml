@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: element_ptr_ref
+comment: 
+full_name: Selenium::WebDriver::IE::Util#create_element
+is_singleton: false
+name: create_element
+params: (&blk) {|element_ptr_ref| ...}
+visibility: public

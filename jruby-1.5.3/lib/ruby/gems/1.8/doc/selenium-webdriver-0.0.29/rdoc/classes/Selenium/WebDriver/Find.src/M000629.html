@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>find_element (Selenium::WebDriver::Find)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/find.rb, line 34</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_element</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">how</span>, <span class="ruby-identifier">what</span> = <span class="ruby-identifier">extract_args</span>(<span class="ruby-identifier">args</span>)
+
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">by</span> = <span class="ruby-constant">FINDERS</span>[<span class="ruby-identifier">how</span>.<span class="ruby-identifier">to_sym</span>]
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;cannot find element by #{how.inspect}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">meth</span> = <span class="ruby-node">&quot;findElementBy#{by}&quot;</span>
+        <span class="ruby-identifier">what</span> = <span class="ruby-identifier">what</span>.<span class="ruby-identifier">to_s</span>
+
+        <span class="ruby-identifier">bridge</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">meth</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">what</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

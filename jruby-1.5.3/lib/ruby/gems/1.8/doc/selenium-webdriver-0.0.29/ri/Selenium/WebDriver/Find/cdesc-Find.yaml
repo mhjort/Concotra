@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FINDERS
+    value: "{         :class             => 'ClassName',         :class_name        => 'ClassName',         :css               => 'CssSelector',         :id                => 'Id',         :link              => 'LinkText',         :link_text         => 'LinkText',         :name              => 'Name',         :partial_link_text => 'PartialLinkText',         :tag_name          => 'TagName',         :xpath             => 'Xpath',       }"
+full_name: Selenium::WebDriver::Find
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: find_element
+  - !ruby/object:RI::MethodSummary 
+    name: find_elements
+name: Find
+superclass: 

@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: for_code
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: Errors
+    value: "[         IndexOutOfBoundsError,         NoCollectionError,         NoStringError,         NoStringLengthError,         NoStringWrapperError,         NoSuchDriverError,         NoSuchElementError,         NoSuchFrameError,         UnknownCommandError,         ObsoleteElementError,         ElementNotDisplayedError,         ElementNotEnabledError,         UnhandledError,         ExpectedError,         ElementNotSelectableError,         NoSuchDocumentError,         UnexpectedJavascriptError,         NoScriptResultError,         UnknownScriptResultError,         NoSuchCollectionError,         TimeOutError,         NullPointerError,         NoSuchWindowError,         InvalidCookieDomainError,         UnableToSetCookieError"
+full_name: Selenium::WebDriver::Error
+includes: []
+
+instance_methods: []
+
+name: Error
+superclass: 

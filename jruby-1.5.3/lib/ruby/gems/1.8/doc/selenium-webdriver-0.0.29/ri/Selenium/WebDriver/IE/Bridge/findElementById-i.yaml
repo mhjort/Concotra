@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Bridge#findElementById
+is_singleton: false
+name: findElementById
+params: (parent, id)
+visibility: public

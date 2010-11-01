@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: ChildProcess</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">ChildProcess</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/childprocess/errors_rb.html">
+                lib/childprocess/errors.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/unix_rb.html">
+                lib/childprocess/unix.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/ironruby_rb.html">
+                lib/childprocess/ironruby.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/jruby_rb.html">
+                lib/childprocess/jruby.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/windows/handle_rb.html">
+                lib/childprocess/windows/handle.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/windows/io_rb.html">
+                lib/childprocess/windows/io.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/windows/process_rb.html">
+                lib/childprocess/windows/process.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/windows/functions_rb.html">
+                lib/childprocess/windows/functions.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/windows/api_rb.html">
+                lib/childprocess/windows/api.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/ironruby/process_rb.html">
+                lib/childprocess/ironruby/process.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/abstract_io_rb.html">
+                lib/childprocess/abstract_io.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/jruby/redirector_rb.html">
+                lib/childprocess/jruby/redirector.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/jruby/io_rb.html">
+                lib/childprocess/jruby/io.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/jruby/process_rb.html">
+                lib/childprocess/jruby/process.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/abstract_process_rb.html">
+                lib/childprocess/abstract_process.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/windows_rb.html">
+                lib/childprocess/windows.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/unix/io_rb.html">
+                lib/childprocess/unix/io.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess/unix/process_rb.html">
+                lib/childprocess/unix/process.rb
+                </a>
+        <br />
+                <a href="../files/lib/childprocess_rb.html">
+                lib/childprocess.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000322">jruby?</a>&nbsp;&nbsp;
+      <a href="#M000319">new</a>&nbsp;&nbsp;
+      <a href="#M000324">os</a>&nbsp;&nbsp;
+      <a href="#M000320">platform</a>&nbsp;&nbsp;
+      <a href="#M000321">unix?</a>&nbsp;&nbsp;
+      <a href="#M000323">windows?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="ChildProcess/IronRuby.html" class="link">ChildProcess::IronRuby</a><br />
+Module <a href="ChildProcess/JRuby.html" class="link">ChildProcess::JRuby</a><br />
+Module <a href="ChildProcess/Unix.html" class="link">ChildProcess::Unix</a><br />
+Module <a href="ChildProcess/Windows.html" class="link">ChildProcess::Windows</a><br />
+Class <a href="ChildProcess/AbstractIO.html" class="link">ChildProcess::AbstractIO</a><br />
+Class <a href="ChildProcess/AbstractProcess.html" class="link">ChildProcess::AbstractProcess</a><br />
+Class <a href="ChildProcess/Error.html" class="link">ChildProcess::Error</a><br />
+Class <a href="ChildProcess/SubclassResponsibility.html" class="link">ChildProcess::SubclassResponsibility</a><br />
+Class <a href="ChildProcess/TimeoutError.html" class="link">ChildProcess::TimeoutError</a><br />
+
+    </div>
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">new</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">build</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000322" class="method-detail">
+        <a name="M000322"></a>
+
+        <div class="method-heading">
+          <a href="ChildProcess.src/M000322.html" target="Code" class="method-signature"
+            onclick="popupCode('ChildProcess.src/M000322.html');return false;">
+          <span class="method-name">jruby?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000319" class="method-detail">
+        <a name="M000319"></a>
+
+        <div class="method-heading">
+          <a href="ChildProcess.src/M000319.html" target="Code" class="method-signature"
+            onclick="popupCode('ChildProcess.src/M000319.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000324" class="method-detail">
+        <a name="M000324"></a>
+
+        <div class="method-heading">
+          <a href="ChildProcess.src/M000324.html" target="Code" class="method-signature"
+            onclick="popupCode('ChildProcess.src/M000324.html');return false;">
+          <span class="method-name">os</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000320" class="method-detail">
+        <a name="M000320"></a>
+
+        <div class="method-heading">
+          <a href="ChildProcess.src/M000320.html" target="Code" class="method-signature"
+            onclick="popupCode('ChildProcess.src/M000320.html');return false;">
+          <span class="method-name">platform</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000321" class="method-detail">
+        <a name="M000321"></a>
+
+        <div class="method-heading">
+          <a href="ChildProcess.src/M000321.html" target="Code" class="method-signature"
+            onclick="popupCode('ChildProcess.src/M000321.html');return false;">
+          <span class="method-name">unix?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000323" class="method-detail">
+        <a name="M000323"></a>
+
+        <div class="method-heading">
+          <a href="ChildProcess.src/M000323.html" target="Code" class="method-signature"
+            onclick="popupCode('ChildProcess.src/M000323.html');return false;">
+          <span class="method-name">windows?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

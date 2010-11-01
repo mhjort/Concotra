@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Create a new Profile instance
+  - !ruby/struct:SM::Flow::P 
+    body: "@example User configured profile"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  profile = Selenium::WebDriver::Firefox::Profile.new\n  profile['network.proxy.http'] = 'localhost'\n  profile['network.proxy.http_port'] = 9090\n\n  driver = Selenium::WebDriver.for :firefox, :profile =&gt; profile\n"
+full_name: Selenium::WebDriver::Firefox::Profile::new
+is_singleton: true
+name: new
+params: (model = nil)
+visibility: public

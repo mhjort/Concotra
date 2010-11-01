@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IE::Lib::finalize_element
+is_singleton: true
+name: finalize_element
+params: (ptr)
+visibility: public

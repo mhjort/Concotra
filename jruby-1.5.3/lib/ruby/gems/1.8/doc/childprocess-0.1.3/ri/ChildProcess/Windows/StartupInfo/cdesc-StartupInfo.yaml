@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: typedef struct _STARTUPINFO {
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  DWORD  cb;\n  LPTSTR lpReserved;\n  LPTSTR lpDesktop;\n  LPTSTR lpTitle;\n  DWORD  dwX;\n  DWORD  dwY;\n  DWORD  dwXSize;\n  DWORD  dwYSize;\n  DWORD  dwXCountChars;\n  DWORD  dwYCountChars;\n  DWORD  dwFillAttribute;\n  DWORD  dwFlags;\n  WORD   wShowWindow;\n  WORD   cbReserved2;\n  LPBYTE lpReserved2;\n  HANDLE hStdInput;\n  HANDLE hStdOutput;\n  HANDLE hStdError;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "} STARTUPINFO, *LPSTARTUPINFO;"
+constants: []
+
+full_name: ChildProcess::Windows::StartupInfo
+includes: []
+
+instance_methods: []
+
+name: StartupInfo
+superclass: FFI::Struct

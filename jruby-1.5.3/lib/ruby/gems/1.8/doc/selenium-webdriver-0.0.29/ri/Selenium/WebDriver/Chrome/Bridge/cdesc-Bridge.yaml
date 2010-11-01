@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+constants: []
+
+full_name: Selenium::WebDriver::Chrome::Bridge
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: browser
+  - !ruby/object:RI::MethodSummary 
+    name: capabilities
+  - !ruby/object:RI::MethodSummary 
+    name: deleteCookie
+  - !ruby/object:RI::MethodSummary 
+    name: driver_extensions
+  - !ruby/object:RI::MethodSummary 
+    name: elementEquals
+  - !ruby/object:RI::MethodSummary 
+    name: findElementByCssSelector
+  - !ruby/object:RI::MethodSummary 
+    name: findElementsByCssSelector
+  - !ruby/object:RI::MethodSummary 
+    name: getAllCookies
+  - !ruby/object:RI::MethodSummary 
+    name: getScreenshot
+  - !ruby/object:RI::MethodSummary 
+    name: getSpeed
+  - !ruby/object:RI::MethodSummary 
+    name: quit
+  - !ruby/object:RI::MethodSummary 
+    name: setImplicitWaitTimeout
+  - !ruby/object:RI::MethodSummary 
+    name: setSpeed
+name: Bridge
+superclass: Remote::Bridge

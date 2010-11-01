@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: stderr
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: stdout
+    rw: R
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: ChildProcess::AbstractIO
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: inherit!
+  - !ruby/object:RI::MethodSummary 
+    name: stderr=
+  - !ruby/object:RI::MethodSummary 
+    name: stdout=
+name: AbstractIO
+superclass: Object

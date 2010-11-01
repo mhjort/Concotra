@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Chrome::Bridge#getScreenshot
+is_singleton: false
+name: getScreenshot
+params: ()
+visibility: public

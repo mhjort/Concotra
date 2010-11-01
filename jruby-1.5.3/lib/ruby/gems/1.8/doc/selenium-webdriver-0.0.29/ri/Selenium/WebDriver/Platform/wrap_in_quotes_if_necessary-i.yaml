@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Platform#wrap_in_quotes_if_necessary
+is_singleton: false
+name: wrap_in_quotes_if_necessary
+params: (str)
+visibility: public

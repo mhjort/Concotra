@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Chrome::Bridge#findElementsByCssSelector
+is_singleton: false
+name: findElementsByCssSelector
+params: (parent, selector)
+visibility: public

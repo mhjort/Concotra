@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Chrome::Launcher::WindowsLauncher::registry_path
+is_singleton: true
+name: registry_path
+params: ()
+visibility: public

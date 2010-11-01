@@ -1,0 +1,79 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: kill
+  - !ruby/object:RI::MethodSummary 
+    name: waitpid
+  - !ruby/object:RI::MethodSummary 
+    name: waitpid2
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FORMAT_MESSAGE_FROM_SYSTEM
+    value: "0x00001000"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: FORMAT_MESSAGE_ARGUMENT_ARRAY
+    value: "0x00002000"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROCESS_ALL_ACCESS
+    value: "0x1F0FFF"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROCESS_QUERY_INFORMATION
+    value: "0x0400"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROCESS_VM_READ
+    value: "0x0010"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: PROCESS_STILL_ACTIVE
+    value: "259"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: INFINITE
+    value: "0xFFFFFFFF"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: WIN_SIGINT
+    value: "2"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: WIN_SIGBREAK
+    value: "3"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: WIN_SIGKILL
+    value: "9"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: CTRL_C_EVENT
+    value: "0"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: CTRL_BREAK_EVENT
+    value: "1"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DETACHED_PROCESS
+    value: "0x00000008"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: STARTF_USESTDHANDLES
+    value: "0x00000100"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: INVALID_HANDLE_VALUE
+    value: "0xFFFFFFFF"
+full_name: ChildProcess::Windows
+includes: []
+
+instance_methods: []
+
+name: Windows
+superclass: 
