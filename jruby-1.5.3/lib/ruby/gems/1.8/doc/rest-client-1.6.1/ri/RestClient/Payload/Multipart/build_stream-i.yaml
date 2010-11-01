@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Payload::Multipart#build_stream
+is_singleton: false
+name: build_stream
+params: (params)
+visibility: public

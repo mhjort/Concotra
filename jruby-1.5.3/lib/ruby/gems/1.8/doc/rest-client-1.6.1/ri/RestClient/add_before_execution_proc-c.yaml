@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Add a Proc to be called before each request in executed. The proc parameters will be the http request and the request params.
+full_name: RestClient::add_before_execution_proc
+is_singleton: true
+name: add_before_execution_proc
+params: (&proc)
+visibility: public

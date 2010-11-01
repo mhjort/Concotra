@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Response::create
+is_singleton: true
+name: create
+params: (body, net_http_res, args)
+visibility: public

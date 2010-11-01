@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Payload::Base#flatten_params_array
+is_singleton: false
+name: flatten_params_array
+params: (value, calculated_key)
+visibility: public

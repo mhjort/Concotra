@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: A synonym for MIME::Types.type_for
+full_name: MIME::Types::of
+is_singleton: true
+name: of
+params: (filename, platform = false)
+visibility: public

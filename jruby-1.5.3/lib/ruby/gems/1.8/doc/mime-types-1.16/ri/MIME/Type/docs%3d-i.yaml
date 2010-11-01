@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MIME::Type#docs=
+is_singleton: false
+name: docs=
+params: (d)
+visibility: public

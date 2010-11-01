@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::put
+is_singleton: true
+name: put
+params: (url, payload, headers={}, &block)
+visibility: public

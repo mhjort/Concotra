@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>transmit (RestClient::Request)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/restclient/request.rb, line 137</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">transmit</span> <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">req</span>, <span class="ruby-identifier">payload</span>, <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">block</span>
+      <span class="ruby-identifier">setup_credentials</span> <span class="ruby-identifier">req</span>
+
+      <span class="ruby-identifier">net</span> = <span class="ruby-identifier">net_http_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>)
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPS</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@verify_ssl</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
+        <span class="ruby-identifier">net</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@verify_ssl</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>
+        <span class="ruby-identifier">net</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-ivar">@verify_ssl</span>
+        <span class="ruby-identifier">net</span>.<span class="ruby-identifier">verify_callback</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">preverify_ok</span>, <span class="ruby-identifier">ssl_context</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">preverify_ok</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">ssl_context</span>.<span class="ruby-identifier">error</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">err_msg</span> = <span class="ruby-node">&quot;SSL Verification failed -- Preverify: #{preverify_ok}, Error: #{ssl_context.error_string} (#{ssl_context.error})&quot;</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">SSLCertificateNotVerified</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err_msg</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">true</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">cert</span> = <span class="ruby-ivar">@ssl_client_cert</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ssl_client_cert</span>
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">key</span> = <span class="ruby-ivar">@ssl_client_key</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ssl_client_key</span>
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">ca_file</span> = <span class="ruby-ivar">@ssl_ca_file</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ssl_ca_file</span>
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-ivar">@timeout</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timeout</span>
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-ivar">@open_timeout</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@open_timeout</span>
+
+      <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">before_execution_procs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">before_proc</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">before_proc</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">req</span>, <span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">log_request</span>
+
+      <span class="ruby-identifier">net</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">res</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">req</span>, <span class="ruby-identifier">payload</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">http_response</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fetch_body</span>(<span class="ruby-identifier">http_response</span>) }
+        <span class="ruby-identifier">log_response</span> <span class="ruby-identifier">res</span>
+        <span class="ruby-identifier">process_result</span> <span class="ruby-identifier">res</span>, <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">block</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">EOFError</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">RestClient</span><span class="ruby-operator">::</span><span class="ruby-constant">ServerBrokeConnection</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">RestClient</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestTimeout</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

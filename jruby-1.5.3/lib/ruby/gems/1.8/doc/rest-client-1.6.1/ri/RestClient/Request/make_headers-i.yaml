@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Request#make_headers
+is_singleton: false
+name: make_headers
+params: (user_headers)
+visibility: public

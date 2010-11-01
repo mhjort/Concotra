@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Return a hash of headers whose keys are capitalized strings
+full_name: RestClient::Request#stringify_headers
+is_singleton: false
+name: stringify_headers
+params: (headers)
+visibility: public

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RestClient::Resource</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RestClient::Resource</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/restclient/resource_rb.html">
+                lib/restclient/resource.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+A class that can be instantiated for access to a RESTful resource,
+including authentication.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  resource = RestClient::Resource.new('http://some/resource')
+  jpg = resource.get(:accept =&gt; 'image/jpg')
+</pre>
+<p>
+With HTTP basic authentication:
+</p>
+<pre>
+  resource = RestClient::Resource.new('http://protected/resource', :user =&gt; 'user', :password =&gt; 'password')
+  resource.delete
+</pre>
+<p>
+With a <a href="Resource.html#M000119">timeout</a> (seconds):
+</p>
+<pre>
+  RestClient::Resource.new('http://slow', :timeout =&gt; 10)
+</pre>
+<p>
+With an open <a href="Resource.html#M000119">timeout</a> (seconds):
+</p>
+<pre>
+  RestClient::Resource.new('http://behindfirewall', :open_timeout =&gt; 10)
+</pre>
+<p>
+You can also use resources to share common <a
+href="Resource.html#M000118">headers</a>. For <a
+href="Resource.html#M000118">headers</a> keys, symbols are converted to
+strings. Example:
+</p>
+<pre>
+  resource = RestClient::Resource.new('http://some/resource', :headers =&gt; { :client_version =&gt; 1 })
+</pre>
+<p>
+This header will be transported as X-Client-Version (notice the X prefix,
+capitalization and hyphens)
+</p>
+<p>
+Use the [] syntax to allocate subresources:
+</p>
+<pre>
+  site = RestClient::Resource.new('http://example.com', :user =&gt; 'adam', :password =&gt; 'mypasswd')
+  site['posts/1/comments'].post 'Good article.', :content_type =&gt; 'text/plain'
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000121">[]</a>&nbsp;&nbsp;
+      <a href="#M000114">delete</a>&nbsp;&nbsp;
+      <a href="#M000111">get</a>&nbsp;&nbsp;
+      <a href="#M000118">headers</a>&nbsp;&nbsp;
+      <a href="#M000110">new</a>&nbsp;&nbsp;
+      <a href="#M000120">open_timeout</a>&nbsp;&nbsp;
+      <a href="#M000117">password</a>&nbsp;&nbsp;
+      <a href="#M000112">post</a>&nbsp;&nbsp;
+      <a href="#M000113">put</a>&nbsp;&nbsp;
+      <a href="#M000119">timeout</a>&nbsp;&nbsp;
+      <a href="#M000115">to_s</a>&nbsp;&nbsp;
+      <a href="#M000116">user</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">block</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">options</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">url</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000110" class="method-detail">
+        <a name="M000110"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000110.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000110.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(url, options={}, backwards_compatibility=nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000121" class="method-detail">
+        <a name="M000121"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000121.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000121.html');return false;">
+          <span class="method-name">[]</span><span class="method-args">(suburl, &amp;new_block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Construct a subresource, preserving authentication.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  site = RestClient::Resource.new('http://example.com', 'adam', 'mypasswd')
+  site['posts/1/comments'].post 'Good article.', :content_type =&gt; 'text/plain'
+</pre>
+<p>
+This is especially useful if you wish to define your site in one place and
+call it in multiple locations:
+</p>
+<pre>
+  def orders
+    RestClient::Resource.new('http://example.com/orders', 'admin', 'mypasswd')
+  end
+
+  orders.get                     # GET http://example.com/orders
+  orders['1'].get                # GET http://example.com/orders/1
+  orders['1/items'].delete       # DELETE http://example.com/orders/1/items
+</pre>
+<p>
+Nest resources as far as you want:
+</p>
+<pre>
+  site = RestClient::Resource.new('http://example.com')
+  posts = site['posts']
+  first_post = posts['1']
+  comments = first_post['comments']
+  comments.post 'Hello', :content_type =&gt; 'text/plain'
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000114.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000114.html');return false;">
+          <span class="method-name">delete</span><span class="method-args">(additional_headers={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000111" class="method-detail">
+        <a name="M000111"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000111.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000111.html');return false;">
+          <span class="method-name">get</span><span class="method-args">(additional_headers={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000118.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000118.html');return false;">
+          <span class="method-name">headers</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000120" class="method-detail">
+        <a name="M000120"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000120.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000120.html');return false;">
+          <span class="method-name">open_timeout</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000117.html');return false;">
+          <span class="method-name">password</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000112" class="method-detail">
+        <a name="M000112"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000112.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000112.html');return false;">
+          <span class="method-name">post</span><span class="method-args">(payload, additional_headers={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000113.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000113.html');return false;">
+          <span class="method-name">put</span><span class="method-args">(payload, additional_headers={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000119.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000119.html');return false;">
+          <span class="method-name">timeout</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000115.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
+
+        <div class="method-heading">
+          <a href="Resource.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('Resource.src/M000116.html');return false;">
+          <span class="method-name">user</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

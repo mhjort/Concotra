@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_log (RestClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/restclient.rb, line 110</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_log</span> <span class="ruby-identifier">param</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">param</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">param</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'stdout'</span>
+          <span class="ruby-identifier">stdout_logger</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>
+              <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">obj</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">stdout_logger</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">param</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'stderr'</span>
+          <span class="ruby-identifier">stderr_logger</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>
+              <span class="ruby-constant">STDERR</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">obj</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">stderr_logger</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">file_logger</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">attr_writer</span> <span class="ruby-identifier">:target_file</span>
+
+            <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>
+              <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@target_file</span>, <span class="ruby-value str">'a'</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">obj</span> }
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">logger</span> = <span class="ruby-identifier">file_logger</span>.<span class="ruby-identifier">new</span>
+          <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">target_file</span> = <span class="ruby-identifier">param</span>
+          <span class="ruby-identifier">logger</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">param</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

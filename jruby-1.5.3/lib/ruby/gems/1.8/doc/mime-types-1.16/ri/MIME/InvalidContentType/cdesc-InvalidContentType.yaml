@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Reflects a MIME Content-Type which is in invalid format (e.g., it isn't in the form of type/subtype).
+constants: []
+
+full_name: MIME::InvalidContentType
+includes: []
+
+instance_methods: []
+
+name: InvalidContentType
+superclass: RuntimeError

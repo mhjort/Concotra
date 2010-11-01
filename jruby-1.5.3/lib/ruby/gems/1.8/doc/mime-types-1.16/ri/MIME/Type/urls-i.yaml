@@ -1,0 +1,32 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "The decoded URL list for this MIME::Type. The special URL value IANA will be translated into:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  http://www.iana.org/assignments/media-types/&lt;mediatype&gt;/&lt;subtype&gt;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "The special URL value RFC### will be translated into:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  http://www.rfc-editor.org/rfc/rfc###.txt\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "The special URL value DRAFT:name will be translated into:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  https://datatracker.ietf.org/public/idindex.cgi?\n      command=id_detail&amp;filename=&lt;name&gt;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "The special URL value LTSW will be translated into:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  http://www.ltsw.se/knbase/internet/&lt;mediatype&gt;.htp\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "The special URL value [token] will be translated into:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  http://www.iana.org/assignments/contact-people.htm#&lt;token&gt;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "These values will be accessible through #urls, which always returns an array."
+full_name: MIME::Type#urls
+is_singleton: false
+name: urls
+params: ()
+visibility: public

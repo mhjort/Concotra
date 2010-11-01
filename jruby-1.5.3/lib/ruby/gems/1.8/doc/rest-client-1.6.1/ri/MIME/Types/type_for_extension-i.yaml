@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Return the first found content-type for a value considered as an extension or the value itself
+full_name: MIME::Types#type_for_extension
+is_singleton: false
+name: type_for_extension
+params: (ext)
+visibility: public

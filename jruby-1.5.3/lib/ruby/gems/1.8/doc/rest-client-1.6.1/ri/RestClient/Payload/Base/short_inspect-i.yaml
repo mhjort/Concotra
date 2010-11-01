@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Payload::Base#short_inspect
+is_singleton: false
+name: short_inspect
+params: ()
+visibility: public

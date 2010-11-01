@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Compares the MIME::Type based on how reliable it is before doing a normal &lt;=&gt; comparison. Used by MIME::Types#[] to sort types. The comparisons involved are:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "1."
+        body: self.simplified &lt;=&gt; other.simplified (ensures that we don't try to compare different types)
+      - !ruby/struct:SM::Flow::LI 
+        label: "2."
+        body: IANA-registered definitions &gt; other definitions.
+      - !ruby/struct:SM::Flow::LI 
+        label: "3."
+        body: Generic definitions &gt; platform definitions.
+      - !ruby/struct:SM::Flow::LI 
+        label: "3."
+        body: Complete definitions &gt; incomplete definitions.
+      - !ruby/struct:SM::Flow::LI 
+        label: "4."
+        body: Current definitions &gt; obsolete definitions.
+      - !ruby/struct:SM::Flow::LI 
+        label: "5."
+        body: Obselete with use-instead references &gt; obsolete without.
+      - !ruby/struct:SM::Flow::LI 
+        label: "6."
+        body: Obsolete use-instead definitions are compared.
+    type: :NUMBER
+full_name: MIME::Type#priority_compare
+is_singleton: false
+name: priority_compare
+params: (other)
+visibility: public

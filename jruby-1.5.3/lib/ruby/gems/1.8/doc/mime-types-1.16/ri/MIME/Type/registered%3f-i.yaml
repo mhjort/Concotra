@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: MIME content-types which are not regestered by IANA nor defined in RFCs are required to start with <tt>x-</tt>. This counts as well for a new media type as well as a new sub-type of an existing media type. If either the media-type or the content-type begins with <tt>x-</tt>, this method will return <tt>false</tt>.
+full_name: MIME::Type#registered?
+is_singleton: false
+name: registered?
+params: ()
+visibility: public

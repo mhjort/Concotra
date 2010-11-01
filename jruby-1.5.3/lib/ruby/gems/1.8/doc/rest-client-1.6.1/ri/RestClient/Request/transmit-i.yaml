@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Request#transmit
+is_singleton: false
+name: transmit
+params: (uri, req, payload, & block)
+visibility: public

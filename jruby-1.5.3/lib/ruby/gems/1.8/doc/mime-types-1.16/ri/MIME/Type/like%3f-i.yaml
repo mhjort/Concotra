@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns <tt>true</tt> if the simplified type matches the current
+full_name: MIME::Type#like?
+is_singleton: false
+name: like?
+params: (other)
+visibility: public

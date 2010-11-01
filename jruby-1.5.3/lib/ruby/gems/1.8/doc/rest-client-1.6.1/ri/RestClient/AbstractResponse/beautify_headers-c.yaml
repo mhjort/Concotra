@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::AbstractResponse::beautify_headers
+is_singleton: true
+name: beautify_headers
+params: (headers)
+visibility: public

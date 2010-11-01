@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Payload::Multipart#boundary
+is_singleton: false
+name: boundary
+params: ()
+visibility: public

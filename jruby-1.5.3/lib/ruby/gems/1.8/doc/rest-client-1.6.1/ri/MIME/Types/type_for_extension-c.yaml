@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MIME::Types::type_for_extension
+is_singleton: true
+name: type_for_extension
+params: (ext)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Create a log that respond to &lt;&lt; like a logger param can be 'stdout', 'stderr', a string (then we will log to that file) or a logger (then we return it)
+full_name: RestClient::create_log
+is_singleton: true
+name: create_log
+params: (param)
+visibility: public

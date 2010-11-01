@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Request::execute
+is_singleton: true
+name: execute
+params: (args, & block)
+visibility: public

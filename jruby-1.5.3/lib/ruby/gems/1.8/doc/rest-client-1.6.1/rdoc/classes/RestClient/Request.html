@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RestClient::Request</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RestClient::Request</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/restclient/request_rb.html">
+                lib/restclient/request.rb
+                </a>
+        <br />
+                <a href="../../files/lib/restclient/exceptions_rb.html">
+                lib/restclient/exceptions.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+backwards compatibility
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000102">decode</a>&nbsp;&nbsp;
+      <a href="#M000106">default_headers</a>&nbsp;&nbsp;
+      <a href="#M000090">execute</a>&nbsp;&nbsp;
+      <a href="#M000088">execute</a>&nbsp;&nbsp;
+      <a href="#M000100">fetch_body</a>&nbsp;&nbsp;
+      <a href="#M000103">log_request</a>&nbsp;&nbsp;
+      <a href="#M000104">log_response</a>&nbsp;&nbsp;
+      <a href="#M000092">make_headers</a>&nbsp;&nbsp;
+      <a href="#M000093">net_http_class</a>&nbsp;&nbsp;
+      <a href="#M000094">net_http_request_class</a>&nbsp;&nbsp;
+      <a href="#M000089">new</a>&nbsp;&nbsp;
+      <a href="#M000095">parse_url</a>&nbsp;&nbsp;
+      <a href="#M000096">parse_url_with_auth</a>&nbsp;&nbsp;
+      <a href="#M000091">process_get_params</a>&nbsp;&nbsp;
+      <a href="#M000097">process_payload</a>&nbsp;&nbsp;
+      <a href="#M000101">process_result</a>&nbsp;&nbsp;
+      <a href="#M000099">setup_credentials</a>&nbsp;&nbsp;
+      <a href="#M000105">stringify_headers</a>&nbsp;&nbsp;
+      <a href="#M000098">transmit</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Redirect</td>
+          <td>=</td>
+          <td class="context-item-value">RestClient::Redirect</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Unauthorized</td>
+          <td>=</td>
+          <td class="context-item-value">RestClient::Unauthorized</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RequestFailed</td>
+          <td>=</td>
+          <td class="context-item-value">RestClient::RequestFailed</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">args</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">cookies</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">headers</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">method</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">open_timeout</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">password</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">payload</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">processed_headers</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">raw_response</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ssl_ca_file</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ssl_client_cert</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ssl_client_key</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">timeout</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">url</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">user</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">verify_ssl</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000102" class="method-detail">
+        <a name="M000102"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000102.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000102.html');return false;">
+          <span class="method-name">decode</span><span class="method-args">(content_encoding, body)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000088" class="method-detail">
+        <a name="M000088"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000088.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000088.html');return false;">
+          <span class="method-name">execute</span><span class="method-args">(args, &amp; block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000089" class="method-detail">
+        <a name="M000089"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000089.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000089.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000106.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000106.html');return false;">
+          <span class="method-name">default_headers</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000090" class="method-detail">
+        <a name="M000090"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000090.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000090.html');return false;">
+          <span class="method-name">execute</span><span class="method-args">(&amp; block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000100.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000100.html');return false;">
+          <span class="method-name">fetch_body</span><span class="method-args">(http_response)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000103" class="method-detail">
+        <a name="M000103"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000103.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000103.html');return false;">
+          <span class="method-name">log_request</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000104.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000104.html');return false;">
+          <span class="method-name">log_response</span><span class="method-args">(res)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000092" class="method-detail">
+        <a name="M000092"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000092.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000092.html');return false;">
+          <span class="method-name">make_headers</span><span class="method-args">(user_headers)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000093" class="method-detail">
+        <a name="M000093"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000093.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000093.html');return false;">
+          <span class="method-name">net_http_class</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000094" class="method-detail">
+        <a name="M000094"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000094.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000094.html');return false;">
+          <span class="method-name">net_http_request_class</span><span class="method-args">(method)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000095.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000095.html');return false;">
+          <span class="method-name">parse_url</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000096.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000096.html');return false;">
+          <span class="method-name">parse_url_with_auth</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000091" class="method-detail">
+        <a name="M000091"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000091.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000091.html');return false;">
+          <span class="method-name">process_get_params</span><span class="method-args">(url, headers)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Extract the query parameters for get request and append them to the url
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000097.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000097.html');return false;">
+          <span class="method-name">process_payload</span><span class="method-args">(p=nil, parent_key=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000101" class="method-detail">
+        <a name="M000101"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000101.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000101.html');return false;">
+          <span class="method-name">process_result</span><span class="method-args">(res, &amp; block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000099" class="method-detail">
+        <a name="M000099"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000099.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000099.html');return false;">
+          <span class="method-name">setup_credentials</span><span class="method-args">(req)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000105.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000105.html');return false;">
+          <span class="method-name">stringify_headers</span><span class="method-args">(headers)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return a hash of headers whose keys are capitalized strings
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
+
+        <div class="method-heading">
+          <a href="Request.src/M000098.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000098.html');return false;">
+          <span class="method-name">transmit</span><span class="method-args">(uri, req, payload, &amp; block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

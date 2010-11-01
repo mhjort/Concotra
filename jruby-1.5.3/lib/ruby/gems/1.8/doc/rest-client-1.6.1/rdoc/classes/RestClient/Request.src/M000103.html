@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>log_request (RestClient::Request)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/restclient/request.rb, line 237</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log_request</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">log</span>
+        <span class="ruby-identifier">out</span> = []
+        <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;RestClient.#{method} #{url.inspect}&quot;</span>
+        <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">short_inspect</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">payload</span>
+        <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">processed_headers</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>.<span class="ruby-identifier">inspect</span>, <span class="ruby-identifier">v</span>.<span class="ruby-identifier">inspect</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;=&gt;&quot;</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;, &quot;</span>)
+        <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">log</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">out</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\n&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

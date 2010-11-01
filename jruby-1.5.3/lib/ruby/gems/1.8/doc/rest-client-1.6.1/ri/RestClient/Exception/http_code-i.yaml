@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Exception#http_code
+is_singleton: false
+name: http_code
+params: ()
+visibility: public

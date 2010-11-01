@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Compares the MIME::Type against the exact content type or the simplified type (the simplified type will be used if comparing against something that can be treated as a String with #to_s). In comparisons, this is done against the lowercase version of the MIME::Type."
+full_name: MIME::Type#<=>
+is_singleton: false
+name: <=>
+params: (other)
+visibility: public

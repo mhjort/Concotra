@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: RestClient::Payload::Multipart#create_regular_field
+is_singleton: false
+name: create_regular_field
+params: (s, k, v)
+visibility: public

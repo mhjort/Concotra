@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Extract the query parameters for get request and append them to the url
+full_name: RestClient::Request#process_get_params
+is_singleton: false
+name: process_get_params
+params: (url, headers)
+visibility: public
