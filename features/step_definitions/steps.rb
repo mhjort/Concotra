@@ -29,7 +29,11 @@ end
 
 When /^she gives (.*) as first employment start date$/ do |first_employment_start_date|
   @valid_data[:firstEmploymentStartDate] =  first_employment_start_date
-end      
+end 
+
+When /^she gives (.*) as salary$/ do |salary|
+  @valid_data[:salary] = salary
+end          
                                                                                                                                                                                           
 Then /^incomplete application is created$/ do
   id = find_by_id('savedApplicationId').text

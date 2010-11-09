@@ -12,7 +12,7 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
  
   post("/api") {
     val firstEmploymentStartDate = toDate(params("firstEmploymentStartDate"))
-    if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")))
+    if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")) || new java.math.BigDecimal(params("salary")).doubleValue() < 0)
       compactResponse(-1, "0") 
     else {
      val status = "1"

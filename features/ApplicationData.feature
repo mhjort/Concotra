@@ -22,11 +22,13 @@ Examples:
 	|1.1.1961|OK|
 	|31.12.1960|ERROR|
 
-Scenario: Salary has to be positive number
+Scenario Outline: Salary has to be positive number
 Given the insurance clerk has given valid data
-When she gives <Salary>
+When she gives <Salary> as salary
 And accepts the data	
 Then the result is <Result>
+
+Examples:
 	|Salary		|Result	|
 	|9500 		|OK	|
 	|0		|OK	|
