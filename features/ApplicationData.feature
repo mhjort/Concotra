@@ -20,7 +20,7 @@ Examples:
 	|First employment start date|Result|
 	|15.9.2009|OK|
 	|1.1.1961|OK|
-	|31.12.1960|ERROR|
+	|31.12.1960|BUSINESS_RULE_VIOLATED|
 
 Scenario Outline: Salary has to be positive number
 Given the insurance clerk has given valid data
@@ -32,5 +32,5 @@ Examples:
 	|Salary		|Result	|
 	|9500 		|OK	|
 	|0		|OK	|
-	|-1000		|ERROR	|
+	|-1000		|BUSINESS_RULE_VIOLATED|
 	|2345.60	|OK	|

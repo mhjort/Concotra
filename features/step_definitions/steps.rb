@@ -42,10 +42,9 @@ Then /^incomplete application is created$/ do
   saved_status.should == "1"
 end  
 
-Then /^the result is (.*)$/ do |result|
-  status = JSON.parse(@response)["status"]
-  if result == "OK" then status.should == "1" end
-  if result == "ERROR" then status.should == "0" end
+Then /^the result is (.*)$/ do |expected_response_status|
+  response_status = JSON.parse(@response)["status"]
+  response_status.should == expected_response_status
 end
 
 def read_db_entry(id) 

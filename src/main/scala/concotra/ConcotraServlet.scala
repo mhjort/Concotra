@@ -13,14 +13,13 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
   post("/api") {
     val firstEmploymentStartDate = toDate(params("firstEmploymentStartDate"))
     if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")) || new java.math.BigDecimal(params("salary")).doubleValue() < 0)
-      compactResponse(-1, "0") 
+      compact(JsonAST.render(("status" -> "BUSINESS_RULE_VIOLATED")))
     else {
-     val status = "1"
      val id = Db.newEntry(compact(JsonAST.render(
 	("salary" -> params("salary")) ~ 
 	("firstEmploymentStartDate" -> params("firstEmploymentStartDate")) ~ 
-        ("status" -> status))))
-      compactResponse(id, status)
+        ("status" -> "1"))))
+      compactResponse(id, "OK")
     }
   }
 
