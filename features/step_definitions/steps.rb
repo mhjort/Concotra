@@ -7,7 +7,7 @@ Given /^the application data form is opened$/ do
   @driver = Selenium::WebDriver.for :firefox
   @driver.navigate.to "http://localhost:8080"
 end                                                                                                                                                                                            
-When /^application handler enters following information$/ do |values|
+When /^the insurance clerk enters following information$/ do |values|
   row = values.hashes[0]
   enter_value('salary', row["Salary"])
   enter_value('firstEmploymentStartDate', row["First employment start date"])
@@ -15,7 +15,7 @@ When /^application handler enters following information$/ do |values|
   sleep(1)
 end  
 
-Given /^application handler has given otherwise valid data$/ do                                                                                                                                
+Given /^the insurance clerk has given otherwise valid data$/ do                                                                                                                                
   response = RestClient.post 'http://localhost:8080/api', :salary => '9600', :firstEmploymentStartDate => '1.2.2010'                                                                          
   puts response.to_str
 end            
