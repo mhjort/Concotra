@@ -11,17 +11,23 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
   }
  
   post("/api") {
-    val firstEmploymentStartDate = toDate(params("firstEmploymentStartDate"))
-    if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")) || new java.math.BigDecimal(params("salary")).doubleValue() < 0)
-      compact(JsonAST.render(("status" -> "BUSINESS_RULE_VIOLATED")))
-    else {
-     val id = Db.newEntry(compact(JsonAST.render(
-	("salary" -> params("salary")) ~ 
-	("firstEmploymentStartDate" -> params("firstEmploymentStartDate")) ~ 
-        ("status" -> "1"))))
-      compactResponse(id, "OK")
+    try {
+      val firstEmploymentStartDate = toDate(params("firstEmploymentStartDate"))
+      if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")) || new java.math.BigDecimal(params("salary")).doubleValue() < 0)
+        compact(JsonAST.render(("status" -> "BUSINESS_RULE_VIOLATED")))
+      else {
+        val id = Db.newEntry(compact(JsonAST.render(
+	  ("salary" -> params("salary")) ~ 
+	  ("firstEmploymentStartDate" -> params("firstEmploymentStartDate")) ~ 
+          ("status" -> "1") ~
+          ("applicationArrivalDate" -> params("applicationArrivalDate")) ~
+          ("declarationMethod" -> params("declarationMethod"))))) 
+        compactResponse(id, "OK")
+      }
+    } catch {
+      case _: IllegalArgumentException => compact(JsonAST.render(("status" -> "FORMAT_ERROR")))
     }
-  }
+   }
 
   def compactResponse(id: Int, status: String) = compact(JsonAST.render(("status" -> status) ~ ("id" -> id)))
  
