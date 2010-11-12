@@ -16,14 +16,16 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
       val firstEmploymentStartDate = toDate(params("firstEmploymentStartDate"))
       val salary = toMoney(params("salary"))
       if (firstEmploymentStartDate.isBefore(toDate("1.1.1961")) || salary < 0) 
-        return compact(JsonAST.render(("status" -> "BUSINESS_RULE_VIOLATED")))
-      val id = Db.newEntry(compact(JsonAST.render(
+        compact(JsonAST.render(("status" -> "BUSINESS_RULE_VIOLATED")))
+      else {
+        val id = Db.newEntry(compact(JsonAST.render(
 	  ("salary" -> params("salary")) ~ 
 	  ("firstEmploymentStartDate" -> params("firstEmploymentStartDate")) ~ 
           ("status" -> "1") ~
           ("applicationArrivalDate" -> params("applicationArrivalDate")) ~
           ("declarationMethod" -> params("declarationMethod"))))) 
-      compactResponse(id, "OK")
+        compactResponse(id, "OK")
+      }
     } catch {
       case _: FormatException => compact(JsonAST.render(("status" -> "FORMAT_ERROR")))
     }
