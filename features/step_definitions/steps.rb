@@ -12,6 +12,8 @@ When /^the insurance clerk enters following information$/ do |values|
   row = values.hashes[0]
   enter_value('salary', row["Salary"])
   enter_value('firstEmploymentStartDate', row["First employment start date"])
+  enter_value('applicationArrivalDate', '1.1.2010')
+  find_by_id('monthly').click
 end 
 
 When /^submits the form$/ do
@@ -24,7 +26,7 @@ When /^accepts the data$/ do
 end       
 
 Given /^the insurance clerk has given valid data$/ do
-  @valid_data = { :salary => '9600', :firstEmploymentStartDate => '1.2.2010' }
+  @valid_data = { :applicationArrivalDate => '1.1.2010', :declarationMethod => 'MONTHLY', :salary => '9600', :firstEmploymentStartDate => '1.2.2010' }
 end            
 
 When /^she gives (.*) as first employment start date$/ do |first_employment_start_date|
