@@ -2,6 +2,9 @@ require "selenium-webdriver"
 require "json"
 require "rest_client"
 
+After do |s| 
+  if !@driver.nil? then @driver.quit end 
+end
 
 Given /^the application data form is opened$/ do
   @driver = Selenium::WebDriver.for :firefox
@@ -39,7 +42,6 @@ end
                                                                                                                                                                                           
 Then /^incomplete application is created$/ do
   id = find_by_id('savedApplicationId').text
-  @driver.quit                                                                                                                                               
   saved_status = read_db_entry(id)["status"]
   saved_status.should == "1"
 end  
