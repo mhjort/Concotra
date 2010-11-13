@@ -11,9 +11,16 @@ Then incomplete application is created
 Scenario: If data is in wrong format, format error is shown
 Given the application data form is opened
 And insurance clerk has entered valid data to form
-When she gives 'text' to salary field
+When she enters 'text' to salary field
 And submits the form 
 Then format error message is shown
+
+Scenario: If business rule is violated, business rule violation error is shown
+Given the application data form is opened
+And insurance clerk has entered valid data to form
+When she enters '-1000' to salary field
+And submits the form 
+Then business rule violation error message is shown
 
 Scenario Outline: Earliest possible first employment start date is 1.1.1961
 Given the insurance clerk has given valid data

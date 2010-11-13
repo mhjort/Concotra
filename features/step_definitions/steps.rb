@@ -26,7 +26,7 @@ When /^the insurance clerk enters following information$/ do |values|
   find_by_id('monthly').click
 end 
 
-When /^she gives '(.*)' to salary field$/ do |input|
+When /^she enters '(.*)' to salary field$/ do |input|
   enter_value('salary', input)
 end
 
@@ -41,7 +41,13 @@ end
 
 Given /^the insurance clerk has given valid data$/ do
   @valid_data = { :applicationArrivalDate => '1.1.2010', :declarationMethod => 'MONTHLY', :salary => '9600', :firstEmploymentStartDate => '1.2.2010' }
-end            
+end    
+                                                                                                                                                                             
+                                                                                                                                                                                  
+Then /^business rule violation error message is shown$/ do                                                                                                                        
+  message = find_by_id("status").find_elements(:class, "business_rule_violated")  
+  message.should_not be_empty                                                                                                            
+end   
 
 When /^she gives (.*) as first employment start date$/ do |first_employment_start_date|
   @valid_data[:firstEmploymentStartDate] =  first_employment_start_date
