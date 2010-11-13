@@ -11,6 +11,13 @@ Given /^the application data form is opened$/ do
   @driver.navigate.to "http://localhost:8080"
 end                                                                                                                                                                                            
 
+Given /^insurance clerk has entered valid data to form$/ do  
+  enter_value('salary', '9500')
+  enter_value('firstEmploymentStartDate', '1.1.2010')
+  enter_value('applicationArrivalDate', '1.1.2010')
+  find_by_id('monthly').click
+end
+
 When /^the insurance clerk enters following information$/ do |values|
   row = values.hashes[0]
   enter_value('salary', row["Salary"])
@@ -18,6 +25,10 @@ When /^the insurance clerk enters following information$/ do |values|
   enter_value('applicationArrivalDate', '1.1.2010')
   find_by_id('monthly').click
 end 
+
+When /^she gives '(.*)' to salary field$/ do |input|
+  enter_value('salary', input)
+end
 
 When /^submits the form$/ do
   find_by_id('submit').click
@@ -51,6 +62,11 @@ Then /^the result is (.*)$/ do |expected_response_status|
   response_status.should == expected_response_status
 end
 
+Then /^format error message is shown$/ do                                                                                                                                         
+  message = find_by_id("status").find_elements(:class, "format_error")  
+  message.should_not be_empty
+end  
+
 def read_db_entry(id) 
   entry = IO.read("db/" + id)
   JSON.parse(entry)
@@ -61,5 +77,7 @@ def find_by_id(id)
 end   
 
 def enter_value(id, value)
-  find_by_id(id).send_keys value
+  field = find_by_id(id)
+  field.clear
+  field.send_keys value
 end 

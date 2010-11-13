@@ -1,6 +1,4 @@
-Feature: Application data
-
-  In order 
+Feature: Application data 
 
 Scenario: End to end basic case
 Given the application data form is opened
@@ -9,6 +7,13 @@ When the insurance clerk enters following information
 	|9500  |1.1.2010		   |1.5.2010		    |MONTHLY	       |  
 And submits the form
 Then incomplete application is created
+
+Scenario: If data is in wrong format, format error is shown
+Given the application data form is opened
+And insurance clerk has entered valid data to form
+When she gives 'text' to salary field
+And submits the form 
+Then format error message is shown
 
 Scenario Outline: Earliest possible first employment start date is 1.1.1961
 Given the insurance clerk has given valid data

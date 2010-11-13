@@ -6,7 +6,7 @@ $(function() {
         if (response.status == 'OK') {
           $("#status").html('<span class="success">Tallennettu <span id="savedApplicationId">' + response.id + '</span></span>');
 	} else {
-	  $("#status").html('<span class="error">Virheellinen päivämäärä</span>');
+	  $("#status").html('<span class="format_error">Virheellinen päivämäärä</span>');
 	}
       }, "json");
     return false;
