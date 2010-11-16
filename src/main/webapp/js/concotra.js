@@ -6,13 +6,13 @@ $(function() {
 	switch(response.status)
 	{
 	case 'OK':
-	  $("#status").html('<span class="success">Tallennettu <span id="savedApplicationId">' + response.id + '</span></span>');
+	  $("#status").html('<span class="success">Application has been saved. This is the reference number for the application: <span id="savedApplicationId">' + response.id + '</span></span>');
 	  break;
 	case 'BUSINESS_RULE_VIOLATED':
-	  $("#status").html('<span class="business_rule_violated">Business rule on viärin</span>');
+	  $("#status").html('<span class="business_rule_violated">Data is invalid</span>');
 	  break;
         case 'FORMAT_ERROR':
-	  $("#status").html('<span class="format_error">Formaatti kuraa</span>');
+	  $("#status").html('<span class="format_error">Data is in invalid format</span>');
 	}
       }, "json");
     return false;

@@ -1,38 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" > 
 <html xml:lang="fi" xmlns="http://www.w3.org/1999/xhtml" lang="fi"> 
 <head>
-  <title>Concotra - Vakuutushakemus</title> 
+  <title>Employee Pension Insurance Application</title> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
   <link rel="stylesheet" type="text/css" href="css/concotra.css" />
 </head>
 <body>
 <div class="entity">
-<h1>Hakemuksen perustiedot</h1>
+<div id="status"></div>
+<h1>Employer's Basic Information</h1>
 <form>
   <div class="inputrow">
-    <label>Palkkasumma</label>
+    <label>Salaries Paid / Period</label>
     <input type="text" name="salary" id="salary"/>
   </div>
   <div class="inputrow">
-    <label>Ensimmäisen työsuhteen alkamispäivä</label>
+    <label>First Employment Start Date</label>
     <input type="text" name="firstEmploymentStartDate" id="firstEmploymentStartDate" />
   </div>
   <div class="inputrow">
-    <label>Hakemuksen taloontulopäivä</label>
+    <label>Application Arrival Date</label>
     <input type="text" name="applicationArrivalDate" id="applicationArrivalDate" />
+  </div>
+  <div class="radioButtonTitle">
+  Declaration Period For Salaries
   </div>
   <div class="radiobutton"> 
     <input type="radio" name="declarationMethod" id="monthly" value="MONTHLY"/>
-    <label for="monthly">Kuukausi-ilmoittaja</label>
+    <label for="monthly">Monthly</label>
   </div>
   <div class="radiobutton">
     <input type="radio" name="declarationMethod" id="yearly" value="YEARLY"/>
-    <label for="yearly">Vuosi-ilmoittaja</label>
+    <label for="yearly">Yearly</label>
   </div>
   <input type="submit" value="OK" id="submit"/>
 </form>
 </div>
-<div id="status"></div>
 <script src="js/jquery-1.4.2.js" type="text/javascript" charset="UTF-8"></script> 
 <script src="js/concotra.js" type="text/javascript" charset="UTF-8"></script> 
 </body>

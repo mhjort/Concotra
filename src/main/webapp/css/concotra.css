@@ -64,6 +64,13 @@ div.radiobutton label {
   display: block;
 }
 
+div.radioButtonTitle {
+  margin-bottom: .2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  clear:both;
+}
+
 div.checkbox {
   display: block;
   margin-bottom: .2em;
@@ -76,33 +83,20 @@ input[type=submit] {
 }
 
 #status {
-  margin-left: 50px;
+  margin-bottom: 2em;
 }
 
 span.success {
   background-color: #C6EC8C;
-}
-
-span.error {
-  background-color: red;
-}
-
-#errorMessages, noscript {
-  background: #FED1CC;
   padding: 8px;
-  margin-bottom: 5px;
-  float: left;
-  clear: both;
 }
 
-#errorMessages h3 {
-  color: #F24D3C;
-  font-size: .9em;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 8px;
+span.format_error {
+  background-color: #FED1CC;
+  padding: 8px;
 }
 
-#errorMessages li {
-  list-style-type: disc;
+span.business_rule_violated {
+  background-color: #FED1CC;
+  padding: 8px;
 }
