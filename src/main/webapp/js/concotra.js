@@ -12,7 +12,7 @@ $(function() {
 	  $("#status").html('<span class="business_rule_violated">Data is invalid</span>');
 	  break;
         case 'FORMAT_ERROR':
-	  $("#status").html('<span class="format_error">Data is in invalid format</span>');
+	  $("#status").html('<span class="format_error">Data is in invalid formt</span>');
 	}
       }, "json");
     return false;
