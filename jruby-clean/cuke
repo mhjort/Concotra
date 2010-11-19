@@ -1,3 +1,0 @@
-#!/bin/bash
-
-"jruby-1.5.3/bin/jruby" -S cucumber $*
