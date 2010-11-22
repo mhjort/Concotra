@@ -14,4 +14,4 @@ cp start* target/dist
 cp -R jruby target/dist
 cp cuke* target/dist
 cp wac.exe target/dist
-cp -R features target/dist
+cp -R features-for-workshop target/dist/features
