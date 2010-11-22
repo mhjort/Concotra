@@ -1,7 +1,7 @@
 require "json"
 require "rest_client"
 
-Given /^the customer has given valid data$/ do
+Given /^the employer has given valid data$/ do
   @valid_data = { :applicationArrivalDate => '1.1.2010', :declarationMethod => 'MONTHLY', :salary => '9600', :firstEmploymentStartDate => '1.2.2010' }
 end 
 
