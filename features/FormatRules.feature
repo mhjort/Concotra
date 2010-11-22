@@ -1,7 +1,7 @@
 Feature: Format rules
 
 Scenario Outline: Date format is d.m.yyyy
-Given the insurance clerk has given valid data
+Given the customer has given valid data
 When she gives <Date> as first employment start date
 And accepts the data
 Then the result is <Result>
@@ -16,7 +16,7 @@ Examples:
 
 
 Scenario Outline: Money format is NN,NN or NN.NN
-Given the insurance clerk has given valid data
+Given the customer has given valid data
 When she gives <Money> as salary
 And accepts the data
 Then the result is <Result>

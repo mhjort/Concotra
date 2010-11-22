@@ -9,14 +9,14 @@ Given /^the application data form is opened$/ do
   @driver.navigate.to "http://localhost:8080"
 end                                                                                                                                                                                            
 
-Given /^insurance clerk has entered valid data to form$/ do  
+Given /^customer has entered valid data to form$/ do  
   enter_value('salary', '9500')
   enter_value('firstEmploymentStartDate', '1.1.2010')
   enter_value('applicationArrivalDate', '1.1.2010')
   find_by_id('monthly').click
 end
 
-When /^the insurance clerk enters following information$/ do |values|
+When /^the customer enters following information$/ do |values|
   row = values.hashes[0]
   enter_value('salary', row["Salary"])
   enter_value('firstEmploymentStartDate', row["First employment start date"])
