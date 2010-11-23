@@ -4,8 +4,8 @@ Feature: Employer can apply statutory pension insurance for his employees online
 Scenario: End to end basic case
 Given the application data form is opened
 When the employer enters following information
-	|Salary|First employment start date|Application arrival date|Declaration method|
-	|9500  |1.1.2010		   |1.5.2010		    |MONTHLY	       |  
+	|Salary|First employment start date|Declaration method|
+	|9500  |1.1.2010		   |MONTHLY	       |  
 And submits the form
 Then incomplete application is created
 
