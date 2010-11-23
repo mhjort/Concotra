@@ -2,7 +2,7 @@ require "json"
 require "rest_client"
 
 Given /^the employer has given valid data$/ do
-  @valid_data = { :applicationArrivalDate => '1.1.2010', :declarationMethod => 'MONTHLY', :salary => '9600', :firstEmploymentStartDate => '1.2.2010' }
+  @valid_data = { :declarationMethod => 'MONTHLY', :salary => '9600', :firstEmploymentStartDate => '1.2.2010' }
 end 
 
 When /^she gives (.*) as first employment start date$/ do |first_employment_start_date|

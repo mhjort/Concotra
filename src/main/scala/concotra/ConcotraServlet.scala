@@ -22,7 +22,6 @@ class ConcotraServlet extends ScalatraServlet with UrlSupport {
 	  ("salary" -> params("salary")) ~ 
 	  ("firstEmploymentStartDate" -> params("firstEmploymentStartDate")) ~ 
           ("status" -> "1") ~
-          ("applicationArrivalDate" -> params("applicationArrivalDate")) ~
           ("declarationMethod" -> params("declarationMethod"))))) 
         compactResponse(id, "OK")
       }
