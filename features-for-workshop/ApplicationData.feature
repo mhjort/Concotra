@@ -38,7 +38,7 @@ Examples:
 	|1.1.1961|OK|
 	|31.12.1960|BUSINESS_RULE_VIOLATED|
 
-@api
+@ignore
 Scenario Outline: Salary has to be positive number
 Given the employer has given valid data
 When she gives <Salary> as salary
