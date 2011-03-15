@@ -37,17 +37,3 @@ Examples:
 	|15.9.2009|OK|
 	|1.1.1961|OK|
 	|31.12.1960|BUSINESS_RULE_VIOLATED|
-
-@ignore
-Scenario Outline: Salary has to be positive number
-Given the employer has given valid data
-When she gives <Salary> as salary
-And accepts the data	
-Then the result is <Result>
-
-Examples:
-	|Salary		|Result	|
-	|9500 		|OK	|
-	|0		|OK	|
-	|-1000		|BUSINESS_RULE_VIOLATED|
-	|2345.60	|OK	|
