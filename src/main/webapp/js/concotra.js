@@ -1,6 +1,6 @@
 $(function() {
   $('#submit').click(function() {
-    $.post("http://localhost:8080/api", { "salary": $("#salary").val(), "firstEmploymentStartDate": $("#firstEmploymentStartDate").val(), 
+    $.post("/api", { "salary": $("#salary").val(), "firstEmploymentStartDate": $("#firstEmploymentStartDate").val(), 
 	"applicationArrivalDate": $("#applicationArrivalDate").val(), "declarationMethod": $("input[name='declarationMethod']:checked").val() },
       function(response) {
 	switch(response.status)
