@@ -6,7 +6,7 @@ end
 
 Given /^the application data form is opened$/ do
   @driver = Selenium::WebDriver.for :firefox
-  @driver.navigate.to "http://localhost:8080"
+  @driver.navigate.to @host
 end                                                                                                                                                                                            
 
 Given /^the employer has entered valid data to form$/ do  

@@ -14,8 +14,9 @@ When /^she gives (.*) as salary$/ do |salary|
 end  
 
 When /^accepts the data$/ do
-  @response = RestClient.post 'http://localhost:8080/api', @valid_data
+  @response = RestClient.post @api_url, @valid_data
 end                                                                                                                                                                                
+
 Then /^the result is (.*)$/ do |expected_response_status|
   response_status = JSON.parse(@response)["status"]
   response_status.should == expected_response_status

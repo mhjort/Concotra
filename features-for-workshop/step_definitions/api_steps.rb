@@ -2,7 +2,7 @@ require "json"
 require "rest_client"
 
 def rest_post(data)
-  RestClient.post 'http://localhost:8080/api', data
+  RestClient.post @api_url, data
 end
 
 # Step 1
