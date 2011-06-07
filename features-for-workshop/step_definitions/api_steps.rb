@@ -47,7 +47,7 @@ end
 # Ruby tutorial
 
 # Using local variables: variable = value
-# Using global variables: @variable = value
+# Assigning to a field: @variable = value
 
 # Creating: hash = { :symbol => 'VALUE', :symbol2 => 1 }
 # Updating: hash[:symbol] = 'NEW_VALUE'
