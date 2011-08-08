@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>zip (Selenium::WebDriver::Zipper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/zipper.rb, line 28</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">path</span>)
+        <span class="ruby-comment cmt"># can't use Tempfile here since it doesn't support File::BINARY mode on 1.8</span>
+        <span class="ruby-comment cmt"># can't use Dir.mktmpdir(&amp;blk) because of http://jira.codehaus.org/browse/JRUBY-4082</span>
+        <span class="ruby-identifier">tmp_dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">zip_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp_dir</span>, <span class="ruby-value str">&quot;webdriver-zip&quot;</span>)
+
+          <span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">ZipFile</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">zip_path</span>, <span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">ZipFile</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATE</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">zip</span><span class="ruby-operator">|</span>
+            <span class="ruby-operator">::</span><span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">file</span>)
+              <span class="ruby-identifier">entry</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-node">&quot;#{path}/&quot;</span>, <span class="ruby-value str">''</span>)
+
+              <span class="ruby-identifier">zip</span>.<span class="ruby-identifier">add</span> <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">file</span>
+            <span class="ruby-keyword kw">end</span>
+          }
+
+          <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">zip_path</span>, <span class="ruby-value str">&quot;rb&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span> <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">strict_encode64</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">read</span> }
+        <span class="ruby-keyword kw">ensure</span>
+          <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">tmp_dir</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

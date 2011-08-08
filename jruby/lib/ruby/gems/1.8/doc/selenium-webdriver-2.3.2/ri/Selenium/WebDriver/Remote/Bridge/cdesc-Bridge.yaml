@@ -1,0 +1,162 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: capabilities
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: context
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: http
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: command
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Low level bridge to the remote server, through which the rest of the API works.
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: QUIT_ERRORS
+    value: "[IOError]"
+full_name: Selenium::WebDriver::Remote::Bridge
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: BridgeHelper
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: acceptAlert
+  - !ruby/object:RI::MethodSummary 
+    name: addCookie
+  - !ruby/object:RI::MethodSummary 
+    name: browser
+  - !ruby/object:RI::MethodSummary 
+    name: clearElement
+  - !ruby/object:RI::MethodSummary 
+    name: click
+  - !ruby/object:RI::MethodSummary 
+    name: clickElement
+  - !ruby/object:RI::MethodSummary 
+    name: close
+  - !ruby/object:RI::MethodSummary 
+    name: contextClick
+  - !ruby/object:RI::MethodSummary 
+    name: create_session
+  - !ruby/object:RI::MethodSummary 
+    name: deleteAllCookies
+  - !ruby/object:RI::MethodSummary 
+    name: deleteCookie
+  - !ruby/object:RI::MethodSummary 
+    name: dismissAlert
+  - !ruby/object:RI::MethodSummary 
+    name: doubleClick
+  - !ruby/object:RI::MethodSummary 
+    name: dragElement
+  - !ruby/object:RI::MethodSummary 
+    name: driver_extensions
+  - !ruby/object:RI::MethodSummary 
+    name: elementEquals
+  - !ruby/object:RI::MethodSummary 
+    name: executeAsyncScript
+  - !ruby/object:RI::MethodSummary 
+    name: executeScript
+  - !ruby/object:RI::MethodSummary 
+    name: find_element_by
+  - !ruby/object:RI::MethodSummary 
+    name: find_elements_by
+  - !ruby/object:RI::MethodSummary 
+    name: get
+  - !ruby/object:RI::MethodSummary 
+    name: getActiveElement
+  - !ruby/object:RI::MethodSummary 
+    name: getAlertText
+  - !ruby/object:RI::MethodSummary 
+    name: getAllCookies
+  - !ruby/object:RI::MethodSummary 
+    name: getCapabilities
+  - !ruby/object:RI::MethodSummary 
+    name: getCurrentUrl
+  - !ruby/object:RI::MethodSummary 
+    name: getCurrentWindowHandle
+  - !ruby/object:RI::MethodSummary 
+    name: getElementAttribute
+  - !ruby/object:RI::MethodSummary 
+    name: getElementLocation
+  - !ruby/object:RI::MethodSummary 
+    name: getElementLocationOnceScrolledIntoView
+  - !ruby/object:RI::MethodSummary 
+    name: getElementSize
+  - !ruby/object:RI::MethodSummary 
+    name: getElementTagName
+  - !ruby/object:RI::MethodSummary 
+    name: getElementText
+  - !ruby/object:RI::MethodSummary 
+    name: getElementValue
+  - !ruby/object:RI::MethodSummary 
+    name: getElementValueOfCssProperty
+  - !ruby/object:RI::MethodSummary 
+    name: getPageSource
+  - !ruby/object:RI::MethodSummary 
+    name: getScreenshot
+  - !ruby/object:RI::MethodSummary 
+    name: getTitle
+  - !ruby/object:RI::MethodSummary 
+    name: getVisible
+  - !ruby/object:RI::MethodSummary 
+    name: getWindowHandles
+  - !ruby/object:RI::MethodSummary 
+    name: goBack
+  - !ruby/object:RI::MethodSummary 
+    name: goForward
+  - !ruby/object:RI::MethodSummary 
+    name: isElementDisplayed
+  - !ruby/object:RI::MethodSummary 
+    name: isElementEnabled
+  - !ruby/object:RI::MethodSummary 
+    name: isElementSelected
+  - !ruby/object:RI::MethodSummary 
+    name: mouseDown
+  - !ruby/object:RI::MethodSummary 
+    name: mouseMoveTo
+  - !ruby/object:RI::MethodSummary 
+    name: mouseUp
+  - !ruby/object:RI::MethodSummary 
+    name: quit
+  - !ruby/object:RI::MethodSummary 
+    name: refresh
+  - !ruby/object:RI::MethodSummary 
+    name: sendKeysToElement
+  - !ruby/object:RI::MethodSummary 
+    name: sendModifierKeyToActiveElement
+  - !ruby/object:RI::MethodSummary 
+    name: session_id
+  - !ruby/object:RI::MethodSummary 
+    name: setAlertValue
+  - !ruby/object:RI::MethodSummary 
+    name: setElementSelected
+  - !ruby/object:RI::MethodSummary 
+    name: setImplicitWaitTimeout
+  - !ruby/object:RI::MethodSummary 
+    name: setScriptTimeout
+  - !ruby/object:RI::MethodSummary 
+    name: setVisible
+  - !ruby/object:RI::MethodSummary 
+    name: submitElement
+  - !ruby/object:RI::MethodSummary 
+    name: switchToActiveElement
+  - !ruby/object:RI::MethodSummary 
+    name: switchToDefaultContent
+  - !ruby/object:RI::MethodSummary 
+    name: switchToFrame
+  - !ruby/object:RI::MethodSummary 
+    name: switchToWindow
+name: Bridge
+superclass: Object

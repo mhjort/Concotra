@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the IDs of all input fields on the page.
+  - !ruby/struct:SM::Flow::P 
+    body: If a given field has no ID, it will appear as &quot;&quot; in this array.
+full_name: Selenium::Client::GeneratedDriver#get_all_fields
+is_singleton: false
+name: get_all_fields
+params: ()
+visibility: public

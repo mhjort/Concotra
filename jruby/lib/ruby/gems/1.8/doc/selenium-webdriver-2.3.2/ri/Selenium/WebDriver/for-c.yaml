@@ -1,0 +1,32 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Create a new Driver instance with the correct bridge for the given browser
+  - !ruby/struct:SM::Flow::P 
+    body: "@param browser [:ie, :internet_explorer, :remote, :chrome, :firefox, :ff, :android, :iphone, :opera]"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  the driver type to use\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param *rest"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  arguments passed to Bridge.new\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Driver]"
+  - !ruby/struct:SM::Flow::P 
+    body: "@see Selenium::WebDriver::Remote::Bridge @see Selenium::WebDriver::Firefox::Bridge @see Selenium::WebDriver::IE::Bridge @see Selenium::WebDriver::Chrome::Bridge @see Selenium::WebDriver::Android::Bridge @see Selenium::WebDriver::IPhone::Bridge @see Selenium::WebDriver::Opera::Bridge"
+  - !ruby/struct:SM::Flow::P 
+    body: "@example"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  WebDriver.for :firefox, :profile =&gt; &quot;some-profile&quot;\n  WebDriver.for :firefox, :profile =&gt; Profile.new\n  WebDriver.for :remote,  :url =&gt; &quot;http://localhost:4444/wd/hub&quot;, :desired_capabilities =&gt; caps\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "One special argument is not passed on to the bridges, :listener. You can pass a listener for this option to get notified of WebDriver events. The passed object must respond to #call or implement the methods from AbstractEventListener."
+  - !ruby/struct:SM::Flow::P 
+    body: "@see Selenium::WebDriver::Support::AbstractEventListener"
+full_name: Selenium::WebDriver::for
+is_singleton: true
+name: for
+params: (*args)
+visibility: public

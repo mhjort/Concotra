@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Add a selection to the set of selected options in a multi-select element using an option locator.
+  - !ruby/struct:SM::Flow::P 
+    body: "@see #doSelect for details of option locators"
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator identifying a multi-select box 'optionLocator' is an option locator (a label by default)"
+full_name: Selenium::Client::GeneratedDriver#add_selection
+is_singleton: false
+name: add_selection
+params: (locator,optionLocator)
+visibility: public

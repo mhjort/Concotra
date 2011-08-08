@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Opens a popup window (if a window with that ID isn't already open). After opening the window, you'll need to select it using the selectWindow command.
+  - !ruby/struct:SM::Flow::P 
+    body: "This command can also be a useful workaround for bug SEL-339. In some cases, Selenium will be unable to intercept a call to window.open (if the call occurs during or before the &quot;onLoad&quot; event, for example). In those cases, you can force Selenium to notice the open window's name by using the Selenium openWindow command, using an empty (blank) url, like this: openWindow(&quot;&quot;, &quot;myFunnyWindow&quot;)."
+  - !ruby/struct:SM::Flow::P 
+    body: "'url' is the URL to open, which can be blank 'windowID' is the JavaScript window ID of the window to select"
+full_name: Selenium::Client::GeneratedDriver#open_window
+is_singleton: false
+name: open_window
+params: (url,windowID)
+visibility: public

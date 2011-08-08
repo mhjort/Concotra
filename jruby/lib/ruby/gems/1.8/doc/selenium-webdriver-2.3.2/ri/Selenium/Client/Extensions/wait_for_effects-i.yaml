@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Wait for all Prototype effects to be processed (the wait happens in the browser).
+  - !ruby/struct:SM::Flow::P 
+    body: Credits to http://github.com/brynary/webrat/tree/master
+full_name: Selenium::Client::Extensions#wait_for_effects
+is_singleton: false
+name: wait_for_effects
+params: (options={})
+visibility: public

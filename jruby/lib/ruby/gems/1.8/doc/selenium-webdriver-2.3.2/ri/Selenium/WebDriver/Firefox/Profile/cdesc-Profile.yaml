@@ -1,0 +1,80 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: load_no_focus_lib
+    rw: W
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: log_file
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: name
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: native_events
+    rw: W
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: secure_ssl
+    rw: W
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: from_name
+  - !ruby/object:RI::MethodSummary 
+    name: ini
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: WEBDRIVER_EXTENSION_PATH
+    value: File.expand_path("#{WebDriver.root}/selenium/webdriver/firefox/extension/webdriver.xpi")
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: WEBDRIVER_PREFS
+    value: "{           :native_events    => 'webdriver_enable_native_events',           :untrusted_certs  => 'webdriver_accept_untrusted_certs',           :untrusted_issuer => 'webdriver_assume_untrusted_issuer',           :port             => 'webdriver_firefox_port',           :log_file         => 'webdriver.log.file'"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_PREFERENCES
+    value: "{           \"browser.startup.page\"     => '0',           \"browser.startup.homepage\" => '\"about:blank\"',           \"dom.max_script_run_time\"  => '30',         }.freeze"
+  - !ruby/object:RI::Constant 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Profile preferences that are essential to the Firefox driver operating correctly. Users are not permitted to override these values.
+    name: FROZEN_PREFERENCES
+    value: "{           \"app.update.auto\"                           => 'false',           \"app.update.enabled\"                        => 'false',           \"browser.download.manager.showWhenStarting\" => 'false',           \"browser.EULA.override\"                     => 'true',           \"browser.EULA.3.accepted\"                   => 'true',           \"browser.link.open_external\"                => '2',           \"browser.link.open_newwindow\"               => '2',           \"browser.safebrowsing.enabled\"              => 'false',           \"browser.search.update\"                     => 'false',           \"browser.sessionstore.resume_from_crash\"    => 'false',           \"browser.shell.checkDefaultBrowser\"         => 'false',           \"browser.tabs.warnOnClose\"                  => 'false',           \"browser.tabs.warnOnOpen\"                   => 'false',           \"devtools.errorconsole.enabled\"             => 'true',           \"dom.disable_open_during_load\"              => 'false',           \"extensions.logging.enabled\"                => 'true',           \"extensions.update.enabled\"                 => 'false',           \"extensions.update.notifyUser\"              => 'false',           \"network.manage-offline-status\"             => 'false',           \"network.http.max-connections-per-server\"   => '10',           \"prompts.tab_modal.enabled\"                 => \"false\",           \"security.warn_entering_secure\"             => 'false',           \"security.warn_submit_insecure\"             => 'false',           \"security.warn_entering_secure.show_once\"   => 'false',           \"security.warn_entering_weak\"               => 'false',           \"security.warn_entering_weak.show_once\"     => 'false',           \"security.warn_leaving_secure\"              => 'false',           \"security.warn_leaving_secure.show_once\"    => 'false',           \"security.warn_submit_insecure\"             => 'false',           \"security.warn_viewing_mixed\"               => 'false',           \"security.warn_viewing_mixed.show_once\"     => 'false',           \"signon.rememberSignons\"                    => 'false',           \"toolkit.networkmanager.disable\"            => 'true',           \"javascript.options.showInConsole\"          => 'true',           \"browser.dom.window.dump.enabled\"           => 'true',           \"dom.report_all_js_exceptions\"              => \"true\""
+full_name: Selenium::WebDriver::Firefox::Profile
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: ProfileHelper
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "[]="
+  - !ruby/object:RI::MethodSummary 
+    name: add_extension
+  - !ruby/object:RI::MethodSummary 
+    name: add_webdriver_extension
+  - !ruby/object:RI::MethodSummary 
+    name: assume_untrusted_certificate_issuer=
+  - !ruby/object:RI::MethodSummary 
+    name: assume_untrusted_certificate_issuer?
+  - !ruby/object:RI::MethodSummary 
+    name: layout_on_disk
+  - !ruby/object:RI::MethodSummary 
+    name: load_no_focus_lib?
+  - !ruby/object:RI::MethodSummary 
+    name: log_file=
+  - !ruby/object:RI::MethodSummary 
+    name: native_events?
+  - !ruby/object:RI::MethodSummary 
+    name: port=
+  - !ruby/object:RI::MethodSummary 
+    name: proxy=
+  - !ruby/object:RI::MethodSummary 
+    name: secure_ssl?
+name: Profile
+superclass: Object

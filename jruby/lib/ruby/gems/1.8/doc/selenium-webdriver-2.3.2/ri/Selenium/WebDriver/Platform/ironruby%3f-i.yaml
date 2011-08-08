@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Platform#ironruby?
+is_singleton: false
+name: ironruby?
+params: ()
+visibility: public

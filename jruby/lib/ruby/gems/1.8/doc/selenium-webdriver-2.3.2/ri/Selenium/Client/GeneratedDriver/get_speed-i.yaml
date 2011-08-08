@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Get execution speed (i.e., get the millisecond length of the delay following each selenium operation). By default, there is no such delay, i.e., the delay is 0 milliseconds.
+  - !ruby/struct:SM::Flow::P 
+    body: See also setSpeed.
+full_name: Selenium::Client::GeneratedDriver#get_speed
+is_singleton: false
+name: get_speed
+params: ()
+visibility: public

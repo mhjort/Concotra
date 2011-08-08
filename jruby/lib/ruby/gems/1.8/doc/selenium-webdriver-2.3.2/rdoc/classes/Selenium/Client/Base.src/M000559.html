@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>start_new_browser_session (Selenium::Client::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/client/base.rb, line 83</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start_new_browser_session</span>(<span class="ruby-identifier">options</span>={})
+        <span class="ruby-identifier">options_as_string</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{key.to_s}=#{value.to_s}&quot;</span>}.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;;&quot;</span>)
+        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">string_command</span> <span class="ruby-value str">&quot;getNewBrowserSession&quot;</span>, [<span class="ruby-ivar">@browser_string</span>, <span class="ruby-ivar">@browser_url</span>, <span class="ruby-ivar">@extension_js</span>, <span class="ruby-identifier">options_as_string</span>]
+        <span class="ruby-ivar">@session_id</span> = <span class="ruby-identifier">result</span>
+        <span class="ruby-comment cmt"># Consistent timeout on the remote control and driver side.</span>
+        <span class="ruby-comment cmt"># Intuitive and this is what you want 90% of the time</span>
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">remote_control_timeout_in_seconds</span> = <span class="ruby-ivar">@default_timeout_in_seconds</span>         
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">highlight_located_element</span> = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">highlight_located_element_by_default</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

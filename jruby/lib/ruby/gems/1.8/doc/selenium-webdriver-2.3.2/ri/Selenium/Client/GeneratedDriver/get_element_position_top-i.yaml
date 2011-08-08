@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Retrieves the vertical position of an element
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator pointing to an element OR an element itself"
+full_name: Selenium::Client::GeneratedDriver#get_element_position_top
+is_singleton: false
+name: get_element_position_top
+params: (locator)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: switch to the frame with the given id
+full_name: Selenium::WebDriver::TargetLocator#frame
+is_singleton: false
+name: frame
+params: (id)
+visibility: public

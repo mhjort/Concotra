@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Selenium::WebDriver</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/selenium/webdriver_rb.html">
+                lib/selenium/webdriver.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/ie_rb.html">
+                lib/selenium/webdriver/ie.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/chrome/profile_rb.html">
+                lib/selenium/webdriver/chrome/profile.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/chrome/bridge_rb.html">
+                lib/selenium/webdriver/chrome/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/chrome/service_rb.html">
+                lib/selenium/webdriver/chrome/service.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/support/event_firing_bridge_rb.html">
+                lib/selenium/webdriver/support/event_firing_bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/support/block_event_listener_rb.html">
+                lib/selenium/webdriver/support/block_event_listener.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/support/abstract_event_listener_rb.html">
+                lib/selenium/webdriver/support/abstract_event_listener.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/iphone/bridge_rb.html">
+                lib/selenium/webdriver/iphone/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/opera/bridge_rb.html">
+                lib/selenium/webdriver/opera/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/opera/service_rb.html">
+                lib/selenium/webdriver/opera/service.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/chrome_rb.html">
+                lib/selenium/webdriver/chrome.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/android_rb.html">
+                lib/selenium/webdriver/android.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/alert_rb.html">
+                lib/selenium/webdriver/common/alert.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/bridge_helper_rb.html">
+                lib/selenium/webdriver/common/bridge_helper.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/proxy_rb.html">
+                lib/selenium/webdriver/common/proxy.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/keyboard_rb.html">
+                lib/selenium/webdriver/common/keyboard.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/search_context_rb.html">
+                lib/selenium/webdriver/common/search_context.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/action_builder_rb.html">
+                lib/selenium/webdriver/common/action_builder.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/error_rb.html">
+                lib/selenium/webdriver/common/error.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/timeouts_rb.html">
+                lib/selenium/webdriver/common/timeouts.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/options_rb.html">
+                lib/selenium/webdriver/common/options.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/driver_rb.html">
+                lib/selenium/webdriver/common/driver.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/platform_rb.html">
+                lib/selenium/webdriver/common/platform.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/file_reaper_rb.html">
+                lib/selenium/webdriver/common/file_reaper.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/mouse_rb.html">
+                lib/selenium/webdriver/common/mouse.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/profile_helper_rb.html">
+                lib/selenium/webdriver/common/profile_helper.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/keys_rb.html">
+                lib/selenium/webdriver/common/keys.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/target_locator_rb.html">
+                lib/selenium/webdriver/common/target_locator.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/driver_extensions/has_input_devices_rb.html">
+                lib/selenium/webdriver/common/driver_extensions/has_input_devices.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/driver_extensions/rotatable_rb.html">
+                lib/selenium/webdriver/common/driver_extensions/rotatable.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/driver_extensions/takes_screenshot_rb.html">
+                lib/selenium/webdriver/common/driver_extensions/takes_screenshot.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/zipper_rb.html">
+                lib/selenium/webdriver/common/zipper.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/port_prober_rb.html">
+                lib/selenium/webdriver/common/port_prober.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/navigation_rb.html">
+                lib/selenium/webdriver/common/navigation.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/element_rb.html">
+                lib/selenium/webdriver/common/element.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/socket_poller_rb.html">
+                lib/selenium/webdriver/common/socket_poller.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/common/wait_rb.html">
+                lib/selenium/webdriver/common/wait.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/android/bridge_rb.html">
+                lib/selenium/webdriver/android/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/profiles_ini_rb.html">
+                lib/selenium/webdriver/firefox/profiles_ini.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/profile_rb.html">
+                lib/selenium/webdriver/firefox/profile.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/util_rb.html">
+                lib/selenium/webdriver/firefox/util.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/socket_lock_rb.html">
+                lib/selenium/webdriver/firefox/socket_lock.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/binary_rb.html">
+                lib/selenium/webdriver/firefox/binary.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/launcher_rb.html">
+                lib/selenium/webdriver/firefox/launcher.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/bridge_rb.html">
+                lib/selenium/webdriver/firefox/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox/extension_rb.html">
+                lib/selenium/webdriver/firefox/extension.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/http/default_rb.html">
+                lib/selenium/webdriver/remote/http/default.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/http/persistent_rb.html">
+                lib/selenium/webdriver/remote/http/persistent.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/http/common_rb.html">
+                lib/selenium/webdriver/remote/http/common.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/http/curb_rb.html">
+                lib/selenium/webdriver/remote/http/curb.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/server_error_rb.html">
+                lib/selenium/webdriver/remote/server_error.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/capabilities_rb.html">
+                lib/selenium/webdriver/remote/capabilities.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/bridge_rb.html">
+                lib/selenium/webdriver/remote/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote/response_rb.html">
+                lib/selenium/webdriver/remote/response.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/firefox_rb.html">
+                lib/selenium/webdriver/firefox.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/remote_rb.html">
+                lib/selenium/webdriver/remote.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/opera_rb.html">
+                lib/selenium/webdriver/opera.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/ie/server_rb.html">
+                lib/selenium/webdriver/ie/server.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/ie/bridge_rb.html">
+                lib/selenium/webdriver/ie/bridge.rb
+                </a>
+        <br />
+                <a href="../../files/lib/selenium/webdriver/iphone_rb.html">
+                lib/selenium/webdriver/iphone.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000004">for</a>&nbsp;&nbsp;
+      <a href="#M000003">root</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="WebDriver/Android.html" class="link">Selenium::WebDriver::Android</a><br />
+Module <a href="WebDriver/BridgeHelper.html" class="link">Selenium::WebDriver::BridgeHelper</a><br />
+Module <a href="WebDriver/Chrome.html" class="link">Selenium::WebDriver::Chrome</a><br />
+Module <a href="WebDriver/DriverExtensions.html" class="link">Selenium::WebDriver::DriverExtensions</a><br />
+Module <a href="WebDriver/Error.html" class="link">Selenium::WebDriver::Error</a><br />
+Module <a href="WebDriver/FileReaper.html" class="link">Selenium::WebDriver::FileReaper</a><br />
+Module <a href="WebDriver/Firefox.html" class="link">Selenium::WebDriver::Firefox</a><br />
+Module <a href="WebDriver/IE.html" class="link">Selenium::WebDriver::IE</a><br />
+Module <a href="WebDriver/IPhone.html" class="link">Selenium::WebDriver::IPhone</a><br />
+Module <a href="WebDriver/Keys.html" class="link">Selenium::WebDriver::Keys</a><br />
+Module <a href="WebDriver/Opera.html" class="link">Selenium::WebDriver::Opera</a><br />
+Module <a href="WebDriver/Platform.html" class="link">Selenium::WebDriver::Platform</a><br />
+Module <a href="WebDriver/ProfileHelper.html" class="link">Selenium::WebDriver::ProfileHelper</a><br />
+Module <a href="WebDriver/Remote.html" class="link">Selenium::WebDriver::Remote</a><br />
+Module <a href="WebDriver/SearchContext.html" class="link">Selenium::WebDriver::SearchContext</a><br />
+Module <a href="WebDriver/Support.html" class="link">Selenium::WebDriver::Support</a><br />
+Module <a href="WebDriver/Zipper.html" class="link">Selenium::WebDriver::Zipper</a><br />
+Class <a href="WebDriver/ActionBuilder.html" class="link">Selenium::WebDriver::ActionBuilder</a><br />
+Class <a href="WebDriver/Alert.html" class="link">Selenium::WebDriver::Alert</a><br />
+Class <a href="WebDriver/Driver.html" class="link">Selenium::WebDriver::Driver</a><br />
+Class <a href="WebDriver/Element.html" class="link">Selenium::WebDriver::Element</a><br />
+Class <a href="WebDriver/Keyboard.html" class="link">Selenium::WebDriver::Keyboard</a><br />
+Class <a href="WebDriver/Mouse.html" class="link">Selenium::WebDriver::Mouse</a><br />
+Class <a href="WebDriver/Navigation.html" class="link">Selenium::WebDriver::Navigation</a><br />
+Class <a href="WebDriver/Options.html" class="link">Selenium::WebDriver::Options</a><br />
+Class <a href="WebDriver/PortProber.html" class="link">Selenium::WebDriver::PortProber</a><br />
+Class <a href="WebDriver/Proxy.html" class="link">Selenium::WebDriver::Proxy</a><br />
+Class <a href="WebDriver/SocketPoller.html" class="link">Selenium::WebDriver::SocketPoller</a><br />
+Class <a href="WebDriver/TargetLocator.html" class="link">Selenium::WebDriver::TargetLocator</a><br />
+Class <a href="WebDriver/Timeouts.html" class="link">Selenium::WebDriver::Timeouts</a><br />
+Class <a href="WebDriver/Wait.html" class="link">Selenium::WebDriver::Wait</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Point</td>
+          <td>=</td>
+          <td class="context-item-value">Struct.new(:x, :y)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">Dimension</td>
+          <td>=</td>
+          <td class="context-item-value">Struct.new(:width, :height)</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="WebDriver.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('WebDriver.src/M000004.html');return false;">
+          <span class="method-name">for</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a new <a href="WebDriver/Driver.html">Driver</a> instance with the
+correct bridge <a href="WebDriver.html#M000004">for</a> the given browser
+</p>
+<p>
+@param browser [:ie, :internet_explorer, :remote, :chrome, :firefox, :ff,
+:android, :iphone, :opera]
+</p>
+<pre>
+  the driver type to use
+</pre>
+<p>
+@param *rest
+</p>
+<pre>
+  arguments passed to Bridge.new
+</pre>
+<p>
+@return [<a href="WebDriver/Driver.html">Driver</a>]
+</p>
+<p>
+@see <a
+href="WebDriver/Remote/Bridge.html">Selenium::WebDriver::Remote::Bridge</a>
+@see <a
+href="WebDriver/Firefox/Bridge.html">Selenium::WebDriver::Firefox::Bridge</a>
+@see <a href="WebDriver/IE/Bridge.html">Selenium::WebDriver::IE::Bridge</a>
+@see <a
+href="WebDriver/Chrome/Bridge.html">Selenium::WebDriver::Chrome::Bridge</a>
+@see <a
+href="WebDriver/Android/Bridge.html">Selenium::WebDriver::Android::Bridge</a>
+@see <a
+href="WebDriver/IPhone/Bridge.html">Selenium::WebDriver::IPhone::Bridge</a>
+@see <a
+href="WebDriver/Opera/Bridge.html">Selenium::WebDriver::Opera::Bridge</a>
+</p>
+<p>
+@example
+</p>
+<pre>
+  WebDriver.for :firefox, :profile =&gt; &quot;some-profile&quot;
+  WebDriver.for :firefox, :profile =&gt; Profile.new
+  WebDriver.for :remote,  :url =&gt; &quot;http://localhost:4444/wd/hub&quot;, :desired_capabilities =&gt; caps
+</pre>
+<p>
+One special argument is not passed on to the bridges, :listener. You can
+pass a listener <a href="WebDriver.html#M000004">for</a> this option to get
+notified of <a href="WebDriver.html">WebDriver</a> events. The passed
+object must respond to call or implement the methods from
+AbstractEventListener.
+</p>
+<p>
+@see <a
+href="WebDriver/Support/AbstractEventListener.html">Selenium::WebDriver::Support::AbstractEventListener</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="WebDriver.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('WebDriver.src/M000003.html');return false;">
+          <span class="method-name">root</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@api private
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

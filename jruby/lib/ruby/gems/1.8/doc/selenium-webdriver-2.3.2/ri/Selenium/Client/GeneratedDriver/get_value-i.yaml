@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets the (whitespace-trimmed) value of an input field (or anything else with a value parameter). For checkbox/radio elements, the value will be &quot;on&quot; or &quot;off&quot; depending on whether the element is checked or not.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator"
+full_name: Selenium::Client::GeneratedDriver#get_value
+is_singleton: false
+name: get_value
+params: (locator)
+visibility: public

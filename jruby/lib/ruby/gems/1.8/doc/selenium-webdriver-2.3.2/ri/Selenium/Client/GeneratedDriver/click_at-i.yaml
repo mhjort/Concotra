@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Clicks on a link, button, checkbox or radio button. If the click action causes a new page to load (like a link usually does), call waitForPageToLoad.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator 'coordString' is specifies the x,y position (i.e. - 10,20) of the mouse event relative to the element returned by the locator."
+full_name: Selenium::Client::GeneratedDriver#click_at
+is_singleton: false
+name: click_at
+params: (locator,coordString)
+visibility: public

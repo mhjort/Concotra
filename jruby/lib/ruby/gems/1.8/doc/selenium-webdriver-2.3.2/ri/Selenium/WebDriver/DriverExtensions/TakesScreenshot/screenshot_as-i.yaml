@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Return a PNG screenshot in the given format as a string
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [:base64, :png] format @return String screenshot"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api public"
+full_name: Selenium::WebDriver::DriverExtensions::TakesScreenshot#screenshot_as
+is_singleton: false
+name: screenshot_as
+params: (format)
+visibility: public

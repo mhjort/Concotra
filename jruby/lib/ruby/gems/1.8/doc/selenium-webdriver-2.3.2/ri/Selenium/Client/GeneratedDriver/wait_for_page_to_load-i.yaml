@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Waits for a new page to load.
+  - !ruby/struct:SM::Flow::P 
+    body: You can use this command instead of the &quot;AndWait&quot; suffixes, &quot;clickAndWait&quot;, &quot;selectAndWait&quot;, &quot;typeAndWait&quot; etc. (which are only available in the JS API). Selenium constantly keeps track of new pages loading, and sets a &quot;newPageLoaded&quot; flag when it first notices a page load. Running any other Selenium command after turns the flag to false. Hence, if you want to wait for a page to load, you must wait immediately after a Selenium command that caused a page-load.
+  - !ruby/struct:SM::Flow::P 
+    body: "'timeout' is a timeout in milliseconds, after which this command will return with an error"
+full_name: Selenium::Client::GeneratedDriver#wait_for_page_to_load
+is_singleton: false
+name: wait_for_page_to_load
+params: (timeout)
+visibility: public

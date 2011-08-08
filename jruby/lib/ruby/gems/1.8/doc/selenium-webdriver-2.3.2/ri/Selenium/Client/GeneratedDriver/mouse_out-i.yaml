@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Simulates a user moving the mouse pointer away from the specified element.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator"
+full_name: Selenium::Client::GeneratedDriver#mouse_out
+is_singleton: false
+name: mouse_out
+params: (locator)
+visibility: public

@@ -1,0 +1,63 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "Whether we should detach from the server process. Default: true"
+    name: background
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Path to the selenium server jar
+    name: jar
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "Configure logging. Pass a log file path or a boolean. Default: true"
+      - !ruby/struct:SM::Flow::P 
+        body: true - log to stdout/stderr false - no logging String - log to the specified file
+    name: log
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: Add additional options passed to the server jar.
+    name: opts
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "Port to use for the server. Default: 4444"
+    name: port
+    rw: RW
+  - !ruby/object:RI::Attribute 
+    comment: 
+      - !ruby/struct:SM::Flow::P 
+        body: "Timeout in seconds for the server to start/stop. Default: 30"
+    name: timeout
+    rw: RW
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Defines rake tasks for starting, stopping and restarting the Selenium server.
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Selenium::Rake::ServerTask.new do |t|\n    t.jar = &quot;/path/to/selenium-server-standalone.jar&quot;\n    t.port = 4444\n    t.opts = %w[-some options]\n  end\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Tasks defined:"
+  - !ruby/struct:SM::Flow::P 
+    body: rake selenium:server:start rake selenium:server:stop rake selenium:server:restart
+constants: []
+
+full_name: Selenium::Rake::ServerTask
+includes: []
+
+instance_methods: []
+
+name: ServerTask
+superclass: Object

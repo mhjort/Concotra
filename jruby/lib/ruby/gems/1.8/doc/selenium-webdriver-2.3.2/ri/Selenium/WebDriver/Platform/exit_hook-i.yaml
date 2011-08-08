@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: if Process.pid == pid
+comment: 
+full_name: Selenium::WebDriver::Platform#exit_hook
+is_singleton: false
+name: exit_hook
+params: (&blk) {|if Process.pid == pid| ...}
+visibility: public

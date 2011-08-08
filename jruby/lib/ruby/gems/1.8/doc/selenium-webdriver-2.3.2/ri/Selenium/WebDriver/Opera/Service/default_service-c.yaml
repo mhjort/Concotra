@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Opera::Service::default_service
+is_singleton: true
+name: default_service
+params: ()
+visibility: public

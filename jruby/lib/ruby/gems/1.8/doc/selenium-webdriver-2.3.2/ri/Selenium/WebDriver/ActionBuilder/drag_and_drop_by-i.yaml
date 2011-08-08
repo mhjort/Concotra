@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::ActionBuilder#drag_and_drop_by
+is_singleton: false
+name: drag_and_drop_by
+params: (source, right_by, down_by)
+visibility: public

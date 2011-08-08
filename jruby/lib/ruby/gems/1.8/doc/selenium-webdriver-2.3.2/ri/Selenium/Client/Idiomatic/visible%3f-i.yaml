@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Determines if the specified element is visible. An element can be rendered invisible by setting the CSS &quot;visibility&quot; property to &quot;hidden&quot;, or the &quot;display&quot; property to &quot;none&quot;, either for the element itself or one if its ancestors. This method will fail if the element is not present.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator"
+full_name: Selenium::Client::Idiomatic#visible?
+is_singleton: false
+name: visible?
+params: (locator)
+visibility: public

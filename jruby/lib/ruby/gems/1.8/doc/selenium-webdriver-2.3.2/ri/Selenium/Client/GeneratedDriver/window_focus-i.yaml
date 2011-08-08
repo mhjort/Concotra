@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gives focus to the currently selected window
+full_name: Selenium::Client::GeneratedDriver#window_focus
+is_singleton: false
+name: window_focus
+params: ()
+visibility: public

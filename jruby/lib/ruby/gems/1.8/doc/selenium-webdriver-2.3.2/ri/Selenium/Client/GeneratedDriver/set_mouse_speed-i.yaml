@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Configure the number of pixels between &quot;mousemove&quot; events during dragAndDrop commands (default=10). Setting this value to 0 means that we'll send a &quot;mousemove&quot; event to every single pixel in between the start location and the end location; that can be very slow, and may cause some browsers to force the JavaScript to timeout. If the mouse speed is greater than the distance between the two dragged objects, we'll just send one &quot;mousemove&quot; at the start location and then one final one at the end location.
+  - !ruby/struct:SM::Flow::P 
+    body: "'pixels' is the number of pixels between &quot;mousemove&quot; events"
+full_name: Selenium::Client::GeneratedDriver#set_mouse_speed
+is_singleton: false
+name: set_mouse_speed
+params: (pixels)
+visibility: public

@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Defines a new function for Selenium to locate elements on the page. For example, if you define the strategy &quot;foo&quot;, and someone runs click(&quot;foo=blah&quot;), we'll run your function, passing you the string &quot;blah&quot;, and click on the element that your function returns, or throw an &quot;Element not found&quot; error if your function returns null.
+  - !ruby/struct:SM::Flow::P 
+    body: "We'll pass three arguments to your function:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "locator: the string the user passed in"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "inWindow: the currently selected window"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "inDocument: the currently selected document"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: The function must return null if the element can't be found.
+  - !ruby/struct:SM::Flow::P 
+    body: "'strategyName' is the name of the strategy to define; this should use only letters [a-zA-Z] with no spaces or other punctuation. 'functionDefinition' is a string defining the body of a function in JavaScript. For example: <tt>return inDocument.getElementById(locator);</tt>"
+full_name: Selenium::Client::GeneratedDriver#add_location_strategy
+is_singleton: false
+name: add_location_strategy
+params: (strategyName,functionDefinition)
+visibility: public

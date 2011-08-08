@@ -1,0 +1,1523 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Selenium::Client::Idiomatic</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Selenium::Client::Idiomatic</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/selenium/client/idiomatic_rb.html">
+                lib/selenium/client/idiomatic.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Provide a more idiomatic API than the generated Ruby driver.
+</p>
+<p>
+Work in progress&#8230;
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000606">actual_timeout_in_milliseconds</a>&nbsp;&nbsp;
+      <a href="#M000583">alert</a>&nbsp;&nbsp;
+      <a href="#M000582">alert?</a>&nbsp;&nbsp;
+      <a href="#M000598">all_window_ids</a>&nbsp;&nbsp;
+      <a href="#M000599">all_window_names</a>&nbsp;&nbsp;
+      <a href="#M000600">all_window_titles</a>&nbsp;&nbsp;
+      <a href="#M000574">body_text</a>&nbsp;&nbsp;
+      <a href="#M000601">browser_network_traffic</a>&nbsp;&nbsp;
+      <a href="#M000602">browser_xpath_library=</a>&nbsp;&nbsp;
+      <a href="#M000581">checked?</a>&nbsp;&nbsp;
+      <a href="#M000575">click</a>&nbsp;&nbsp;
+      <a href="#M000585">confirmation</a>&nbsp;&nbsp;
+      <a href="#M000584">confirmation?</a>&nbsp;&nbsp;
+      <a href="#M000594">cookie</a>&nbsp;&nbsp;
+      <a href="#M000595">cookie?</a>&nbsp;&nbsp;
+      <a href="#M000593">cookies</a>&nbsp;&nbsp;
+      <a href="#M000596">create_cookie</a>&nbsp;&nbsp;
+      <a href="#M000597">delete_cookie</a>&nbsp;&nbsp;
+      <a href="#M000577">element?</a>&nbsp;&nbsp;
+      <a href="#M000604">execution_delay</a>&nbsp;&nbsp;
+      <a href="#M000605">execution_delay=</a>&nbsp;&nbsp;
+      <a href="#M000579">field</a>&nbsp;&nbsp;
+      <a href="#M000592">go_back</a>&nbsp;&nbsp;
+      <a href="#M000603">highlight_located_element=</a>&nbsp;&nbsp;
+      <a href="#M000588">js_eval</a>&nbsp;&nbsp;
+      <a href="#M000569">location</a>&nbsp;&nbsp;
+      <a href="#M000587">prompt</a>&nbsp;&nbsp;
+      <a href="#M000586">prompt?</a>&nbsp;&nbsp;
+      <a href="#M000589">remote_control_timeout_in_seconds=</a>&nbsp;&nbsp;
+      <a href="#M000590">table_cell_text</a>&nbsp;&nbsp;
+      <a href="#M000566">text</a>&nbsp;&nbsp;
+      <a href="#M000576">text?</a>&nbsp;&nbsp;
+      <a href="#M000567">text_content</a>&nbsp;&nbsp;
+      <a href="#M000568">title</a>&nbsp;&nbsp;
+      <a href="#M000580">value</a>&nbsp;&nbsp;
+      <a href="#M000578">visible?</a>&nbsp;&nbsp;
+      <a href="#M000573">wait_for</a>&nbsp;&nbsp;
+      <a href="#M000591">wait_for_condition</a>&nbsp;&nbsp;
+      <a href="#M000570">wait_for_page</a>&nbsp;&nbsp;
+      <a href="#M000571">wait_for_page_to_load</a>&nbsp;&nbsp;
+      <a href="#M000572">wait_for_popup</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000606" class="method-detail">
+        <a name="M000606"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000606.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000606.html');return false;">
+          <span class="method-name">actual_timeout_in_milliseconds</span><span class="method-args">(timeout_in_seconds)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000583" class="method-detail">
+        <a name="M000583"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000583.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000583.html');return false;">
+          <span class="method-name">alert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieves the message of a JavaScript <a
+href="Idiomatic.html#M000583">alert</a> generated during the previous
+action, or fail if there were no alerts.
+</p>
+<p>
+Getting an <a href="Idiomatic.html#M000583">alert</a> has the same effect
+as manually clicking OK. If an <a href="Idiomatic.html#M000583">alert</a>
+is generated but you do not consume it with getAlert, the next <a
+href="../../Selenium.html">Selenium</a> action will fail.
+</p>
+<p>
+Under <a href="../../Selenium.html">Selenium</a>, JavaScript alerts will
+NOT pop up a visible <a href="Idiomatic.html#M000583">alert</a> dialog.
+</p>
+<p>
+<a href="../../Selenium.html">Selenium</a> does NOT support JavaScript
+alerts that are generated in a page&#8216;s onload() event handler. In this
+case a visible dialog WILL be generated and <a
+href="../../Selenium.html">Selenium</a> will hang until someone manually
+clicks OK.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000582" class="method-detail">
+        <a name="M000582"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000582.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000582.html');return false;">
+          <span class="method-name">alert?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Whether an <a href="Idiomatic.html#M000583">alert</a> occurred
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000598" class="method-detail">
+        <a name="M000598"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000598.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000598.html');return false;">
+          <span class="method-name">all_window_ids</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the IDs of all windows that the browser knows about.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000599" class="method-detail">
+        <a name="M000599"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000599.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000599.html');return false;">
+          <span class="method-name">all_window_names</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the names of all windows that the browser knows about.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000600" class="method-detail">
+        <a name="M000600"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000600.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000600.html');return false;">
+          <span class="method-name">all_window_titles</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the titles of all windows that the browser knows about.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000574" class="method-detail">
+        <a name="M000574"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000574.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000574.html');return false;">
+          <span class="method-name">body_text</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the entire <a href="Idiomatic.html#M000566">text</a> of the page.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000601" class="method-detail">
+        <a name="M000601"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000601.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000601.html');return false;">
+          <span class="method-name">browser_network_traffic</span><span class="method-args">(format = :plain)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a string representation of the network traffic seen by the browser,
+including headers, AJAX requests, status codes, and timings. When this
+function is called, the traffic log is cleared, so the returned content is
+only the traffic seen since the last call.
+</p>
+<p>
+The network traffic is returned in the format it was requested. Valid
+values are: :json, :xml, or :plain.
+</p>
+<p>
+Warning: For <a href="Idiomatic.html#M000601">browser_network_traffic</a>
+to work you need to start your browser session with the option
+&quot;captureNetworkTraffic=true&quot;, which will force ALL traffic to go
+to the Remote Control proxy even for more efficient browser modes like
+`*firefox` and `*safari`.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000602" class="method-detail">
+        <a name="M000602"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000602.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000602.html');return false;">
+          <span class="method-name">browser_xpath_library=</span><span class="method-args">(library_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows choice of a specific XPath libraries for Xpath evualuation in the
+browser (e.g. to resolve XPath locators).
+</p>
+<p>
+`library_name&#8217; can be:
+</p>
+<pre>
+    * :ajaxslt          : Google's library
+    * :javascript-xpath : Cybozu Labs' faster library
+    * :default          : Selenium default library.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000581" class="method-detail">
+        <a name="M000581"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000581.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000581.html');return false;">
+          <span class="method-name">checked?</span><span class="method-args">(locator)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns whether a toggle-button (checkbox/radio) is checked. Fails if the
+specified element doesn&#8216;t exist or isn&#8216;t a toggle-button.
+</p>
+<ul>
+<li>&#8216;locator&#8217; is an element locator pointing to a checkbox or radio
+button
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000575" class="method-detail">
+        <a name="M000575"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000575.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000575.html');return false;">
+          <span class="method-name">click</span><span class="method-args">(locator, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clicks on a link, button, checkbox or radio button.
+</p>
+<p>
+&#8216;locator&#8217; is an element locator
+</p>
+<p>
+Using &#8216;options&#8217; you can automatically wait for an event to
+happen after the <a href="Idiomatic.html#M000575">click</a>. e.g.
+</p>
+<ul>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :page # will wait for a
+new page to load
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :popup, :window =&gt;
+&#8216;a window id&#8217; # will wait for a new popup window to appear.
+Also selects the popup window for you provide `:select =&gt; true`
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :ajax # will wait for all
+ajax requests to be completed using semantics of default javascript
+framework
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :ajax,
+:javascript_framework =&gt; :jquery # will wait for all ajax requests to be
+completed overriding default javascript framework
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :effects # will wait for
+all javascript effects to be rendered using semantics of default javascript
+framework
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :effects,
+:javascript_framework =&gt; :prototype # will wait for all javascript
+effects to be rendered overriding default javascript framework
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :element, :element =&gt;
+&#8216;new_element_id&#8217; # will wait for an element to be
+present/appear
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_element, :element
+=&gt; &#8216;new_element_id&#8217; # will wait for an element to be not be
+present/disappear
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for some <a
+href="Idiomatic.html#M000566">text</a> to be present/appear
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; /A Regexp/ # will wait for
+some <a href="Idiomatic.html#M000566">text</a> to be present/appear
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000566">text</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000566">text</a>&#8217; # will wait
+for the content of &#8216;a_locator&#8217; to be &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for the <a
+href="Idiomatic.html#M000566">text</a> to be not be present/disappear
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; /A Regexp/ # will wait for the
+<a href="Idiomatic.html#M000566">text</a> to be not be present/disappear
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000566">text</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000566">text</a>&#8217; # will wait
+for the content of &#8216;a_locator&#8217; to not be &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000580">value</a>, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000580">value</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8217; # will wait
+for the <a href="Idiomatic.html#M000579">field</a> <a
+href="Idiomatic.html#M000580">value</a> of &#8216;a_locator&#8217; to be
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_value, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000580">value</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8217; # will wait
+for the <a href="Idiomatic.html#M000579">field</a> <a
+href="Idiomatic.html#M000580">value</a> of &#8216;a_locator&#8217; to not
+be &#8216;some <a href="Idiomatic.html#M000580">value</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :visible, :element =&gt;
+&#8216;a_locator&#8217; # will wait for element to be visible
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :not_visible, :element
+=&gt; &#8216;a_locator&#8217; # will wait for element to not be visible
+
+</li>
+<li><a href="Idiomatic.html#M000575">click</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :condition, :javascript
+=&gt; &#8216;some expression&#8217; # will wait for the javascript
+expression to be true
+
+</li>
+</ul>
+<p>
+Using options you can also define an explicit timeout (:timeout_in_seconds
+key). Otherwise the default driver timeout is used.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000585" class="method-detail">
+        <a name="M000585"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000585.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000585.html');return false;">
+          <span class="method-name">confirmation</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieves the message of a JavaScript <a
+href="Idiomatic.html#M000585">confirmation</a> dialog generated during the
+previous action.
+</p>
+<p>
+By default, the confirm function will return true, having the same effect
+as manually clicking OK. This can be changed by prior execution of the
+chooseCancelOnNextConfirmation command.
+</p>
+<p>
+If an <a href="Idiomatic.html#M000585">confirmation</a> is generated but
+you do not consume it with getConfirmation, the next <a
+href="../../Selenium.html">Selenium</a> action will fail.
+</p>
+<p>
+NOTE: under <a href="../../Selenium.html">Selenium</a>, JavaScript
+confirmations will NOT pop up a visible dialog.
+</p>
+<p>
+NOTE: <a href="../../Selenium.html">Selenium</a> does NOT support
+JavaScript confirmations that are generated in a page&#8216;s onload()
+event handler. In this case a visible dialog WILL be generated and <a
+href="../../Selenium.html">Selenium</a> will hang until you manually <a
+href="Idiomatic.html#M000575">click</a> OK.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000584" class="method-detail">
+        <a name="M000584"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000584.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000584.html');return false;">
+          <span class="method-name">confirmation?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Whether a <a href="Idiomatic.html#M000585">confirmation</a> has been
+auto-acknoledged (i.e. confirm() been called)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000594" class="method-detail">
+        <a name="M000594"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000594.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000594.html');return false;">
+          <span class="method-name">cookie</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Idiomatic.html#M000580">value</a> of the <a
+href="Idiomatic.html#M000594">cookie</a> with the specified name, or throws
+an error if the <a href="Idiomatic.html#M000594">cookie</a> is not present.
+</p>
+<p>
+&#8216;name&#8217; is the name of the <a
+href="Idiomatic.html#M000594">cookie</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000595" class="method-detail">
+        <a name="M000595"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000595.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000595.html');return false;">
+          <span class="method-name">cookie?</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if a <a href="Idiomatic.html#M000594">cookie</a> with the
+specified name is present, or false otherwise.
+</p>
+<p>
+&#8216;name&#8217; is the name of the <a
+href="Idiomatic.html#M000594">cookie</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000593" class="method-detail">
+        <a name="M000593"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000593.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000593.html');return false;">
+          <span class="method-name">cookies</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return all <a href="Idiomatic.html#M000593">cookies</a> for the current
+page under test.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000596" class="method-detail">
+        <a name="M000596"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000596.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000596.html');return false;">
+          <span class="method-name">create_cookie</span><span class="method-args">(name_value_pair, options=&quot;&quot;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a new <a href="Idiomatic.html#M000594">cookie</a> whose path and
+domain are same with those of current page under test, unless you specified
+a path for this <a href="Idiomatic.html#M000594">cookie</a> explicitly.
+</p>
+<p>
+&#8216;nameValuePair&#8217; is name and <a
+href="Idiomatic.html#M000580">value</a> of the <a
+href="Idiomatic.html#M000594">cookie</a> in a format &quot;name=value&quot;
+&#8216;optionsString&#8217; is options for the <a
+href="Idiomatic.html#M000594">cookie</a>. Currently supported options
+include &#8216;path&#8217;, &#8216;max_age&#8217; and &#8216;domain&#8217;.
+the optionsString&#8216;s format is &quot;path=/path/, max_age=60,
+domain=.foo.com&quot;. The order of options are irrelevant, the unit of the
+<a href="Idiomatic.html#M000580">value</a> of &#8216;max_age&#8217; is
+second. Note that specifying a domain that isn&#8216;t a subset of the
+current domain will usually fail.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000597" class="method-detail">
+        <a name="M000597"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000597.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000597.html');return false;">
+          <span class="method-name">delete_cookie</span><span class="method-args">(name, options=&quot;&quot;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Delete a named <a href="Idiomatic.html#M000594">cookie</a> with specified
+path and domain. Be careful; to delete a <a
+href="Idiomatic.html#M000594">cookie</a>, you need to delete it using the
+exact same path and domain that were used to create the <a
+href="Idiomatic.html#M000594">cookie</a>. If the path is wrong, or the
+domain is wrong, the <a href="Idiomatic.html#M000594">cookie</a> simply
+won&#8216;t be deleted. Also note that specifying a domain that isn&#8216;t
+a subset of the current domain will usually fail.
+</p>
+<p>
+Since there&#8216;s no way to discover at runtime the original path and
+domain of a given <a href="Idiomatic.html#M000594">cookie</a>, we&#8216;ve
+added an option called &#8216;recurse&#8217; to try all sub-domains of the
+current domain with all paths that are a subset of the current path.
+Beware; this option can be slow. In big-O notation, it operates in O(n*m)
+time, where n is the number of dots in the domain name and m is the number
+of slashes in the path.
+</p>
+<p>
+&#8216;name&#8217; is the name of the <a
+href="Idiomatic.html#M000594">cookie</a> to be deleted
+&#8216;optionsString&#8217; is options for the <a
+href="Idiomatic.html#M000594">cookie</a>. Currently supported options
+include &#8216;path&#8217;, &#8216;domain&#8217; and &#8216;recurse.&#8217;
+The optionsString&#8216;s format is &quot;path=/path/, domain=.foo.com,
+recurse=true&quot;. The order of options are irrelevant. Note that
+specifying a domain that isn&#8216;t a subset of the current domain will
+usually fail.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000577" class="method-detail">
+        <a name="M000577"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000577.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000577.html');return false;">
+          <span class="method-name">element?</span><span class="method-args">(locator)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Verifies that the specified element is somewhere on the page.
+</p>
+<ul>
+<li>&#8216;locator&#8217; is an element locator
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000604" class="method-detail">
+        <a name="M000604"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000604.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000604.html');return false;">
+          <span class="method-name">execution_delay</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get execution delay in milliseconds, i.e. a pause delay following each
+selenium operation. By default, there is no such delay (<a
+href="Idiomatic.html#M000580">value</a> is 0).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000605" class="method-detail">
+        <a name="M000605"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000605.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000605.html');return false;">
+          <span class="method-name">execution_delay=</span><span class="method-args">(delay_in_milliseconds)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the execution delay in milliseconds, i.e. a pause delay following each
+selenium operation. By default, there is no such delay.
+</p>
+<p>
+Setting an execution can be useful to troubleshoot or capture videos
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000579" class="method-detail">
+        <a name="M000579"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000579.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000579.html');return false;">
+          <span class="method-name">field</span><span class="method-args">(locator)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the (whitespace-trimmed) <a href="Idiomatic.html#M000580">value</a> of
+an input <a href="Idiomatic.html#M000579">field</a> (or anything else with
+a <a href="Idiomatic.html#M000580">value</a> parameter). For checkbox/radio
+elements, the <a href="Idiomatic.html#M000580">value</a> will be
+&quot;on&quot; or &quot;off&quot; depending on whether the element is
+checked or not.
+</p>
+<ul>
+<li>&#8216;locator&#8217; is an element locator
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000592" class="method-detail">
+        <a name="M000592"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000592.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000592.html');return false;">
+          <span class="method-name">go_back</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Simulates the user clicking the &quot;back&quot; button on their browser.
+Using &#8216;options&#8217; you can automatically wait for an event to
+happen after the <a href="Idiomatic.html#M000575">click</a>. e.g.
+</p>
+<ul>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :page # will wait for a
+new page to load
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :popup, :window =&gt;
+&#8216;a window id&#8217; # will wait for a new popup window to appear.
+Also selects the popup window for you provide `:select =&gt; true`
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :ajax # will wait for all
+ajax requests to be completed using semantics of default javascript
+framework
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :ajax,
+:javascript_framework =&gt; :jquery # will wait for all ajax requests to be
+completed overriding default javascript framework
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :effects # will wait for
+all javascript effects to be rendered using semantics of default javascript
+framework
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :effects,
+:javascript_framework =&gt; :prototype # will wait for all javascript
+effects to be rendered overriding default javascript framework
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :element, :element =&gt;
+&#8216;new_element_id&#8217; # will wait for an element to be
+present/appear
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_element, :element
+=&gt; &#8216;new_element_id&#8217; # will wait for an element to be not be
+present/disappear
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for some <a
+href="Idiomatic.html#M000566">text</a> to be present/appear
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; /A Regexp/ # will wait for
+some <a href="Idiomatic.html#M000566">text</a> to be present/appear
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000566">text</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000566">text</a>&#8217; # will wait
+for the content of &#8216;a_locator&#8217; to be &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for the <a
+href="Idiomatic.html#M000566">text</a> to be not be present/disappear
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> &quot;a_locator&quot;, :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; /A Regexp/ # will wait for the
+<a href="Idiomatic.html#M000566">text</a> to be not be present/disappear
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000566">text</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000566">text</a>&#8217; # will wait
+for the content of &#8216;a_locator&#8217; to not be &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :condition, :javascript
+=&gt; &#8216;some expression&#8217; # will wait for the javascript
+expression to be true
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000580">value</a>, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000580">value</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8217; # will wait
+for the <a href="Idiomatic.html#M000579">field</a> <a
+href="Idiomatic.html#M000580">value</a> of &#8216;a_locator&#8217; to be
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8216;
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :visible, :element =&gt;
+&#8216;a_locator&#8217; # will wait for element to be visible
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :not_visible, :element
+=&gt; &#8216;a_locator&#8217; # will wait for element to not be visible
+
+</li>
+<li><a href="Idiomatic.html#M000592">go_back</a> :<a
+href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_value, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000580">value</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8217; # will wait
+for the <a href="Idiomatic.html#M000579">field</a> <a
+href="Idiomatic.html#M000580">value</a> of &#8216;a_locator&#8217; to not
+be &#8216;some <a href="Idiomatic.html#M000580">value</a>&#8216;
+
+</li>
+</ul>
+<p>
+Using options you can also define an explicit timeout (:timeout_in_seconds
+key). Otherwise the default driver timeout is used.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000603" class="method-detail">
+        <a name="M000603"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000603.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000603.html');return false;">
+          <span class="method-name">highlight_located_element=</span><span class="method-args">(enabled)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Turn on/off the automatic hightlighting of the element driven or inspected
+by <a href="../../Selenium.html">Selenium</a> core. Useful when recording
+videos
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000588" class="method-detail">
+        <a name="M000588"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000588.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000588.html');return false;">
+          <span class="method-name">js_eval</span><span class="method-args">(script)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the result of evaluating the specified JavaScript snippet whithin
+the browser.
+</p>
+<pre>
+ The snippet may have multiple lines, but only the result of the last line will be returned.
+</pre>
+<p>
+Note that, by default, the snippet will run in the context of the
+&quot;selenium&quot; object itself, so <tt>this</tt> will refer to the <a
+href="../../Selenium.html">Selenium</a> object. Use <tt>window</tt> to
+refer to the window of your application, e.g.
+<tt>window.document.getElementById(&#8216;foo&#8217;)</tt> If you need to
+use a locator to refer to a single element in your application page, you
+can use <tt>this.browserbot.findElement(&quot;id=foo&quot;)</tt> where
+&quot;id=foo&quot; is your locator.
+</p>
+<ul>
+<li>&#8216;script&#8217; is the JavaScript snippet to run
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000569" class="method-detail">
+        <a name="M000569"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000569.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000569.html');return false;">
+          <span class="method-name">location</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the absolute URL of the current page.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000587" class="method-detail">
+        <a name="M000587"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000587.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000587.html');return false;">
+          <span class="method-name">prompt</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieves the message of a JavaScript question <a
+href="Idiomatic.html#M000587">prompt</a> dialog generated during the
+previous action.
+</p>
+<p>
+Successful handling of the <a href="Idiomatic.html#M000587">prompt</a>
+requires prior execution of the answerOnNextPrompt command. If a <a
+href="Idiomatic.html#M000587">prompt</a> is generated but you do not
+get/verify it, the next <a href="../../Selenium.html">Selenium</a> action
+will fail.
+</p>
+<p>
+NOTE: under <a href="../../Selenium.html">Selenium</a>, JavaScript prompts
+will NOT pop up a visible dialog.
+</p>
+<p>
+NOTE: <a href="../../Selenium.html">Selenium</a> does NOT support
+JavaScript prompts that are generated in a page&#8216;s onload() event
+handler. In this case a visible dialog WILL be generated and <a
+href="../../Selenium.html">Selenium</a> will hang until someone manually
+clicks OK.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000586" class="method-detail">
+        <a name="M000586"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000586.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000586.html');return false;">
+          <span class="method-name">prompt?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Whether a <a href="Idiomatic.html#M000587">prompt</a> occurred
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000589" class="method-detail">
+        <a name="M000589"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000589.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000589.html');return false;">
+          <span class="method-name">remote_control_timeout_in_seconds=</span><span class="method-args">(timeout_in_seconds)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the Remote Control timeout (as opposed to the client side driver
+timeout). This timout specifies the amount of time that <a
+href="../../Selenium.html">Selenium</a> Core will wait for actions to
+complete.
+</p>
+<p>
+The default timeout is 30 seconds. &#8216;timeout&#8217; is a timeout in
+seconds, after which the action will return with an error
+</p>
+<p>
+Actions that require waiting include &quot;open&quot; and the
+&quot;waitFor*&quot; actions.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000590" class="method-detail">
+        <a name="M000590"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000590.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000590.html');return false;">
+          <span class="method-name">table_cell_text</span><span class="method-args">(tableCellAddress)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Idiomatic.html#M000566">text</a> from a cell of a
+table. The cellAddress syntax tableLocator.row.column, where row and column
+start at 0.
+</p>
+<ul>
+<li>&#8216;tableCellAddress&#8217; is a cell address, e.g. &quot;foo.1.4&quot;
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000566" class="method-detail">
+        <a name="M000566"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000566.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000566.html');return false;">
+          <span class="method-name">text</span><span class="method-args">(locator)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the <a href="Idiomatic.html#M000566">text</a> content of an HTML
+element (rendered <a href="Idiomatic.html#M000566">text</a> shown to the
+user). Works for any HTML element that contains <a
+href="Idiomatic.html#M000566">text</a>.
+</p>
+<p>
+This command uses either the textContent (Mozilla-like browsers) or the
+innerText (IE-like browsers) of the element, which is the rendered <a
+href="Idiomatic.html#M000566">text</a> shown to the user.
+</p>
+<ul>
+<li>&#8216;locator&#8217; is an <a href="../../Selenium.html">Selenium</a>
+element locator
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000576" class="method-detail">
+        <a name="M000576"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000576.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000576.html');return false;">
+          <span class="method-name">text?</span><span class="method-args">(pattern)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Verifies that the specified <a href="Idiomatic.html#M000566">text</a>
+pattern appears somewhere on the rendered page shown to the user.
+</p>
+<ul>
+<li>&#8216;pattern&#8217; is a pattern to match with the <a
+href="Idiomatic.html#M000566">text</a> of the page
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000567" class="method-detail">
+        <a name="M000567"></a>
+
+        <div class="method-heading">
+          <span class="method-name">text_content</span><span class="method-args">(locator)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Idiomatic.html#M000566">text</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000568" class="method-detail">
+        <a name="M000568"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000568.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000568.html');return false;">
+          <span class="method-name">title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the <a href="Idiomatic.html#M000568">title</a> of the current HTML
+page.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000580" class="method-detail">
+        <a name="M000580"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000580.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000580.html');return false;">
+          <span class="method-name">value</span><span class="method-args">(locator)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <tt><a href="Idiomatic.html#M000579">field</a></tt>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000578" class="method-detail">
+        <a name="M000578"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000578.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000578.html');return false;">
+          <span class="method-name">visible?</span><span class="method-args">(locator)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determines if the specified element is visible. An element can be rendered
+invisible by setting the CSS &quot;visibility&quot; property to
+&quot;hidden&quot;, or the &quot;display&quot; property to
+&quot;none&quot;, either for the element itself or one if its ancestors.
+This method will fail if the element is not present.
+</p>
+<p>
+&#8216;locator&#8217; is an element locator
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000573" class="method-detail">
+        <a name="M000573"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000573.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000573.html');return false;">
+          <span class="method-name">wait_for</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Flexible wait semantics. ait is happening browser side. Useful for testing
+AJAX application.
+</p>
+<ul>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :page # will wait
+for a new page to load
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :popup, :window
+=&gt; &#8216;a window id&#8217; # will wait for a new popup window to
+appear. Also selects the popup window for you provide `:select =&gt; true`
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :ajax # will wait
+for all ajax requests to be completed using semantics of default javascript
+framework
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :ajax,
+:javascript_framework =&gt; :jquery # will wait for all ajax requests to be
+completed overriding default javascript framework
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :effects # will
+wait for all javascript effects to be rendered using semantics of default
+javascript framework
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :effects,
+:javascript_framework =&gt; :prototype # will wait for all javascript
+effects to be rendered overriding default javascript framework
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :element,
+:element =&gt; &#8216;new_element_id&#8217; # will wait for an element to
+be present/appear
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_element,
+:element =&gt; &#8216;new_element_id&#8217; # will wait for an element to
+be not be present/disappear
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for some <a
+href="Idiomatic.html#M000566">text</a> to be present/appear
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; /A Regexp/ # will wait for
+some <a href="Idiomatic.html#M000566">text</a> to be present/appear
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000566">text</a>, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000566">text</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000566">text</a>&#8217; # will wait
+for the content of &#8216;a_locator&#8217; to be &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8216;
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for the <a
+href="Idiomatic.html#M000566">text</a> to be not be present/disappear
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; /A Regexp/ # will wait for the
+<a href="Idiomatic.html#M000566">text</a> to be not be present/disappear
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_text,
+:element =&gt; &#8216;a_locator&#8217;, :<a
+href="Idiomatic.html#M000566">text</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8217; # will wait for the content
+of &#8216;a_locator&#8217; to not be &#8216;some <a
+href="Idiomatic.html#M000566">text</a>&#8216;
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :<a
+href="Idiomatic.html#M000580">value</a>, :element =&gt;
+&#8216;a_locator&#8217;, :<a href="Idiomatic.html#M000580">value</a> =&gt;
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8217; # will wait
+for the <a href="Idiomatic.html#M000579">field</a> <a
+href="Idiomatic.html#M000580">value</a> of &#8216;a_locator&#8217; to be
+&#8216;some <a href="Idiomatic.html#M000580">value</a>&#8216;
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :no_value,
+:element =&gt; &#8216;a_locator&#8217;, :<a
+href="Idiomatic.html#M000580">value</a> =&gt; &#8216;some <a
+href="Idiomatic.html#M000580">value</a>&#8217; # will wait for the <a
+href="Idiomatic.html#M000579">field</a> <a
+href="Idiomatic.html#M000580">value</a> of &#8216;a_locator&#8217; to not
+be &#8216;some <a href="Idiomatic.html#M000580">value</a>&#8216;
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :visible,
+:element =&gt; &#8216;a_locator&#8217; # will wait for element to be
+visible
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :not_visible,
+:element =&gt; &#8216;a_locator&#8217; # will wait for element to not be
+visible
+
+</li>
+<li>wait :<a href="Idiomatic.html#M000573">wait_for</a> =&gt; :condition,
+:javascript =&gt; &#8216;some expression&#8217; # will wait for the
+javascript expression to be true
+
+</li>
+</ul>
+<p>
+Using options you can also define an explicit timeout (:timeout_in_seconds
+key). Otherwise the default driver timeout is used.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000591" class="method-detail">
+        <a name="M000591"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000591.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000591.html');return false;">
+          <span class="method-name">wait_for_condition</span><span class="method-args">(script, timeout_in_seconds = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Runs the specified JavaScript snippet repeatedly until it evaluates to
+&quot;true&quot;. The snippet may have multiple lines, but only the result
+of the last line will be considered.
+</p>
+<p>
+Note that, by default, the snippet will be run in the runner&#8216;s test
+window, not in the window of your application. To get the window of your
+application, you can use the JavaScript snippet
+<tt>selenium.browserbot.getCurrentWindow()</tt>, and then run your
+JavaScript in there
+</p>
+<ul>
+<li>&#8216;script&#8217; is the JavaScript snippet to run
+
+</li>
+<li>&#8216;timeout_in_seconds&#8217; is a timeout in seconds, after which this
+command will return with an error
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000570" class="method-detail">
+        <a name="M000570"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000570.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000570.html');return false;">
+          <span class="method-name">wait_for_page</span><span class="method-args">(timeout_in_seconds=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Waits for a new page to load.
+</p>
+<p>
+<a href="../../Selenium.html">Selenium</a> constantly keeps track of new
+pages loading, and sets a &quot;newPageLoaded&quot; flag when it first
+notices a page load. Running any other <a
+href="../../Selenium.html">Selenium</a> command after turns the flag to
+false. Hence, if you want to wait for a page to load, you must wait
+immediately after a <a href="../../Selenium.html">Selenium</a> command that
+caused a page-load.
+</p>
+<ul>
+<li>&#8216;timeout_in_seconds&#8217; is a timeout in seconds, after which this
+command will return with an error
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000571" class="method-detail">
+        <a name="M000571"></a>
+
+        <div class="method-heading">
+          <span class="method-name">wait_for_page_to_load</span><span class="method-args">(timeout_in_seconds=nil)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Idiomatic.html#M000570">wait_for_page</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000572" class="method-detail">
+        <a name="M000572"></a>
+
+        <div class="method-heading">
+          <a href="Idiomatic.src/M000572.html" target="Code" class="method-signature"
+            onclick="popupCode('Idiomatic.src/M000572.html');return false;">
+          <span class="method-name">wait_for_popup</span><span class="method-args">(window_id, timeout_in_seconds=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Waits for a popup window to appear and load up.
+</p>
+<p>
+window_id is the JavaScript window &quot;name&quot; of the window that will
+appear (not the <a href="Idiomatic.html#M000566">text</a> of the <a
+href="Idiomatic.html#M000568">title</a> bar) timeout_in_seconds is a
+timeout in seconds, after which the action will return with an error
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

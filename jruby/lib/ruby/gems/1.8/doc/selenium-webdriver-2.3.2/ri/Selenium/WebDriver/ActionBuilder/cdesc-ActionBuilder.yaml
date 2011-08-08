@@ -1,0 +1,49 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The ActionBuilder provides the user a way to set up and perform complex user interactions.
+  - !ruby/struct:SM::Flow::P 
+    body: This class should not be instantiated directly, but is created by Selenium::WebDriver::DriverExtensions::HasInputDevices#action, which is available on Driver instances that support the user interaction API.
+  - !ruby/struct:SM::Flow::P 
+    body: "Example:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: " driver.action.key_down(:shift).\n               click(element).\n               click(second_element).\n               key_up(:shift).\n               drag_and_drop(element, third_element).\n               perform\n"
+constants: []
+
+full_name: Selenium::WebDriver::ActionBuilder
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: click
+  - !ruby/object:RI::MethodSummary 
+    name: click_and_hold
+  - !ruby/object:RI::MethodSummary 
+    name: context_click
+  - !ruby/object:RI::MethodSummary 
+    name: double_click
+  - !ruby/object:RI::MethodSummary 
+    name: drag_and_drop
+  - !ruby/object:RI::MethodSummary 
+    name: drag_and_drop_by
+  - !ruby/object:RI::MethodSummary 
+    name: key_down
+  - !ruby/object:RI::MethodSummary 
+    name: key_up
+  - !ruby/object:RI::MethodSummary 
+    name: move_by
+  - !ruby/object:RI::MethodSummary 
+    name: move_to
+  - !ruby/object:RI::MethodSummary 
+    name: perform
+  - !ruby/object:RI::MethodSummary 
+    name: release
+  - !ruby/object:RI::MethodSummary 
+    name: send_keys
+name: ActionBuilder
+superclass: Object

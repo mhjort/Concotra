@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Temporarily sets the &quot;id&quot; attribute of the specified element, so you can locate it in the future using its ID rather than a slow/complicated XPath. This ID will disappear once the page is reloaded.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator pointing to an element 'identifier' is a string to be used as the ID of the specified element"
+full_name: Selenium::Client::GeneratedDriver#assign_id
+is_singleton: false
+name: assign_id
+params: (locator,identifier)
+visibility: public

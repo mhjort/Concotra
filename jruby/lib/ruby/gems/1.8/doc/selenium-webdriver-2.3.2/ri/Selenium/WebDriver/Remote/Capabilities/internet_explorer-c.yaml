@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Capabilities::internet_explorer
+is_singleton: true
+name: internet_explorer
+params: (opts = {})
+visibility: public

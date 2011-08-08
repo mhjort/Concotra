@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Waits for a popup window to appear and load up.
+  - !ruby/struct:SM::Flow::P 
+    body: "'windowID' is the JavaScript window &quot;name&quot; of the window that will appear (not the text of the title bar) If unspecified, or specified as &quot;null&quot;, this command will wait for the first non-top window to appear (don't rely on this if you are working with multiple popups simultaneously). 'timeout' is a timeout in milliseconds, after which the action will return with an error. If this value is not specified, the default Selenium timeout will be used. See the setTimeout() command."
+full_name: Selenium::Client::GeneratedDriver#wait_for_pop_up
+is_singleton: false
+name: wait_for_pop_up
+params: (windowID,timeout)
+visibility: public

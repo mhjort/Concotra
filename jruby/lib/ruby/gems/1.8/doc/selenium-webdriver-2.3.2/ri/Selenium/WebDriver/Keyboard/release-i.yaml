@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Release a modifier key
+  - !ruby/struct:SM::Flow::P 
+    body: "@see Selenium::WebDriver::Keys"
+full_name: Selenium::WebDriver::Keyboard#release
+is_singleton: false
+name: release
+params: (key)
+visibility: public

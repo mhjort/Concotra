@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Execute an asynchronous piece of JavaScript in the context of the currently selected frame or window. Unlike executing execute_script (synchronous JavaScript), scripts executed with this method must explicitly signal they are finished by invoking the provided callback. This callback is always injected into the executed function as the last argument.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String] script"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  JavaSCript source to execute\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [WebDriver::Element,Integer, Float, Boolean, NilClass, String, Array] *args"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Arguments to the script. May be empty.\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [WebDriver::Element,Integer,Float,Boolean,NilClass,String,Array]"
+full_name: Selenium::WebDriver::Driver#execute_async_script
+is_singleton: false
+name: execute_async_script
+params: (script, *args)
+visibility: public

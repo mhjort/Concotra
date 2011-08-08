@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Wait for an element to NOT be present (the wait happens in the browser).
+full_name: Selenium::Client::Extensions#wait_for_no_element
+is_singleton: false
+name: wait_for_no_element
+params: (locator, options={})
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns an array of JavaScript property values from all known windows having one.
+  - !ruby/struct:SM::Flow::P 
+    body: "'attributeName' is name of an attribute on the windows"
+full_name: Selenium::Client::GeneratedDriver#get_attribute_from_all_windows
+is_singleton: false
+name: get_attribute_from_all_windows
+params: (attributeName)
+visibility: public

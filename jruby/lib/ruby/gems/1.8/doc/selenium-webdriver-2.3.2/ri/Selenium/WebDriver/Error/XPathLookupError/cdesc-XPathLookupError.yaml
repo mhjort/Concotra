@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Selenium::WebDriver::Error::XPathLookupError
+includes: []
+
+instance_methods: []
+
+name: XPathLookupError
+superclass: WebDriverError

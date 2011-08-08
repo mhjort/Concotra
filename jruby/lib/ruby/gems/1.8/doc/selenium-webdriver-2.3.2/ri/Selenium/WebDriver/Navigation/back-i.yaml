@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Move back a single entry in the browser's history.
+full_name: Selenium::WebDriver::Navigation#back
+is_singleton: false
+name: back
+params: ()
+visibility: public

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ajax_request_tracker
+comment: 
+constants: []
+
+full_name: Selenium::Client::JavascriptFrameworks::Prototype
+includes: []
+
+instance_methods: []
+
+name: Prototype
+superclass: 

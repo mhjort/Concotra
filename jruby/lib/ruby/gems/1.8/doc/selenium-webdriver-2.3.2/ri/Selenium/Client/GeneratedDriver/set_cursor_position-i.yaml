@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Moves the text cursor to the specified position in the given input element or textarea. This method will fail if the specified element isn't an input element or textarea.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator pointing to an input element or textarea 'position' is the numerical position of the cursor in the field; position should be 0 to move the position to the beginning of the field. You can also set the cursor to -1 to move it to the end of the field."
+full_name: Selenium::Client::GeneratedDriver#set_cursor_position
+is_singleton: false
+name: set_cursor_position
+params: (locator,position)
+visibility: public

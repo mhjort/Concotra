@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Simulates the event that occurs when the user releases the right mouse button (i.e., stops holding the button down) on the specified element.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator"
+full_name: Selenium::Client::GeneratedDriver#mouse_up_right
+is_singleton: false
+name: mouse_up_right
+params: (locator)
+visibility: public

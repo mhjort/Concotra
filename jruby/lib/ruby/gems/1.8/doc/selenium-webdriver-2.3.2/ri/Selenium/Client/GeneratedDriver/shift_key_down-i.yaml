@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Press the shift key and hold it down until doShiftUp() is called or a new page is loaded.
+full_name: Selenium::Client::GeneratedDriver#shift_key_down
+is_singleton: false
+name: shift_key_down
+params: ()
+visibility: public

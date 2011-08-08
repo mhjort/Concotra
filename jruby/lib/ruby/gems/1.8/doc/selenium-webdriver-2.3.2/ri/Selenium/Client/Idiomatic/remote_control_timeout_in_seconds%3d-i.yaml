@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set the Remote Control timeout (as opposed to the client side driver timeout). This timout specifies the amount of time that Selenium Core will wait for actions to complete.
+  - !ruby/struct:SM::Flow::P 
+    body: The default timeout is 30 seconds. 'timeout' is a timeout in seconds, after which the action will return with an error
+  - !ruby/struct:SM::Flow::P 
+    body: Actions that require waiting include &quot;open&quot; and the &quot;waitFor*&quot; actions.
+full_name: Selenium::Client::Idiomatic#remote_control_timeout_in_seconds=
+is_singleton: false
+name: remote_control_timeout_in_seconds=
+params: (timeout_in_seconds)
+visibility: public

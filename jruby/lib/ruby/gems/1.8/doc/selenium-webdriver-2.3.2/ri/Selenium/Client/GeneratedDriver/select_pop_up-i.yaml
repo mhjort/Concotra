@@ -1,0 +1,30 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Simplifies the process of selecting a popup window (and does not offer functionality beyond what <tt>selectWindow()</tt> already provides).
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: If <tt>windowID</tt> is either not specified, or specified as
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: "&quot;null&quot;, the first non-top window is selected. The top window is the one that would be selected by <tt>selectWindow()</tt> without providing a <tt>windowID</tt> . This should not be used when more than one popup window is in play."
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: Otherwise, the window will be looked up considering
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: "<tt>windowID</tt> as the following in order: 1) the &quot;name&quot; of the window, as specified to <tt>window.open()</tt>; 2) a javascript variable which is a reference to a window; and 3) the title of the window. This is the same ordered lookup performed by <tt>selectWindow</tt> ."
+  - !ruby/struct:SM::Flow::P 
+    body: "'windowID' is an identifier for the popup window, which can take on a number of different meanings"
+full_name: Selenium::Client::GeneratedDriver#select_pop_up
+is_singleton: false
+name: select_pop_up
+params: (windowID)
+visibility: public

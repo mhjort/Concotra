@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: set_extension_js
+block_params: 
+comment: 
+full_name: Selenium::Client::Base#javascript_extension=
+is_singleton: false
+name: javascript_extension=
+params: (new_javascript_extension)
+visibility: public

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Selenium::WebDriver::Chrome::Bridge)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/chrome/bridge.rb, line 8</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span> = {})
+          <span class="ruby-identifier">http_client</span>   = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:http_client</span>)
+          <span class="ruby-identifier">switches</span>      = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:switches</span>)
+          <span class="ruby-identifier">native_events</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:native_events</span>)
+          <span class="ruby-identifier">verbose</span>       = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:verbose</span>)
+          <span class="ruby-identifier">profile</span>       = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:profile</span>)
+
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown option#{'s' if opts.size != 1}: #{opts.inspect}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">caps</span> = <span class="ruby-constant">Remote</span><span class="ruby-operator">::</span><span class="ruby-constant">Capabilities</span>.<span class="ruby-identifier">chrome</span>
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">switches</span>
+            <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">switches</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Array</span>
+              <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;:switches must be an Array of Strings&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">caps</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-value str">'chrome.switches'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">switches</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">to_s</span> }
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">caps</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-value str">'chrome.binary'</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Chrome</span>.<span class="ruby-identifier">path</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Chrome</span>.<span class="ruby-identifier">path</span>
+          <span class="ruby-identifier">caps</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-value str">'chrome.nativeEvents'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">native_events</span>
+          <span class="ruby-identifier">caps</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-value str">'chrome.verbose'</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verbose</span>
+          <span class="ruby-identifier">caps</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-value str">'chrome.profile'</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">as_json</span>[<span class="ruby-value str">'zip'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">profile</span>
+
+          <span class="ruby-ivar">@service</span> = <span class="ruby-constant">Service</span>.<span class="ruby-identifier">default_service</span>
+          <span class="ruby-ivar">@service</span>.<span class="ruby-identifier">start</span>
+
+          <span class="ruby-identifier">remote_opts</span> = {
+            <span class="ruby-identifier">:url</span>                  =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@service</span>.<span class="ruby-identifier">uri</span>,
+            <span class="ruby-identifier">:desired_capabilities</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">caps</span>
+          }
+
+          <span class="ruby-identifier">remote_opts</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:http_client</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">http_client</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">http_client</span>
+
+          <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">remote_opts</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

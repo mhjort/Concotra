@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Firefox::Launcher#connect_until_stable
+is_singleton: false
+name: connect_until_stable
+params: ()
+visibility: public

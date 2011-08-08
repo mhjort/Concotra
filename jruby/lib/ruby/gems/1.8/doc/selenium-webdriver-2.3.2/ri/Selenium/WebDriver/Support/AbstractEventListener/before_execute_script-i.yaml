@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Support::AbstractEventListener#before_execute_script
+is_singleton: false
+name: before_execute_script
+params: (script, driver)
+visibility: public

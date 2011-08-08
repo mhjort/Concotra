@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Bridge#find_elements_by
+is_singleton: false
+name: find_elements_by
+params: (how, what, parent = nil)
+visibility: public

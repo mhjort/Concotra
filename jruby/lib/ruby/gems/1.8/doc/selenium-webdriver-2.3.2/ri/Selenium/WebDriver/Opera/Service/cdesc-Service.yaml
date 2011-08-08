@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: default_service
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: selenium_server_jar
+  - !ruby/object:RI::MethodSummary 
+    name: selenium_server_jar=
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MISSING_TEXT
+    value: "'Unable to find the Selenium server jar.  Please download the standalone server from http://code.google.com/p/selenium/downloads/list and set the SELENIUM_SERVER_JAR environmental variable to its location.  More info at http://code.google.com/p/selenium/wiki/OperaDriver.'"
+full_name: Selenium::WebDriver::Opera::Service
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: stop
+  - !ruby/object:RI::MethodSummary 
+    name: uri
+name: Service
+superclass: Object

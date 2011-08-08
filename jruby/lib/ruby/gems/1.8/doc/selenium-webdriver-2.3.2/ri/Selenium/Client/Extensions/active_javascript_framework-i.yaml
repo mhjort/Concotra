@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Client::Extensions#active_javascript_framework
+is_singleton: false
+name: active_javascript_framework
+params: (options)
+visibility: public

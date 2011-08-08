@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: code
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: payload
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: payload
+    rw: W
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: []
+
+full_name: Selenium::WebDriver::Remote::Response
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: error
+  - !ruby/object:RI::MethodSummary 
+    name: error_message
+name: Response
+superclass: Object

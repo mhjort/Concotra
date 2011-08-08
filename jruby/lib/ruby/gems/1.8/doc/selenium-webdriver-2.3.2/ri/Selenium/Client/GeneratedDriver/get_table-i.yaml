@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets the text from a cell of a table. The cellAddress syntax tableLocator.row.column, where row and column start at 0.
+  - !ruby/struct:SM::Flow::P 
+    body: "'tableCellAddress' is a cell address, e.g. &quot;foo.1.4&quot;"
+full_name: Selenium::Client::GeneratedDriver#get_table
+is_singleton: false
+name: get_table
+params: (tableCellAddress)
+visibility: public

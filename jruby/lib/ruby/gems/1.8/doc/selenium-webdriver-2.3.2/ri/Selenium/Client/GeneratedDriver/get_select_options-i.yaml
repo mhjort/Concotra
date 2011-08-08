@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets all option labels in the specified select drop-down.
+  - !ruby/struct:SM::Flow::P 
+    body: "'selectLocator' is an element locator identifying a drop-down menu"
+full_name: Selenium::Client::GeneratedDriver#get_select_options
+is_singleton: false
+name: get_select_options
+params: (selectLocator)
+visibility: public

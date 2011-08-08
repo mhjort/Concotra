@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Client::Protocol#parse_boolean_value
+is_singleton: false
+name: parse_boolean_value
+params: (value)
+visibility: protected

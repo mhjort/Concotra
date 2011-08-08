@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Determine whether current/locator identify the frame containing this running code.
+  - !ruby/struct:SM::Flow::P 
+    body: This is useful in proxy injection mode, where this code runs in every browser frame and window, and sometimes the selenium server needs to identify the &quot;current&quot; frame. In this case, when the test calls selectFrame, this routine is called for each frame to figure out which one has been selected. The selected frame will return true, while all others will return false.
+  - !ruby/struct:SM::Flow::P 
+    body: "'currentFrameString' is starting frame 'target' is new frame (which might be relative to the current one)"
+full_name: Selenium::Client::GeneratedDriver#get_whether_this_frame_match_frame_expression
+is_singleton: false
+name: get_whether_this_frame_match_frame_expression
+params: (currentFrameString,target)
+visibility: public

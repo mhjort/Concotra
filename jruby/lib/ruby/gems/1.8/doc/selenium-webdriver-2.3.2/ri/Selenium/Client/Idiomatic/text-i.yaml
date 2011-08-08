@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: text_content
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Return the text content of an HTML element (rendered text shown to the user). Works for any HTML element that contains text.
+  - !ruby/struct:SM::Flow::P 
+    body: This command uses either the textContent (Mozilla-like browsers) or the innerText (IE-like browsers) of the element, which is the rendered text shown to the user.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "'locator' is an Selenium element locator"
+    type: :BULLET
+full_name: Selenium::Client::Idiomatic#text
+is_singleton: false
+name: text
+params: (locator)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Save a PNG screenshot to the given path
+  - !ruby/struct:SM::Flow::P 
+    body: "@api public"
+full_name: Selenium::WebDriver::DriverExtensions::TakesScreenshot#save_screenshot
+is_singleton: false
+name: save_screenshot
+params: (png_path)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Resize currently selected window to take up the entire screen
+full_name: Selenium::Client::GeneratedDriver#window_maximize
+is_singleton: false
+name: window_maximize
+params: ()
+visibility: public

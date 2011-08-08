@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Chrome::Bridge#driver_extensions
+is_singleton: false
+name: driver_extensions
+params: ()
+visibility: public

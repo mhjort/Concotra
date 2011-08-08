@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Downloads a screenshot of the browser current window canvas to a based 64 encoded PNG file. The <em>entire</em> windows canvas is captured, including parts rendered outside of the current view port.
+  - !ruby/struct:SM::Flow::P 
+    body: Currently this only works in Mozilla and when running in chrome mode.
+  - !ruby/struct:SM::Flow::P 
+    body: "'kwargs' is A kwargs string that modifies the way the screenshot is captured. Example: &quot;background=#CCFFDD&quot;. This may be useful to set for capturing screenshots of less-than-ideal layouts, for example where absolute positioning causes the calculation of the canvas dimension to fail and a black background is exposed (possibly obscuring black text)."
+full_name: Selenium::Client::GeneratedDriver#capture_entire_page_screenshot_to_string
+is_singleton: false
+name: capture_entire_page_screenshot_to_string
+params: (kwargs)
+visibility: public

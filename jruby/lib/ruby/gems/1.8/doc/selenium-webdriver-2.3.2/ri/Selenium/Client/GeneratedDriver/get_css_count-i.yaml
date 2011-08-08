@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the number of nodes that match the specified css selector, eg. &quot;css=table&quot; would give the number of tables.
+  - !ruby/struct:SM::Flow::P 
+    body: "'css' is the css selector to evaluate. do NOT wrap this expression in a 'count()' function; we will do that for you."
+full_name: Selenium::Client::GeneratedDriver#get_css_count
+is_singleton: false
+name: get_css_count
+params: (css)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Get execution delay in milliseconds, i.e. a pause delay following each selenium operation. By default, there is no such delay (value is 0).
+full_name: Selenium::Client::Idiomatic#execution_delay
+is_singleton: false
+name: execution_delay
+params: ()
+visibility: public

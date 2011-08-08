@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: ORIENTATIONS
+    value: "[:landscape, :portrait]"
+full_name: Selenium::WebDriver::DriverExtensions::Rotatable
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: orientation
+  - !ruby/object:RI::MethodSummary 
+    name: rotate
+name: Rotatable
+superclass: 

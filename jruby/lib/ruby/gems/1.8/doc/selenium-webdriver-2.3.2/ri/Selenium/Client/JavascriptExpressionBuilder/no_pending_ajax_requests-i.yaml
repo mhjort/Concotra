@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Client::JavascriptExpressionBuilder#no_pending_ajax_requests
+is_singleton: false
+name: no_pending_ajax_requests
+params: ()
+visibility: public

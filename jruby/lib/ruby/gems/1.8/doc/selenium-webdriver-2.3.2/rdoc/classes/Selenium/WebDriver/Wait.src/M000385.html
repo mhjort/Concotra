@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>until (Selenium::WebDriver::Wait)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/wait.rb, line 30</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">until</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+        <span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@timeout</span>
+        <span class="ruby-identifier">last_error</span> = <span class="ruby-keyword kw">nil</span>
+
+        <span class="ruby-keyword kw">until</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">end_time</span>
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">yield</span>
+            <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NoSuchElementError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last_error</span>
+            <span class="ruby-comment cmt"># swallowed</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">sleep</span> <span class="ruby-ivar">@interval</span>
+        <span class="ruby-keyword kw">end</span>
+
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@message</span>
+          <span class="ruby-identifier">msg</span> = <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;timed out after #{@timeout} seconds&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; (#{last_error.message})}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">last_error</span>
+
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeOutError</span>, <span class="ruby-identifier">msg</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

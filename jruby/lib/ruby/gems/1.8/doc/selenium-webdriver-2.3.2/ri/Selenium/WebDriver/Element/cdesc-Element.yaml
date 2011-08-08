@@ -1,0 +1,62 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Selenium::WebDriver::Element
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: SearchContext
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ==
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: as_json
+  - !ruby/object:RI::MethodSummary 
+    name: attribute
+  - !ruby/object:RI::MethodSummary 
+    name: clear
+  - !ruby/object:RI::MethodSummary 
+    name: click
+  - !ruby/object:RI::MethodSummary 
+    name: displayed?
+  - !ruby/object:RI::MethodSummary 
+    name: enabled?
+  - !ruby/object:RI::MethodSummary 
+    name: eql?
+  - !ruby/object:RI::MethodSummary 
+    name: hash
+  - !ruby/object:RI::MethodSummary 
+    name: inspect
+  - !ruby/object:RI::MethodSummary 
+    name: location
+  - !ruby/object:RI::MethodSummary 
+    name: location_once_scrolled_into_view
+  - !ruby/object:RI::MethodSummary 
+    name: ref
+  - !ruby/object:RI::MethodSummary 
+    name: selected?
+  - !ruby/object:RI::MethodSummary 
+    name: send_key
+  - !ruby/object:RI::MethodSummary 
+    name: send_keys
+  - !ruby/object:RI::MethodSummary 
+    name: size
+  - !ruby/object:RI::MethodSummary 
+    name: style
+  - !ruby/object:RI::MethodSummary 
+    name: submit
+  - !ruby/object:RI::MethodSummary 
+    name: tag_name
+  - !ruby/object:RI::MethodSummary 
+    name: text
+  - !ruby/object:RI::MethodSummary 
+    name: to_json
+name: Element
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Bridge#executeScript
+is_singleton: false
+name: executeScript
+params: (script, *args)
+visibility: public

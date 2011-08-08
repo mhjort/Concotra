@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Retrieves the message of a JavaScript question prompt dialog generated during the previous action.
+  - !ruby/struct:SM::Flow::P 
+    body: "Successful handling of the prompt requires prior execution of the answerOnNextPrompt command. If a prompt is generated but you do not get/verify it, the next Selenium action will fail. NOTE: under Selenium, JavaScript prompts will NOT pop up a visible dialog. NOTE: Selenium does NOT support JavaScript prompts that are generated in a page's onload() event handler. In this case a visible dialog WILL be generated and Selenium will hang until someone manually clicks OK."
+full_name: Selenium::Client::GeneratedDriver#get_prompt
+is_singleton: false
+name: get_prompt
+params: ()
+visibility: public

@@ -1,0 +1,50 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Selenium::WebDriver::Support::AbstractEventListener
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: after_change_value_of
+  - !ruby/object:RI::MethodSummary 
+    name: after_click
+  - !ruby/object:RI::MethodSummary 
+    name: after_close
+  - !ruby/object:RI::MethodSummary 
+    name: after_execute_script
+  - !ruby/object:RI::MethodSummary 
+    name: after_find
+  - !ruby/object:RI::MethodSummary 
+    name: after_navigate_back
+  - !ruby/object:RI::MethodSummary 
+    name: after_navigate_forward
+  - !ruby/object:RI::MethodSummary 
+    name: after_navigate_to
+  - !ruby/object:RI::MethodSummary 
+    name: after_quit
+  - !ruby/object:RI::MethodSummary 
+    name: before_change_value_of
+  - !ruby/object:RI::MethodSummary 
+    name: before_click
+  - !ruby/object:RI::MethodSummary 
+    name: before_close
+  - !ruby/object:RI::MethodSummary 
+    name: before_execute_script
+  - !ruby/object:RI::MethodSummary 
+    name: before_find
+  - !ruby/object:RI::MethodSummary 
+    name: before_navigate_back
+  - !ruby/object:RI::MethodSummary 
+    name: before_navigate_forward
+  - !ruby/object:RI::MethodSummary 
+    name: before_navigate_to
+  - !ruby/object:RI::MethodSummary 
+    name: before_quit
+name: AbstractEventListener
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::ProfileHelper#to_json
+is_singleton: false
+name: to_json
+params: (*args)
+visibility: public

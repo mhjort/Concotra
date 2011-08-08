@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Selenium::Client::Extensions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Selenium::Client::Extensions</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/selenium/client/extensions_rb.html">
+                lib/selenium/client/extensions.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Convenience methods not explicitely part of the protocol
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000396">active_javascript_framework</a>&nbsp;&nbsp;
+      <a href="#M000386">wait_for_ajax</a>&nbsp;&nbsp;
+      <a href="#M000387">wait_for_effects</a>&nbsp;&nbsp;
+      <a href="#M000388">wait_for_element</a>&nbsp;&nbsp;
+      <a href="#M000392">wait_for_field_value</a>&nbsp;&nbsp;
+      <a href="#M000389">wait_for_no_element</a>&nbsp;&nbsp;
+      <a href="#M000393">wait_for_no_field_value</a>&nbsp;&nbsp;
+      <a href="#M000391">wait_for_no_text</a>&nbsp;&nbsp;
+      <a href="#M000395">wait_for_not_visible</a>&nbsp;&nbsp;
+      <a href="#M000390">wait_for_text</a>&nbsp;&nbsp;
+      <a href="#M000394">wait_for_visible</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000396" class="method-detail">
+        <a name="M000396"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000396.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000396.html');return false;">
+          <span class="method-name">active_javascript_framework</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000386" class="method-detail">
+        <a name="M000386"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000386.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000386.html');return false;">
+          <span class="method-name">wait_for_ajax</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+These for all Ajax request to finish (Only works if you are using
+prototype, the wait happens in the browser)
+</p>
+<p>
+See <a
+href="http://davidvollbracht.com/2008/6/4/30-days-of-tech-day-3-waitforajax">davidvollbracht.com/2008/6/4/30-days-of-tech-day-3-waitforajax</a>
+for more background.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000387" class="method-detail">
+        <a name="M000387"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000387.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000387.html');return false;">
+          <span class="method-name">wait_for_effects</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for all Prototype effects to be processed (the wait happens in the
+browser).
+</p>
+<p>
+Credits to <a
+href="http://github.com/brynary/webrat/tree/master">github.com/brynary/webrat/tree/master</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000388" class="method-detail">
+        <a name="M000388"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000388.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000388.html');return false;">
+          <span class="method-name">wait_for_element</span><span class="method-args">(locator, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for an element to be present (the wait happens in the browser).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000392" class="method-detail">
+        <a name="M000392"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000392.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000392.html');return false;">
+          <span class="method-name">wait_for_field_value</span><span class="method-args">(locator, expected_value, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for a field to get a specific value (the wait happens in the browser).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000389" class="method-detail">
+        <a name="M000389"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000389.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000389.html');return false;">
+          <span class="method-name">wait_for_no_element</span><span class="method-args">(locator, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for an element to NOT be present (the wait happens in the browser).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000393" class="method-detail">
+        <a name="M000393"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000393.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000393.html');return false;">
+          <span class="method-name">wait_for_no_field_value</span><span class="method-args">(locator, expected_value, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for a field to not have a specific value (the wait happens in the
+browser).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000391" class="method-detail">
+        <a name="M000391"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000391.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000391.html');return false;">
+          <span class="method-name">wait_for_no_text</span><span class="method-args">(pattern, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for some text to NOT be present (the wait happens in the browser).
+</p>
+<p>
+See <a href="Extensions.html#M000390">wait_for_text</a> for usage details.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000395" class="method-detail">
+        <a name="M000395"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000395.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000395.html');return false;">
+          <span class="method-name">wait_for_not_visible</span><span class="method-args">(locator, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for something to not be visible (the wait happens in the browser).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000390" class="method-detail">
+        <a name="M000390"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000390.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000390.html');return false;">
+          <span class="method-name">wait_for_text</span><span class="method-args">(pattern, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for some text to be present (the wait is happening browser side).
+</p>
+<p>
+<a href="Extensions.html#M000390">wait_for_text</a> will search for the
+given argument within the innerHTML of the current DOM. Note that this
+method treats a single string as a special case.
+</p>
+<h4>Parameters</h4>
+<p>
+<a href="Extensions.html#M000390">wait_for_text</a> accepts an optional
+hash of parameters:
+</p>
+<ul>
+<li><tt>:element</tt> - a selenium locator for an element limiting the search
+scope.
+
+</li>
+<li><tt>:timeout_in_seconds</tt> - duration in seconds after which we time out
+if text cannot be found.
+
+</li>
+</ul>
+<h4>Regular Expressions</h4>
+<p>
+In addition to plain strings, <a
+href="Extensions.html#M000390">wait_for_text</a> accepts regular
+expressions as the pattern specification.
+</p>
+<h4>Examples</h4>
+<p>
+The following are equivalent, and will match &quot;some text&quot; anywhere
+within the document:
+</p>
+<pre>
+  wait_for_text &quot;some text&quot;
+  wait_for_text /some text/
+</pre>
+<p>
+This will match &quot;some text&quot; anywhere within the specified
+element:
+</p>
+<pre>
+  wait_for_text /some text/, :element =&gt; &quot;container&quot;
+</pre>
+<p>
+This will match &quot;some text&quot; only if it exactly matches the
+complete innerHTML of the specified element:
+</p>
+<pre>
+  wait_for_text &quot;some text&quot;, :element =&gt; &quot;container&quot;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000394" class="method-detail">
+        <a name="M000394"></a>
+
+        <div class="method-heading">
+          <a href="Extensions.src/M000394.html" target="Code" class="method-signature"
+            onclick="popupCode('Extensions.src/M000394.html');return false;">
+          <span class="method-name">wait_for_visible</span><span class="method-args">(locator, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Wait for something to be visible (the wait happens in the browser).
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

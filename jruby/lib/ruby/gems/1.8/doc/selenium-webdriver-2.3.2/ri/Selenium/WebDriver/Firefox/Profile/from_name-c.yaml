@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Firefox::Profile::from_name
+is_singleton: true
+name: from_name
+params: (name)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Release the meta key.
+full_name: Selenium::Client::GeneratedDriver#meta_key_up
+is_singleton: false
+name: meta_key_up
+params: ()
+visibility: public

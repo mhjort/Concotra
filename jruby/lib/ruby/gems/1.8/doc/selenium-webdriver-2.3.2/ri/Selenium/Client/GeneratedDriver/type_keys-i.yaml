@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Simulates keystroke events on the specified element, as though you typed the value key-by-key.
+  - !ruby/struct:SM::Flow::P 
+    body: This is a convenience method for calling keyDown, keyUp, keyPress for every character in the specified string; this is useful for dynamic UI widgets (like auto-completing combo boxes) that require explicit key events. Unlike the simple &quot;type&quot; command, which forces the specified value into the page directly, this command may or may not have any visible effect, even in cases where typing keys would normally have a visible effect. For example, if you use &quot;typeKeys&quot; on a form element, you may or may not see the results of what you typed in the field. In some cases, you may need to use the simple &quot;type&quot; command to set the value of the field and then the &quot;typeKeys&quot; command to send the keystroke events corresponding to what you just typed.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator 'value' is the value to type"
+full_name: Selenium::Client::GeneratedDriver#type_keys
+is_singleton: false
+name: type_keys
+params: (locator,value)
+visibility: public

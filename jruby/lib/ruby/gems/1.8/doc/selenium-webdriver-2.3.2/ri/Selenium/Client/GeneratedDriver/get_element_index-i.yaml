@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Get the relative index of an element to its parent (starting from 0). The comment node and empty text node will be ignored.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator pointing to an element"
+full_name: Selenium::Client::GeneratedDriver#get_element_index
+is_singleton: false
+name: get_element_index
+params: (locator)
+visibility: public

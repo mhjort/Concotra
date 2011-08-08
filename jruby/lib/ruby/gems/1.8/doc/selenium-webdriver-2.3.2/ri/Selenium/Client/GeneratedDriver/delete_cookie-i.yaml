@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Delete a named cookie with specified path and domain. Be careful; to delete a cookie, you need to delete it using the exact same path and domain that were used to create the cookie. If the path is wrong, or the domain is wrong, the cookie simply won't be deleted. Also note that specifying a domain that isn't a subset of the current domain will usually fail.
+  - !ruby/struct:SM::Flow::P 
+    body: Since there's no way to discover at runtime the original path and domain of a given cookie, we've added an option called 'recurse' to try all sub-domains of the current domain with all paths that are a subset of the current path. Beware; this option can be slow. In big-O notation, it operates in O(n*m) time, where n is the number of dots in the domain name and m is the number of slashes in the path.
+  - !ruby/struct:SM::Flow::P 
+    body: "'name' is the name of the cookie to be deleted 'optionsString' is options for the cookie. Currently supported options include 'path', 'domain' and 'recurse.' The optionsString's format is &quot;path=/path/, domain=.foo.com, recurse=true&quot;. The order of options are irrelevant. Note that specifying a domain that isn't a subset of the current domain will usually fail."
+full_name: Selenium::Client::GeneratedDriver#delete_cookie
+is_singleton: false
+name: delete_cookie
+params: (name,optionsString)
+visibility: public

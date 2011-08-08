@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Selenium::WebDriver::Firefox::Profile)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/firefox/profile.rb, line 41</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">model</span> = <span class="ruby-keyword kw">nil</span>)
+          <span class="ruby-ivar">@model</span> = <span class="ruby-identifier">verify_model</span>(<span class="ruby-identifier">model</span>)
+
+          <span class="ruby-identifier">model_prefs</span> = <span class="ruby-identifier">read_model_prefs</span>
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">model_prefs</span>.<span class="ruby-identifier">empty?</span>
+            <span class="ruby-ivar">@native_events</span>     = <span class="ruby-constant">DEFAULT_ENABLE_NATIVE_EVENTS</span>
+            <span class="ruby-ivar">@secure_ssl</span>        = <span class="ruby-constant">DEFAULT_SECURE_SSL</span>
+            <span class="ruby-ivar">@untrusted_issuer</span>  = <span class="ruby-constant">DEFAULT_ASSUME_UNTRUSTED_ISSUER</span>
+            <span class="ruby-ivar">@load_no_focus_lib</span> = <span class="ruby-constant">DEFAULT_LOAD_NO_FOCUS_LIB</span>
+
+            <span class="ruby-ivar">@additional_prefs</span>  = {}
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-comment cmt"># TODO: clean this up</span>
+            <span class="ruby-ivar">@native_events</span>     = <span class="ruby-identifier">model_prefs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">WEBDRIVER_PREFS</span>[<span class="ruby-identifier">:native_events</span>]) <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span>
+            <span class="ruby-ivar">@secure_ssl</span>        = <span class="ruby-identifier">model_prefs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">WEBDRIVER_PREFS</span>[<span class="ruby-identifier">:untrusted_certs</span>]) <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;true&quot;</span>
+            <span class="ruby-ivar">@untrusted_issuer</span>  = <span class="ruby-identifier">model_prefs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">WEBDRIVER_PREFS</span>[<span class="ruby-identifier">:untrusted_issuer</span>]) <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span>
+            <span class="ruby-ivar">@load_no_focus_lib</span> = <span class="ruby-identifier">model_prefs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">WEBDRIVER_PREFS</span>[<span class="ruby-identifier">:load_no_focus_lib</span>]) <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span> <span class="ruby-comment cmt"># not stored in profile atm, so will always be false.</span>
+            <span class="ruby-ivar">@additional_prefs</span>  = <span class="ruby-identifier">model_prefs</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-ivar">@extensions</span>        = {}
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

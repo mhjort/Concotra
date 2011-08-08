@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Check if these two elements have same parent and are ordered siblings in the DOM. Two same elements will not be considered ordered.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator1' is an element locator pointing to the first element 'locator2' is an element locator pointing to the second element"
+full_name: Selenium::Client::GeneratedDriver#is_ordered
+is_singleton: false
+name: is_ordered
+params: (locator1,locator2)
+visibility: public

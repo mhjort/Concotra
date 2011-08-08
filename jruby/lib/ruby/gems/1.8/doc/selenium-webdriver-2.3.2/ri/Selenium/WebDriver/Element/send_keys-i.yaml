@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: send_key
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Send keystrokes to this element
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String, Symbol, Array]"
+  - !ruby/struct:SM::Flow::P 
+    body: "Examples:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    element.send_keys &quot;foo&quot;                     #=&gt; value: 'foo'\n    element.send_keys &quot;tet&quot;, :arrow_left, &quot;s&quot;   #=&gt; value: 'test'\n    element.send_keys [:control, 'a'], :space   #=&gt; value: ' '\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@see Keys::KEYS"
+full_name: Selenium::WebDriver::Element#send_keys
+is_singleton: false
+name: send_keys
+params: (*args)
+visibility: public

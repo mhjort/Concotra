@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Starts a new browser session (launching a new browser matching configuration provided at driver creation time).
+  - !ruby/struct:SM::Flow::P 
+    body: Browser session specific option can also be provided. e.g.
+  - !ruby/struct:SM::Flow::VERB 
+    body: "   driver.start_new_browser_session(:captureNetworkTraffic =&gt; true)\n"
+full_name: Selenium::Client::Base#start_new_browser_session
+is_singleton: false
+name: start_new_browser_session
+params: (options={})
+visibility: public

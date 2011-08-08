@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Client::JavascriptFrameworks::Prototype::ajax_request_tracker
+is_singleton: true
+name: ajax_request_tracker
+params: ()
+visibility: public

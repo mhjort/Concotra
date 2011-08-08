@@ -1,0 +1,42 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Selects a popup window using a window locator; once a popup window has been selected, all commands go to that window. To select the main window again, use null as the target.
+  - !ruby/struct:SM::Flow::P 
+    body: "Window locators provide different ways of specifying the window object: by title, by internal JavaScript &quot;name,&quot; or by JavaScript variable."
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>title</b>=<em>My Special Window</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: Finds the window using the text that appears in the title bar. Be careful; two windows can share the same title. If that happens, this locator will just pick one.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>name</b>=<em>myWindow</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: Finds the window using its internal JavaScript &quot;name&quot; property. This is the second parameter &quot;windowName&quot; passed to the JavaScript method window.open(url, windowName, windowFeatures, replaceFlag) (which Selenium intercepts).
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>var</b>=<em>variableName</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: Some pop-up windows are unnamed (anonymous), but are associated with a JavaScript variable name in the current application window, e.g. &quot;window.foo = window.open(url);&quot;. In those cases, you can open the window using &quot;var=foo&quot;.
+  - !ruby/struct:SM::Flow::P 
+    body: "If no window locator prefix is provided, we'll try to guess what you mean like this: 1.) if windowID is null, (or the string &quot;null&quot;) then it is assumed the user is referring to the original window instantiated by the browser). 2.) if the value of the &quot;windowID&quot; parameter is a JavaScript variable name in the current application window, then it is assumed that this variable contains the return value from a call to the JavaScript window.open() method. 3.) Otherwise, selenium looks in a hash it maintains that maps string names to window &quot;names&quot;. 4.) If <em>that</em> fails, we'll try looping over all of the known windows to try to find the appropriate &quot;title&quot;. Since &quot;title&quot; is not necessarily unique, this may have unexpected behavior. If you're having trouble figuring out the name of a window that you want to manipulate, look at the Selenium log messages which identify the names of windows created via window.open (and therefore intercepted by Selenium). You will see messages like the following for each window as it is opened: <tt>debug: window.open call intercepted; window ID (which you can use with selectWindow()) is &quot;myNewWindow&quot;</tt> In some cases, Selenium will be unable to intercept a call to window.open (if the call occurs during or before the &quot;onLoad&quot; event, for example). (This is bug SEL-339.) In those cases, you can force Selenium to notice the open window's name by using the Selenium openWindow command, using an empty (blank) url, like this: openWindow(&quot;&quot;, &quot;myFunnyWindow&quot;)."
+  - !ruby/struct:SM::Flow::P 
+    body: "'windowID' is the JavaScript window ID of the window to select"
+full_name: Selenium::Client::GeneratedDriver#select_window
+is_singleton: false
+name: select_window
+params: (windowID)
+visibility: public

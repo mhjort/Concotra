@@ -1,0 +1,48 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: script
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Selenium::Client::JavascriptExpressionBuilder
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: append
+  - !ruby/object:RI::MethodSummary 
+    name: element_value_is
+  - !ruby/object:RI::MethodSummary 
+    name: element_value_is_not
+  - !ruby/object:RI::MethodSummary 
+    name: find_element
+  - !ruby/object:RI::MethodSummary 
+    name: find_text
+  - !ruby/object:RI::MethodSummary 
+    name: find_text_in_document
+  - !ruby/object:RI::MethodSummary 
+    name: find_text_in_element
+  - !ruby/object:RI::MethodSummary 
+    name: javascript_framework_for
+  - !ruby/object:RI::MethodSummary 
+    name: no_pending_ajax_requests
+  - !ruby/object:RI::MethodSummary 
+    name: no_pending_effects
+  - !ruby/object:RI::MethodSummary 
+    name: not_visible
+  - !ruby/object:RI::MethodSummary 
+    name: quote_escaped
+  - !ruby/object:RI::MethodSummary 
+    name: text_match
+  - !ruby/object:RI::MethodSummary 
+    name: visible
+  - !ruby/object:RI::MethodSummary 
+    name: window_script
+name: JavascriptExpressionBuilder
+superclass: Object

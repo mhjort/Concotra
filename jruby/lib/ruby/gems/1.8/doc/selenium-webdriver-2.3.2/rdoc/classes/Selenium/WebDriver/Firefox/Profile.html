@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Selenium::WebDriver::Firefox::Profile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::Firefox::Profile</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/selenium/webdriver/firefox/profile_rb.html">
+                lib/selenium/webdriver/firefox/profile.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000143">[]=</a>&nbsp;&nbsp;
+      <a href="#M000147">add_extension</a>&nbsp;&nbsp;
+      <a href="#M000146">add_webdriver_extension</a>&nbsp;&nbsp;
+      <a href="#M000152">assume_untrusted_certificate_issuer=</a>&nbsp;&nbsp;
+      <a href="#M000151">assume_untrusted_certificate_issuer?</a>&nbsp;&nbsp;
+      <a href="#M000140">from_name</a>&nbsp;&nbsp;
+      <a href="#M000139">ini</a>&nbsp;&nbsp;
+      <a href="#M000142">layout_on_disk</a>&nbsp;&nbsp;
+      <a href="#M000149">load_no_focus_lib?</a>&nbsp;&nbsp;
+      <a href="#M000145">log_file=</a>&nbsp;&nbsp;
+      <a href="#M000148">native_events?</a>&nbsp;&nbsp;
+      <a href="#M000141">new</a>&nbsp;&nbsp;
+      <a href="#M000144">port=</a>&nbsp;&nbsp;
+      <a href="#M000153">proxy=</a>&nbsp;&nbsp;
+      <a href="#M000150">secure_ssl?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../ProfileHelper.html">ProfileHelper</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">WEBDRIVER_EXTENSION_PATH</td>
+          <td>=</td>
+          <td class="context-item-value">File.expand_path(&quot;#{WebDriver.root}/selenium/webdriver/firefox/extension/webdriver.xpi&quot;)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">WEBDRIVER_PREFS</td>
+          <td>=</td>
+          <td class="context-item-value">{           :native_events    =&gt; 'webdriver_enable_native_events',           :untrusted_certs  =&gt; 'webdriver_accept_untrusted_certs',           :untrusted_issuer =&gt; 'webdriver_assume_untrusted_issuer',           :port             =&gt; 'webdriver_firefox_port',           :log_file         =&gt; 'webdriver.log.file'</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_PREFERENCES</td>
+          <td>=</td>
+          <td class="context-item-value">{           &quot;browser.startup.page&quot;     =&gt; '0',           &quot;browser.startup.homepage&quot; =&gt; '&quot;about:blank&quot;',           &quot;dom.max_script_run_time&quot;  =&gt; '30',         }.freeze</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">FROZEN_PREFERENCES</td>
+          <td>=</td>
+          <td class="context-item-value">{           &quot;app.update.auto&quot;                           =&gt; 'false',           &quot;app.update.enabled&quot;                        =&gt; 'false',           &quot;browser.download.manager.showWhenStarting&quot; =&gt; 'false',           &quot;browser.EULA.override&quot;                     =&gt; 'true',           &quot;browser.EULA.3.accepted&quot;                   =&gt; 'true',           &quot;browser.link.open_external&quot;                =&gt; '2',           &quot;browser.link.open_newwindow&quot;               =&gt; '2',           &quot;browser.safebrowsing.enabled&quot;              =&gt; 'false',           &quot;browser.search.update&quot;                     =&gt; 'false',           &quot;browser.sessionstore.resume_from_crash&quot;    =&gt; 'false',           &quot;browser.shell.checkDefaultBrowser&quot;         =&gt; 'false',           &quot;browser.tabs.warnOnClose&quot;                  =&gt; 'false',           &quot;browser.tabs.warnOnOpen&quot;                   =&gt; 'false',           &quot;devtools.errorconsole.enabled&quot;             =&gt; 'true',           &quot;dom.disable_open_during_load&quot;              =&gt; 'false',           &quot;extensions.logging.enabled&quot;                =&gt; 'true',           &quot;extensions.update.enabled&quot;                 =&gt; 'false',           &quot;extensions.update.notifyUser&quot;              =&gt; 'false',           &quot;network.manage-offline-status&quot;             =&gt; 'false',           &quot;network.http.max-connections-per-server&quot;   =&gt; '10',           &quot;prompts.tab_modal.enabled&quot;                 =&gt; &quot;false&quot;,           &quot;security.warn_entering_secure&quot;             =&gt; 'false',           &quot;security.warn_submit_insecure&quot;             =&gt; 'false',           &quot;security.warn_entering_secure.show_once&quot;   =&gt; 'false',           &quot;security.warn_entering_weak&quot;               =&gt; 'false',           &quot;security.warn_entering_weak.show_once&quot;     =&gt; 'false',           &quot;security.warn_leaving_secure&quot;              =&gt; 'false',           &quot;security.warn_leaving_secure.show_once&quot;    =&gt; 'false',           &quot;security.warn_submit_insecure&quot;             =&gt; 'false',           &quot;security.warn_viewing_mixed&quot;               =&gt; 'false',           &quot;security.warn_viewing_mixed.show_once&quot;     =&gt; 'false',           &quot;signon.rememberSignons&quot;                    =&gt; 'false',           &quot;toolkit.networkmanager.disable&quot;            =&gt; 'true',           &quot;javascript.options.showInConsole&quot;          =&gt; 'true',           &quot;browser.dom.window.dump.enabled&quot;           =&gt; 'true',           &quot;dom.report_all_js_exceptions&quot;              =&gt; &quot;true&quot;</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="Profile.html">Profile</a> preferences that are essential to the <a
+href="../Firefox.html">Firefox</a> driver operating correctly. Users are
+not permitted to override these values.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">load_no_focus_lib</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">log_file</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">native_events</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">secure_ssl</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000140" class="method-detail">
+        <a name="M000140"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000140.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000140.html');return false;">
+          <span class="method-name">from_name</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000139" class="method-detail">
+        <a name="M000139"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000139.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000139.html');return false;">
+          <span class="method-name">ini</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000141" class="method-detail">
+        <a name="M000141"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000141.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000141.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(model = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Profile.html#M000141">new</a> <a
+href="Profile.html">Profile</a> instance
+</p>
+<p>
+@example User configured profile
+</p>
+<pre>
+  profile = Selenium::WebDriver::Firefox::Profile.new
+  profile['network.proxy.http'] = 'localhost'
+  profile['network.proxy.http_port'] = 9090
+
+  driver = Selenium::WebDriver.for :firefox, :profile =&gt; profile
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000143" class="method-detail">
+        <a name="M000143"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000143.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000143.html');return false;">
+          <span class="method-name">[]=</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set a preference for this particular profile. @see <a
+href="http://preferential.mozdev.org/preferences.html">preferential.mozdev.org/preferences.html</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000147" class="method-detail">
+        <a name="M000147"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000147.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000147.html');return false;">
+          <span class="method-name">add_extension</span><span class="method-args">(path, name = extension_name_for(path))</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add the extension (directory, .zip or .xpi) at the given path to the
+profile.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000146" class="method-detail">
+        <a name="M000146"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000146.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000146.html');return false;">
+          <span class="method-name">add_webdriver_extension</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000152" class="method-detail">
+        <a name="M000152"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000152.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000152.html');return false;">
+          <span class="method-name">assume_untrusted_certificate_issuer=</span><span class="method-args">(bool)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000151" class="method-detail">
+        <a name="M000151"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000151.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000151.html');return false;">
+          <span class="method-name">assume_untrusted_certificate_issuer?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000142" class="method-detail">
+        <a name="M000142"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000142.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000142.html');return false;">
+          <span class="method-name">layout_on_disk</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000149" class="method-detail">
+        <a name="M000149"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000149.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000149.html');return false;">
+          <span class="method-name">load_no_focus_lib?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000145" class="method-detail">
+        <a name="M000145"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000145.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000145.html');return false;">
+          <span class="method-name">log_file=</span><span class="method-args">(file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000148" class="method-detail">
+        <a name="M000148"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000148.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000148.html');return false;">
+          <span class="method-name">native_events?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000144" class="method-detail">
+        <a name="M000144"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000144.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000144.html');return false;">
+          <span class="method-name">port=</span><span class="method-args">(port)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000153" class="method-detail">
+        <a name="M000153"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000153.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000153.html');return false;">
+          <span class="method-name">proxy=</span><span class="method-args">(proxy)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000150" class="method-detail">
+        <a name="M000150"></a>
+
+        <div class="method-heading">
+          <a href="Profile.src/M000150.html" target="Code" class="method-signature"
+            onclick="popupCode('Profile.src/M000150.html');return false;">
+          <span class="method-name">secure_ssl?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

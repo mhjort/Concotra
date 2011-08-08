@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect_until_stable (Selenium::WebDriver::Firefox::Launcher)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/firefox/launcher.rb, line 72</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">connect_until_stable</span>
+          <span class="ruby-identifier">poller</span> = <span class="ruby-constant">SocketPoller</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>, <span class="ruby-constant">STABLE_CONNECTION_TIMEOUT</span>)
+
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">poller</span>.<span class="ruby-identifier">connected?</span>
+            <span class="ruby-ivar">@binary</span>.<span class="ruby-identifier">quit</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">WebDriverError</span>, <span class="ruby-node">&quot;unable to obtain stable firefox connection in #{STABLE_CONNECTION_TIMEOUT} seconds (#{@host}:#{@port})&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

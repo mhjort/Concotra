@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Capture a PNG screenshot. It then returns the file as a base 64 encoded string.
+full_name: Selenium::Client::GeneratedDriver#capture_screenshot_to_string
+is_singleton: false
+name: capture_screenshot_to_string
+params: ()
+visibility: public

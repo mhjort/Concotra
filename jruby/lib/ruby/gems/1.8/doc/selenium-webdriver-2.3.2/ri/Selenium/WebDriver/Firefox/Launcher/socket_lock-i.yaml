@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Firefox::Launcher#socket_lock
+is_singleton: false
+name: socket_lock
+params: ()
+visibility: public

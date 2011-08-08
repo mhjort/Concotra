@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Selenium::Client::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/client/base.rb, line 48</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+          <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:host</span>]
+          <span class="ruby-ivar">@port</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:port</span>].<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@browser_string</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:browser</span>]
+          <span class="ruby-ivar">@browser_url</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:url</span>]
+          <span class="ruby-ivar">@default_timeout_in_seconds</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:timeout_in_seconds</span>] <span class="ruby-operator">||</span> <span class="ruby-value">300</span>).<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@default_javascript_framework</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:javascript_framework</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">:prototype</span>
+          <span class="ruby-ivar">@highlight_located_element_by_default</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:highlight_located_element</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-ivar">@port</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@browser_string</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>]
+          <span class="ruby-ivar">@browser_url</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">3</span>]
+          <span class="ruby-ivar">@default_timeout_in_seconds</span> = (<span class="ruby-identifier">args</span>[<span class="ruby-value">4</span>] <span class="ruby-operator">||</span> <span class="ruby-value">300</span>).<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@default_javascript_framework</span> = <span class="ruby-identifier">:prototype</span>
+          <span class="ruby-ivar">@highlight_located_element_by_default</span> = <span class="ruby-keyword kw">false</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-ivar">@extension_js</span> = <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-ivar">@session_id</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

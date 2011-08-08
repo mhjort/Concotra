@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MODIFIERS
+    value: "[:control, :shift, :alt, :command, :meta]"
+full_name: Selenium::WebDriver::Keyboard
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: press
+  - !ruby/object:RI::MethodSummary 
+    name: release
+  - !ruby/object:RI::MethodSummary 
+    name: send_keys
+name: Keyboard
+superclass: Object

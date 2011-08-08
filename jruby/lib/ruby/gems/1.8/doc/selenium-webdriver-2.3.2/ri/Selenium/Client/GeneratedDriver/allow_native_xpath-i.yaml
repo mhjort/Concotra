@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Specifies whether Selenium should use the native in-browser implementation of XPath (if any native version is available); if you pass &quot;false&quot; to this function, we will always use our pure-JavaScript xpath library. Using the pure-JS xpath library can improve the consistency of xpath element locators between different browser vendors, but the pure-JS version is much slower than the native implementations.
+  - !ruby/struct:SM::Flow::P 
+    body: "'allow' is boolean, true means we'll prefer to use native XPath; false means we'll only use JS XPath"
+full_name: Selenium::Client::GeneratedDriver#allow_native_xpath
+is_singleton: false
+name: allow_native_xpath
+params: (allow)
+visibility: public

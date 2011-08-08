@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Mouse#move_by
+is_singleton: false
+name: move_by
+params: (right_by, down_by)
+visibility: public

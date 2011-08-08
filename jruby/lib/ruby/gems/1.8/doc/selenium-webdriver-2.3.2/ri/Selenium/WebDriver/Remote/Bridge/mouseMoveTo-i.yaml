@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Bridge#mouseMoveTo
+is_singleton: false
+name: mouseMoveTo
+params: (element, x = nil, y = nil)
+visibility: public

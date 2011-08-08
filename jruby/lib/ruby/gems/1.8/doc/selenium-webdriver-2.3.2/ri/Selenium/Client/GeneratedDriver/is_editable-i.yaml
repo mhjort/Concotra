@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Determines whether the specified input element is editable, ie hasn't been disabled. This method will fail if the specified element isn't an input element.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator"
+full_name: Selenium::Client::GeneratedDriver#is_editable
+is_singleton: false
+name: is_editable
+params: (locator)
+visibility: public

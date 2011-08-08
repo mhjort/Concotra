@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Support::AbstractEventListener#after_change_value_of
+is_singleton: false
+name: after_change_value_of
+params: (element, driver)
+visibility: public

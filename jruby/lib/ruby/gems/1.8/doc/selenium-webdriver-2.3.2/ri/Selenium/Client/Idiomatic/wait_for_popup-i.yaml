@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Waits for a popup window to appear and load up.
+  - !ruby/struct:SM::Flow::P 
+    body: window_id is the JavaScript window &quot;name&quot; of the window that will appear (not the text of the title bar) timeout_in_seconds is a timeout in seconds, after which the action will return with an error
+full_name: Selenium::Client::Idiomatic#wait_for_popup
+is_singleton: false
+name: wait_for_popup
+params: (window_id, timeout_in_seconds=nil)
+visibility: public

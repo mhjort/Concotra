@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: switch to the given window handle
+  - !ruby/struct:SM::Flow::P 
+    body: If given a block, this method will switch back to the original window after block execution.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param id"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  A window handle, obtained through Driver#window_handles\n"
+full_name: Selenium::WebDriver::TargetLocator#window
+is_singleton: false
+name: window
+params: (id) {|| ...}
+visibility: public

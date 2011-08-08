@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set a preference in the profile.
+  - !ruby/struct:SM::Flow::P 
+    body: See http://codesearch.google.com/codesearch#OAMlx_jo-ck/src/chrome/common/pref_names.cc&amp;exact_package=chromium
+full_name: Selenium::WebDriver::Chrome::Profile#[]=
+is_singleton: false
+name: "[]="
+params: (key, value)
+visibility: public

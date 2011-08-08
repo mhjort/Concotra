@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: SOCKET_LOCK_TIMEOUT
+    value: "45"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: STABLE_CONNECTION_TIMEOUT
+    value: "60"
+full_name: Selenium::WebDriver::Firefox::Launcher
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: assert_profile
+  - !ruby/object:RI::MethodSummary 
+    name: connect_until_stable
+  - !ruby/object:RI::MethodSummary 
+    name: create_profile
+  - !ruby/object:RI::MethodSummary 
+    name: fetch_profile
+  - !ruby/object:RI::MethodSummary 
+    name: find_free_port
+  - !ruby/object:RI::MethodSummary 
+    name: launch
+  - !ruby/object:RI::MethodSummary 
+    name: quit
+  - !ruby/object:RI::MethodSummary 
+    name: socket_lock
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: start_silent_and_wait
+  - !ruby/object:RI::MethodSummary 
+    name: url
+name: Launcher
+superclass: Object

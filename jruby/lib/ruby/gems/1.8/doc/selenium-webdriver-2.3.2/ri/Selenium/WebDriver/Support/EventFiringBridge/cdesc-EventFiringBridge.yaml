@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: []
+
+full_name: Selenium::WebDriver::Support::EventFiringBridge
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: clearElement
+  - !ruby/object:RI::MethodSummary 
+    name: clickElement
+  - !ruby/object:RI::MethodSummary 
+    name: close
+  - !ruby/object:RI::MethodSummary 
+    name: executeScript
+  - !ruby/object:RI::MethodSummary 
+    name: find_element_by
+  - !ruby/object:RI::MethodSummary 
+    name: find_elements_by
+  - !ruby/object:RI::MethodSummary 
+    name: get
+  - !ruby/object:RI::MethodSummary 
+    name: goBack
+  - !ruby/object:RI::MethodSummary 
+    name: goForward
+  - !ruby/object:RI::MethodSummary 
+    name: quit
+  - !ruby/object:RI::MethodSummary 
+    name: sendKeysToElement
+name: EventFiringBridge
+superclass: Object

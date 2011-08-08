@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: above
+  - !ruby/object:RI::MethodSummary 
+    name: free?
+  - !ruby/object:RI::MethodSummary 
+    name: random
+comment: 
+constants: []
+
+full_name: Selenium::WebDriver::PortProber
+includes: []
+
+instance_methods: []
+
+name: PortProber
+superclass: Object
