@@ -3,18 +3,17 @@ Feature: Employer can apply statutory pension insurance for his employees online
 @e2e
 Scenario: End to end basic case
 Given the application is opened
-When the employer enters following information
-	|Salary|First employment start date|Declaration method|
-	|9500  |1.1.2010		   |MONTHLY	       |  
-And submits the form
+When the employer gives company's information
+And applies insurance
 Then incomplete application is created
+And reference number is shown to employer
 
 @ui
 Scenario: If data is in wrong format, format error is shown
 Given the application is opened
 And the employer has entered valid data to form
 When she enters 'text' to salary field
-And submits the form 
+And submits the form
 Then format error message is shown
 
 @ui
