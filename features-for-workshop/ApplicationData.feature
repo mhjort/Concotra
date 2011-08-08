@@ -2,7 +2,7 @@ Feature: Employer can apply statutory pension insurance for his employees online
 
 @e2e
 Scenario: End to end basic case
-Given the application data form is opened
+Given the application is opened
 When the employer enters following information
 	|Salary|First employment start date|Declaration method|
 	|9500  |1.1.2010		   |MONTHLY	       |  
@@ -11,7 +11,7 @@ Then incomplete application is created
 
 @ui
 Scenario: If data is in wrong format, format error is shown
-Given the application data form is opened
+Given the application is opened
 And the employer has entered valid data to form
 When she enters 'text' to salary field
 And submits the form 
@@ -19,7 +19,7 @@ Then format error message is shown
 
 @ui
 Scenario: If business rule is violated, business rule violation error is shown
-Given the application data form is opened
+Given the application is opened
 And the employer has entered valid data to form
 When she enters '-1000' to salary field
 And submits the form 

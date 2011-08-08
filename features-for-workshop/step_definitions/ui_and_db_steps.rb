@@ -4,7 +4,7 @@ After do |s|
   if !@driver.nil? then @driver.quit end 
 end
 
-Given /^the application data form is opened$/ do
+Given /^the application is opened$/ do
   @driver = Selenium::WebDriver.for :firefox
   @driver.navigate.to @host
 end                                                                                                                                                                                            
