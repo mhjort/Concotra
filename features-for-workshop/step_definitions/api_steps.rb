@@ -13,27 +13,23 @@ end
 
 # Step 2
 # Uncomment this method and fill details
+# Modify the @input
+# Post data using Rest
+# Save the result to @response variable
 #When /^she gives (.*) as first employment start date$/ do |first_employment_start_date|
 #end
 
-When /^accepts the data$/ do
-  # Step 3
-  # In here we have to post data using Rest and save the result to @response variable
-  pending
-end                                                                                                                                                                                
-
 Then /^the result is (.*)$/ do |expected_response_status|
   actual_response_status = JSON.parse(@response)["status"]
-  # Step 4 (Replace this with proper assertion)
+  # Step 3 (Replace this with proper assertion)
   fail 'Assertion fails'
 end
 
-# Step 5
+# Step 4
 # Implement salary rules (First modify the feature file by adding this) 
 #Scenario Outline: Salary has to be positive number
 #Given the employer has given valid data
 #When she gives <Salary> as salary
-#And accepts the data
 #Then the result is <Result>
 #
 #Examples:

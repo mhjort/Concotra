@@ -28,7 +28,6 @@ Then business rule violation error message is shown
 Scenario Outline: Earliest possible first employment start date is 1.1.1961
 Given the employer has given valid data
 When she gives <First employment start date> as first employment start date
-And accepts the data
 Then the result is <Result>
 
 Examples:
