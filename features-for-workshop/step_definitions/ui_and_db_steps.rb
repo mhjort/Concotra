@@ -10,9 +10,7 @@ Given /^the application is opened$/ do
 end                                                                                                                                                                                            
 
 Given /^the employer has entered valid data to form$/ do  
-  enter_value('salary', '9500')
-  enter_value('firstEmploymentStartDate', '1.1.2010')
-  find_by_id('monthly').click
+  enter_valid_data
 end
 
 When /^the employer gives company's information$/ do
