@@ -1,7 +1,7 @@
 Feature: Employer can apply statutory pension insurance for his employees online.
 
 @e2e
-Scenario: End to end basic case
+Scenario: End to end basic flow 
 Given the application is opened
 When the employer gives company's information
 And applies insurance

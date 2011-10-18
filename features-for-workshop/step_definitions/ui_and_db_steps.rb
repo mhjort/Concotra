@@ -8,7 +8,6 @@ Given /^the application is opened$/ do
   @driver = Selenium::WebDriver.for :firefox
   @driver.navigate.to @host
 end                                                                                                                                                                                            
-
 Given /^the employer has entered valid data to form$/ do  
   enter_valid_data
 end
@@ -35,8 +34,7 @@ Then /^incomplete application is created$/ do
   saved_status.should == "1"
 end 
 
-Then /^reference number is shown to employer$/ do                                                                                                                                                          
-  reference_number = get_application_id
+Then /^reference number is shown to employer$/ do                                                                                      reference_number = get_application_id
   reference_number.should_not be_empty
 end  
 
