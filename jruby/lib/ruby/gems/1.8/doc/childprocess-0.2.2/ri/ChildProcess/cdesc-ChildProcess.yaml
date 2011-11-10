@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: close_on_exec
+  - !ruby/object:RI::MethodSummary 
+    name: jruby?
+  - !ruby/object:RI::MethodSummary 
+    name: jruby_on_unix?
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: os
+  - !ruby/object:RI::MethodSummary 
+    name: platform
+  - !ruby/object:RI::MethodSummary 
+    name: unix?
+  - !ruby/object:RI::MethodSummary 
+    name: windows?
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: VERSION
+    value: "\"0.2.2\""
+full_name: ChildProcess
+includes: []
+
+instance_methods: []
+
+name: ChildProcess
+superclass: 

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Only supported in JRuby on a Unix operating system, thanks to limitations in Java's classes
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Fixnum] the pid of the process after it has started @raise [NotImplementedError] when trying to access pid on non-Unix platform"
+full_name: ChildProcess::JRuby::Process#pid
+is_singleton: false
+name: pid
+params: ()
+visibility: public

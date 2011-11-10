@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::jruby_on_unix?
+is_singleton: true
+name: jruby_on_unix?
+params: ()
+visibility: public

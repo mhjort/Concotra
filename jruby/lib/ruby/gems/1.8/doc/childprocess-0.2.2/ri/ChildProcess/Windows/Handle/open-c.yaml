@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: h
+comment: 
+full_name: ChildProcess::Windows::Handle::open
+is_singleton: true
+name: open
+params: (pid, access = PROCESS_ALL_ACCESS) {|h| ...}
+visibility: public

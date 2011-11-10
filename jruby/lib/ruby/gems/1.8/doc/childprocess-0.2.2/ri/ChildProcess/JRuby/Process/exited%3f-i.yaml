@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ChildProcess::JRuby::Process#exited?
+is_singleton: false
+name: exited?
+params: ()
+visibility: public

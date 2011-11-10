@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+full_name: ChildProcess::AbstractIO#_stdin=
+is_singleton: false
+name: _stdin=
+params: (io)
+visibility: public

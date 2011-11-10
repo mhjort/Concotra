@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>pid (ChildProcess::JRuby::Process)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/childprocess/jruby/process.rb, line 38</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pid</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@process</span>.<span class="ruby-identifier">getClass</span>.<span class="ruby-identifier">getName</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;java.lang.UNIXProcess&quot;</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;pid is not supported by JRuby child processes on Windows&quot;</span>)
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># About the best way we can do this is with a nasty reflection-based impl</span>
+        <span class="ruby-comment cmt"># Thanks to Martijn Courteaux</span>
+        <span class="ruby-comment cmt"># http://stackoverflow.com/questions/2950338/how-can-i-kill-a-linux-process-in-java-with-sigkill-process-destroy-does-sigter/2951193#2951193</span>
+        <span class="ruby-identifier">field</span> = <span class="ruby-ivar">@process</span>.<span class="ruby-identifier">getClass</span>.<span class="ruby-identifier">getDeclaredField</span>(<span class="ruby-value str">&quot;pid&quot;</span>)
+        <span class="ruby-identifier">field</span>.<span class="ruby-identifier">accessible</span> = <span class="ruby-keyword kw">true</span>
+        <span class="ruby-identifier">field</span>.<span class="ruby-identifier">get</span>(<span class="ruby-ivar">@process</span>)
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

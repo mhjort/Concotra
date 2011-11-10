@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: typedef struct _SECURITY_ATTRIBUTES {
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  DWORD  nLength;\n  LPVOID lpSecurityDescriptor;\n  BOOL   bInheritHandle;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "} SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;"
+constants: []
+
+full_name: ChildProcess::Windows::SecurityAttributes
+includes: []
+
+instance_methods: []
+
+name: SecurityAttributes
+superclass: FFI::Struct

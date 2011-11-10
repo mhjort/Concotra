@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_proc (ChildProcess::Windows::Lib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/childprocess/windows/functions.rb, line 5</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_proc</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">opts</span> = {})
+        <span class="ruby-identifier">cmd_ptr</span> = <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">from_string</span> <span class="ruby-identifier">cmd</span>
+
+        <span class="ruby-identifier">flags</span>   = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">inherit</span> = <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:inherit</span>]
+
+        <span class="ruby-identifier">flags</span> <span class="ruby-operator">|=</span> <span class="ruby-constant">DETACHED_PROCESS</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:detach</span>]
+
+        <span class="ruby-identifier">si</span> = <span class="ruby-constant">StartupInfo</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">pi</span> = <span class="ruby-constant">ProcessInfo</span>.<span class="ruby-identifier">new</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stdout</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stderr</span>]
+          <span class="ruby-identifier">si</span>[<span class="ruby-identifier">:dwFlags</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">si</span>[<span class="ruby-identifier">:dwFlags</span>] <span class="ruby-operator">|=</span> <span class="ruby-constant">STARTF_USESTDHANDLES</span>
+          <span class="ruby-identifier">inherit</span> = <span class="ruby-keyword kw">true</span>
+
+          <span class="ruby-identifier">si</span>[<span class="ruby-identifier">:hStdOutput</span>] = <span class="ruby-identifier">handle_for</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stdout</span>].<span class="ruby-identifier">fileno</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stdout</span>]
+          <span class="ruby-identifier">si</span>[<span class="ruby-identifier">:hStdError</span>]  = <span class="ruby-identifier">handle_for</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stderr</span>].<span class="ruby-identifier">fileno</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stderr</span>]
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:duplex</span>]
+          <span class="ruby-identifier">read_pipe_ptr</span>  = <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:pointer</span>)
+          <span class="ruby-identifier">write_pipe_ptr</span> = <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:pointer</span>)
+          <span class="ruby-identifier">sa</span>         = <span class="ruby-constant">SecurityAttributes</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:inherit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>)
+
+          <span class="ruby-identifier">ok</span> = <span class="ruby-identifier">create_pipe</span>(<span class="ruby-identifier">read_pipe_ptr</span>, <span class="ruby-identifier">write_pipe_ptr</span>, <span class="ruby-identifier">sa</span>, <span class="ruby-value">0</span>)
+          <span class="ruby-identifier">ok</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-identifier">last_error_message</span>
+
+          <span class="ruby-identifier">read_pipe</span> = <span class="ruby-identifier">read_pipe_ptr</span>.<span class="ruby-identifier">read_pointer</span>
+          <span class="ruby-identifier">write_pipe</span> = <span class="ruby-identifier">write_pipe_ptr</span>.<span class="ruby-identifier">read_pointer</span>
+
+          <span class="ruby-identifier">si</span>[<span class="ruby-identifier">:hStdInput</span>] = <span class="ruby-identifier">read_pipe</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">ok</span> = <span class="ruby-identifier">create_process</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">cmd_ptr</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">inherit</span>, <span class="ruby-identifier">flags</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">si</span>, <span class="ruby-identifier">pi</span>)
+        <span class="ruby-identifier">ok</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-identifier">last_error_message</span>
+
+        <span class="ruby-identifier">close_handle</span> <span class="ruby-identifier">pi</span>[<span class="ruby-identifier">:hProcess</span>]
+        <span class="ruby-identifier">close_handle</span> <span class="ruby-identifier">pi</span>[<span class="ruby-identifier">:hThread</span>]
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:duplex</span>]
+          <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:stdin</span>] = <span class="ruby-identifier">io_for</span>(<span class="ruby-identifier">duplicate_handle</span>(<span class="ruby-identifier">write_pipe</span>), <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">WRONLY</span>)
+          <span class="ruby-identifier">close_handle</span> <span class="ruby-identifier">read_pipe</span>
+          <span class="ruby-identifier">close_handle</span> <span class="ruby-identifier">write_pipe</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">pi</span>[<span class="ruby-identifier">:dwProcessId</span>]
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: create_proc
+  - !ruby/object:RI::MethodSummary 
+    name: duplicate_handle
+  - !ruby/object:RI::MethodSummary 
+    name: handle_for
+  - !ruby/object:RI::MethodSummary 
+    name: io_for
+  - !ruby/object:RI::MethodSummary 
+    name: last_error_message
+  - !ruby/object:RI::MethodSummary 
+    name: msvcrt_name
+comment: 
+constants: []
+
+full_name: ChildProcess::Windows::Lib
+includes: []
+
+instance_methods: []
+
+name: Lib
+superclass: 

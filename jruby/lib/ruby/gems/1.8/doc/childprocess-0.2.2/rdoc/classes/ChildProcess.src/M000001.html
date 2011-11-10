@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (ChildProcess)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/childprocess.rb, line 14</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">platform</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:jruby</span>
+        <span class="ruby-constant">JRuby</span><span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:ironruby</span>
+        <span class="ruby-constant">IronRuby</span><span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:windows</span>
+        <span class="ruby-constant">Windows</span><span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:macosx</span>, <span class="ruby-identifier">:linux</span>, <span class="ruby-identifier">:unix</span>, <span class="ruby-identifier">:cygwin</span>
+        <span class="ruby-constant">Unix</span><span class="ruby-operator">::</span><span class="ruby-constant">Process</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;unsupported platform #{platform.inspect}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

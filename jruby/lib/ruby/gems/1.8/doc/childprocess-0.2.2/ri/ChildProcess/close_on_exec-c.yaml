@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: By default, a child process will inherit open file descriptors from the parent process. This helper provides a cross-platform way of making sure that doesn't happen for the given file/io.
+full_name: ChildProcess::close_on_exec
+is_singleton: true
+name: close_on_exec
+params: (file)
+visibility: public
