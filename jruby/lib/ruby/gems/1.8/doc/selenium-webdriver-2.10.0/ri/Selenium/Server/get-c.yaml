@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Server::get
+is_singleton: true
+name: get
+params: (required_version, opts = {})
+visibility: public

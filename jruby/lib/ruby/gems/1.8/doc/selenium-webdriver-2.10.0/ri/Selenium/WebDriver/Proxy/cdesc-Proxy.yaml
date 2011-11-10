@@ -1,0 +1,67 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: auto_detect
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: ftp
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: http
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: no_proxy
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: pac
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: ssl
+    rw: R
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: type
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: json_create
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: TYPES
+    value: "{         :direct      => \"DIRECT\",     # Direct connection, no proxy (default on Windows).         :manual      => \"MANUAL\",     # Manual proxy settings (e.g., for httpProxy).         :pac         => \"PAC\",        # Proxy autoconfiguration from URL.         :auto_detect => \"AUTODETECT\", # Proxy autodetection (presumably with WPAD).         :system      => \"SYSTEM\""
+full_name: Selenium::WebDriver::Proxy
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ==
+  - !ruby/object:RI::MethodSummary 
+    name: as_json
+  - !ruby/object:RI::MethodSummary 
+    name: auto_detect=
+  - !ruby/object:RI::MethodSummary 
+    name: eql?
+  - !ruby/object:RI::MethodSummary 
+    name: ftp=
+  - !ruby/object:RI::MethodSummary 
+    name: http=
+  - !ruby/object:RI::MethodSummary 
+    name: no_proxy=
+  - !ruby/object:RI::MethodSummary 
+    name: pac=
+  - !ruby/object:RI::MethodSummary 
+    name: ssl=
+  - !ruby/object:RI::MethodSummary 
+    name: type=
+name: Proxy
+superclass: Object

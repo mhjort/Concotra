@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Alias for #javascript_extension="
+full_name: Selenium::Client::Base#set_extension_js
+is_singleton: false
+name: set_extension_js
+params: (new_javascript_extension)
+visibility: public

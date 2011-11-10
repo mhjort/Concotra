@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_URL
+    value: "\"http://#{Platform.localhost}:3001/hub/\""
+full_name: Selenium::WebDriver::IPhone::Bridge
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: browser
+  - !ruby/object:RI::MethodSummary 
+    name: capabilities
+  - !ruby/object:RI::MethodSummary 
+    name: driver_extensions
+name: Bridge
+superclass: Remote::Bridge

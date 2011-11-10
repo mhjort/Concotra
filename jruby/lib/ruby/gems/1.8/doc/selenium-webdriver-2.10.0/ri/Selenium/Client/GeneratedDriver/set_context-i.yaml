@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Writes a message to the status bar and adds a note to the browser-side log.
+  - !ruby/struct:SM::Flow::P 
+    body: "'context' is the message to be sent to the browser"
+full_name: Selenium::Client::GeneratedDriver#set_context
+is_singleton: false
+name: set_context
+params: (context)
+visibility: public

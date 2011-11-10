@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Has confirm() been called?
+  - !ruby/struct:SM::Flow::P 
+    body: This function never throws an exception
+full_name: Selenium::Client::GeneratedDriver#is_confirmation_present
+is_singleton: false
+name: is_confirmation_present
+params: ()
+visibility: public

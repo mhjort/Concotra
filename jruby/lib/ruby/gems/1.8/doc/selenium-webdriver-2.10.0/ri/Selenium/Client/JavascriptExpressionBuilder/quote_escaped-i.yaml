@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Client::JavascriptExpressionBuilder#quote_escaped
+is_singleton: false
+name: quote_escaped
+params: (a_string)
+visibility: public

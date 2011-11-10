@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Executes a command rollup, which is a series of commands with a unique name, and optionally arguments that control the generation of the set of commands. If any one of the rolled-up commands fails, the rollup is considered to have failed. Rollups may also contain nested rollups.
+  - !ruby/struct:SM::Flow::P 
+    body: "'rollupName' is the name of the rollup command 'kwargs' is keyword arguments string that influences how the rollup expands into commands"
+full_name: Selenium::Client::GeneratedDriver#rollup
+is_singleton: false
+name: rollup
+params: (rollupName,kwargs)
+visibility: public

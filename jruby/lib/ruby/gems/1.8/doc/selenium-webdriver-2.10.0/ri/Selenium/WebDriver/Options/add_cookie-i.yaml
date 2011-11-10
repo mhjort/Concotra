@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Add a cookie to the browser
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [Hash] opts the options to create a cookie with. @option opts [String] :name A name @option opts [String] :value A value @option opts [String] :path ('/') A path @option opts [String] :secure (false) A boolean @option opts [Time,DateTime,Numeric,nil] :expires (nil) Expiry date, either as a Time, DateTime, or seconds since epoch."
+  - !ruby/struct:SM::Flow::P 
+    body: "@raise [ArgumentError] if :name or :value is not specified"
+full_name: Selenium::WebDriver::Options#add_cookie
+is_singleton: false
+name: add_cookie
+params: (opts = {})
+visibility: public

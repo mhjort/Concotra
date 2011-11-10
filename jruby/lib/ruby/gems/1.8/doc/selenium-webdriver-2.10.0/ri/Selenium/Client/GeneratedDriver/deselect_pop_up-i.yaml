@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Selects the main window. Functionally equivalent to using <tt>selectWindow()</tt> and specifying no value for <tt>windowID</tt>.
+full_name: Selenium::Client::GeneratedDriver#deselect_pop_up
+is_singleton: false
+name: deselect_pop_up
+params: ()
+visibility: public

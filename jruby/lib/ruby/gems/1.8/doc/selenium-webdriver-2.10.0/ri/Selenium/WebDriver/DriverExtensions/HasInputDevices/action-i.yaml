@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [ActionBuilder] @api public"
+full_name: Selenium::WebDriver::DriverExtensions::HasInputDevices#action
+is_singleton: false
+name: action
+params: ()
+visibility: public

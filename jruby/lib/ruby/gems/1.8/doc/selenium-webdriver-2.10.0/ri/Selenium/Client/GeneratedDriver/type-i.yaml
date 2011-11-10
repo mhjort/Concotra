@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Sets the value of an input field, as though you typed it in.
+  - !ruby/struct:SM::Flow::P 
+    body: Can also be used to set the value of combo boxes, check boxes, etc. In these cases, value should be the value of the option selected, not the visible text.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator 'value' is the value to type"
+full_name: Selenium::Client::GeneratedDriver#type
+is_singleton: false
+name: type
+params: (locator,value)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets all option element IDs for selected options in the specified select or multi-select element.
+  - !ruby/struct:SM::Flow::P 
+    body: "'selectLocator' is an element locator identifying a drop-down menu"
+full_name: Selenium::Client::GeneratedDriver#get_selected_ids
+is_singleton: false
+name: get_selected_ids
+params: (selectLocator)
+visibility: public

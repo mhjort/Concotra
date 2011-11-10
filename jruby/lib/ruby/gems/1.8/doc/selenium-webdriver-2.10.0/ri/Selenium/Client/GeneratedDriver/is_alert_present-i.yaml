@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Has an alert occurred?
+  - !ruby/struct:SM::Flow::P 
+    body: This function never throws an exception
+full_name: Selenium::Client::GeneratedDriver#is_alert_present
+is_singleton: false
+name: is_alert_present
+params: ()
+visibility: public

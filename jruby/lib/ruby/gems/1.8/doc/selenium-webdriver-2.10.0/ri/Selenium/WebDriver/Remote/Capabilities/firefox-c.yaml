@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Capabilities::firefox
+is_singleton: true
+name: firefox
+params: (opts = {})
+visibility: public

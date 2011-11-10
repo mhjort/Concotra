@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Allows choice of one of the available libraries.
+  - !ruby/struct:SM::Flow::P 
+    body: "'libraryName' is name of the desired library Only the following three can be chosen: * &quot;ajaxslt&quot; - Google's library* &quot;javascript-xpath&quot; - Cybozu Labs' faster library* &quot;default&quot; - The default library. Currently the default library is &quot;ajaxslt&quot; . If libraryName isn't one of these three, then no change will be made."
+full_name: Selenium::Client::GeneratedDriver#use_xpath_library
+is_singleton: false
+name: use_xpath_library
+params: (libraryName)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns true if a cookie with the specified name is present, or false otherwise.
+  - !ruby/struct:SM::Flow::P 
+    body: "'name' is the name of the cookie"
+full_name: Selenium::Client::GeneratedDriver#is_cookie_present
+is_singleton: false
+name: is_cookie_present
+params: (name)
+visibility: public

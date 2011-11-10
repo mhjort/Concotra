@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets the absolute URL of the current page.
+full_name: Selenium::Client::GeneratedDriver#get_location
+is_singleton: false
+name: get_location
+params: ()
+visibility: public

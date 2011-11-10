@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Server#webdriver_url
+is_singleton: false
+name: webdriver_url
+params: ()
+visibility: public

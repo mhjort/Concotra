@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Support::AbstractEventListener#before_quit
+is_singleton: false
+name: before_quit
+params: (driver)
+visibility: public

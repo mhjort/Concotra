@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets the entire text of the page.
+full_name: Selenium::Client::Idiomatic#body_text
+is_singleton: false
+name: body_text
+params: ()
+visibility: public

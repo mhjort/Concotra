@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Proxy#ssl=
+is_singleton: false
+name: ssl=
+params: (value)
+visibility: public

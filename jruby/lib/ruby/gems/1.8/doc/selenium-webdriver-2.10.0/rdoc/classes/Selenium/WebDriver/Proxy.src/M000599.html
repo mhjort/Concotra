@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>json_create (Selenium::WebDriver::Proxy)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/proxy.rb, line 99</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">json_create</span>(<span class="ruby-identifier">data</span>)
+          <span class="ruby-identifier">proxy</span> = <span class="ruby-identifier">new</span>
+
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">type</span>        = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'proxyType'</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'proxyType'</span>
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">ftp</span>         = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'ftpProxy'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'ftpProxy'</span>
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">http</span>        = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'httpProxy'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'httpProxy'</span>
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">no_proxy</span>    = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'noProxy'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'noProxy'</span>
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">pac</span>         = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'proxyAutoconfigUrl'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'proxyAutoconfigUrl'</span>
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">ssl</span>         = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'sslProxy'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'sslProxy'</span>
+          <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">auto_detect</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'autodetect'</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value str">'autodetect'</span>
+
+          <span class="ruby-identifier">proxy</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

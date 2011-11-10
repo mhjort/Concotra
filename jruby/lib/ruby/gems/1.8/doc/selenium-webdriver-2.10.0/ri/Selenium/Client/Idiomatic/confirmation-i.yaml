@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Retrieves the message of a JavaScript confirmation dialog generated during the previous action.
+  - !ruby/struct:SM::Flow::P 
+    body: By default, the confirm function will return true, having the same effect as manually clicking OK. This can be changed by prior execution of the chooseCancelOnNextConfirmation command.
+  - !ruby/struct:SM::Flow::P 
+    body: If an confirmation is generated but you do not consume it with getConfirmation, the next Selenium action will fail.
+  - !ruby/struct:SM::Flow::P 
+    body: "NOTE: under Selenium, JavaScript confirmations will NOT pop up a visible dialog."
+  - !ruby/struct:SM::Flow::P 
+    body: "NOTE: Selenium does NOT support JavaScript confirmations that are generated in a page's onload() event handler. In this case a visible dialog WILL be generated and Selenium will hang until you manually click OK."
+full_name: Selenium::Client::Idiomatic#confirmation
+is_singleton: false
+name: confirmation
+params: ()
+visibility: public

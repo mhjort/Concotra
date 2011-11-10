@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: wait_for_page_to_load
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Waits for a new page to load.
+  - !ruby/struct:SM::Flow::P 
+    body: Selenium constantly keeps track of new pages loading, and sets a &quot;newPageLoaded&quot; flag when it first notices a page load. Running any other Selenium command after turns the flag to false. Hence, if you want to wait for a page to load, you must wait immediately after a Selenium command that caused a page-load.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "'timeout_in_seconds' is a timeout in seconds, after which this command will return with an error"
+    type: :BULLET
+full_name: Selenium::Client::Idiomatic#wait_for_page
+is_singleton: false
+name: wait_for_page
+params: (timeout_in_seconds=nil)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Creates a new &quot;script&quot; tag in the body of the current test window, and adds the specified text into the body of the command. Scripts run in this way can often be debugged more easily than scripts executed using Selenium's &quot;getEval&quot; command. Beware that JS exceptions thrown in these script tags aren't managed by Selenium, so you should probably wrap your script in try/catch blocks if there is any chance that the script will throw an exception.
+  - !ruby/struct:SM::Flow::P 
+    body: "'script' is the JavaScript snippet to run"
+full_name: Selenium::Client::GeneratedDriver#run_script
+is_singleton: false
+name: run_script
+params: (script)
+visibility: public

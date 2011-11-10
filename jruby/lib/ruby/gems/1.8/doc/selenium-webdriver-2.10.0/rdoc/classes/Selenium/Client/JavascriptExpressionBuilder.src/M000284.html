@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>find_text_in_document (Selenium::Client::JavascriptExpressionBuilder)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/client/javascript_expression_builder.rb, line 64</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_text_in_document</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span>)
+        <span class="ruby-identifier">js_regexp</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">pattern</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Regexp</span>
+          <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">inspect</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-node">/#{pattern}/</span>.<span class="ruby-identifier">inspect</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">append</span> <span class="ruby-value str">&quot;var text_match;\ntext_match = (null != selenium.browserbot.getCurrentWindow().document.body.innerHTML.match(\#{js_regexp}));\n&quot;</span>
+        
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

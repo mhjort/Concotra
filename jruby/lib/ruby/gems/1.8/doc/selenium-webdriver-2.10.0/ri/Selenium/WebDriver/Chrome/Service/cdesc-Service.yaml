@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: uri
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: default_service
+  - !ruby/object:RI::MethodSummary 
+    name: executable_path
+  - !ruby/object:RI::MethodSummary 
+    name: executable_path=
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: START_TIMEOUT
+    value: "20"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: STOP_TIMEOUT
+    value: "5"
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: MISSING_TEXT
+    value: "\"Unable to find the chromedriver executable. Please download the server from http://code.google.com/p/chromium/downloads/list and place it somewhere on your PATH. More info at http://code.google.com/p/selenium/wiki/ChromeDriver.\""
+full_name: Selenium::WebDriver::Chrome::Service
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: stop
+name: Service
+superclass: Object

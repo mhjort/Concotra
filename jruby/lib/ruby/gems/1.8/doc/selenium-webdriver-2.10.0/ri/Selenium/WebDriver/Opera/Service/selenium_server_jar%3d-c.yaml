@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Opera::Service::selenium_server_jar=
+is_singleton: true
+name: selenium_server_jar=
+params: (path)
+visibility: public

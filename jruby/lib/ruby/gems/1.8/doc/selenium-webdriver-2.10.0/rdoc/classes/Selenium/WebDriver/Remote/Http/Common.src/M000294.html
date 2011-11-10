@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>call (Selenium::WebDriver::Remote::Http::Common)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/remote/http/common.rb, line 17</span>
+          <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">verb</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">command_hash</span>)
+            <span class="ruby-identifier">url</span>      = <span class="ruby-identifier">server_url</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">url</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">URI</span>)
+            <span class="ruby-identifier">headers</span>  = <span class="ruby-constant">DEFAULT_HEADERS</span>.<span class="ruby-identifier">dup</span>
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">command_hash</span>
+              <span class="ruby-identifier">payload</span>                   = <span class="ruby-identifier">command_hash</span>.<span class="ruby-identifier">to_json</span>
+              <span class="ruby-identifier">headers</span>[<span class="ruby-value str">&quot;Content-Type&quot;</span>]   = <span class="ruby-node">&quot;#{CONTENT_TYPE}; charset=utf-8&quot;</span>
+              <span class="ruby-identifier">headers</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">bytesize</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> [<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">:put</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">verb</span>)
+
+              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$DEBUG</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;   &gt;&gt;&gt; #{payload}&quot;</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;     &gt; #{headers.inspect}&quot;</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">verb</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:post</span>
+              <span class="ruby-identifier">payload</span> = <span class="ruby-value str">&quot;{}&quot;</span> <span class="ruby-comment cmt"># work around http://code.google.com/p/selenium/issues/detail?id=1396</span>
+              <span class="ruby-identifier">headers</span>[<span class="ruby-value str">&quot;Content-Length&quot;</span>] = <span class="ruby-value str">&quot;2&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-identifier">request</span> <span class="ruby-identifier">verb</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">payload</span>
+          <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

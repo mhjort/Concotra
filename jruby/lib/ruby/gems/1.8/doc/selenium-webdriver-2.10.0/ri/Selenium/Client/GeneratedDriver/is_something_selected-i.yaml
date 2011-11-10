@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Determines whether some option in a drop-down menu is selected.
+  - !ruby/struct:SM::Flow::P 
+    body: "'selectLocator' is an element locator identifying a drop-down menu"
+full_name: Selenium::Client::GeneratedDriver#is_something_selected
+is_singleton: false
+name: is_something_selected
+params: (selectLocator)
+visibility: public

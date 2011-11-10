@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Download the given version of the selenium-server-standalone jar.
+full_name: Selenium::Server::download
+is_singleton: true
+name: download
+params: (required_version)
+visibility: public

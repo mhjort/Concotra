@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: These for all Ajax request to finish (Only works if you are using prototype, the wait happens in the browser)
+  - !ruby/struct:SM::Flow::P 
+    body: See http://davidvollbracht.com/2008/6/4/30-days-of-tech-day-3-waitforajax for more background.
+full_name: Selenium::Client::Extensions#wait_for_ajax
+is_singleton: false
+name: wait_for_ajax
+params: (options={})
+visibility: public

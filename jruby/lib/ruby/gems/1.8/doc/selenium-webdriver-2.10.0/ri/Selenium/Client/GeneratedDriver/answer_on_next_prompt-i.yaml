@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Instructs Selenium to return the specified answer string in response to the next JavaScript prompt [window.prompt()].
+  - !ruby/struct:SM::Flow::P 
+    body: "'answer' is the answer to give in response to the prompt pop-up"
+full_name: Selenium::Client::GeneratedDriver#answer_on_next_prompt
+is_singleton: false
+name: answer_on_next_prompt
+params: (answer)
+visibility: public

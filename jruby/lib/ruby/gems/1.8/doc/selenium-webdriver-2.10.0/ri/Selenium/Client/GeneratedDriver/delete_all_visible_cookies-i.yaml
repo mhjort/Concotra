@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Calls deleteCookie with recurse=true on all cookies visible to the current page. As noted on the documentation for deleteCookie, recurse=true can be much slower than simply deleting the cookies using a known domain/path.
+full_name: Selenium::Client::GeneratedDriver#delete_all_visible_cookies
+is_singleton: false
+name: delete_all_visible_cookies
+params: ()
+visibility: public

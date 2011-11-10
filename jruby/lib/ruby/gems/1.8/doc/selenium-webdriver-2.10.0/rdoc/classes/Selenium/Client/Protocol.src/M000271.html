@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>http_post (Selenium::Client::Protocol)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/client/protocol.rb, line 83</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">http_post</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-identifier">start</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+        <span class="ruby-identifier">called_from</span> = <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">detect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/(selenium-client|vendor|usr\/lib\/ruby|\(eval\))/i</span>}
+        <span class="ruby-identifier">http</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>)
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-identifier">default_timeout_in_seconds</span>
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-identifier">default_timeout_in_seconds</span>
+        <span class="ruby-identifier">response</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">post</span>(<span class="ruby-value str">'/selenium-server/driver/'</span>, <span class="ruby-identifier">data</span>, <span class="ruby-constant">HTTP_HEADERS</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/^OK/</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{start} selenium-client received failure from selenium server:&quot;</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;requested:&quot;</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'&amp;'</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n\t&quot;</span>))
+          <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;received:&quot;</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\t#{response.body.inspect}&quot;</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\tcalled from #{called_from}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        [ <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>], <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span> ]
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

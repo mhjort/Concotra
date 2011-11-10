@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Drags an element a certain distance and then drops it
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator 'movementsString' is offset in pixels from the current location to which the element should be moved, e.g., &quot;+70,-300&quot;"
+full_name: Selenium::Client::GeneratedDriver#drag_and_drop
+is_singleton: false
+name: drag_and_drop
+params: (locator,movementsString)
+visibility: public

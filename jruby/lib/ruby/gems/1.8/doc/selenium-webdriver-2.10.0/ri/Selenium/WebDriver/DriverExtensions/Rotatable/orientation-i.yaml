@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Get the current screen orientation
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [:landscape, :portrait] orientation"
+  - !ruby/struct:SM::Flow::P 
+    body: "@api public"
+full_name: Selenium::WebDriver::DriverExtensions::Rotatable#orientation
+is_singleton: false
+name: orientation
+params: ()
+visibility: public

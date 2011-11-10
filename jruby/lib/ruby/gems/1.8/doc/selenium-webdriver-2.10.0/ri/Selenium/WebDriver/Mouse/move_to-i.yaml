@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Move the mouse.
+  - !ruby/struct:SM::Flow::P 
+    body: "Examples:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  driver.mouse.move_to(element)\n  driver.mouse.move_to(element, 5, 5)\n"
+full_name: Selenium::WebDriver::Mouse#move_to
+is_singleton: false
+name: move_to
+params: (element, right_by = nil, down_by = nil)
+visibility: public

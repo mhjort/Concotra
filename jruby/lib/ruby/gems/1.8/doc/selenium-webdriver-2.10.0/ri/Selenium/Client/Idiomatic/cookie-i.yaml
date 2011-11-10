@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the value of the cookie with the specified name, or throws an error if the cookie is not present.
+  - !ruby/struct:SM::Flow::P 
+    body: "'name' is the name of the cookie"
+full_name: Selenium::Client::Idiomatic#cookie
+is_singleton: false
+name: cookie
+params: (name)
+visibility: public

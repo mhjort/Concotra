@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Gets whether a toggle-button (checkbox/radio) is checked. Fails if the specified element doesn't exist or isn't a toggle-button.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator pointing to a checkbox or radio button"
+full_name: Selenium::Client::GeneratedDriver#is_checked
+is_singleton: false
+name: is_checked
+params: (locator)
+visibility: public

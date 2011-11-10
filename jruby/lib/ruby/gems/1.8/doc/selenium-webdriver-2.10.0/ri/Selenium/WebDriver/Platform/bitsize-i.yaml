@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Platform#bitsize
+is_singleton: false
+name: bitsize
+params: ()
+visibility: public

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>from_json (Selenium::WebDriver::ProfileHelper::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/profile_helper.rb, line 48</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">from_json</span>(<span class="ruby-identifier">json</span>)
+          <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">'zip'</span>)
+
+          <span class="ruby-comment cmt"># can't use Tempfile here since it doesn't support File::BINARY mode on 1.8</span>
+          <span class="ruby-comment cmt"># can't use Dir.mktmpdir(&amp;blk) because of http://jira.codehaus.org/browse/JRUBY-4082</span>
+          <span class="ruby-identifier">tmp_dir</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mktmpdir</span>
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-identifier">zip_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp_dir</span>, <span class="ruby-node">&quot;webdriver-profile-duplicate-#{json.hash}.zip&quot;</span>)
+            <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">zip_path</span>, <span class="ruby-value str">&quot;wb&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">zip_file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">zip_file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">decode64</span>(<span class="ruby-identifier">data</span>) }
+
+            <span class="ruby-identifier">new</span> <span class="ruby-constant">Zipper</span>.<span class="ruby-identifier">unzip</span>(<span class="ruby-identifier">zip_path</span>)
+          <span class="ruby-keyword kw">ensure</span>
+            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">tmp_dir</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

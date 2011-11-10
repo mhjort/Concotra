@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Support::AbstractEventListener#before_navigate_back
+is_singleton: false
+name: before_navigate_back
+params: (driver)
+visibility: public

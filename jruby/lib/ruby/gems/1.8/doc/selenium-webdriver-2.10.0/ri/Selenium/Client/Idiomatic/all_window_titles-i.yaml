@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the titles of all windows that the browser knows about.
+full_name: Selenium::Client::Idiomatic#all_window_titles
+is_singleton: false
+name: all_window_titles
+params: ()
+visibility: public

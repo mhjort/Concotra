@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Submit the specified form. This is particularly useful for forms without submit buttons, e.g. single-input &quot;Search&quot; forms.
+  - !ruby/struct:SM::Flow::P 
+    body: "'formLocator' is an element locator for the form you want to submit"
+full_name: Selenium::Client::GeneratedDriver#submit
+is_singleton: false
+name: submit
+params: (formLocator)
+visibility: public

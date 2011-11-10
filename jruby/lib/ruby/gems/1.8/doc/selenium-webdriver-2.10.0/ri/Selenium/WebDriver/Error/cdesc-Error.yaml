@@ -1,0 +1,19 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: for_code
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: Errors
+    value: "[         IndexOutOfBoundsError,          # 1         NoCollectionError,              # 2         NoStringError,                  # 3         NoStringLengthError,            # 4         NoStringWrapperError,           # 5         NoSuchDriverError,              # 6         NoSuchElementError,             # 7         NoSuchFrameError,               # 8         UnknownCommandError,            # 9         ObsoleteElementError,           # 10         ElementNotDisplayedError,       # 11         InvalidElementStateError,       # 12         UnhandledError,                 # 13         ExpectedError,                  # 14         ElementNotSelectableError,      # 15         NoSuchDocumentError,            # 16         UnexpectedJavascriptError,      # 17         NoScriptResultError,            # 18         XPathLookupError,               # 19         NoSuchCollectionError,          # 20         TimeOutError,                   # 21         NullPointerError,               # 22         NoSuchWindowError,              # 23         InvalidCookieDomainError,       # 24         UnableToSetCookieError,         # 25         UnexpectedAlertError,           # 26         NoAlertOpenError,               # 27         ScriptTimeOutError,             # 28         InvalidElementCoordinatesError, # 29         IMENotAvailableError,           # 30         IMEEngineActivationFailedError, # 31         InvalidSelectorError,           # 32         nil,                            # 33         MoveTargetOutOfBoundsError      # 34"
+full_name: Selenium::WebDriver::Error
+includes: []
+
+instance_methods: []
+
+name: Error
+superclass: 

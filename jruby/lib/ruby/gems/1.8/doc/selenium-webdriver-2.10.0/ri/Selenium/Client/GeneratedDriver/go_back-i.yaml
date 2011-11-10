@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Simulates the user clicking the &quot;back&quot; button on their browser.
+full_name: Selenium::Client::GeneratedDriver#go_back
+is_singleton: false
+name: go_back
+params: ()
+visibility: public

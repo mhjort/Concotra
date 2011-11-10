@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Selenium::WebDriver::Firefox</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::Firefox</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/selenium/webdriver/firefox/launcher_rb.html">
+                lib/selenium/webdriver/firefox/launcher.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/profile_rb.html">
+                lib/selenium/webdriver/firefox/profile.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/profiles_ini_rb.html">
+                lib/selenium/webdriver/firefox/profiles_ini.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/socket_lock_rb.html">
+                lib/selenium/webdriver/firefox/socket_lock.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/bridge_rb.html">
+                lib/selenium/webdriver/firefox/bridge.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/extension_rb.html">
+                lib/selenium/webdriver/firefox/extension.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/util_rb.html">
+                lib/selenium/webdriver/firefox/util.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox/binary_rb.html">
+                lib/selenium/webdriver/firefox/binary.rb
+                </a>
+        <br />
+                <a href="../../../files/lib/selenium/webdriver/firefox_rb.html">
+                lib/selenium/webdriver/firefox.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000396">path=</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Firefox/Util.html" class="link">Selenium::WebDriver::Firefox::Util</a><br />
+Class <a href="Firefox/Binary.html" class="link">Selenium::WebDriver::Firefox::Binary</a><br />
+Class <a href="Firefox/Bridge.html" class="link">Selenium::WebDriver::Firefox::Bridge</a><br />
+Class <a href="Firefox/Extension.html" class="link">Selenium::WebDriver::Firefox::Extension</a><br />
+Class <a href="Firefox/Launcher.html" class="link">Selenium::WebDriver::Firefox::Launcher</a><br />
+Class <a href="Firefox/Profile.html" class="link">Selenium::WebDriver::Firefox::Profile</a><br />
+Class <a href="Firefox/ProfilesIni.html" class="link">Selenium::WebDriver::Firefox::ProfilesIni</a><br />
+Class <a href="Firefox/SocketLock.html" class="link">Selenium::WebDriver::Firefox::SocketLock</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_PORT</td>
+          <td>=</td>
+          <td class="context-item-value">7055</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_ENABLE_NATIVE_EVENTS</td>
+          <td>=</td>
+          <td class="context-item-value">Platform.os == :windows</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_SECURE_SSL</td>
+          <td>=</td>
+          <td class="context-item-value">false</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_ASSUME_UNTRUSTED_ISSUER</td>
+          <td>=</td>
+          <td class="context-item-value">true</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULT_LOAD_NO_FOCUS_LIB</td>
+          <td>=</td>
+          <td class="context-item-value">false</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000396" class="method-detail">
+        <a name="M000396"></a>
+
+        <div class="method-heading">
+          <a href="Firefox.src/M000396.html" target="Code" class="method-signature"
+            onclick="popupCode('Firefox.src/M000396.html');return false;">
+          <span class="method-name">path=</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

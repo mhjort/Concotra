@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Selenium::WebDriver::Remote::Capabilities</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::Remote::Capabilities</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/selenium/webdriver/remote/capabilities_rb.html">
+                lib/selenium/webdriver/remote/capabilities.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Specification of the desired and/or actual <a
+href="Capabilities.html#M000380">capabilities</a> of the browser that the
+server is being asked to create.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000378">==</a>&nbsp;&nbsp;
+      <a href="#M000373">[]</a>&nbsp;&nbsp;
+      <a href="#M000372">[]=</a>&nbsp;&nbsp;
+      <a href="#M000363">android</a>&nbsp;&nbsp;
+      <a href="#M000376">as_json</a>&nbsp;&nbsp;
+      <a href="#M000380">capabilities</a>&nbsp;&nbsp;
+      <a href="#M000364">chrome</a>&nbsp;&nbsp;
+      <a href="#M000379">eql?</a>&nbsp;&nbsp;
+      <a href="#M000365">firefox</a>&nbsp;&nbsp;
+      <a href="#M000366">htmlunit</a>&nbsp;&nbsp;
+      <a href="#M000367">internet_explorer</a>&nbsp;&nbsp;
+      <a href="#M000368">iphone</a>&nbsp;&nbsp;
+      <a href="#M000370">json_create</a>&nbsp;&nbsp;
+      <a href="#M000374">merge!</a>&nbsp;&nbsp;
+      <a href="#M000371">new</a>&nbsp;&nbsp;
+      <a href="#M000369">opera</a>&nbsp;&nbsp;
+      <a href="#M000375">proxy=</a>&nbsp;&nbsp;
+      <a href="#M000377">to_json</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DEFAULTS</td>
+          <td>=</td>
+          <td class="context-item-value">{           :browser_name          =&gt; &quot;&quot;,           :version               =&gt; &quot;&quot;,           :platform              =&gt; :any,           :javascript_enabled    =&gt; false,           :css_selectors_enabled =&gt; false,           :takes_screenshot      =&gt; false,           :native_events         =&gt; false,           :rotatable             =&gt; false,           :firefox_profile       =&gt; nil,           :proxy                 =&gt; nil</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">css_selectors_enabled</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">css_selectors_enabled?</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">javascript_enabled</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">javascript_enabled?</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">native_events</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">native_events?</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">takes_screenshot</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">takes_screenshot?</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">rotatable</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">rotatable?</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">internet_explorer</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">ie</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000363" class="method-detail">
+        <a name="M000363"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000363.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000363.html');return false;">
+          <span class="method-name">android</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000364" class="method-detail">
+        <a name="M000364"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000364.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000364.html');return false;">
+          <span class="method-name">chrome</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000365" class="method-detail">
+        <a name="M000365"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000365.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000365.html');return false;">
+          <span class="method-name">firefox</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000366" class="method-detail">
+        <a name="M000366"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000366.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000366.html');return false;">
+          <span class="method-name">htmlunit</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000367" class="method-detail">
+        <a name="M000367"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000367.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000367.html');return false;">
+          <span class="method-name">internet_explorer</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000368" class="method-detail">
+        <a name="M000368"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000368.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000368.html');return false;">
+          <span class="method-name">iphone</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000370" class="method-detail">
+        <a name="M000370"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000370.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000370.html');return false;">
+          <span class="method-name">json_create</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@api private
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000371" class="method-detail">
+        <a name="M000371"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000371.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000371.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@option :browser_name [<a href="../../../String.html">String</a>] required
+browser name @option :version [<a href="../../../String.html">String</a>]
+required browser version number @option :platform [Symbol] one of :any,
+:win, :mac, or :x @option :javascript_enabled [Boolean] does the driver
+have javascript enabled? @option :css_selectors_enabled [Boolean] does the
+driver support CSS selectors? @option :takes_screenshot [Boolean] can this
+driver take screenshots? @option :native_events [Boolean] does this driver
+use native events? @option :proxy [<a
+href="../Proxy.html">Selenium::WebDriver::Proxy</a>, Hash] proxy
+configuration
+</p>
+<p>
+<a href="../Firefox.html">Firefox</a>-specific options:
+</p>
+<p>
+@option :firefox_profile [<a
+href="../Firefox/Profile.html">Selenium::WebDriver::Firefox::Profile</a>]
+the <a href="Capabilities.html#M000365">firefox</a> profile to use
+</p>
+<p>
+@api public
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000369" class="method-detail">
+        <a name="M000369"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000369.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000369.html');return false;">
+          <span class="method-name">opera</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000378" class="method-detail">
+        <a name="M000378"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000378.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000378.html');return false;">
+          <span class="method-name">==</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000373" class="method-detail">
+        <a name="M000373"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000373.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000373.html');return false;">
+          <span class="method-name">[]</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000372" class="method-detail">
+        <a name="M000372"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000372.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000372.html');return false;">
+          <span class="method-name">[]=</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows setting arbitrary <a
+href="Capabilities.html#M000380">capabilities</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000376" class="method-detail">
+        <a name="M000376"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000376.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000376.html');return false;">
+          <span class="method-name">as_json</span><span class="method-args">(opts = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@api private
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000379" class="method-detail">
+        <a name="M000379"></a>
+
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span class="method-args">(other)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for #==
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000374" class="method-detail">
+        <a name="M000374"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000374.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000374.html');return false;">
+          <span class="method-name">merge!</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000375" class="method-detail">
+        <a name="M000375"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000375.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000375.html');return false;">
+          <span class="method-name">proxy=</span><span class="method-args">(proxy)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000377" class="method-detail">
+        <a name="M000377"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000377.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000377.html');return false;">
+          <span class="method-name">to_json</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000380" class="method-detail">
+        <a name="M000380"></a>
+
+        <div class="method-heading">
+          <a href="Capabilities.src/M000380.html" target="Code" class="method-signature"
+            onclick="popupCode('Capabilities.src/M000380.html');return false;">
+          <span class="method-name">capabilities</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

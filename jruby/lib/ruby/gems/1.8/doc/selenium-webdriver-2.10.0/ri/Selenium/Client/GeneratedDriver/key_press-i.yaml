@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Simulates a user pressing and releasing a key.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator 'keySequence' is Either be a string(&quot;\\&quot; followed by the numeric keycode of the key to be pressed, normally the ASCII value of that key), or a single character. For example: &quot;w&quot;, &quot;\\119&quot;."
+full_name: Selenium::Client::GeneratedDriver#key_press
+is_singleton: false
+name: key_press
+params: (locator,keySequence)
+visibility: public

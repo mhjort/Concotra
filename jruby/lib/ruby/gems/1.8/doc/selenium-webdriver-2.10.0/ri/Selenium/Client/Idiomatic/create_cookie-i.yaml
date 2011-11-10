@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Create a new cookie whose path and domain are same with those of current page under test, unless you specified a path for this cookie explicitly.
+  - !ruby/struct:SM::Flow::P 
+    body: "'nameValuePair' is name and value of the cookie in a format &quot;name=value&quot; 'optionsString' is options for the cookie. Currently supported options include 'path', 'max_age' and 'domain'. the optionsString's format is &quot;path=/path/, max_age=60, domain=.foo.com&quot;. The order of options are irrelevant, the unit of the value of 'max_age' is second. Note that specifying a domain that isn't a subset of the current domain will usually fail."
+full_name: Selenium::Client::Idiomatic#create_cookie
+is_singleton: false
+name: create_cookie
+params: (name_value_pair, options="")
+visibility: public

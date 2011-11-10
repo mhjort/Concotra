@@ -1,0 +1,65 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Select an option from a drop-down using an option locator.
+  - !ruby/struct:SM::Flow::P 
+    body: Option locators provide different ways of specifying options of an HTML Select element (e.g. for selecting a specific option, or for asserting that the selected option satisfies a specification). There are several forms of Select Option Locator.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>label</b>=<em>labelPattern</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: matches options based on their labels, i.e. the visible text. (This is the default.)
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: label=regexp:^[Oo]ther
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>value</b>=<em>valuePattern</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: matches options based on their values.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: value=other
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>id</b>=<em>id</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: matches options based on their ids.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: id=option1
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "<b>index</b>=<em>index</em>:"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: matches an option based on its index (offset from zero).
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: index=2
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: If no option locator prefix is provided, the default behaviour is to match on <b>label</b>.
+  - !ruby/struct:SM::Flow::P 
+    body: "'selectLocator' is an element locator identifying a drop-down menu 'optionLocator' is an option locator (a label by default)"
+full_name: Selenium::Client::GeneratedDriver#select
+is_singleton: false
+name: select
+params: (selectLocator,optionLocator)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Sets the threshold for browser-side logging messages; log messages beneath this threshold will be discarded. Valid logLevel strings are: &quot;debug&quot;, &quot;info&quot;, &quot;warn&quot;, &quot;error&quot; or &quot;off&quot;. To see the browser logs, you need to either show the log window in GUI mode, or enable browser-side logging in Selenium RC."
+  - !ruby/struct:SM::Flow::P 
+    body: "'logLevel' is one of the following: &quot;debug&quot;, &quot;info&quot;, &quot;warn&quot;, &quot;error&quot; or &quot;off&quot;"
+full_name: Selenium::Client::GeneratedDriver#set_browser_log_level
+is_singleton: false
+name: set_browser_log_level
+params: (logLevel)
+visibility: public

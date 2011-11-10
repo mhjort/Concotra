@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@api private"
+constants: []
+
+full_name: Selenium::WebDriver::Firefox::Util
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: app_data_path
+  - !ruby/object:RI::MethodSummary 
+    name: stringified?
+name: Util
+superclass: 

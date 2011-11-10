@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Retrieves the width of an element
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator pointing to an element"
+full_name: Selenium::Client::GeneratedDriver#get_element_width
+is_singleton: false
+name: get_element_width
+params: (locator)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Retrieves the message of a JavaScript alert generated during the previous action, or fail if there were no alerts.
+  - !ruby/struct:SM::Flow::P 
+    body: Getting an alert has the same effect as manually clicking OK. If an alert is generated but you do not consume it with getAlert, the next Selenium action will fail. Under Selenium, JavaScript alerts will NOT pop up a visible alert dialog. Selenium does NOT support JavaScript alerts that are generated in a page's onload() event handler. In this case a visible dialog WILL be generated and Selenium will hang until someone manually clicks OK.
+full_name: Selenium::Client::GeneratedDriver#get_alert
+is_singleton: false
+name: get_alert
+params: ()
+visibility: public

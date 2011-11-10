@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Platform#localhost
+is_singleton: false
+name: localhost
+params: ()
+visibility: public

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>proxy= (Selenium::WebDriver::Firefox::Profile)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/firefox/profile.rb, line 143</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">proxy=</span>(<span class="ruby-identifier">proxy</span>)
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">Proxy</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected #{Proxy.name}, got #{proxy.inspect}:#{proxy.class}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">type</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:manual</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'network.proxy.type'</span>] = <span class="ruby-value">1</span>
+
+            <span class="ruby-identifier">set_manual_proxy_preference</span> <span class="ruby-value str">&quot;ftp&quot;</span>, <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">ftp</span>
+            <span class="ruby-identifier">set_manual_proxy_preference</span> <span class="ruby-value str">&quot;http&quot;</span>, <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">http</span>
+            <span class="ruby-identifier">set_manual_proxy_preference</span> <span class="ruby-value str">&quot;ssl&quot;</span>, <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">ssl</span>
+
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">no_proxy</span>
+              <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">&quot;network.proxy.no_proxies_on&quot;</span>] = <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">no_proxy</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">&quot;network.proxy.no_proxies_on&quot;</span>] = <span class="ruby-value str">&quot;&quot;</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:pac</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'network.proxy.type'</span>] = <span class="ruby-value">2</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'network.proxy.autoconfig_url'</span>] = <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">pac</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:auto_detect</span>
+            <span class="ruby-keyword kw">self</span>[<span class="ruby-value str">'network.proxy.type'</span>] = <span class="ruby-value">4</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unsupported proxy type #{proxy.type}&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">proxy</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

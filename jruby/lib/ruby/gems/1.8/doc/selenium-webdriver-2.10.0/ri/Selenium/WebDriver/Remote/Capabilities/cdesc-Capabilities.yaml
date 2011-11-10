@@ -1,0 +1,54 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: android
+  - !ruby/object:RI::MethodSummary 
+    name: chrome
+  - !ruby/object:RI::MethodSummary 
+    name: firefox
+  - !ruby/object:RI::MethodSummary 
+    name: htmlunit
+  - !ruby/object:RI::MethodSummary 
+    name: internet_explorer
+  - !ruby/object:RI::MethodSummary 
+    name: iphone
+  - !ruby/object:RI::MethodSummary 
+    name: json_create
+  - !ruby/object:RI::MethodSummary 
+    name: new
+  - !ruby/object:RI::MethodSummary 
+    name: opera
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Specification of the desired and/or actual capabilities of the browser that the server is being asked to create.
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULTS
+    value: "{           :browser_name          => \"\",           :version               => \"\",           :platform              => :any,           :javascript_enabled    => false,           :css_selectors_enabled => false,           :takes_screenshot      => false,           :native_events         => false,           :rotatable             => false,           :firefox_profile       => nil,           :proxy                 => nil"
+full_name: Selenium::WebDriver::Remote::Capabilities
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: ==
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: "[]="
+  - !ruby/object:RI::MethodSummary 
+    name: as_json
+  - !ruby/object:RI::MethodSummary 
+    name: capabilities
+  - !ruby/object:RI::MethodSummary 
+    name: eql?
+  - !ruby/object:RI::MethodSummary 
+    name: merge!
+  - !ruby/object:RI::MethodSummary 
+    name: proxy=
+  - !ruby/object:RI::MethodSummary 
+    name: to_json
+name: Capabilities
+superclass: Object

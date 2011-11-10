@@ -1,0 +1,16 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: strict_encode64
+comment: 
+constants: []
+
+full_name: Base64
+includes: []
+
+instance_methods: []
+
+name: Base64
+superclass: 

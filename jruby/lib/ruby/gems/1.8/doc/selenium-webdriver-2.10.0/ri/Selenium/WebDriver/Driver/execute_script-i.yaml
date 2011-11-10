@@ -1,0 +1,25 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+  - !ruby/object:RI::AliasName 
+    name: script
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Execute the given JavaScript
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [String] script"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  JavaScript source to execute\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@param [WebDriver::Element,Integer, Float, Boolean, NilClass, String, Array] *args"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Arguments will be available in the given script in the 'arguments' pseudo-array.\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [WebDriver::Element,Integer,Float,Boolean,NilClass,String,Array]"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  The value returned from the script.\n"
+full_name: Selenium::WebDriver::Driver#execute_script
+is_singleton: false
+name: execute_script
+params: (script, *args)
+visibility: public

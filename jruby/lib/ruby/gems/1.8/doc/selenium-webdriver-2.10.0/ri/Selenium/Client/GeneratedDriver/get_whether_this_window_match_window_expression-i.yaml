@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Determine whether currentWindowString plus target identify the window containing this running code.
+  - !ruby/struct:SM::Flow::P 
+    body: This is useful in proxy injection mode, where this code runs in every browser frame and window, and sometimes the selenium server needs to identify the &quot;current&quot; window. In this case, when the test calls selectWindow, this routine is called for each window to figure out which one has been selected. The selected window will return true, while all others will return false.
+  - !ruby/struct:SM::Flow::P 
+    body: "'currentWindowString' is starting window 'target' is new window (which might be relative to the current one, e.g., &quot;_parent&quot;)"
+full_name: Selenium::Client::GeneratedDriver#get_whether_this_window_match_window_expression
+is_singleton: false
+name: get_whether_this_window_match_window_expression
+params: (currentWindowString,target)
+visibility: public

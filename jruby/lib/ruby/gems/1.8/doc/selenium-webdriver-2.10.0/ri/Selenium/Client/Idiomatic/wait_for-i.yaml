@@ -1,0 +1,74 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Flexible wait semantics. ait is happening browser side. Useful for testing AJAX application.
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :page # will wait for a new page to load"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :popup, :window =&gt; 'a window id' # will wait for a new popup window to appear. Also selects the popup window for you provide `:select =&gt; true`"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :ajax # will wait for all ajax requests to be completed using semantics of default javascript framework"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :ajax, :javascript_framework =&gt; :jquery # will wait for all ajax requests to be completed overriding default javascript framework"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :effects # will wait for all javascript effects to be rendered using semantics of default javascript framework"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :effects, :javascript_framework =&gt; :prototype # will wait for all javascript effects to be rendered overriding default javascript framework"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :element, :element =&gt; 'new_element_id' # will wait for an element to be present/appear"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :no_element, :element =&gt; 'new_element_id' # will wait for an element to be not be present/disappear"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :text, :text =&gt; 'some text' # will wait for some text to be present/appear"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :text, :text =&gt; /A Regexp/ # will wait for some text to be present/appear"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :text, :element =&gt; 'a_locator', :text =&gt; 'some text' # will wait for the content of 'a_locator' to be 'some text'"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :no_text, :text =&gt; 'some text' # will wait for the text to be not be present/disappear"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :no_text, :text =&gt; /A Regexp/ # will wait for the text to be not be present/disappear"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :no_text, :element =&gt; 'a_locator', :text =&gt; 'some text' # will wait for the content of 'a_locator' to not be 'some text'"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :value, :element =&gt; 'a_locator', :value =&gt; 'some value' # will wait for the field value of 'a_locator' to be 'some value'"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :no_value, :element =&gt; 'a_locator', :value =&gt; 'some value' # will wait for the field value of 'a_locator' to not be 'some value'"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :visible, :element =&gt; 'a_locator' # will wait for element to be visible"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :not_visible, :element =&gt; 'a_locator' # will wait for element to not be visible"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "wait :wait_for =&gt; :condition, :javascript =&gt; 'some expression' # will wait for the javascript expression to be true"
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: Using options you can also define an explicit timeout (:timeout_in_seconds key). Otherwise the default driver timeout is used.
+full_name: Selenium::Client::Idiomatic#wait_for
+is_singleton: false
+name: wait_for
+params: (options)
+visibility: public

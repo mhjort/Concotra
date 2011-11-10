@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Specifies whether Selenium will ignore xpath attributes that have no value, i.e. are the empty string, when using the non-native xpath evaluation engine. You'd want to do this for performance reasons in IE. However, this could break certain xpaths, for example an xpath that looks for an attribute whose value is NOT the empty string.
+  - !ruby/struct:SM::Flow::P 
+    body: The hope is that such xpaths are relatively rare, but the user should have the option of using them. Note that this only influences xpath evaluation when using the ajaxslt engine (i.e. not &quot;javascript-xpath&quot;).
+  - !ruby/struct:SM::Flow::P 
+    body: "'ignore' is boolean, true means we'll ignore attributes without value at the expense of xpath &quot;correctness&quot;; false means we'll sacrifice speed for correctness."
+full_name: Selenium::Client::GeneratedDriver#ignore_attributes_without_value
+is_singleton: false
+name: ignore_attributes_without_value
+params: (ignore)
+visibility: public

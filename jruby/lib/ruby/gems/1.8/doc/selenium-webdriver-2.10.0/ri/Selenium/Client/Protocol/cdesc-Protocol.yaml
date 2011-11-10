@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: session_id
+    rw: R
+class_methods: []
+
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Module in charge of handling Selenium over-the-wire HTTP protocol
+constants: []
+
+full_name: Selenium::Client::Protocol
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: boolean_array_command
+  - !ruby/object:RI::MethodSummary 
+    name: boolean_command
+  - !ruby/object:RI::MethodSummary 
+    name: http_post
+  - !ruby/object:RI::MethodSummary 
+    name: http_request_for
+  - !ruby/object:RI::MethodSummary 
+    name: number_array_command
+  - !ruby/object:RI::MethodSummary 
+    name: number_command
+  - !ruby/object:RI::MethodSummary 
+    name: parse_boolean_value
+  - !ruby/object:RI::MethodSummary 
+    name: remote_control_command
+  - !ruby/object:RI::MethodSummary 
+    name: string_array_command
+  - !ruby/object:RI::MethodSummary 
+    name: string_command
+name: Protocol
+superclass: 

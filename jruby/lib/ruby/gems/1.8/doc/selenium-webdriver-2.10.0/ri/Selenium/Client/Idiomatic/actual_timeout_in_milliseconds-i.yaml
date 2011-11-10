@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::Client::Idiomatic#actual_timeout_in_milliseconds
+is_singleton: false
+name: actual_timeout_in_milliseconds
+params: (timeout_in_seconds)
+visibility: public

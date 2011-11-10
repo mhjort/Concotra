@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::IPhone::Bridge#browser
+is_singleton: false
+name: browser
+params: ()
+visibility: public

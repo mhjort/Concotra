@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_cookie_string (Selenium::WebDriver::BridgeHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/selenium/webdriver/common/bridge_helper.rb, line 31</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_cookie_string</span>(<span class="ruby-identifier">str</span>)
+        <span class="ruby-identifier">result</span> = {
+          <span class="ruby-value str">'name'</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">''</span>,
+          <span class="ruby-value str">'value'</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">''</span>,
+          <span class="ruby-value str">'domain'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">''</span>,
+          <span class="ruby-value str">'path'</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">''</span>,
+          <span class="ruby-value str">'expires'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">''</span>,
+          <span class="ruby-value str">'secure'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+        }
+
+        <span class="ruby-identifier">str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;;&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value str">&quot;=&quot;</span>
+            <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> = <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;=&quot;</span>, <span class="ruby-value">2</span>)
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value str">'name'</span>].<span class="ruby-identifier">empty?</span>
+              <span class="ruby-identifier">result</span>[<span class="ruby-value str">'name'</span>]  = <span class="ruby-identifier">key</span>
+              <span class="ruby-identifier">result</span>[<span class="ruby-value str">'value'</span>] = <span class="ruby-identifier">value</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'domain'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">strip</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\.(.+)/</span>
+              <span class="ruby-identifier">result</span>[<span class="ruby-value str">'domain'</span>] = <span class="ruby-identifier">$1</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>
+              <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">attribute</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;secure&quot;</span>
+            <span class="ruby-identifier">result</span>[<span class="ruby-value str">'secure'</span>] = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-keyword kw">unless</span> [<span class="ruby-keyword kw">nil</span>, <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-value str">&quot;0&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">result</span>[<span class="ruby-value str">'expires'</span>])
+            <span class="ruby-comment cmt"># firefox stores expiry as number of seconds</span>
+            <span class="ruby-identifier">result</span>[<span class="ruby-value str">'expires'</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">result</span>[<span class="ruby-value str">'expires'</span>].<span class="ruby-identifier">to_i</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

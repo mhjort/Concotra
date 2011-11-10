@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Unselects all of the selected options in a multi-select element.
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator identifying a multi-select box"
+full_name: Selenium::Client::GeneratedDriver#remove_all_selections
+is_singleton: false
+name: remove_all_selections
+params: (locator)
+visibility: public

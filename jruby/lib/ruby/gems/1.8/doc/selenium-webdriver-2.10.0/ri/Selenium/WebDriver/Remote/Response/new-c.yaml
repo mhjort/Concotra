@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Remote::Response::new
+is_singleton: true
+name: new
+params: (code, payload = nil)
+visibility: public

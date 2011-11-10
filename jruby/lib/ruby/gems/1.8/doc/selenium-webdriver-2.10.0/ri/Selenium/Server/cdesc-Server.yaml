@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: download
+  - !ruby/object:RI::MethodSummary 
+    name: get
+  - !ruby/object:RI::MethodSummary 
+    name: latest
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Wraps the remote server jar
+  - !ruby/struct:SM::Flow::P 
+    body: "Usage:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  server = Selenium::Server.new('/path/to/selenium-server-standalone.jar')\n  server.start\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "Automatically download the given version:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  server = Selenium::Server.get '2.6.0'\n  server.start\n"
+  - !ruby/struct:SM::Flow::P 
+    body: "or the latest version:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  server = Selenium::Server.get :latest\n  server.start\n"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: CL_RESET
+    value: "WebDriver::Platform.windows? ? '' : \"\\r\\e[0K\""
+full_name: Selenium::Server
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "<<"
+  - !ruby/object:RI::MethodSummary 
+    name: start
+  - !ruby/object:RI::MethodSummary 
+    name: stop
+  - !ruby/object:RI::MethodSummary 
+    name: webdriver_url
+name: Server
+superclass: Object

@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Runs the specified JavaScript snippet repeatedly until it evaluates to &quot;true&quot;. The snippet may have multiple lines, but only the result of the last line will be considered.
+  - !ruby/struct:SM::Flow::P 
+    body: Note that, by default, the snippet will be run in the runner's test window, not in the window of your application. To get the window of your application, you can use the JavaScript snippet <tt>selenium.browserbot.getCurrentWindow()</tt>, and then run your JavaScript in there
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "'script' is the JavaScript snippet to run"
+      - !ruby/struct:SM::Flow::LI 
+        label: "*"
+        body: "'timeout_in_seconds' is a timeout in seconds, after which this command will return with an error"
+    type: :BULLET
+full_name: Selenium::Client::Idiomatic#wait_for_condition
+is_singleton: false
+name: wait_for_condition
+params: (script, timeout_in_seconds = nil)
+visibility: public

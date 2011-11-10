@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Set a preference for this particular profile. @see http://preferential.mozdev.org/preferences.html
+full_name: Selenium::WebDriver::Firefox::Profile#[]=
+is_singleton: false
+name: "[]="
+params: (key, value)
+visibility: public

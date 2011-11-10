@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Allows choice of a specific XPath libraries for Xpath evualuation in the browser (e.g. to resolve XPath locators).
+  - !ruby/struct:SM::Flow::P 
+    body: "`library_name' can be:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    * :ajaxslt          : Google's library\n    * :javascript-xpath : Cybozu Labs' faster library\n    * :default          : Selenium default library.\n"
+full_name: Selenium::Client::Idiomatic#browser_xpath_library=
+is_singleton: false
+name: browser_xpath_library=
+params: (library_name)
+visibility: public

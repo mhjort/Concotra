@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEFAULT_URL
+    value: "\"http://#{Platform.localhost}:8080/wd/hub/\""
+full_name: Selenium::WebDriver::Android::Bridge
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: browser
+  - !ruby/object:RI::MethodSummary 
+    name: capabilities
+  - !ruby/object:RI::MethodSummary 
+    name: driver_extensions
+  - !ruby/object:RI::MethodSummary 
+    name: getScreenOrientation
+  - !ruby/object:RI::MethodSummary 
+    name: setScreenOrientation
+name: Bridge
+superclass: Remote::Bridge

@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: unzip
+  - !ruby/object:RI::MethodSummary 
+    name: zip
+  - !ruby/object:RI::MethodSummary 
+    name: zip_file
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: EXTENSIONS
+    value: "%w[.zip .xpi]"
+full_name: Selenium::WebDriver::Zipper
+includes: []
+
+instance_methods: []
+
+name: Zipper
+superclass: 

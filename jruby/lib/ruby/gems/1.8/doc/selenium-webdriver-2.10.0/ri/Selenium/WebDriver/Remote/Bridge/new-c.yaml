@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Initializes the bridge with the given server URL.
+  - !ruby/struct:SM::Flow::P 
+    body: "@param url [String] url for the remote server @param http_client [Object] an HTTP client instance that implements the same protocol as Http::Default @param desired_capabilities [Capabilities] an instance of Remote::Capabilities describing the capabilities you want"
+full_name: Selenium::WebDriver::Remote::Bridge::new
+is_singleton: true
+name: new
+params: (opts = {})
+visibility: public

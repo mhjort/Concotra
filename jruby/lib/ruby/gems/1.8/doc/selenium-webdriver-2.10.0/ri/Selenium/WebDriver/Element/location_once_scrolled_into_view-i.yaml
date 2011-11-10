@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Determine an element's location on the screen once it has been scrolled into view.
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [WebDriver::Point]"
+full_name: Selenium::WebDriver::Element#location_once_scrolled_into_view
+is_singleton: false
+name: location_once_scrolled_into_view
+params: ()
+visibility: public

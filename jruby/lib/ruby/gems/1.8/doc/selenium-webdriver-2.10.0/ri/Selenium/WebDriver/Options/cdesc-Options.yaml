@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: SECONDS_PER_DAY
+    value: 86_400.0
+full_name: Selenium::WebDriver::Options
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: add_cookie
+  - !ruby/object:RI::MethodSummary 
+    name: all_cookies
+  - !ruby/object:RI::MethodSummary 
+    name: cookie_named
+  - !ruby/object:RI::MethodSummary 
+    name: delete_all_cookies
+  - !ruby/object:RI::MethodSummary 
+    name: delete_cookie
+  - !ruby/object:RI::MethodSummary 
+    name: timeouts
+name: Options
+superclass: Object

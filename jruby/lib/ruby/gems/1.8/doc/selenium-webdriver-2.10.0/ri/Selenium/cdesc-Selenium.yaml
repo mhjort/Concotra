@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: const_missing
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "encoding: utf-8"
+constants: 
+  - !ruby/object:RI::Constant 
+    comment: 
+    name: DEPRECATED_CONSTANTS
+    value: "{     :SeleniumDriver => Selenium::Client::Driver,     :CommandError   => Selenium::Client::CommandError"
+full_name: Selenium
+includes: []
+
+instance_methods: []
+
+name: Selenium
+superclass: 

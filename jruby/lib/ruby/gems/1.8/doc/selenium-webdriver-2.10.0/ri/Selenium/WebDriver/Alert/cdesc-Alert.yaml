@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+  - !ruby/object:RI::Attribute 
+    comment: 
+    name: text
+    rw: R
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+constants: []
+
+full_name: Selenium::WebDriver::Alert
+includes: []
+
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: accept
+  - !ruby/object:RI::MethodSummary 
+    name: dismiss
+  - !ruby/object:RI::MethodSummary 
+    name: send_keys
+name: Alert
+superclass: Object

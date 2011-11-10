@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Selenium::WebDriver::Support::EventFiringBridge#goBack
+is_singleton: false
+name: goBack
+params: ()
+visibility: public

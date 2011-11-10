@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Kills the running Selenium Server and all browser sessions. After you run this command, you will no longer be able to send commands to the server; you can't remotely start the server once it has been stopped. Normally you should prefer to run the &quot;stop&quot; command, which terminates the current browser session, rather than shutting down the entire server.
+full_name: Selenium::Client::GeneratedDriver#shut_down_selenium_server
+is_singleton: false
+name: shut_down_selenium_server
+params: ()
+visibility: public

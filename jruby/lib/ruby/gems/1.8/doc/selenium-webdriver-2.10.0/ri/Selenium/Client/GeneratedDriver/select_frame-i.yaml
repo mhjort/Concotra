@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Selects a frame within the current window. (You may invoke this command multiple times to select nested frames.) To select the parent frame, use &quot;relative=parent&quot; as a locator; to select the top frame, use &quot;relative=top&quot;. You can also select a frame by its 0-based index number; select the first frame with &quot;index=0&quot;, or the third frame with &quot;index=2&quot;.
+  - !ruby/struct:SM::Flow::P 
+    body: "You may also use a DOM expression to identify the frame you want directly, like this: <tt>dom=frames[&quot;main&quot;].frames[&quot;subframe&quot;]</tt>"
+  - !ruby/struct:SM::Flow::P 
+    body: "'locator' is an element locator identifying a frame or iframe"
+full_name: Selenium::Client::GeneratedDriver#select_frame
+is_singleton: false
+name: select_frame
+params: (locator)
+visibility: public

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns a string representation of the network traffic seen by the browser, including headers, AJAX requests, status codes, and timings. When this function is called, the traffic log is cleared, so the returned content is only the traffic seen since the last call.
+  - !ruby/struct:SM::Flow::P 
+    body: "The network traffic is returned in the format it was requested. Valid values are: :json, :xml, or :plain."
+  - !ruby/struct:SM::Flow::P 
+    body: "Warning: For browser_network_traffic to work you need to start your browser session with the option &quot;captureNetworkTraffic=true&quot;, which will force ALL traffic to go to the Remote Control proxy even for more efficient browser modes like `*firefox` and `*safari`."
+full_name: Selenium::Client::Idiomatic#browser_network_traffic
+is_singleton: false
+name: browser_network_traffic
+params: (format = :plain)
+visibility: public

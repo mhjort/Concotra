@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Loads script content into a new script tag in the Selenium document. This differs from the runScript command in that runScript adds the script tag to the document of the AUT, not the Selenium document. The following entities in the script content are replaced by the characters they represent:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "    &amp;lt;\n    &amp;gt;\n    &amp;amp;\n"
+  - !ruby/struct:SM::Flow::P 
+    body: The corresponding remove command is removeScript.
+  - !ruby/struct:SM::Flow::P 
+    body: "'scriptContent' is the Javascript content of the script to add 'scriptTagId' is (optional) the id of the new script tag. If specified, and an element with this id already exists, this operation will fail."
+full_name: Selenium::Client::GeneratedDriver#add_script
+is_singleton: false
+name: add_script
+params: (scriptContent,scriptTagId)
+visibility: public

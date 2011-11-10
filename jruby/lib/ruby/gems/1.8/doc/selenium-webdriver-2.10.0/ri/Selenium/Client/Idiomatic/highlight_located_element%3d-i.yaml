@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Turn on/off the automatic hightlighting of the element driven or inspected by Selenium core. Useful when recording videos
+full_name: Selenium::Client::Idiomatic#highlight_located_element=
+is_singleton: false
+name: highlight_located_element=
+params: (enabled)
+visibility: public

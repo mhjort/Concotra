@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: new
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@private"
+constants: []
+
+full_name: Selenium::WebDriver::Chrome::Profile
+includes: 
+  - !ruby/object:RI::IncludedModule 
+    name: ProfileHelper
+instance_methods: 
+  - !ruby/object:RI::MethodSummary 
+    name: "[]"
+  - !ruby/object:RI::MethodSummary 
+    name: "[]="
+  - !ruby/object:RI::MethodSummary 
+    name: add_extension
+  - !ruby/object:RI::MethodSummary 
+    name: as_json
+  - !ruby/object:RI::MethodSummary 
+    name: layout_on_disk
+name: Profile
+superclass: Object

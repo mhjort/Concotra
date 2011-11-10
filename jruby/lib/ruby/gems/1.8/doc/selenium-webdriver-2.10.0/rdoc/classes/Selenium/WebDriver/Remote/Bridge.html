@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Selenium::WebDriver::Remote::Bridge</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Selenium::WebDriver::Remote::Bridge</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/selenium/webdriver/remote/commands_rb.html">
+                lib/selenium/webdriver/remote/commands.rb
+                </a>
+        <br />
+                <a href="../../../../files/lib/selenium/webdriver/remote/bridge_rb.html">
+                lib/selenium/webdriver/remote/bridge.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Low level bridge to the remote server, through which the rest of the API
+works.
+</p>
+<p>
+@api private
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000307">acceptAlert</a>&nbsp;&nbsp;
+      <a href="#M000329">addCookie</a>&nbsp;&nbsp;
+      <a href="#M000298">browser</a>&nbsp;&nbsp;
+      <a href="#M000350">clearElement</a>&nbsp;&nbsp;
+      <a href="#M000334">click</a>&nbsp;&nbsp;
+      <a href="#M000333">clickElement</a>&nbsp;&nbsp;
+      <a href="#M000322">close</a>&nbsp;&nbsp;
+      <a href="#M000296">command</a>&nbsp;&nbsp;
+      <a href="#M000336">contextClick</a>&nbsp;&nbsp;
+      <a href="#M000301">create_session</a>&nbsp;&nbsp;
+      <a href="#M000332">deleteAllCookies</a>&nbsp;&nbsp;
+      <a href="#M000330">deleteCookie</a>&nbsp;&nbsp;
+      <a href="#M000308">dismissAlert</a>&nbsp;&nbsp;
+      <a href="#M000335">doubleClick</a>&nbsp;&nbsp;
+      <a href="#M000359">dragElement</a>&nbsp;&nbsp;
+      <a href="#M000299">driver_extensions</a>&nbsp;&nbsp;
+      <a href="#M000360">elementEquals</a>&nbsp;&nbsp;
+      <a href="#M000328">executeAsyncScript</a>&nbsp;&nbsp;
+      <a href="#M000327">executeScript</a>&nbsp;&nbsp;
+      <a href="#M000361">find_element_by</a>&nbsp;&nbsp;
+      <a href="#M000362">find_elements_by</a>&nbsp;&nbsp;
+      <a href="#M000302">get</a>&nbsp;&nbsp;
+      <a href="#M000357">getActiveElement</a>&nbsp;&nbsp;
+      <a href="#M000306">getAlert</a>&nbsp;&nbsp;
+      <a href="#M000310">getAlertText</a>&nbsp;&nbsp;
+      <a href="#M000331">getAllCookies</a>&nbsp;&nbsp;
+      <a href="#M000303">getCapabilities</a>&nbsp;&nbsp;
+      <a href="#M000313">getCurrentUrl</a>&nbsp;&nbsp;
+      <a href="#M000325">getCurrentWindowHandle</a>&nbsp;&nbsp;
+      <a href="#M000342">getElementAttribute</a>&nbsp;&nbsp;
+      <a href="#M000345">getElementLocation</a>&nbsp;&nbsp;
+      <a href="#M000346">getElementLocationOnceScrolledIntoView</a>&nbsp;&nbsp;
+      <a href="#M000347">getElementSize</a>&nbsp;&nbsp;
+      <a href="#M000341">getElementTagName</a>&nbsp;&nbsp;
+      <a href="#M000344">getElementText</a>&nbsp;&nbsp;
+      <a href="#M000343">getElementValue</a>&nbsp;&nbsp;
+      <a href="#M000356">getElementValueOfCssProperty</a>&nbsp;&nbsp;
+      <a href="#M000315">getPageSource</a>&nbsp;&nbsp;
+      <a href="#M000326">getScreenshot</a>&nbsp;&nbsp;
+      <a href="#M000314">getTitle</a>&nbsp;&nbsp;
+      <a href="#M000316">getVisible</a>&nbsp;&nbsp;
+      <a href="#M000324">getWindowHandles</a>&nbsp;&nbsp;
+      <a href="#M000311">goBack</a>&nbsp;&nbsp;
+      <a href="#M000312">goForward</a>&nbsp;&nbsp;
+      <a href="#M000353">isElementDisplayed</a>&nbsp;&nbsp;
+      <a href="#M000351">isElementEnabled</a>&nbsp;&nbsp;
+      <a href="#M000352">isElementSelected</a>&nbsp;&nbsp;
+      <a href="#M000337">mouseDown</a>&nbsp;&nbsp;
+      <a href="#M000339">mouseMoveTo</a>&nbsp;&nbsp;
+      <a href="#M000338">mouseUp</a>&nbsp;&nbsp;
+      <a href="#M000297">new</a>&nbsp;&nbsp;
+      <a href="#M000321">quit</a>&nbsp;&nbsp;
+      <a href="#M000323">refresh</a>&nbsp;&nbsp;
+      <a href="#M000340">sendKeysToActiveElement</a>&nbsp;&nbsp;
+      <a href="#M000348">sendKeysToElement</a>&nbsp;&nbsp;
+      <a href="#M000300">session_id</a>&nbsp;&nbsp;
+      <a href="#M000309">setAlertValue</a>&nbsp;&nbsp;
+      <a href="#M000355">setElementSelected</a>&nbsp;&nbsp;
+      <a href="#M000304">setImplicitWaitTimeout</a>&nbsp;&nbsp;
+      <a href="#M000305">setScriptTimeout</a>&nbsp;&nbsp;
+      <a href="#M000317">setVisible</a>&nbsp;&nbsp;
+      <a href="#M000354">submitElement</a>&nbsp;&nbsp;
+      <a href="#M000358">switchToActiveElement</a>&nbsp;&nbsp;
+      <a href="#M000320">switchToDefaultContent</a>&nbsp;&nbsp;
+      <a href="#M000319">switchToFrame</a>&nbsp;&nbsp;
+      <a href="#M000318">switchToWindow</a>&nbsp;&nbsp;
+      <a href="#M000349">upload</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../BridgeHelper.html">BridgeHelper</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QUIT_ERRORS</td>
+          <td>=</td>
+          <td class="context-item-value">[IOError]</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">capabilities</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">context</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">file_detector</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">http</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000296" class="method-detail">
+        <a name="M000296"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000296.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000296.html');return false;">
+          <span class="method-name">command</span><span class="method-args">(name, verb, url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines a wrapper method for a <a href="Bridge.html#M000296">command</a>,
+which ultimately calls execute.
+</p>
+<p>
+@param name [Symbol]
+</p>
+<pre>
+  name of the resulting method
+</pre>
+<p>
+@param url [<a href="../../../String.html">String</a>]
+</p>
+<pre>
+  a URL template, which can include some arguments, much like the definitions on the server.
+  the :session_id parameter is implicitly handled, but the remainder will become required method arguments.
+</pre>
+<p>
+@param verb [Symbol]
+</p>
+<pre>
+  the appropriate http verb, such as :get, :post, or :delete
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000297" class="method-detail">
+        <a name="M000297"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000297.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000297.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(opts = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initializes the bridge with the given server URL.
+</p>
+<p>
+@param url [<a href="../../../String.html">String</a>] url for the remote
+server @param http_client [Object] an HTTP client instance that implements
+the same protocol as <a href="Http/Default.html">Http::Default</a> @param
+desired_capabilities [<a href="Capabilities.html">Capabilities</a>] an
+instance of <a href="Capabilities.html">Remote::Capabilities</a> describing
+the capabilities you want
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000307" class="method-detail">
+        <a name="M000307"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000307.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000307.html');return false;">
+          <span class="method-name">acceptAlert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000329" class="method-detail">
+        <a name="M000329"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000329.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000329.html');return false;">
+          <span class="method-name">addCookie</span><span class="method-args">(cookie)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000298" class="method-detail">
+        <a name="M000298"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000298.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000298.html');return false;">
+          <span class="method-name">browser</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000350" class="method-detail">
+        <a name="M000350"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000350.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000350.html');return false;">
+          <span class="method-name">clearElement</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000334" class="method-detail">
+        <a name="M000334"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000334.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000334.html');return false;">
+          <span class="method-name">click</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000333" class="method-detail">
+        <a name="M000333"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000333.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000333.html');return false;">
+          <span class="method-name">clickElement</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000322" class="method-detail">
+        <a name="M000322"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000322.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000322.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000336" class="method-detail">
+        <a name="M000336"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000336.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000336.html');return false;">
+          <span class="method-name">contextClick</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000301" class="method-detail">
+        <a name="M000301"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000301.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000301.html');return false;">
+          <span class="method-name">create_session</span><span class="method-args">(desired_capabilities)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000332" class="method-detail">
+        <a name="M000332"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000332.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000332.html');return false;">
+          <span class="method-name">deleteAllCookies</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000330" class="method-detail">
+        <a name="M000330"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000330.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000330.html');return false;">
+          <span class="method-name">deleteCookie</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000308" class="method-detail">
+        <a name="M000308"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000308.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000308.html');return false;">
+          <span class="method-name">dismissAlert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000335" class="method-detail">
+        <a name="M000335"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000335.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000335.html');return false;">
+          <span class="method-name">doubleClick</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000359" class="method-detail">
+        <a name="M000359"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000359.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000359.html');return false;">
+          <span class="method-name">dragElement</span><span class="method-args">(element, right_by, down_by)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000299" class="method-detail">
+        <a name="M000299"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000299.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000299.html');return false;">
+          <span class="method-name">driver_extensions</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000360" class="method-detail">
+        <a name="M000360"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000360.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000360.html');return false;">
+          <span class="method-name">elementEquals</span><span class="method-args">(element, other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000328" class="method-detail">
+        <a name="M000328"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000328.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000328.html');return false;">
+          <span class="method-name">executeAsyncScript</span><span class="method-args">(script, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000327" class="method-detail">
+        <a name="M000327"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000327.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000327.html');return false;">
+          <span class="method-name">executeScript</span><span class="method-args">(script, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000361" class="method-detail">
+        <a name="M000361"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000361.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000361.html');return false;">
+          <span class="method-name">find_element_by</span><span class="method-args">(how, what, parent = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000362" class="method-detail">
+        <a name="M000362"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000362.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000362.html');return false;">
+          <span class="method-name">find_elements_by</span><span class="method-args">(how, what, parent = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000302" class="method-detail">
+        <a name="M000302"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000302.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000302.html');return false;">
+          <span class="method-name">get</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000357" class="method-detail">
+        <a name="M000357"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000357.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000357.html');return false;">
+          <span class="method-name">getActiveElement</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000306" class="method-detail">
+        <a name="M000306"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000306.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000306.html');return false;">
+          <span class="method-name">getAlert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+alerts
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000310" class="method-detail">
+        <a name="M000310"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000310.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000310.html');return false;">
+          <span class="method-name">getAlertText</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000331" class="method-detail">
+        <a name="M000331"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000331.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000331.html');return false;">
+          <span class="method-name">getAllCookies</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000303" class="method-detail">
+        <a name="M000303"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000303.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000303.html');return false;">
+          <span class="method-name">getCapabilities</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000313" class="method-detail">
+        <a name="M000313"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000313.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000313.html');return false;">
+          <span class="method-name">getCurrentUrl</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000325" class="method-detail">
+        <a name="M000325"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000325.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000325.html');return false;">
+          <span class="method-name">getCurrentWindowHandle</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000342" class="method-detail">
+        <a name="M000342"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000342.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000342.html');return false;">
+          <span class="method-name">getElementAttribute</span><span class="method-args">(element, name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000345" class="method-detail">
+        <a name="M000345"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000345.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000345.html');return false;">
+          <span class="method-name">getElementLocation</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000346" class="method-detail">
+        <a name="M000346"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000346.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000346.html');return false;">
+          <span class="method-name">getElementLocationOnceScrolledIntoView</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000347" class="method-detail">
+        <a name="M000347"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000347.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000347.html');return false;">
+          <span class="method-name">getElementSize</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000341" class="method-detail">
+        <a name="M000341"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000341.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000341.html');return false;">
+          <span class="method-name">getElementTagName</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000344" class="method-detail">
+        <a name="M000344"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000344.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000344.html');return false;">
+          <span class="method-name">getElementText</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000343" class="method-detail">
+        <a name="M000343"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000343.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000343.html');return false;">
+          <span class="method-name">getElementValue</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000356" class="method-detail">
+        <a name="M000356"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000356.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000356.html');return false;">
+          <span class="method-name">getElementValueOfCssProperty</span><span class="method-args">(element, prop)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000315" class="method-detail">
+        <a name="M000315"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000315.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000315.html');return false;">
+          <span class="method-name">getPageSource</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000326" class="method-detail">
+        <a name="M000326"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000326.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000326.html');return false;">
+          <span class="method-name">getScreenshot</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000314" class="method-detail">
+        <a name="M000314"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000314.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000314.html');return false;">
+          <span class="method-name">getTitle</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000316" class="method-detail">
+        <a name="M000316"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000316.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000316.html');return false;">
+          <span class="method-name">getVisible</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000324" class="method-detail">
+        <a name="M000324"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000324.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000324.html');return false;">
+          <span class="method-name">getWindowHandles</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000311" class="method-detail">
+        <a name="M000311"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000311.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000311.html');return false;">
+          <span class="method-name">goBack</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+navigation
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000312" class="method-detail">
+        <a name="M000312"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000312.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000312.html');return false;">
+          <span class="method-name">goForward</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000353" class="method-detail">
+        <a name="M000353"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000353.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000353.html');return false;">
+          <span class="method-name">isElementDisplayed</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000351" class="method-detail">
+        <a name="M000351"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000351.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000351.html');return false;">
+          <span class="method-name">isElementEnabled</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000352" class="method-detail">
+        <a name="M000352"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000352.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000352.html');return false;">
+          <span class="method-name">isElementSelected</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000337" class="method-detail">
+        <a name="M000337"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000337.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000337.html');return false;">
+          <span class="method-name">mouseDown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000339" class="method-detail">
+        <a name="M000339"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000339.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000339.html');return false;">
+          <span class="method-name">mouseMoveTo</span><span class="method-args">(element, x = nil, y = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000338" class="method-detail">
+        <a name="M000338"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000338.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000338.html');return false;">
+          <span class="method-name">mouseUp</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000321" class="method-detail">
+        <a name="M000321"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000321.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000321.html');return false;">
+          <span class="method-name">quit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000323" class="method-detail">
+        <a name="M000323"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000323.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000323.html');return false;">
+          <span class="method-name">refresh</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000340" class="method-detail">
+        <a name="M000340"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000340.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000340.html');return false;">
+          <span class="method-name">sendKeysToActiveElement</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000348" class="method-detail">
+        <a name="M000348"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000348.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000348.html');return false;">
+          <span class="method-name">sendKeysToElement</span><span class="method-args">(element, keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000300" class="method-detail">
+        <a name="M000300"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000300.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000300.html');return false;">
+          <span class="method-name">session_id</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the current session ID.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000309" class="method-detail">
+        <a name="M000309"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000309.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000309.html');return false;">
+          <span class="method-name">setAlertValue</span><span class="method-args">(keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000355" class="method-detail">
+        <a name="M000355"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000355.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000355.html');return false;">
+          <span class="method-name">setElementSelected</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000304" class="method-detail">
+        <a name="M000304"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000304.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000304.html');return false;">
+          <span class="method-name">setImplicitWaitTimeout</span><span class="method-args">(milliseconds)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000305" class="method-detail">
+        <a name="M000305"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000305.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000305.html');return false;">
+          <span class="method-name">setScriptTimeout</span><span class="method-args">(milliseconds)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000317" class="method-detail">
+        <a name="M000317"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000317.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000317.html');return false;">
+          <span class="method-name">setVisible</span><span class="method-args">(bool)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000354" class="method-detail">
+        <a name="M000354"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000354.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000354.html');return false;">
+          <span class="method-name">submitElement</span><span class="method-args">(element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000358" class="method-detail">
+        <a name="M000358"></a>
+
+        <div class="method-heading">
+          <span class="method-name">switchToActiveElement</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Bridge.html#M000357">getActiveElement</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000320" class="method-detail">
+        <a name="M000320"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000320.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000320.html');return false;">
+          <span class="method-name">switchToDefaultContent</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000319" class="method-detail">
+        <a name="M000319"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000319.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000319.html');return false;">
+          <span class="method-name">switchToFrame</span><span class="method-args">(id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000318" class="method-detail">
+        <a name="M000318"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000318.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000318.html');return false;">
+          <span class="method-name">switchToWindow</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000349" class="method-detail">
+        <a name="M000349"></a>
+
+        <div class="method-heading">
+          <a href="Bridge.src/M000349.html" target="Code" class="method-signature"
+            onclick="popupCode('Bridge.src/M000349.html');return false;">
+          <span class="method-name">upload</span><span class="method-args">(local_file)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Drags an element and drops it on another element
+  - !ruby/struct:SM::Flow::P 
+    body: "'locatorOfObjectToBeDragged' is an element to be dragged 'locatorOfDragDestinationObject' is an element whose location (i.e., whose center-most pixel) will be the point where locatorOfObjectToBeDragged is dropped"
+full_name: Selenium::Client::GeneratedDriver#drag_and_drop_to_object
+is_singleton: false
+name: drag_and_drop_to_object
+params: (locatorOfObjectToBeDragged,locatorOfDragDestinationObject)
+visibility: public
