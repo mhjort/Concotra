@@ -1,1 +1,10 @@
-Test application for agile testing workshop.
+Test application & slides for Agile Testing Journey workshop.
+
+Slides:
+* See AgileTestingJourneyPresentation.pdf
+
+To run the application:
+
+1) Install sbt http://code.google.com/p/simple-build-tool/wiki/Setup
+2) Run sbt jetty (Launches the application)
+3) Run cuke features (Runs tests) 
