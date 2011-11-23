@@ -1,17 +1,15 @@
 #!/bin/bash
 
-#NOTE! Remember first run sbt test-compile package
-
 rm -rf target/dist
 mkdir target/dist/lib/concotra -p
+sbt assembly
 
-cp -R target/scala_2.8.0/webapp target/dist
-cp -R lib_managed/scala_2.8.0/test/jetty*.jar target/dist/lib
-cp -R lib_managed/scala_2.8.0/provided/servlet*.jar target/dist/lib
-cp target/scala_2.8.0/test-classes/concotra/Main*.class target/dist/lib/concotra
+cp target/concotra.jar target/dist
+cp -R src/main/webapp target/dist
 cp start* target/dist
 
 cp -R jruby target/dist
 cp cuke* target/dist
 cp wac.exe target/dist
 cp -R features-for-workshop target/dist/features
+echo "Created dist to target/dist. You can test it by running ./start"

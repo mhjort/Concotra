@@ -5,12 +5,13 @@ import org.mortbay.jetty.webapp.WebAppContext
 
 object Main  {
   def main(args:Array[String]) = {
-    val server = new Server(Integer.parseInt(args(0)))
+    val port = Integer.parseInt(args(0))
+    val resourcePath = args(1)
+    val server = new Server(port)
     val context = new WebAppContext()
-    context.setDescriptor("webapp/WEB-INF/web.xml")
-    context.setResourceBase("webapp")
+    context.setDescriptor(resourcePath + "/WEB-INF/web.xml")
+    context.setResourceBase(resourcePath)
     context.setContextPath("/")
-    context.setParentLoaderPriority(true)
     server.setHandler(context)
     server.start()
     server.join()

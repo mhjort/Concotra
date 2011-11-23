@@ -6,5 +6,10 @@ Slides:
 To run the application:
 
 1) Install sbt http://code.google.com/p/simple-build-tool/wiki/Setup
-2) Run sbt jetty (Launches the application)
+2) Run sbt run 8080 src/main/webapp (Launches the application)
 3) Run cuke features (Runs tests) 
+
+To create application (no dependency to sbt) for workshop:
+
+1) run ./make-dist.sh
+2) Check target/dist directory. It contains start script for Un*x and start.bat for windows
